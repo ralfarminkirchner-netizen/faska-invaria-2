@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FASKA Invaria 2 — Fraktalkohärenz</title>
+<style>
+:root {
+  --bg: #0b0f0c;
+  --soil: #1a1712;
+  --surface: #1e241c;
+  --border: rgba(255,255,255,0.06);
+  --gold: #d4a853;
+  --gold-glow: rgba(212,168,83,0.3);
+  --leaf: #4a8f5c;
+  --leaf-light: #6fbf7c;
+  --water: #5b9ecf;
+  --water-glow: rgba(91,158,207,0.25);
+  --bloom: #e8734a;
+  --text: #d4cfc5;
+  --text-dim: #7a756a;
+  --text-bright: #f0ebe0;
+  --radius: 16px;
+  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-display: Georgia, 'Times New Roman', serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { 
+  width:100%; height:100%; overflow:hidden;
+  background: var(--bg); color: var(--text);
+  font: 14px/1.5 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+canvas { display:block; position:fixed; inset:0; z-index:1; }
+
+/* Header */
+.header {
+  position:fixed; z-index:10; top:0; left:0; right:0;
+  height:56px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 20px;
+  background: linear-gradient(180deg, rgba(11,15,12,0.95) 0%, rgba(11,15,12,0.7) 100%);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  display:flex; align-items:center; gap:10px;
+  font-weight:700; font-size:1rem; letter-spacing:-0.01em; color:var(--text-bright);
+}
+.logo svg { width:28px; height:28px; }
+.logo span { color:var(--gold); }
+
+/* Cycle indicator */
+.cycle-indicator {
+  position:fixed; z-index:10; bottom:24px; left:50%; transform:translateX(-50%);
+  display:flex; gap:0; background:rgba(30,36,28,0.85);
+  border:1px solid var(--border); border-radius:40px;
+  padding:4px; backdrop-filter:blur(16px);
+}
+.cycle-step {
+  padding:10px 18px; border-radius:36px;
+  font-size:0.8rem; font-weight:600; cursor:pointer;
+  color:var(--text-dim); transition:all 0.3s;
+  white-space:nowrap; border:none; background:transparent;
+  font-family:var(--font);
+}
+.cycle-step:hover { color:var(--text); }
+.cycle-step.active { background:var(--gold); color:#0b0f0c; }
+
+/* Detail panel */
+.detail {
+  position:fixed; z-index:20; right:20px; top:80px;
+  width:380px; max-width:calc(100vw - 40px); max-height:calc(100vh - 120px);
+  background:rgba(30,36,28,0.94); border:1px solid var(--border);
+  border-radius:var(--radius); padding:24px;
+  backdrop-filter:blur(24px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  overflow-y:auto;
+  transform:translateX(120%); transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.detail.open { transform:translateX(0); }
+.detail h2 {
+  font-family:var(--font-display); font-size:1.4rem; font-weight:400;
+  color:var(--text-bright); margin-bottom:4px;
+}
+.detail .meta { font-size:0.75rem; color:var(--text-dim); margin-bottom:16px; text-transform:uppercase; letter-spacing:0.08em; }
+.detail .section { margin-bottom:20px; }
+.detail .section h3 {
+  font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em;
+  color:var(--gold); margin-bottom:8px;
+}
+.detail .section p { font-size:0.9rem; line-height:1.7; color:var(--text); }
+.detail .section ul { list-style:none; }
+.detail .section li {
+  padding:5px 0; font-size:0.85rem; color:var(--text);
+  display:flex; gap:8px; align-items:flex-start;
+}
+.detail .section li::before { content:'•'; color:var(--gold); }
+.detail .close-btn {
+  position:absolute; top:12px; right:16px;
+  width:32px; height:32px; border-radius:50%;
+  border:1px solid var(--border); background:rgba(0,0,0,0.3);
+  color:var(--text-dim); cursor:pointer; font-size:1.1rem;
+  display:flex; align-items:center; justify-content:center;
+  transition:all 0.2s;
+}
+.detail .close-btn:hover { color:var(--text-bright); border-color:var(--gold); }
+
+/* Tooltip */
+.tooltip {
+  position:fixed; z-index:15; pointer-events:none;
+  background:rgba(20,24,18,0.95); border:1px solid var(--border);
+  border-radius:10px; padding:10px 14px;
+  font-size:0.82rem; color:var(--text);
+  opacity:0; transition:opacity 0.2s;
+  box-shadow:0 8px 24px rgba(0,0,0,0.5);
+  max-width:220px;
+}
+.tooltip.visible { opacity:1; }
+.tooltip .tt-name { font-weight:700; color:var(--text-bright); }
+.tooltip .tt-desc { font-size:0.75rem; color:var(--text-dim); margin-top:3px; }
+
+/* Legend */
+.legend {
+  position:fixed; z-index:10; left:20px; top:80px;
+  display:flex; flex-direction:column; gap:8px;
+}
+.legend-item {
+  display:flex; align-items:center; gap:8px;
+  font-size:0.75rem; color:var(--text-dim);
+}
+.legend-dot {
+  width:8px; height:8px; border-radius:50%; flex-shrink:0;
+}
+
+/* Intro overlay */
+.intro {
+  position:fixed; inset:0; z-index:30;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,0.7); backdrop-filter:blur(4px);
+  transition:opacity 0.5s;
+}
+.intro.hidden { opacity:0; pointer-events:none; }
+.intro-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius); padding:32px; max-width:440px; width:90%;
+  text-align:center; box-shadow:0 24px 64px rgba(0,0,0,0.6);
+}
+.intro-card h1 {
+  font-family:var(--font-display); font-size:1.8rem; font-weight:400;
+  color:var(--text-bright); margin-bottom:8px;
+}
+.intro-card h1 span { color:var(--gold); }
+.intro-card p { color:var(--text-dim); font-size:0.9rem; margin-bottom:24px; line-height:1.6; }
+.intro-card .btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:12px 28px; border-radius:30px; border:1px solid var(--gold);
+  background:var(--gold); color:#0b0f0c; font-weight:700;
+  font-size:0.9rem; cursor:pointer; transition:all 0.3s;
+  font-family:var(--font);
+}
+.intro-card .btn:hover { box-shadow:0 0 30px var(--gold-glow); }
+
+@media (max-width: 640px) {
+  .detail { right:10px; top:70px; width:calc(100vw - 20px); }
+  .cycle-indicator { bottom:12px; gap:0; }
+  .cycle-step { padding:8px 12px; font-size:0.7rem; }
+  .legend { display:none; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="garden"></canvas>
+
+<header class="header">
+  <div class="logo">
+    <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="none" stroke="var(--gold)" stroke-width="1.5"/><circle cx="16" cy="10" r="3" fill="var(--gold)"/><line x1="16" y1="13" x2="16" y2="24" stroke="var(--gold)" stroke-width="1.5"/><line x1="10" y1="18" x2="22" y2="18" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="3,2"/></svg>
+    FASKA <span>Invaria 2</span>
+  </div>
+</header>
+
+<div class="legend">
+  <div class="legend-item"><span class="legend-dot" style="background:var(--gold)"></span> Lernspur / Begegnung</div>
+  <div class="legend-item"><span class="legend-dot" style="background:var(--water)"></span> Verbindung / Bedeutung</div>
+  <div class="legend-item"><span class="legend-dot" style="background:var(--bloom)"></span> Möglichkeit / Wirkung</div>
+  <div class="legend-item"><span class="legend-dot" style="background:var(--leaf-light)"></span> Entwicklungsknoten</div>
+</div>
+
+<div class="cycle-indicator" id="cycleNav">
+  <button class="cycle-step active" data-step="encounter">Begegnung</button>
+  <button class="cycle-step" data-step="trace">Spur</button>
+  <button class="cycle-step" data-step="meaning">Bedeutung</button>
+  <button class="cycle-step" data-step="possibility">Möglichkeit</button>
+  <button class="cycle-step" data-step="action">Handlung</button>
+  <button class="cycle-step" data-step="return">neue Begegnung</button>
+</div>
+
+<div class="detail" id="detail">
+  <button class="close-btn" onclick="closeDetail()">×</button>
+  <div id="detailContent"></div>
+</div>
+
+<div class="tooltip" id="tooltip">
+  <div class="tt-name" id="ttName"></div>
+  <div class="tt-desc" id="ttDesc"></div>
+</div>
+
+<div class="intro" id="intro">
+  <div class="intro-card">
+    <h1>Fraktalkohärenz <span>beweisen</span></h1>
+    <p>Nicht: „Lena kann messen."<br>Sondern: Was geschah? Wie kann es verstanden werden?<br>Welche nächsten Möglichkeiten entstehen daraus?</p>
+    <p style="font-size:0.8rem;">Begegnung → Spur → Bedeutung → Möglichkeit → Handlung → neue Begegnung</p>
+    <button class="btn" onclick="enterGarden()">Den Garten betreten</button>
+  </div>
+</div>
+
+<script>
+// ═══════════════ GARDEN ENGINE ═══════════════
+const canvas = document.getElementById('garden');
+const ctx = canvas.getContext('2d');
+let W, H, DPR, time = 0, activeStep = 'encounter';
+
+// ── Data: Lernspuren, Verbindungen, Pflanzen ──
+const plants = [
+  { id:'math', x:0.28, y:0.38, r:40, color:'#d4a853', glow:'rgba(212,168,83,0.4)',
+    name:'Größen & Messen', domain:'Mathematik', phase:'bloom',
+    traces:[
+      { date:'März 2026', text:'Lena hält Pferd neben Box, vergleicht Längen mit der Hand, verlängert die Wand dreimal.' },
+      { date:'März 2026', text:'Nimmt Bandmaß: „Das Pferd ist sieben, der Stall muss acht sein." Erste Messwerkzeug-Nutzung.' },
+    ]},
+  { id:'lang', x:0.52, y:0.32, r:34, color:'#5b9ecf', glow:'rgba(91,158,207,0.35)',
+    name:'Sprache & Ausdruck', domain:'Sprache', phase:'growing',
+    traces:[
+      { date:'März 2026', text:'„Diese hier ist größer, weil das braune Pferd dicker ist." — vollständiger Kausalsatz mit Begründung.' },
+    ]},
+  { id:'social', x:0.72, y:0.45, r:28, color:'#6fbf7c', glow:'rgba(111,191,124,0.3)',
+    name:'Miteinander', domain:'Soziales', phase:'seedling',
+    traces:[
+      { date:'März 2026', text:'Herr Schneider: Lena gewährte anderen Kindern keinen Zugang zum Baumaterial — soziales Phänomen sichtbar.' },
+    ]},
+  { id:'creative', x:0.62, y:0.58, r:30, color:'#a87dc2', glow:'rgba(168,125,194,0.3)',
+    name:'Bauen & Gestalten', domain:'Kreativität', phase:'budding',
+    traces:[
+      { date:'März 2026', text:'Herr Yılmaz: Die dreimalige Wiederholung ist ästhetische Suche — symmetrische Anordnung der zweiten Box.' },
+    ]},
+  { id:'problem', x:0.38, y:0.62, r:36, color:'#e8734a', glow:'rgba(232,115,74,0.35)',
+    name:'Problemlösen', domain:'Überfachlich', phase:'bloom',
+    traces:[
+      { date:'Okt 2025', text:'Erste dokumentierte Vergleichshandlung: Türme stapeln, „meiner ist höher".' },
+      { date:'Dez 2025', text:'Beim Backen: „Wir brauchen mehr Mehl, der Teig ist zu klebrig."' },
+      { date:'März 2026', text:'Dreimaliger Testzyklus mit Selbstkorrektur — iterative Lernstrategie.' },
+    ]},
+];
+
+const connections = [
+  { from:'math', to:'lang', strength:0.7, type:'semantic' },
+  { from:'math', to:'problem', strength:0.9, type:'evidence' },
+  { from:'lang', to:'creative', strength:0.4, type:'perspective' },
+  { from:'problem', to:'social', strength:0.5, type:'tension' },
+  { from:'creative', to:'math', strength:0.3, type:'aesthetic' },
+];
+
+// ── Particles for the cycle river ──
+const particles = [];
+const PARTICLE_COUNT = 60;
+const cycleNodes = [
+  { label:'Begegnung', x:0.15, y:0.2 },
+  { label:'Spur', x:0.35, y:0.15 },
+  { label:'Bedeutung', x:0.55, y:0.15 },
+  { label:'Möglichkeit', x:0.72, y:0.22 },
+  { label:'Handlung', x:0.78, y:0.42 },
+  { label:'neue Begegnung', x:0.7, y:0.65 },
+];
+
+for (let i = 0; i < PARTICLE_COUNT; i++) {
+  particles.push({
+    t: i / PARTICLE_COUNT,
+    speed: 0.0003 + Math.random() * 0.0004,
+    size: 1.5 + Math.random() * 2.5,
+    offset: (Math.random() - 0.5) * 0.08,
+  });
+}
+
+// Catmull-Rom spline for the cycle path
+function catmullRom(p0, p1, p2, p3, t) {
+  const t2 = t * t, t3 = t2 * t;
+  return {
+    x: 0.5 * ((2*p1.x) + (-p0.x + p2.x)*t + (2*p0.x - 5*p1.x + 4*p2.x - p3.x)*t2 + (-p0.x + 3*p1.x - 3*p2.x + p3.x)*t3),
+    y: 0.5 * ((2*p1.y) + (-p0.y + p2.y)*t + (2*p0.y - 5*p1.y + 4*p2.y - p3.y)*t2 + (-p0.y + 3*p1.y - 3*p2.y + p3.y)*t3),
+  };
+}
+
+function cyclePos(t) {
+  const n = cycleNodes.length;
+  const seg = t * n;
+  const i = Math.floor(seg) % n;
+  const f = seg - Math.floor(seg);
+  const p0 = cycleNodes[(i - 1 + n) % n];
+  const p1 = cycleNodes[i];
+  const p2 = cycleNodes[(i + 1) % n];
+  const p3 = cycleNodes[(i + 2) % n];
+  return catmullRom(p0, p1, p2, p3, f);
+}
+
+// ── Resize ──
+function resize() {
+  DPR = Math.min(devicePixelRatio || 1, 2);
+  W = innerWidth; H = innerHeight;
+  canvas.width = W * DPR; canvas.height = H * DPR;
+  canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+}
+window.addEventListener('resize', resize); resize();
+
+// ── Draw ──
+function drawSoil() {
+  // Gradient background
+  const grad = ctx.createRadialGradient(W*0.5, H*0.4, 0, W*0.5, H*0.5, Math.max(W,H)*0.7);
+  grad.addColorStop(0, '#1a2218');
+  grad.addColorStop(0.5, '#121711');
+  grad.addColorStop(1, '#0a0e09');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+  
+  // Subtle soil texture
+  ctx.fillStyle = 'rgba(30,36,24,0.3)';
+  for (let i = 0; i < 40; i++) {
+    const sx = ((i * 173 + 41) % W);
+    const sy = ((i * 257 + 83) % H);
+    ctx.beginPath();
+    ctx.arc(sx, sy, 1 + (i%3), 0, Math.PI*2);
+    ctx.fill();
+  }
+}
+
+function drawCycle() {
+  // Draw the cycle path
+  ctx.save();
+  ctx.strokeStyle = 'rgba(212,168,83,0.15)';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([8, 16]);
+  ctx.beginPath();
+  for (let t = 0; t <= 1; t += 0.005) {
+    const p = cyclePos(t);
+    const px = p.x * W, py = p.y * H;
+    if (t === 0) ctx.moveTo(px, py);
+    else ctx.lineTo(px, py);
+  }
+  ctx.stroke();
+  ctx.setLineDash([]);
+  
+  // Glowing particles along the cycle
+  particles.forEach(part => {
+    part.t = (part.t + part.speed) % 1;
+    const p = cyclePos(part.t);
+    const px = p.x * W + part.offset * W;
+    const py = p.y * H + part.offset * H;
+    
+    const alpha = 0.3 + 0.4 * Math.sin(time * 3 + part.t * 20);
+    ctx.fillStyle = `rgba(212,168,83,${alpha})`;
+    ctx.shadowColor = `rgba(212,168,83,${alpha})`;
+    ctx.shadowBlur = 8;
+    ctx.beginPath();
+    ctx.arc(px, py, part.size, 0, Math.PI*2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+  });
+  
+  // Cycle node labels
+  cycleNodes.forEach((node, i) => {
+    const px = node.x * W, py = node.y * H;
+    const isActive = activeStep === ['encounter','trace','meaning','possibility','action','return'][i];
+    
+    // Node dot
+    ctx.fillStyle = isActive ? '#d4a853' : 'rgba(212,168,83,0.3)';
+    ctx.beginPath(); ctx.arc(px, py, isActive ? 6 : 4, 0, Math.PI*2); ctx.fill();
+    if (isActive) {
+      ctx.fillStyle = 'rgba(212,168,83,0.3)';
+      ctx.beginPath(); ctx.arc(px, py, 14, 0, Math.PI*2); ctx.fill();
+    }
+    
+    // Label
+    ctx.fillStyle = isActive ? '#f0ebe0' : 'rgba(180,175,165,0.5)';
+    ctx.font = `${isActive ? 11 : 10}px ${getComputedStyle(document.documentElement).getPropertyValue('--font')}`;
+    ctx.textAlign = 'center';
+    ctx.fillText(node.label, px, py - 16);
+  });
+  ctx.restore();
+}
+
+function drawPlant(plant) {
+  const px = plant.x * W, py = plant.y * H;
+  const r = plant.r;
+  const pulse = 1 + 0.04 * Math.sin(time * 2 + plant.x * 10);
+  
+  // Root system
+  ctx.strokeStyle = 'rgba(90,70,50,0.2)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i < 5; i++) {
+    const angle = -0.5 + i * 0.25;
+    const len = r * (0.6 + i * 0.2);
+    ctx.beginPath();
+    ctx.moveTo(px, py + r*0.3);
+    ctx.quadraticCurveTo(px + Math.cos(angle)*len*0.5, py + r*0.3 + len*0.5, px + Math.cos(angle)*len, py + r*0.3 + len);
+    ctx.stroke();
+  }
+  
+  // Stem
+  const stemHeight = r * (1 + 0.5 * (plant.phase === 'seedling' ? 0.3 : plant.phase === 'growing' ? 0.6 : plant.phase === 'budding' ? 0.8 : 1));
+  ctx.strokeStyle = plant.color;
+  ctx.lineWidth = 3;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(px, py + r*0.2);
+  ctx.quadraticCurveTo(px - 5, py - stemHeight*0.5, px, py - stemHeight);
+  ctx.stroke();
+  
+  // Leaves
+  const leafCount = plant.phase === 'seedling' ? 2 : plant.phase === 'growing' ? 3 : plant.phase === 'budding' ? 4 : 5;
+  for (let i = 0; i < leafCount; i++) {
+    const ly = py - stemHeight * (0.3 + i * 0.15);
+    const side = i % 2 === 0 ? 1 : -1;
+    ctx.fillStyle = 'rgba(74,143,92,0.5)';
+    ctx.beginPath();
+    ctx.ellipse(px + side * 14, ly, 10, 5, side * 0.3, 0, Math.PI*2);
+    ctx.fill();
+  }
+  
+  // Bloom/flower
+  const bloomR = r * (plant.phase === 'bloom' ? 0.5 : plant.phase === 'budding' ? 0.25 : plant.phase === 'growing' ? 0.15 : 0.08);
+  const bloomY = py - stemHeight;
+  
+  // Glow
+  const glowGrad = ctx.createRadialGradient(px, bloomY, 0, px, bloomY, bloomR * 2 * pulse);
+  glowGrad.addColorStop(0, plant.glow);
+  glowGrad.addColorStop(1, 'transparent');
+  ctx.fillStyle = glowGrad;
+  ctx.beginPath(); ctx.arc(px, bloomY, bloomR * 2 * pulse, 0, Math.PI*2); ctx.fill();
+  
+  // Flower petals
+  const petalCount = plant.phase === 'bloom' ? 8 : 6;
+  for (let i = 0; i < petalCount; i++) {
+    const angle = (i / petalCount) * Math.PI * 2 + time * 0.3;
+    const petalR = bloomR * 0.8 * pulse;
+    ctx.fillStyle = plant.color;
+    ctx.beginPath();
+    ctx.arc(px + Math.cos(angle) * petalR * 0.6, bloomY + Math.sin(angle) * petalR * 0.6, petalR * 0.5, 0, Math.PI*2);
+    ctx.fill();
+  }
+  
+  // Center
+  ctx.fillStyle = '#f0ebe0';
+  ctx.beginPath(); ctx.arc(px, bloomY, bloomR * 0.35, 0, Math.PI*2); ctx.fill();
+  
+  // Label
+  ctx.fillStyle = 'rgba(200,195,185,0.8)';
+  ctx.font = `10px ${getComputedStyle(document.documentElement).getPropertyValue('--font')}`;
+  ctx.textAlign = 'center';
+  ctx.fillText(plant.name, px, py + r + 16);
+}
+
+function drawConnections() {
+  connections.forEach(conn => {
+    const from = plants.find(p => p.id === conn.from);
+    const to = plants.find(p => p.id === conn.to);
+    if (!from || !to) return;
+    
+    const fx = from.x * W, fy = from.y * H - from.r;
+    const tx = to.x * W, ty = to.y * H - to.r;
+    
+    // Dashed connection line
+    ctx.strokeStyle = `rgba(255,255,255,${0.06 + conn.strength * 0.08})`;
+    ctx.lineWidth = 1 + conn.strength;
+    ctx.setLineDash([4, 8]);
+    ctx.beginPath();
+    ctx.moveTo(fx, fy);
+    
+    // Curved connection
+    const mx = (fx + tx) / 2;
+    const my = (fy + ty) / 2 - 30;
+    ctx.quadraticCurveTo(mx, my, tx, ty);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    
+    // Small dot at midpoint
+    const dotAlpha = 0.2 + 0.15 * Math.sin(time * 1.5 + conn.strength * 5);
+    ctx.fillStyle = `rgba(212,168,83,${dotAlpha})`;
+    ctx.beginPath();
+    ctx.arc(mx, my, 2, 0, Math.PI*2);
+    ctx.fill();
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+  drawSoil();
+  drawConnections();
+  plants.forEach(drawPlant);
+  drawCycle();
+  time += 0.016;
+}
+
+// ── Mouse interaction ──
+let mouseX = 0, mouseY = 0, hoveredPlant = null;
+
+canvas.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  
+  let found = null;
+  plants.forEach(plant => {
+    const dx = e.clientX - plant.x * W;
+    const dy = e.clientY - plant.y * H;
+    if (Math.sqrt(dx*dx + dy*dy) < plant.r + 15) found = plant;
+  });
+  
+  if (found !== hoveredPlant) {
+    hoveredPlant = found;
+    canvas.style.cursor = found ? 'pointer' : 'default';
+    
+    const tt = document.getElementById('tooltip');
+    if (found) {
+      document.getElementById('ttName').textContent = found.name;
+      document.getElementById('ttDesc').textContent = `${found.domain} · ${found.traces.length} Lernspur${found.traces.length>1?'en':''}`;
+      tt.style.left = (e.clientX + 20) + 'px';
+      tt.style.top = (e.clientY - 60) + 'px';
+      tt.classList.add('visible');
+    } else {
+      tt.classList.remove('visible');
+    }
+  }
+});
+
+canvas.addEventListener('click', (e) => {
+  if (!hoveredPlant) return;
+  openDetail(hoveredPlant);
+});
+
+// ── Detail panel ──
+function openDetail(plant) {
+  const dc = document.getElementById('detailContent');
+  dc.innerHTML = `
+    <h2>${plant.name}</h2>
+    <div class="meta">${plant.domain} · ${plant.traces.length} dokumentierte Lernspur${plant.traces.length>1?'en':''}</div>
+    ${plant.traces.map((t,i) => `
+      <div class="section">
+        <h3>Lernspur ${i+1} · ${t.date}</h3>
+        <p>${t.text}</p>
+      </div>
+    `).join('')}
+    <div class="section">
+      <h3>Verbindungen</h3>
+      <ul>
+        ${connections.filter(c => c.from===plant.id || c.to===plant.id).map(c => {
+          const other = plants.find(p => p.id === (c.from===plant.id ? c.to : c.from));
+          return `<li>→ ${other ? other.name : '?'} <span style="color:var(--text-dim);font-size:0.75rem;">(${c.type})</span></li>`;
+        }).join('')}
+      </ul>
+    </div>
+  `;
+  document.getElementById('detail').classList.add('open');
+}
+
+function closeDetail() {
+  document.getElementById('detail').classList.remove('open');
+}
+
+// ── Cycle navigation ──
+document.getElementById('cycleNav').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  activeStep = btn.dataset.step;
+  document.querySelectorAll('.cycle-step').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+});
+
+// ── Intro ──
+function enterGarden() {
+  document.getElementById('intro').classList.add('hidden');
+}
+
+// ── Animation loop ──
+function animate() {
+  draw();
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+</body>
+</html>
