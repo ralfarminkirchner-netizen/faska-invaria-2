@@ -6,71 +6,95 @@
 <title>FASKA Invaria 2 — Fraktalkohärenz-Demonstrator</title>
 <style>
 :root {
-  --bg: #0a0e0b; --soil: #141410; --surface: #1a1f18;
-  --border: rgba(255,255,255,0.06);
-  --gold: #d4a853; --gold-glow: rgba(212,168,83,0.25);
-  --leaf: #4a8f5c; --leaf-light: #6fbf7c;
-  --water: #5b9ecf; --bloom: #e8734a;
-  --text: #cec9bf; --text-dim: #787368; --text-bright: #f0ebe0;
-  --radius: 16px; --font: system-ui, -apple-system, sans-serif;
-  --font-display: Georgia, 'Times New Roman', serif;
+  /* Bright, friendly color scheme based on FASKA logo */
+  --bg: #fdfaf3; /* Warm cream/beige background */
+  --soil: #e8f4e1; /* Light green soil */
+  --surface: #ffffff; /* White surface for panels */
+  --border: rgba(0,0,0,0.1); /* Subtle border */
+  --blue: #3da6da; /* Logo blue */
+  --red: #bd182a; /* Logo red */
+  --orange: #e25e2b; /* Logo orange */
+  --green: #44a735; /* Logo green */
+  --yellow: #ffce05; /* Logo yellow */
+  --text: #333333; /* Dark text for readability */
+  --text-dim: #666666; /* Dimmed text */
+  --text-bright: #000000; /* Bright text */
+  --radius: 16px; /* Rounded corners */
+  --font: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', system-ui, -apple-system, sans-serif; /* Friendly, rounded font */
+  --font-display: 'Georgia', 'Times New Roman', serif;
 }
+
+/* Dark mode variables */
+:root.dark-mode {
+  --bg: #0a0e0b;
+  --soil: #141410;
+  --surface: #1a1f18;
+  --border: rgba(255,255,255,0.06);
+  --text: #cec9bf;
+  --text-dim: #787368;
+  --text-bright: #f0ebe0;
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text);font:14px/1.5 var(--font);-webkit-font-smoothing:antialiased}
 canvas{display:block;position:fixed;inset:0;z-index:1}
 
 /* Header */
-.hdr{position:fixed;z-index:20;top:0;left:0;right:0;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:rgba(10,14,11,0.92);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
+.hdr{position:fixed;z-index:20;top:0;left:0;right:0;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:rgba(255,255,255,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);box-shadow:0 2px 8px rgba(0,0,0,0.1)}
 .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:0.95rem;color:var(--text-bright);cursor:pointer}
 .logo svg{width:26px;height:26px}
-.logo span{color:var(--gold)}
 .hdr-actions{display:flex;gap:6px}
-.hdr-btn{padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:var(--text-dim);cursor:pointer;font:12px var(--font);transition:all 0.2s}
-.hdr-btn:hover{color:var(--text);border-color:rgba(255,255,255,0.25)}
-.hdr-btn.active{background:var(--gold);color:#0a0e0b;border-color:var(--gold);font-weight:600}
+.hdr-btn{padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:rgba(255,255,255,0.7);color:var(--text);cursor:pointer;font:12px var(--font);transition:all 0.2s}
+.hdr-btn:hover{color:var(--text-bright);border-color:var(--blue);background:rgba(255,255,255,0.9)}
+.hdr-btn.active{background:var(--blue);color:#ffffff;border-color:var(--blue);font-weight:600}
+
+/* Dark mode toggle button */
+.dark-toggle{padding:6px 12px;border-radius:20px;border:1px solid var(--border);background:rgba(255,255,255,0.7);color:var(--text);cursor:pointer;font:12px var(--font);transition:all 0.2s;display:flex;align-items:center;gap:4px}
+.dark-toggle:hover{background:rgba(255,255,255,0.9);border-color:var(--orange)}
+.dark-toggle.dark{background:var(--orange);color:white;border-color:var(--orange)}
 
 /* Cycle nav */
-.cycle-nav{position:fixed;z-index:20;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:2px;background:rgba(20,24,18,0.9);border:1px solid var(--border);border-radius:36px;padding:3px;backdrop-filter:blur(16px)}
+.cycle-nav{position:fixed;z-index:20;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:2px;background:rgba(255,255,255,0.9);border:1px solid var(--border);border-radius:36px;padding:3px;backdrop-filter:blur(16px);box-shadow:0 2px 12px rgba(0,0,0,0.1)}
 .cy-btn{padding:8px 16px;border-radius:34px;border:none;background:transparent;color:var(--text-dim);cursor:pointer;font:12px var(--font);font-weight:500;white-space:nowrap;transition:all 0.3s}
 .cy-btn:hover{color:var(--text)}
-.cy-btn.active{background:var(--gold);color:#0a0e0b;font-weight:700}
+.cy-btn.active{background:var(--yellow);color:#000000;font-weight:700}
 
 /* Detail panel */
-.panel{position:fixed;z-index:30;right:16px;top:68px;width:420px;max-width:calc(100vw-32px);max-height:calc(100vh-100px);background:rgba(22,27,21,0.96);border:1px solid var(--border);border-radius:var(--radius);overflow-y:auto;backdrop-filter:blur(24px);box-shadow:0 20px 60px rgba(0,0,0,0.5);transform:translateX(120%);transition:transform 0.38s cubic-bezier(0.22,1,0.36,1)}
+.panel{position:fixed;z-index:30;right:16px;top:68px;width:420px;max-width:calc(100vw-32px);max-height:calc(100vh-100px);background:rgba(255,255,255,0.95);border:1px solid var(--border);border-radius:var(--radius);overflow-y:auto;backdrop-filter:blur(24px);box-shadow:0 4px 24px rgba(0,0,0,0.15);transform:translateX(120%);transition:transform 0.38s cubic-bezier(0.22,1,0.36,1)}
 .panel.open{transform:translateX(0)}
 .panel-inner{padding:24px}
 .panel h2{font-family:var(--font-display);font-size:1.3rem;font-weight:400;color:var(--text-bright);margin-bottom:2px}
 .panel .meta{font-size:0.7rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px}
 .panel .sec{margin-bottom:18px}
-.panel .sec h3{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:6px}
+.panel .sec h3{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--blue);margin-bottom:6px}
 .panel .sec p,.panel .sec li{font-size:0.85rem;line-height:1.65;color:var(--text)}
 .panel .sec ul{list-style:none}
 .panel .sec li{padding:4px 0;display:flex;gap:8px;align-items:flex-start}
-.panel .sec li::before{content:'•';color:var(--gold);flex-shrink:0}
-.panel .close-btn{position:sticky;top:12px;float:right;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:rgba(0,0,0,0.4);color:var(--text-dim);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:2;transition:all 0.2s}
-.panel .close-btn:hover{color:var(--text-bright);border-color:var(--gold)}
+.panel .sec li::before{content:'•';color:var(--blue);flex-shrink:0}
+.panel .close-btn{position:sticky;top:12px;float:right;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:rgba(255,255,255,0.7);color:var(--text-dim);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:2;transition:all 0.2s}
+.panel .close-btn:hover{color:var(--text-bright);border-color:var(--blue)}
 
 /* Review cards */
-.review-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px;transition:all 0.2s}
-.review-card:hover{border-color:rgba(255,255,255,0.15)}
+.review-card{background:rgba(255,255,255,0.8);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px;transition:all 0.2s}
+.review-card:hover{border-color:rgba(0,0,0,0.2)}
 .review-card .rc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .review-card .rc-title{font-weight:700;font-size:0.85rem}
 .review-card .rc-status{font-size:0.7rem;padding:3px 10px;border-radius:12px;font-weight:600}
-.rc-unpr{background:rgba(255,255,255,0.06);color:var(--text-dim)}
-.rc-ok{background:rgba(74,143,92,0.2);color:var(--leaf-light)}
-.rc-lim{background:rgba(212,168,83,0.2);color:var(--gold)}
-.rc-no{background:rgba(232,115,74,0.2);color:var(--bloom)}
+.rc-unpr{background:rgba(255,255,255,0.7);color:var(--text-dim)}
+.rc-ok{background:rgba(68,167,53,0.2);color:var(--green)}
+.rc-lim{background:rgba(255,206,5,0.2);color:var(--yellow)}
+.rc-no{background:rgba(189,24,42,0.2);color:var(--red)}
 .review-card .rc-evidence{font-size:0.78rem;color:var(--text-dim);margin:4px 0}
 .review-card .rc-bound{font-size:0.75rem;color:var(--text-dim);font-style:italic;margin:4px 0}
 .review-card .rc-actions{display:flex;gap:6px;margin-top:8px}
 .rc-btn{padding:5px 10px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;font:11px var(--font);transition:all 0.2s}
 .rc-btn:hover{color:var(--text)}
-.rc-btn.accept:hover{background:rgba(74,143,92,0.2);border-color:var(--leaf);color:var(--leaf-light)}
-.rc-btn.limit:hover{background:rgba(212,168,83,0.2);border-color:var(--gold);color:var(--gold)}
-.rc-btn.reject:hover{background:rgba(232,115,74,0.2);border-color:var(--bloom);color:var(--bloom)}
+.rc-btn.accept:hover{background:rgba(68,167,53,0.2);border-color:var(--green);color:var(--green)}
+.rc-btn.limit:hover{background:rgba(255,206,5,0.2);border-color:var(--yellow);color:var(--yellow)}
+.rc-btn.reject:hover{background:rgba(189,24,42,0.2);border-color:var(--red);color:var(--red)}
 
 /* Tooltip */
-.tt{position:fixed;z-index:25;pointer-events:none;background:rgba(20,24,18,0.96);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:0.8rem;color:var(--text);opacity:0;transition:opacity 0.2s;box-shadow:0 8px 24px rgba(0,0,0,0.5);max-width:220px}
+.tt{position:fixed;z-index:25;pointer-events:none;background:rgba(255,255,255,0.95);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:0.8rem;color:var(--text);opacity:0;transition:opacity 0.2s;box-shadow:0 4px 16px rgba(0,0,0,0.15);max-width:220px}
 .tt.on{opacity:1}
 .tt .ttn{font-weight:700;color:var(--text-bright)}
 .tt .ttd{font-size:0.72rem;color:var(--text-dim);margin-top:2px}
@@ -85,34 +109,34 @@ canvas{display:block;position:fixed;inset:0;z-index:1}
 .overlay.on{opacity:1;pointer-events:all}
 .overlay-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:700px;width:92%;max-height:85vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.6)}
 .overlay-card h2{font-family:var(--font-display);font-size:1.4rem;font-weight:400;color:var(--text-bright);margin-bottom:16px}
-.overlay-card h3{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin:16px 0 8px}
+.overlay-card h3{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--blue);margin:16px 0 8px}
 .overlay-card p,.overlay-card li{font-size:0.85rem;line-height:1.7;color:var(--text)}
-.overlay-card .close-btn{position:sticky;top:0;float:right;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:rgba(0,0,0,0.4);color:var(--text-dim);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
-.overlay-card .close-btn:hover{color:var(--text-bright);border-color:var(--gold)}
+.overlay-card .close-btn{position:sticky;top:0;float:right;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:rgba(255,255,255,0.7);color:var(--text-dim);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.overlay-card .close-btn:hover{color:var(--text-bright);border-color:var(--blue)}
 
 /* Team perspectives */
-.tm-persp{background:rgba(255,255,255,0.03);border-left:3px solid var(--border);border-radius:0 10px 10px 0;padding:14px;margin-bottom:10px}
+.tm-persp{background:rgba(255,255,255,0.8);border-left:3px solid var(--border);border-radius:0 10px 10px 0;padding:14px;margin-bottom:10px}
 .tm-persp .tmph{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;font-size:0.82rem;font-weight:600}
 .tm-persp .tmp{font-size:0.82rem;color:var(--text);line-height:1.6}
 
 /* Architecture layers */
 .arch-layer{border:1px solid var(--border);border-radius:10px;padding:16px;margin:8px 0;text-align:center}
-.arch-layer.l1{border-color:rgba(212,168,83,0.3);background:rgba(212,168,83,0.05)}
-.arch-layer.l2{border-color:rgba(91,158,207,0.3);background:rgba(91,158,207,0.05)}
-.arch-layer.l3{border-color:rgba(232,115,74,0.3);background:rgba(232,115,74,0.05)}
-.arch-layer.l4{border-color:rgba(111,191,124,0.3);background:rgba(111,191,124,0.05)}
+.arch-layer.l1{border-color:rgba(61,166,218,0.3);background:rgba(61,166,218,0.05)}
+.arch-layer.l2{border-color:rgba(189,24,42,0.3);background:rgba(189,24,42,0.05)}
+.arch-layer.l3{border-color:rgba(226,94,43,0.3);background:rgba(226,94,43,0.05)}
+.arch-layer.l4{border-color:rgba(68,167,53,0.3);background:rgba(68,167,53,0.05)}
 .arch-sub{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:6px;margin-top:8px}
-.arch-sub div{background:rgba(255,255,255,0.03);border-radius:6px;padding:8px;font-size:0.75rem}
+.arch-sub div{background:rgba(255,255,255,0.7);border-radius:6px;padding:8px;font-size:0.75rem}
 
 /* Toast */
-.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;padding:10px 24px;border-radius:24px;font-size:0.85rem;font-weight:600;z-index:60;opacity:0;transition:all 0.3s;pointer-events:none}
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:#333333;color:#fff;padding:10px 24px;border-radius:24px;font-size:0.85rem;font-weight:600;z-index:60;opacity:0;transition:all 0.3s;pointer-events:none}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(-8px)}
 
 /* Probability grid */
 .poss-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-.poss-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:12px;cursor:pointer;transition:all 0.2s}
-.poss-card:hover{border-color:rgba(212,168,83,0.3)}
-.poss-card.sel{border-color:var(--gold);background:rgba(212,168,83,0.08)}
+.poss-card{background:rgba(255,255,255,0.8);border:1px solid var(--border);border-radius:8px;padding:12px;cursor:pointer;transition:all 0.2s}
+.poss-card:hover{border-color:rgba(61,166,218,0.3)}
+.poss-card.sel{border-color:var(--blue);background:rgba(61,166,218,0.08)}
 .poss-card .pc-icon{font-size:1.2rem;margin-bottom:4px}
 .poss-card .pc-title{font-weight:700;font-size:0.82rem}
 .poss-card .pc-desc{font-size:0.72rem;color:var(--text-dim);margin-top:2px}
@@ -121,7 +145,7 @@ canvas{display:block;position:fixed;inset:0;z-index:1}
 .tl{position:relative;padding-left:22px;margin:8px 0}
 .tl::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:var(--border)}
 .tl-item{position:relative;padding:6px 0 14px}
-.tl-dot{position:absolute;left:-19px;top:10px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.tl-dot{position:absolute;left:-19px;top:10px;width:8px;height:8px;border-radius:50%;background:var(--blue)}
 .tl-date{font-size:0.7rem;color:var(--text-dim)}
 .tl-text{font-size:0.8rem;color:var(--text);margin-top:1px}
 
@@ -140,7 +164,7 @@ canvas{display:block;position:fixed;inset:0;z-index:1}
 
 <header class="hdr">
   <div class="logo" onclick="resetView()">
-    <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="none" stroke="var(--gold)" stroke-width="1.5"/><circle cx="16" cy="10" r="3" fill="var(--gold)"/><line x1="16" y1="13" x2="16" y2="24" stroke="var(--gold)" stroke-width="1.5"/></svg>
+    <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="none" stroke="var(--blue)" stroke-width="1.5"/><circle cx="16" cy="10" r="3" fill="var(--blue)"/><line x1="16" y1="13" x2="16" y2="24" stroke="var(--blue)" stroke-width="1.5"/></svg>
     FASKA <span>Invaria 2</span>
   </div>
   <div class="hdr-actions">
@@ -148,14 +172,17 @@ canvas{display:block;position:fixed;inset:0;z-index:1}
     <button class="hdr-btn" onclick="switchWorld('team')">👥 Team</button>
     <button class="hdr-btn" onclick="switchWorld('arch')">🏗️ Architektur</button>
     <button class="hdr-btn" onclick="exportJSON()">📥 Export</button>
+    <button class="dark-toggle" onclick="toggleDarkMode()" id="darkToggle">
+      <span>☀️</span>
+    </button>
   </div>
 </header>
 
 <div class="leg">
-  <div class="leg-item"><span class="leg-dot" style="background:var(--gold)"></span>Lernspur / Begegnung</div>
-  <div class="leg-item"><span class="leg-dot" style="background:var(--water)"></span>Verbindung / Bedeutung</div>
-  <div class="leg-item"><span class="leg-dot" style="background:var(--bloom)"></span>Möglichkeit / Wirkung</div>
-  <div class="leg-item"><span class="leg-dot" style="background:var(--leaf-light)"></span>Entwicklungsknoten</div>
+  <div class="leg-item"><span class="leg-dot" style="background:var(--blue)"></span>Lernspur / Begegnung</div>
+  <div class="leg-item"><span class="leg-dot" style="background:var(--red)"></span>Verbindung / Bedeutung</div>
+  <div class="leg-item"><span class="leg-dot" style="background:var(--orange)"></span>Möglichkeit / Wirkung</div>
+  <div class="leg-item"><span class="leg-dot" style="background:var(--green)"></span>Entwicklungsknoten</div>
 </div>
 
 <div class="cycle-nav" id="cycleNav">
@@ -185,11 +212,11 @@ const D = {
     { id:'t4', date:'28. März 2026', title:'Bandmaß-Messung', text:'Lena nimmt ein Bandmaß aus dem Werkzeugkorb. Sie misst die Länge des Holz-Pferds: „Das Pferd ist sieben, der Stall muss acht sein." Sie überträgt das Maß auf die neue Box. Erste dokumentierte Verwendung eines standardisierten Messwerkzeugs mit Zahlbegriff.', place:'Werkstattraum', observer:'Frau Meier' },
   ],
   plants: [
-    { id:'math', x:0.28, y:0.36, r:42, color:'#d4a853', glow:'rgba(212,168,83,0.35)', name:'Größen & Messen', domain:'Mathematik', phase:'bloom', traceIds:['t1','t3','t4'] },
-    { id:'lang', x:0.52, y:0.30, r:34, color:'#5b9ecf', glow:'rgba(91,158,207,0.3)', name:'Sprache & Ausdruck', domain:'Sprache', phase:'growing', traceIds:['t3'] },
-    { id:'social', x:0.74, y:0.44, r:28, color:'#6fbf7c', glow:'rgba(111,191,124,0.3)', name:'Miteinander', domain:'Soziales', phase:'seedling', traceIds:[] },
-    { id:'creative', x:0.62, y:0.60, r:30, color:'#a87dc2', glow:'rgba(168,125,194,0.3)', name:'Bauen & Gestalten', domain:'Kreativität', phase:'budding', traceIds:['t3'] },
-    { id:'problem', x:0.38, y:0.62, r:38, color:'#e8734a', glow:'rgba(232,115,74,0.3)', name:'Problemlösen', domain:'Überfachlich', phase:'bloom', traceIds:['t1','t2','t3'] },
+    { id:'math', x:0.28, y:0.36, r:42, color:'#3da6da', glow:'rgba(61,166,218,0.35)', name:'Größen & Messen', domain:'Mathematik', phase:'bloom', traceIds:['t1','t3','t4'] },
+    { id:'lang', x:0.52, y:0.30, r:34, color:'#bd182a', glow:'rgba(189,24,42,0.3)', name:'Sprache & Ausdruck', domain:'Sprache', phase:'growing', traceIds:['t3'] },
+    { id:'social', x:0.74, y:0.44, r:28, color:'#44a735', glow:'rgba(68,167,53,0.3)', name:'Miteinander', domain:'Soziales', phase:'seedling', traceIds:[] },
+    { id:'creative', x:0.62, y:0.60, r:30, color:'#e25e2b', glow:'rgba(226,94,43,0.3)', name:'Bauen & Gestalten', domain:'Kreativität', phase:'budding', traceIds:['t3'] },
+    { id:'problem', x:0.38, y:0.62, r:38, color:'#ffce05', glow:'rgba(255,206,5,0.3)', name:'Problemlösen', domain:'Überfachlich', phase:'bloom', traceIds:['t1','t2','t3'] },
   ],
   reviews: [
     { id:'r1', title:'Mathematik: Größen & Messen', text:'Die dokumentierte Veränderung der Boxengröße kann als mögliche Anschlussstelle zu „Größen und Messen" geprüft werden.', evidence:'Direkter Längenvergleich (Pferd–Box), iteratives Anpassen (3 Durchläufe), vergleichende Aussage („größer weil dicker").', boundary:'Kein Gebrauch standardisierter Einheiten zum Zeitpunkt der Beobachtung. Kein Zahlbegriff dokumentiert.', status:'unpr', refId:'math' },
@@ -207,8 +234,8 @@ const D = {
   ],
   team: [
     { name:'Frau Meier', role:'Klassenlehrerin', take:'„Lena hat sich auch in anderen Bausituationen stark auf Größenvergleiche konzentriert. Ich sehe hier ein wachsendes Interesse am Messen. Allerdings arbeitet sie selten in Partnerarbeit — das wäre eine mögliche Entwicklungsrichtung."', status:'Autorisiert' },
-    { name:'Herr Yılmaz', role:'Kunstpädagoge', take:'„Die dreimalige Wiederholung ist auch eine ästhetische Suche — Lena will nicht nur, dass es passt, sondern dass es ‚richtig' aussieht. Die zweite Box ist symmetrisch zur ersten angeordnet."', status:'Alternative Perspektive' },
-    { name:'Herr Schneider', role:'Schulsozialarbeit', take:'„Ich sehe in dieser Situation kein mathematisches, sondern ein soziales Phänomen: Lena hat die gesamte Bauzeit über keinen anderen Kindern Zugang zu ‚ihrem' Baumaterial gewährt. Die Frage ist nicht nur, was sie lernt — sondern unter welchen sozialen Bedingungen."', status:'Widerspruch' },
+    { name:'Herr Yılmaz', role:'Kunstpädagoge', take:'„Die dreimalige Wiederholung ist auch eine ästhetische Suche — Lena will nicht nur, dass es passt, sondern dass es ‚richtig\' aussieht. Die zweite Box ist symmetrisch zur ersten angeordnet."', status:'Alternative Perspektive' },
+    { name:'Herr Schneider', role:'Schulsozialarbeit', take:'„Ich sehe in dieser Situation kein mathematisches, sondern ein soziales Phänomen: Lena hat die gesamte Bauzeit über keinen anderen Kindern Zugang zu ‚ihrem\' Baumaterial gewährt. Die Frage ist nicht nur, was sie lernt — sondern unter welchen sozialen Bedingungen."', status:'Widerspruch' },
   ]
 };
 
@@ -235,63 +262,159 @@ addEventListener('resize',resize);resize();
 
 function draw(){
   ctx.clearRect(0,0,W,H);
-  // Sky/soil
-  const g=ctx.createRadialGradient(W*.5,H*.35,0,W*.5,H*.5,Math.max(W,H)*.7);
-  g.addColorStop(0,'#182018');g.addColorStop(.5,'#101510');g.addColorStop(1,'#090d09');
-  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  // Sky/soil - bright and friendly
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  if (isDarkMode) {
+    const g=ctx.createRadialGradient(W*.5,H*.35,0,W*.5,H*.5,Math.max(W,H)*.7);
+    g.addColorStop(0,'#182018');g.addColorStop(.5,'#101510');g.addColorStop(1,'#090d09');
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  } else {
+    // Bright sky gradient
+    const skyGrad=ctx.createLinearGradient(0,0,0,H*.4);
+    skyGrad.addColorStop(0,'#cce6ff'); // Light blue sky
+    skyGrad.addColorStop(1,'#e8f4e1'); // Light green near ground
+    ctx.fillStyle=skyGrad;ctx.fillRect(0,0,W,H*.4);
+    
+    // Soil/grass
+    ctx.fillStyle='#e8f4e1';
+    ctx.fillRect(0,H*.4,W,H*.6);
+  }
 
-  // Soil dots
-  ctx.fillStyle='rgba(30,36,24,.2)';
-  for(let i=0;i<35;i++){ctx.beginPath();ctx.arc((i*173+41)%W,(i*257+83)%H,.8+(i%3),0,Math.PI*2);ctx.fill()}
+  // Soil dots (only in light mode)
+  if (!isDarkMode) {
+    ctx.fillStyle='rgba(139,195,74,.1)';
+    for(let i=0;i<35;i++){ctx.beginPath();ctx.arc((i*173+41)%W,(i*257+83)%H,.8+(i%3),0,Math.PI*2);ctx.fill()}
+  }
 
   // Connections
-  cons.forEach(c=>{const a=D.plants[c[0]],b=D.plants[c[1]];if(!a||!b)return;ctx.strokeStyle=`rgba(255,255,255,${.04+c[2]*.1})`;ctx.lineWidth=1+c[2];ctx.setLineDash([4,8]);ctx.beginPath();ctx.moveTo(a.x*W,a.y*H-a.r);ctx.quadraticCurveTo((a.x+b.x)*W/2,(a.y+b.y)*H/2-40,b.x*W,b.y*H-b.r);ctx.stroke();ctx.setLineDash([]);
-    const mx=(a.x+b.x)*W/2,my=(a.y+b.y)*H/2-40;ctx.fillStyle=`rgba(212,168,83,${.15+.1*Math.sin(t*2+c[2]*5)})`;ctx.beginPath();ctx.arc(mx,my,2,0,Math.PI*2);ctx.fill()});
+  cons.forEach(c=>{const a=D.plants[c[0]],b=D.plants[c[1]];if(!a||!b)return;ctx.strokeStyle=`rgba(0,0,0,${isDarkMode?.04+c[2]*.1:.15+c[2]*.1})`;ctx.lineWidth=1+c[2];ctx.setLineDash([4,8]);ctx.beginPath();ctx.moveTo(a.x*W,a.y*H-a.r);ctx.quadraticCurveTo((a.x+b.x)*W/2,(a.y+b.y)*H/2-40,b.x*W,b.y*H-b.r);ctx.stroke();ctx.setLineDash([]);
+    const mx=(a.x+b.x)*W/2,my=(a.y+b.y)*H/2-40;ctx.fillStyle=`rgba(61,166,218,${.15+.1*Math.sin(t*2+c[2]*5)})`;ctx.beginPath();ctx.arc(mx,my,2,0,Math.PI*2);ctx.fill()});
 
   // Plants
   D.plants.forEach(p=>{
     const px=p.x*W,py=p.y*H,r=p.r,pulse=1+.04*Math.sin(t*2+p.x*10);
     const sel=p===selectedPlant,hov=p===hovered;
-    // Roots
-    ctx.strokeStyle='rgba(90,70,50,.15)';ctx.lineWidth=1;
-    for(let i=0;i<4;i++){const a=-.4+i*.26,len=r*(.5+i*.2);ctx.beginPath();ctx.moveTo(px,py+r*.3);ctx.quadraticCurveTo(px+Math.cos(a)*len*.4,py+r*.3+len*.4,px+Math.cos(a)*len,py+r*.3+len);ctx.stroke()}
+    // Roots (only in light mode)
+    if (!isDarkMode) {
+      ctx.strokeStyle='rgba(90,70,50,.15)';ctx.lineWidth=1;
+      for(let i=0;i<4;i++){const a=-.4+i*.26,len=r*(.5+i*.2);ctx.beginPath();ctx.arc(px+Math.cos(a)*len*.4,py+r*.3+len*.4,1,0,Math.PI*2);ctx.stroke()}
+    }
     // Stem
-    const sh=r*(1+.5*(p.phase==='seedling'?.3:p.phase==='growing'?.6:p.phase==='budding'?.8:1));
     ctx.strokeStyle=p.color;ctx.lineWidth=sel?4:3;ctx.lineCap='round';
     ctx.beginPath();ctx.moveTo(px,py+r*.2);ctx.quadraticCurveTo(px-5,py-sh*.5,px,py-sh);ctx.stroke();
     // Leaves
     const lc=p.phase==='seedling'?2:p.phase==='growing'?3:p.phase==='budding'?4:5;
-    for(let i=0;i<lc;i++){const ly=py-sh*(.3+i*.15),side=i%2===0?1:-1;ctx.fillStyle='rgba(74,143,92,.45)';ctx.beginPath();ctx.ellipse(px+side*14,ly,10,5,side*.3,0,Math.PI*2);ctx.fill()}
+    for(let i=0;i<lc;i++){const ly=py-sh*(.3+i*.15),side=i%2===0?1:-1;ctx.fillStyle=isDarkMode?'rgba(74,143,92,.45)':'rgba(68,167,53,.45)';ctx.beginPath();ctx.ellipse(px+side*14,ly,10,5,side*.3,0,Math.PI*2);ctx.fill()}
     // Bloom
     const br=r*(p.phase==='bloom'?.5:p.phase==='budding'?.25:p.phase==='growing'?.15:.08),by=py-sh;
     const gg=ctx.createRadialGradient(px,by,0,px,by,br*2.5*pulse);gg.addColorStop(0,p.glow);gg.addColorStop(1,'transparent');ctx.fillStyle=gg;ctx.beginPath();ctx.arc(px,by,br*2.5*pulse,0,Math.PI*2);ctx.fill();
     const pc=p.phase==='bloom'?8:5;
     for(let i=0;i<pc;i++){const a=(i/pc)*Math.PI*2+t*.3,pr=br*.7*pulse;ctx.fillStyle=p.color;ctx.globalAlpha=sel?1:.8;ctx.beginPath();ctx.arc(px+Math.cos(a)*pr*.6,by+Math.sin(a)*pr*.6,pr*.45,0,Math.PI*2);ctx.fill()}
-    ctx.globalAlpha=1;ctx.fillStyle='#f0ebe0';ctx.beginPath();ctx.arc(px,by,br*.3,0,Math.PI*2);ctx.fill();
+    ctx.globalAlpha=1;ctx.fillStyle=isDarkMode?'#f0ebe0':'#ffffff';ctx.beginPath();ctx.arc(px,by,br*.3,0,Math.PI*2);ctx.fill();
     // Label
-    ctx.fillStyle=sel?'#f0ebe0':hov?'rgba(200,195,185,.9)':'rgba(180,175,165,.6)';ctx.font=`${sel?11:10}px var(--font)`;ctx.textAlign='center';ctx.fillText(p.name,px,py+r+16);
+    ctx.fillStyle=sel?(isDarkMode?'#f0ebe0':'#000000'):(hov?(isDarkMode?'rgba(200,195,185,.9)':'rgba(0,0,0,.9)'):(isDarkMode?'rgba(180,175,165,.6)':'rgba(0,0,0,.6)'));ctx.font=`${sel?11:10}px var(--font)`;ctx.textAlign='center';ctx.fillText(p.name,px,py+r+16);
     // Selection ring
     if(sel){ctx.strokeStyle=p.color;ctx.lineWidth=2;ctx.setLineDash([3,3]);ctx.beginPath();ctx.arc(px,py,r+12,0,Math.PI*2);ctx.stroke();ctx.setLineDash([])}
   });
 
   // Cycle
-  ctx.strokeStyle='rgba(212,168,83,.12)';ctx.lineWidth=2;ctx.setLineDash([8,16]);ctx.beginPath();
+  ctx.strokeStyle=isDarkMode?'rgba(212,168,83,.12)':'rgba(61,166,218,.12)';ctx.lineWidth=2;ctx.setLineDash([8,16]);ctx.beginPath();
   for(let i=0;i<=1;i+=.005){const p=cyclePos(i);(i===0)?ctx.moveTo(p.x*W,p.y*H):ctx.lineTo(p.x*W,p.y*H)}ctx.stroke();ctx.setLineDash([]);
 
   particles.forEach(p=>{p.t=(p.t+p.sp)%1;const pos=cyclePos(p.t);const px=pos.x*W+p.off*W,py=pos.y*H+p.off*H;
-    const a=.2+.35*Math.sin(t*3+p.t*20);ctx.fillStyle=`rgba(212,168,83,${a})`;ctx.shadowColor=`rgba(212,168,83,${a})`;ctx.shadowBlur=8;ctx.beginPath();ctx.arc(px,py,p.sz,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0});
+    const a=.2+.35*Math.sin(t*3+p.t*20);ctx.fillStyle=`rgba(61,166,218,${a})`;ctx.shadowColor=`rgba(61,166,218,${a})`;ctx.shadowBlur=8;ctx.beginPath();ctx.arc(px,py,p.sz,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0});
 
   cycleNodes.forEach((n,i)=>{const px=n.x*W,py=n.y*H;const isA=activeStep===['encounter','trace','meaning','possibility','action','return'][i];
-    ctx.fillStyle=isA?'#d4a853':'rgba(212,168,83,.25)';ctx.beginPath();ctx.arc(px,py,isA?6:4,0,Math.PI*2);ctx.fill();
-    if(isA){ctx.fillStyle='rgba(212,168,83,.25)';ctx.beginPath();ctx.arc(px,py,14,0,Math.PI*2);ctx.fill()}
-    ctx.fillStyle=isA?'#f0ebe0':'rgba(180,175,165,.45)';ctx.font=`${isA?11:10}px var(--font)`;ctx.textAlign='center';ctx.fillText(n.label,px,py-14)});
+    ctx.fillStyle=isA?(isDarkMode?'#d4a853':'#3da6da'):(isDarkMode?'rgba(212,168,83,.25)':'rgba(61,166,218,.25)');ctx.beginPath();ctx.arc(px,py,isA?6:4,0,Math.PI*2);ctx.fill();
+    if(isA){ctx.fillStyle=isDarkMode?'rgba(212,168,83,.25)':'rgba(61,166,218,.25)';ctx.beginPath();ctx.arc(px,py,14,0,Math.PI*2);ctx.fill()}
+    ctx.fillStyle=isA?(isDarkMode?'#f0ebe0':'#000000'):(isDarkMode?'rgba(180,175,165,.45)':'rgba(0,0,0,.45)');ctx.font=`${isA?11:10}px var(--font)`;ctx.textAlign='center';ctx.fillText(n.label,px,py-14)});
   t+=.016;
 }
 
+// Calculate stem height based on phase
+function getStemHeight(phase, r) {
+  return r*(1+.5*(phase==='seedling'?.3:phase==='growing'?.6:phase==='budding'?.8:1));
+}
+
+// Update draw function to use sh variable
+function drawUpdated() {
+  ctx.clearRect(0,0,W,H);
+  // Sky/soil - bright and friendly
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  if (isDarkMode) {
+    const g=ctx.createRadialGradient(W*.5,H*.35,0,W*.5,H*.5,Math.max(W,H)*.7);
+    g.addColorStop(0,'#182018');g.addColorStop(.5,'#101510');g.addColorStop(1,'#090d09');
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  } else {
+    // Bright sky gradient
+    const skyGrad=ctx.createLinearGradient(0,0,0,H*.4);
+    skyGrad.addColorStop(0,'#cce6ff'); // Light blue sky
+    skyGrad.addColorStop(1,'#e8f4e1'); // Light green near ground
+    ctx.fillStyle=skyGrad;ctx.fillRect(0,0,W,H*.4);
+    
+    // Soil/grass
+    ctx.fillStyle='#e8f4e1';
+    ctx.fillRect(0,H*.4,W,H*.6);
+  }
+
+  // Soil dots (only in light mode)
+  if (!isDarkMode) {
+    ctx.fillStyle='rgba(139,195,74,.1)';
+    for(let i=0;i<35;i++){ctx.beginPath();ctx.arc((i*173+41)%W,(i*257+83)%H,.8+(i%3),0,Math.PI*2);ctx.fill()}
+  }
+
+  // Connections
+  cons.forEach(c=>{const a=D.plants[c[0]],b=D.plants[c[1]];if(!a||!b)return;ctx.strokeStyle=`rgba(0,0,0,${isDarkMode?.04+c[2]*.1:.15+c[2]*.1})`;ctx.lineWidth=1+c[2];ctx.setLineDash([4,8]);ctx.beginPath();ctx.moveTo(a.x*W,a.y*H-a.r);ctx.quadraticCurveTo((a.x+b.x)*W/2,(a.y+b.y)*H/2-40,b.x*W,b.y*H-b.r);ctx.stroke();ctx.setLineDash([]);
+    const mx=(a.x+b.x)*W/2,my=(a.y+b.y)*H/2-40;ctx.fillStyle=`rgba(61,166,218,${.15+.1*Math.sin(t*2+c[2]*5)})`;ctx.beginPath();ctx.arc(mx,my,2,0,Math.PI*2);ctx.fill()});
+
+  // Plants
+  D.plants.forEach(p=>{
+    const px=p.x*W,py=p.y*H,r=p.r,pulse=1+.04*Math.sin(t*2+p.x*10);
+    const sel=p===selectedPlant,hov=p===hovered;
+    const sh=getStemHeight(p.phase, r);
+    // Roots (only in light mode)
+    if (!isDarkMode) {
+      ctx.strokeStyle='rgba(90,70,50,.15)';ctx.lineWidth=1;
+      for(let i=0;i<4;i++){const a=-.4+i*.26,len=r*(.5+i*.2);ctx.beginPath();ctx.arc(px+Math.cos(a)*len*.4,py+r*.3+len*.4,1,0,Math.PI*2);ctx.stroke()}
+    }
+    // Stem
+    ctx.strokeStyle=p.color;ctx.lineWidth=sel?4:3;ctx.lineCap='round';
+    ctx.beginPath();ctx.moveTo(px,py+r*.2);ctx.quadraticCurveTo(px-5,py-sh*.5,px,py-sh);ctx.stroke();
+    // Leaves
+    const lc=p.phase==='seedling'?2:p.phase==='growing'?3:p.phase==='budding'?4:5;
+    for(let i=0;i<lc;i++){const ly=py-sh*(.3+i*.15),side=i%2===0?1:-1;ctx.fillStyle=isDarkMode?'rgba(74,143,92,.45)':'rgba(68,167,53,.45)';ctx.beginPath();ctx.ellipse(px+side*14,ly,10,5,side*.3,0,Math.PI*2);ctx.fill()}
+    // Bloom
+    const br=r*(p.phase==='bloom'?.5:p.phase==='budding'?.25:p.phase==='growing'?.15:.08),by=py-sh;
+    const gg=ctx.createRadialGradient(px,by,0,px,by,br*2.5*pulse);gg.addColorStop(0,p.glow);gg.addColorStop(1,'transparent');ctx.fillStyle=gg;ctx.beginPath();ctx.arc(px,by,br*2.5*pulse,0,Math.PI*2);ctx.fill();
+    const pc=p.phase==='bloom'?8:5;
+    for(let i=0;i<pc;i++){const a=(i/pc)*Math.PI*2+t*.3,pr=br*.7*pulse;ctx.fillStyle=p.color;ctx.globalAlpha=sel?1:.8;ctx.beginPath();ctx.arc(px+Math.cos(a)*pr*.6,by+Math.sin(a)*pr*.6,pr*.45,0,Math.PI*2);ctx.fill()}
+    ctx.globalAlpha=1;ctx.fillStyle=isDarkMode?'#f0ebe0':'#ffffff';ctx.beginPath();ctx.arc(px,by,br*.3,0,Math.PI*2);ctx.fill();
+    // Label
+    ctx.fillStyle=sel?(isDarkMode?'#f0ebe0':'#000000'):(hov?(isDarkMode?'rgba(200,195,185,.9)':'rgba(0,0,0,.9)'):(isDarkMode?'rgba(180,175,165,.6)':'rgba(0,0,0,.6)'));ctx.font=`${sel?11:10}px var(--font)`;ctx.textAlign='center';ctx.fillText(p.name,px,py+r+16);
+    // Selection ring
+    if(sel){ctx.strokeStyle=p.color;ctx.lineWidth=2;ctx.setLineDash([3,3]);ctx.beginPath();ctx.arc(px,py,r+12,0,Math.PI*2);ctx.stroke();ctx.setLineDash([])}
+  });
+
+  // Cycle
+  ctx.strokeStyle=isDarkMode?'rgba(212,168,83,.12)':'rgba(61,166,218,.12)';ctx.lineWidth=2;ctx.setLineDash([8,16]);ctx.beginPath();
+  for(let i=0;i<=1;i+=.005){const p=cyclePos(i);(i===0)?ctx.moveTo(p.x*W,p.y*H):ctx.lineTo(p.x*W,p.y*H)}ctx.stroke();ctx.setLineDash([]);
+
+  particles.forEach(p=>{p.t=(p.t+p.sp)%1;const pos=cyclePos(p.t);const px=pos.x*W+p.off*W,py=pos.y*H+p.off*H;
+    const a=.2+.35*Math.sin(t*3+p.t*20);ctx.fillStyle=`rgba(61,166,218,${a})`;ctx.shadowColor=`rgba(61,166,218,${a})`;ctx.shadowBlur=8;ctx.beginPath();ctx.arc(px,py,p.sz,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0});
+
+  cycleNodes.forEach((n,i)=>{const px=n.x*W,py=n.y*H;const isA=activeStep===['encounter','trace','meaning','possibility','action','return'][i];
+    ctx.fillStyle=isA?(isDarkMode?'#d4a853':'#3da6da'):(isDarkMode?'rgba(212,168,83,.25)':'rgba(61,166,218,.25)');ctx.beginPath();ctx.arc(px,py,isA?6:4,0,Math.PI*2);ctx.fill();
+    if(isA){ctx.fillStyle=isDarkMode?'rgba(212,168,83,.25)':'rgba(61,166,218,.25)';ctx.beginPath();ctx.arc(px,py,14,0,Math.PI*2);ctx.fill()}
+    ctx.fillStyle=isA?(isDarkMode?'#f0ebe0':'#000000'):(isDarkMode?'rgba(180,175,165,.45)':'rgba(0,0,0,.45)');ctx.font=`${isA?11:10}px var(--font)`;ctx.textAlign='center';ctx.fillText(n.label,px,py-14)});
+  t+=.016;
+}
+
+// Replace draw function
+draw = drawUpdated;
+
 // ═══════════════ INTERACTION ═══════════════
 let mx=0,my=0;
-cv.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;let f=null;D.plants.forEach(p=>{const dx=e.clientX-p.x*W,dy=e.clientY-p.y*H;if(Math.sqrt(dx*dx+dy*dy)<p.r+15)f=p});if(f!==hovered){hovered=f;cv.style.cursor=f?'pointer':'default';const tt=document.getElementById('tt');if(f){document.getElementById('ttn').textContent=f.name;document.getElementById('ttd').textContent=`${f.domain} · ${f.traceIds.length} Lernspur${f.traceIds.length!==1?'en':''} · ${f.phase==='bloom'?'blühend':f.phase==='budding'?'knospend':f.phase==='growing'?'wachsend':'Keimling'}`;tt.style.left=(e.clientX+20)+'px';tt.style.top=(e.clientY-60)+'px';tt.classList.add('on')}else tt.classList.remove('on')}});
-cv.addEventListener('click',()=>{if(hovered){selectedPlant=hovered;openPlantDetail(hovered)}});
+cv.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;let f=null;D.plants.forEach(p=>{const dx=e.clientX-p.x*W,dy=e.clientY-p.y*H;if(Math.sqrt(dx*dx+dy*dy)<p.r+15)f=p});if(f!==hovered){hovered=f;cv.style.cursor=f?'pointer':'default';const tt=document.getElementById('tt');if(f){document.getElementById('ttn').textContent=f.name;document.getElementById('ttd').textContent=`${f.domain} · ${f.traceIds.length} Lernspur${f.traceIds.length!==1?'en':''} · ${f.phase==='bloom'?'🌼 blühend':f.phase==='budding'?'🌷 knospend':f.phase==='growing'?'🌱 wachsend':'🌱 Keimling'}`;tt.style.left=(e.clientX+20)+'px';tt.style.top=(e.clientY-60)+'px';tt.classList.add('on')}else tt.classList.remove('on')}});cv.addEventListener('click',()=>{if(hovered){selectedPlant=hovered;openPlantDetail(hovered)}});
 
 // ═══════════════ PANEL ═══════════════
 function openPlantDetail(plant){
@@ -316,7 +439,7 @@ function openPlantDetail(plant){
       </div>
     `).join('')}</div>
     <div class="sec"><h3>🌿 Nächste Möglichkeiten</h3><div class="poss-grid">${D.possibilities.map(p=>`<div class="poss-card" onclick="selectPoss('${p.id}',this)"><div class="pc-icon">${p.icon}</div><div class="pc-title">${p.title}</div><div class="pc-desc">${p.desc}</div></div>`).join('')}</div></div>
-    <div class="sec" id="selPossSec" style="display:none"><p style="color:var(--gold);font-weight:600">✅ Ausgewählt: <span id="selPossName"></span></p><button class="rc-btn accept" style="margin-top:8px" onclick="prepareAction()">Handlung vorbereiten →</button></div>
+    <div class="sec" id="selPossSec" style="display:none"><p style="color:var(--blue);font-weight:600">✅ Ausgewählt: <span id="selPossName"></span></p><button class="rc-btn accept" style="margin-top:8px" onclick="prepareAction()">Handlung vorbereiten →</button></div>
   `;
   panel.classList.add('open');
   selectedPlant=plant;
@@ -327,6 +450,24 @@ function review(id,status){D.reviews.find(r=>r.id===id).status=status;const el=d
 function selectPoss(id,el){document.querySelectorAll('.poss-card').forEach(c=>c.classList.remove('sel'));el.classList.add('sel');document.getElementById('selPossSec').style.display='block';document.getElementById('selPossName').textContent=D.possibilities.find(p=>p.id===id).title}
 function prepareAction(){showToast('✅ Handlung vorbereitet. In einer echten Instanz: Team-Benachrichtigung → autorisierte Umgebungsänderung → neue Begegnung → neue Lernspur.');activeStep='action';updateCycleNav()}
 function updateCycleNav(){document.querySelectorAll('.cy-btn').forEach(b=>b.classList.remove('active'));document.querySelector(`[data-step="${activeStep}"]`)?.classList.add('active')}
+
+// ═══════════════ DARK MODE TOGGLE ═══════════════
+function toggleDarkMode() {
+  const body = document.body;
+  const darkToggle = document.getElementById('darkToggle');
+  const isDark = body.classList.toggle('dark-mode');
+  
+  if (isDark) {
+    darkToggle.innerHTML = '<span>🌙</span>';
+    darkToggle.classList.add('dark');
+  } else {
+    darkToggle.innerHTML = '<span>☀️</span>';
+    darkToggle.classList.remove('dark');
+  }
+  
+  // Update canvas immediately
+  draw();
+}
 
 // ═══════════════ WORLD SWITCHING ═══════════════
 function switchWorld(w){
@@ -340,12 +481,12 @@ function openTeamOverlay(){
   const c=document.getElementById('overlayTeamContent');
   c.innerHTML=`<button class="close-btn" onclick="switchWorld('garden')">×</button><h2>👥 Team-Welt — Perspektiven auf Lena</h2>
     <p style="color:var(--text-dim);margin-bottom:16px">Ergänzende, alternative und widersprechende Perspektiven auf dieselbe Lernspur (Stallbox, 14. März 2026). Alle bleiben sichtbar — keine wird harmonisiert.</p>
-    ${D.team.map(tm=>`<div class="tm-persp" style="border-left-color:${tm.status==='Autorisiert'?'var(--leaf)':tm.status==='Widerspruch'?'var(--bloom)':'var(--gold)'}"><div class="tmph"><span>${tm.name} · ${tm.role}</span><span style="font-size:.7rem;color:${tm.status==='Autorisiert'?'var(--leaf-light)':tm.status==='Widerspruch'?'var(--bloom)':'var(--gold)'}">${tm.status}</span></div><p class="tmp">${tm.take}</p></div>`).join('')}
+    ${D.team.map(tm=>`<div class="tm-persp" style="border-left-color:${tm.status==='Autorisiert'?'var(--green)':tm.status==='Widerspruch'?'var(--red)':'var(--blue)'}"><div class="tmph"><span>${tm.name} · ${tm.role}</span><span style="font-size:.7rem;color:${tm.status==='Autorisiert'?'var(--green)':'var(--red)'}">${tm.status}</span></div><p class="tmp">${tm.take}</p></div>`).join('')}
     <h3>🔐 Zweckgebundene Freigaben</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:.8rem">
-      <div style="background:rgba(74,143,92,.1);padding:10px;border-radius:8px"><strong>Elternansicht</strong><br><span style="color:var(--text-dim)">Entwicklungsgeschichte ohne Bezugsnorm</span></div>
-      <div style="background:rgba(255,255,255,.03);padding:10px;border-radius:8px"><strong>Fördergutachten</strong><br><span style="color:var(--text-dim)">Nur Mathematik-Bezug + Verlauf</span></div>
-      <div style="background:rgba(74,143,92,.1);padding:10px;border-radius:8px"><strong>Kollegiale Fallberatung</strong><br><span style="color:var(--text-dim)">Alle Bezüge + Perspektiven</span></div>
-      <div style="background:rgba(255,255,255,.03);padding:10px;border-radius:8px"><strong>Bildungsplan-Nachweis</strong><br><span style="color:var(--text-dim)">Nur autorisierte fachliche Bezüge</span></div>
+      <div style="background:rgba(68,167,53,.1);padding:10px;border-radius:8px"><strong>Elternansicht</strong><br><span style="color:var(--text-dim)">Entwicklungsgeschichte ohne Bezugsnorm</span></div>
+      <div style="background:rgba(255,255,255,.8);padding:10px;border-radius:8px"><strong>Fördergutachten</strong><br><span style="color:var(--text-dim)">Nur Mathematik-Bezug + Verlauf</span></div>
+      <div style="background:rgba(68,167,53,.1);padding:10px;border-radius:8px"><strong>Kollegiale Fallberatung</strong><br><span style="color:var(--text-dim)">Alle Bezüge + Perspektiven</span></div>
+      <div style="background:rgba(255,255,255,.8);padding:10px;border-radius:8px"><strong>Bildungsplan-Nachweis</strong><br><span style="color:var(--text-dim)">Nur autorisierte fachliche Bezüge</span></div>
     </div>`;
   document.getElementById('overlayTeam').classList.add('on');
 }
@@ -355,21 +496,21 @@ function openArchOverlay(){
   c.innerHTML=`<button class="close-btn" onclick="switchWorld('garden')">×</button><h2>🏗️ Architektur — Vier Ebenen</h2>
     <div class="arch-layer l1"><strong>Werdegefüge</strong><div style="font-size:.75rem;color:var(--text-dim);margin-top:4px">Verfassung · Organe · Spuren · Muster · Werkstattkompositionen · Projektionen</div><div class="arch-sub"><div>📜 Verfassung</div><div>🧠 Organe</div><div>👣 Spuren</div><div>🔄 Muster</div></div></div>
     <div style="text-align:center;color:var(--text-dim);margin:4px 0">↓ generisch, domänenfrei</div>
-    <div class="arch-layer l2"><strong>Erfahrungslandschaftskern</strong><div style="font-size:.75rem;color:var(--text-dim);margin-top:4px">Experience Landscape Core — generischer Kern für Lern-, Spiel-, Kreativ- und Denkräume</div><p style="font-size:.8rem;color:var(--water);text-align:center;margin-top:6px;font-weight:600">Begegnung → Spur → Bedeutung → Möglichkeit → Handlung → neue Begegnung</p></div>
+    <div class="arch-layer l2"><strong>Erfahrungslandschaftskern</strong><div style="font-size:.75rem;color:var(--text-dim);margin-top:4px">Experience Landscape Core — generischer Kern für Lern-, Spiel-, Kreativ- und Denkräume</div><p style="font-size:.8rem;color:var(--red);text-align:center;margin-top:6px;font-weight:600">Begegnung → Spur → Bedeutung → Möglichkeit → Handlung → neue Begegnung</p></div>
     <div style="text-align:center;color:var(--text-dim);margin:4px 0">↓ Domänenpaket Pädagogik</div>
     <div class="arch-layer l3"><strong>FASKA-Domänenprofil</strong><div style="font-size:.75rem;color:var(--text-dim);margin-top:4px">Lernlandschaft — pädagogische Werkstattkomposition · Bildungsplanbezüge · Team-Prüfung</div></div>
     <div style="text-align:center;color:var(--text-dim);margin:4px 0">↓ konkrete Instanz</div>
     <div class="arch-layer l4"><strong>FASKA Invaria 2 (diese Instanz)</strong><div style="font-size:.75rem;color:var(--text-dim);margin-top:4px">Lena · Frau Meier · Team · Garten-Projektion</div></div>
     <h3>🤖 KI-Rolle</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:.8rem">
-      <div style="background:rgba(74,143,92,.08);padding:10px;border-radius:8px">✅ „Diese Beobachtung könnte mit Größenvergleich verbunden sein."</div>
-      <div style="background:rgba(232,115,74,.08);padding:10px;border-radius:8px">🚫 „Dieses Kind besitzt Kompetenz X." — <strong>nicht erlaubt</strong></div>
+      <div style="background:rgba(68,167,53,.08);padding:10px;border-radius:8px">✅ „Diese Beobachtung könnte mit Größenvergleich verbunden sein."</div>
+      <div style="background:rgba(189,24,42,.08);padding:10px;border-radius:8px">🚫 „Dieses Kind besitzt Kompetenz X." — <strong>nicht erlaubt</strong></div>
     </div>
     <p style="font-size:.8rem;color:var(--text-dim);margin-top:8px">Die KI bleibt im Bereich der <strong>Vorschläge</strong>, nicht der <strong>Feststellungen</strong>.</p>
     <h3>🔑 Fraktalkohärenz</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:.78rem">
-      <div style="padding:8px;background:rgba(212,168,83,.06);border-radius:6px"><strong>🏫 Lernlandschaft</strong><br>Nichtwissen → Erfahrung → Verstehen → Anwendung → Transfer</div>
-      <div style="padding:8px;background:rgba(91,158,207,.06);border-radius:6px"><strong>🎮 Spielwelt</strong><br>Unbekannte Situation → Erkundung → Entscheidung → Konsequenz → Weltveränderung</div>
-      <div style="padding:8px;background:rgba(168,125,194,.06);border-radius:6px"><strong>✍️ Kreative Werkstatt</strong><br>Idee → Entwurf → Kritik → Überarbeitung → Werk</div>
-      <div style="padding:8px;background:rgba(232,115,74,.06);border-radius:6px"><strong>🧠 Denkraum</strong><br>Frage → Recherche → Verbindung → Einsicht → neue Frage</div>
+      <div style="padding:8px;background:rgba(61,166,218,.06);border-radius:6px"><strong>🏫 Lernlandschaft</strong><br>Nichtwissen → Erfahrung → Verstehen → Anwendung → Transfer</div>
+      <div style="padding:8px;background:rgba(189,24,42,.06);border-radius:6px"><strong>🎮 Spielwelt</strong><br>Unbekannte Situation → Erkundung → Entscheidung → Konsequenz → Weltveränderung</div>
+      <div style="padding:8px;background:rgba(226,94,43,.06);border-radius:6px"><strong>✍️ Kreative Werkstatt</strong><br>Idee → Entwurf → Kritik → Überarbeitung → Werk</div>
+      <div style="padding:8px;background:rgba(68,167,53,.06);border-radius:6px"><strong>🧠 Denkraum</strong><br>Frage → Recherche → Verbindung → Einsicht → neue Frage</div>
     </div>`;
   document.getElementById('overlayArch').classList.add('on');
 }
