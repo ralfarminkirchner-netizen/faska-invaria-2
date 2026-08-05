@@ -3,395 +3,381 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FASKA Invaria 2 — Fraktalkohärenz-Demonstrator</title>
+<title>FASKA Invaria 2 · Lernlandschaft</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script>p5.disableFriendlyErrors=true;</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.3/p5.min.js"></script>
 <style>
 :root {
-  --bg: #0a0e0b; --soil: #141410; --surface: #1a1f18;
-  --border: rgba(255,255,255,0.06);
-  --gold: #d4a853; --gold-glow: rgba(212,168,83,0.25);
-  --leaf: #4a8f5c; --leaf-light: #6fbf7c;
-  --water: #5b9ecf; --bloom: #e8734a;
-  --text: #cec9bf; --text-dim: #787368; --text-bright: #f0ebe0;
-  --radius: 16px; --font: system-ui, -apple-system, sans-serif;
-  --font-display: Georgia, 'Times New Roman', serif;
+  --blue:#3da6da; --red:#bd182a; --orange:#e25e2b; --green:#44a735; --yellow:#ffce05;
+  --bg:#fefcf7; --bg2:#f8f4eb; --text:#2d2412; --text2:#6b5e48; --card:#fff;
+  --border:#e8e0d0; --shadow:0 2px 12px rgba(0,0,0,0.06);
+  --radius:18px; --radius-sm:12px;
+  --font:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+  --nav-h:56px; --cycle-h:52px;
 }
+.dark{--bg:#1a1814;--bg2:#22201a;--text:#e8e2d4;--text2:#9e9680;--card:#282520;--border:#3a3428;--shadow:0 2px 16px rgba(0,0,0,0.3)}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text);font:14px/1.5 var(--font);-webkit-font-smoothing:antialiased}
-canvas{display:block;position:fixed;inset:0;z-index:1}
+html,body{width:100%;height:100%;overflow:hidden;font:14px/1.5 var(--font);color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+canvas{display:block;position:fixed;inset:var(--nav-h) 0 var(--cycle-h) 0;z-index:1}
 
 /* Header */
-.hdr{position:fixed;z-index:20;top:0;left:0;right:0;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:rgba(10,14,11,0.92);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
-.logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:0.95rem;color:var(--text-bright);cursor:pointer}
-.logo svg{width:26px;height:26px}
-.logo span{color:var(--gold)}
-.hdr-actions{display:flex;gap:6px}
-.hdr-btn{padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:var(--text-dim);cursor:pointer;font:12px var(--font);transition:all 0.2s}
-.hdr-btn:hover{color:var(--text);border-color:rgba(255,255,255,0.25)}
-.hdr-btn.active{background:var(--gold);color:#0a0e0b;border-color:var(--gold);font-weight:600}
+.hdr{position:fixed;z-index:20;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--card);border-bottom:1px solid var(--border);box-shadow:var(--shadow)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:800;font-size:1.05rem;letter-spacing:-0.02em}
+.logo svg{width:32px;height:auto}
+.hdr-r{display:flex;gap:6px;align-items:center}
+.hdr-btn{padding:7px 16px;border-radius:24px;border:1.5px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font:600 12.5px var(--font);transition:all 0.2s;white-space:nowrap}
+.hdr-btn:hover{border-color:var(--blue);color:var(--blue)}
+.hdr-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.theme-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.theme-btn:hover{border-color:var(--yellow)}
 
-/* Cycle nav */
-.cycle-nav{position:fixed;z-index:20;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:2px;background:rgba(20,24,18,0.9);border:1px solid var(--border);border-radius:36px;padding:3px;backdrop-filter:blur(16px)}
-.cy-btn{padding:8px 16px;border-radius:34px;border:none;background:transparent;color:var(--text-dim);cursor:pointer;font:12px var(--font);font-weight:500;white-space:nowrap;transition:all 0.3s}
-.cy-btn:hover{color:var(--text)}
-.cy-btn.active{background:var(--gold);color:#0a0e0b;font-weight:700}
+/* Bottom cycle nav */
+.cyc{position:fixed;z-index:20;bottom:0;left:0;right:0;height:var(--cycle-h);display:flex;align-items:center;justify-content:center;gap:3px;padding:0 12px;background:var(--card);border-top:1px solid var(--border);box-shadow:0 -2px 12px rgba(0,0,0,0.04)}
+.cyc-btn{padding:7px 16px;border-radius:22px;border:none;background:transparent;color:var(--text2);cursor:pointer;font:600 12px var(--font);transition:all 0.25s;white-space:nowrap}
+.cyc-btn:hover{color:var(--text)}
+.cyc-btn.active{background:var(--green);color:#fff}
 
 /* Detail panel */
-.panel{position:fixed;z-index:30;right:16px;top:68px;width:420px;max-width:calc(100vw-32px);max-height:calc(100vh-100px);background:rgba(22,27,21,0.96);border:1px solid var(--border);border-radius:var(--radius);overflow-y:auto;backdrop-filter:blur(24px);box-shadow:0 20px 60px rgba(0,0,0,0.5);transform:translateX(120%);transition:transform 0.38s cubic-bezier(0.22,1,0.36,1)}
-.panel.open{transform:translateX(0)}
-.panel-inner{padding:24px}
-.panel h2{font-family:var(--font-display);font-size:1.3rem;font-weight:400;color:var(--text-bright);margin-bottom:2px}
-.panel .meta{font-size:0.7rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px}
-.panel .sec{margin-bottom:18px}
-.panel .sec h3{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:6px}
-.panel .sec p,.panel .sec li{font-size:0.85rem;line-height:1.65;color:var(--text)}
-.panel .sec ul{list-style:none}
-.panel .sec li{padding:4px 0;display:flex;gap:8px;align-items:flex-start}
-.panel .sec li::before{content:'•';color:var(--gold);flex-shrink:0}
-.panel .close-btn{position:sticky;top:12px;float:right;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:rgba(0,0,0,0.4);color:var(--text-dim);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:2;transition:all 0.2s}
-.panel .close-btn:hover{color:var(--text-bright);border-color:var(--gold)}
+.pnl{position:fixed;z-index:30;right:12px;top:72px;width:400px;max-width:calc(100vw-24px);max-height:calc(100vh-140px);background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 16px 48px rgba(0,0,0,0.12);overflow-y:auto;transform:translateX(120%);transition:transform 0.35s cubic-bezier(0.22,1,0.36,1)}
+.pnl.open{transform:translateX(0)}
+.pnl-in{padding:22px}
+.pnl h2{font-size:1.2rem;font-weight:700;margin-bottom:2px;letter-spacing:-0.01em}
+.pnl .meta{font-size:0.72rem;color:var(--text2);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:18px}
+.pnl .sec{margin-bottom:16px}
+.pnl .sec h3{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);margin-bottom:6px}
+.pnl .sec p,.pnl .sec li{font-size:0.83rem;line-height:1.6}
+.pnl .close{position:sticky;top:0;float:right;width:32px;height:32px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);color:var(--text2);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;z-index:2;transition:all 0.2s}
+.pnl .close:hover{border-color:var(--red);color:var(--red)}
 
 /* Review cards */
-.review-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px;transition:all 0.2s}
-.review-card:hover{border-color:rgba(255,255,255,0.15)}
-.review-card .rc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.review-card .rc-title{font-weight:700;font-size:0.85rem}
-.review-card .rc-status{font-size:0.7rem;padding:3px 10px;border-radius:12px;font-weight:600}
-.rc-unpr{background:rgba(255,255,255,0.06);color:var(--text-dim)}
-.rc-ok{background:rgba(74,143,92,0.2);color:var(--leaf-light)}
-.rc-lim{background:rgba(212,168,83,0.2);color:var(--gold)}
-.rc-no{background:rgba(232,115,74,0.2);color:var(--bloom)}
-.review-card .rc-evidence{font-size:0.78rem;color:var(--text-dim);margin:4px 0}
-.review-card .rc-bound{font-size:0.75rem;color:var(--text-dim);font-style:italic;margin:4px 0}
-.review-card .rc-actions{display:flex;gap:6px;margin-top:8px}
-.rc-btn{padding:5px 10px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;font:11px var(--font);transition:all 0.2s}
+.rc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:8px;transition:all 0.2s}
+.rc:hover{border-color:var(--blue)}
+.rc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px}
+.rc-title{font-weight:700;font-size:0.82rem}
+.rc-status{font-size:0.65rem;padding:3px 9px;border-radius:10px;font-weight:700;white-space:nowrap}
+.rc-st0{background:rgba(0,0,0,0.05);color:var(--text2)}
+.rc-st1{background:rgba(68,167,53,0.12);color:var(--green)}
+.rc-st2{background:rgba(226,94,43,0.12);color:var(--orange)}
+.rc-st3{background:rgba(189,24,42,0.1);color:var(--red)}
+.dark .rc-st0{background:rgba(255,255,255,0.06)}
+.rc-evid{font-size:0.73rem;color:var(--text2);margin:3px 0}
+.rc-bound{font-size:0.7rem;color:var(--text2);font-style:italic;margin:3px 0}
+.rc-acts{display:flex;gap:5px;margin-top:8px}
+.rc-btn{padding:4px 10px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;font:600 10.5px var(--font);transition:all 0.2s}
 .rc-btn:hover{color:var(--text)}
-.rc-btn.accept:hover{background:rgba(74,143,92,0.2);border-color:var(--leaf);color:var(--leaf-light)}
-.rc-btn.limit:hover{background:rgba(212,168,83,0.2);border-color:var(--gold);color:var(--gold)}
-.rc-btn.reject:hover{background:rgba(232,115,74,0.2);border-color:var(--bloom);color:var(--bloom)}
+.rc-btn.ok:hover{background:rgba(68,167,53,0.1);border-color:var(--green);color:var(--green)}
+.rc-btn.lim:hover{background:rgba(226,94,43,0.1);border-color:var(--orange);color:var(--orange)}
+.rc-btn.no:hover{background:rgba(189,24,42,0.1);border-color:var(--red);color:var(--red)}
 
-/* Tooltip */
-.tt{position:fixed;z-index:25;pointer-events:none;background:rgba(20,24,18,0.96);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:0.8rem;color:var(--text);opacity:0;transition:opacity 0.2s;box-shadow:0 8px 24px rgba(0,0,0,0.5);max-width:220px}
-.tt.on{opacity:1}
-.tt .ttn{font-weight:700;color:var(--text-bright)}
-.tt .ttd{font-size:0.72rem;color:var(--text-dim);margin-top:2px}
-
-/* Legend */
-.leg{position:fixed;z-index:15;left:16px;top:80px;display:flex;flex-direction:column;gap:6px}
-.leg-item{display:flex;align-items:center;gap:8px;font-size:0.7rem;color:var(--text-dim)}
-.leg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-
-/* Fullscreen overlay for Team / Arch */
-.overlay{position:fixed;z-index:50;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.35s}
-.overlay.on{opacity:1;pointer-events:all}
-.overlay-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:700px;width:92%;max-height:85vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.6)}
-.overlay-card h2{font-family:var(--font-display);font-size:1.4rem;font-weight:400;color:var(--text-bright);margin-bottom:16px}
-.overlay-card h3{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin:16px 0 8px}
-.overlay-card p,.overlay-card li{font-size:0.85rem;line-height:1.7;color:var(--text)}
-.overlay-card .close-btn{position:sticky;top:0;float:right;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:rgba(0,0,0,0.4);color:var(--text-dim);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
-.overlay-card .close-btn:hover{color:var(--text-bright);border-color:var(--gold)}
-
-/* Team perspectives */
-.tm-persp{background:rgba(255,255,255,0.03);border-left:3px solid var(--border);border-radius:0 10px 10px 0;padding:14px;margin-bottom:10px}
-.tm-persp .tmph{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;font-size:0.82rem;font-weight:600}
-.tm-persp .tmp{font-size:0.82rem;color:var(--text);line-height:1.6}
-
-/* Architecture layers */
-.arch-layer{border:1px solid var(--border);border-radius:10px;padding:16px;margin:8px 0;text-align:center}
-.arch-layer.l1{border-color:rgba(212,168,83,0.3);background:rgba(212,168,83,0.05)}
-.arch-layer.l2{border-color:rgba(91,158,207,0.3);background:rgba(91,158,207,0.05)}
-.arch-layer.l3{border-color:rgba(232,115,74,0.3);background:rgba(232,115,74,0.05)}
-.arch-layer.l4{border-color:rgba(111,191,124,0.3);background:rgba(111,191,124,0.05)}
-.arch-sub{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:6px;margin-top:8px}
-.arch-sub div{background:rgba(255,255,255,0.03);border-radius:6px;padding:8px;font-size:0.75rem}
-
-/* Toast */
-.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;padding:10px 24px;border-radius:24px;font-size:0.85rem;font-weight:600;z-index:60;opacity:0;transition:all 0.3s;pointer-events:none}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(-8px)}
-
-/* Probability grid */
-.poss-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-.poss-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;padding:12px;cursor:pointer;transition:all 0.2s}
-.poss-card:hover{border-color:rgba(212,168,83,0.3)}
-.poss-card.sel{border-color:var(--gold);background:rgba(212,168,83,0.08)}
-.poss-card .pc-icon{font-size:1.2rem;margin-bottom:4px}
-.poss-card .pc-title{font-weight:700;font-size:0.82rem}
-.poss-card .pc-desc{font-size:0.72rem;color:var(--text-dim);margin-top:2px}
+/* Possibilities */
+.poss{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.pc{background:var(--bg2);border:2px solid transparent;border-radius:var(--radius-sm);padding:12px;cursor:pointer;transition:all 0.2s}
+.pc:hover{border-color:var(--blue)}
+.pc.sel{border-color:var(--green);background:rgba(68,167,53,0.06)}
+.pc .pc-i{font-size:1.3rem;margin-bottom:3px}
+.pc .pc-t{font-weight:700;font-size:0.78rem}
+.pc .pc-d{font-size:0.68rem;color:var(--text2);margin-top:1px}
 
 /* Timeline */
-.tl{position:relative;padding-left:22px;margin:8px 0}
-.tl::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:var(--border)}
-.tl-item{position:relative;padding:6px 0 14px}
-.tl-dot{position:absolute;left:-19px;top:10px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
-.tl-date{font-size:0.7rem;color:var(--text-dim)}
-.tl-text{font-size:0.8rem;color:var(--text);margin-top:1px}
+.tl{position:relative;padding-left:20px;margin:6px 0}
+.tl::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:var(--border)}
+.tl-i{position:relative;padding:5px 0 12px}
+.tl-d{position:absolute;left:-17px;top:9px;width:8px;height:8px;border-radius:50%;background:var(--green)}
+.tl-date{font-size:0.66rem;color:var(--text2);font-weight:600}
+.tl-text{font-size:0.78rem;margin-top:1px}
+
+/* Overlay for Team/Arch */
+.ovl{position:fixed;z-index:50;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.ovl.on{opacity:1;pointer-events:all}
+.ovl-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:640px;width:94%;max-height:82vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.ovl-card h2{font-size:1.2rem;font-weight:700;margin-bottom:14px}
+.ovl-card .close{float:right;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.ovl-card .close:hover{border-color:var(--red);color:var(--red)}
+
+/* Toast */
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 22px;border-radius:24px;font-size:0.85rem;font-weight:700;z-index:60;opacity:0;transition:all 0.3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-6px)}
+
+/* Tooltip */
+.tt{position:fixed;z-index:25;pointer-events:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px 14px;font-size:0.8rem;box-shadow:var(--shadow);opacity:0;transition:opacity 0.2s;max-width:200px}
+.tt.on{opacity:1}
+.tt .ttn{font-weight:700}
+.tt .ttd{font-size:0.7rem;color:var(--text2);margin-top:2px}
+
+/* Legend */
+.leg{position:fixed;z-index:15;left:14px;top:76px;display:flex;flex-direction:column;gap:5px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;box-shadow:var(--shadow)}
+.leg-i{display:flex;align-items:center;gap:7px;font-size:0.68rem;color:var(--text2);font-weight:500}
+.leg-d{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 
 @media(max-width:640px){
-  .panel{right:4px;top:60px;width:calc(100vw-8px)}
-  .cycle-nav{bottom:8px;gap:0}
-  .cy-btn{padding:6px 10px;font-size:10px}
-  .leg{display:none}
+  .pnl{right:4px;top:64px;width:calc(100vw-8px);border-radius:var(--radius-sm)}
+  .cyc-btn{padding:5px 8px;font-size:10px}
+  .hdr{padding:0 10px}
   .hdr-btn{padding:5px 10px;font-size:10px}
+  .logo{font-size:0.85rem}
+  .leg{display:none}
+  .poss{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<canvas id="garden"></canvas>
-
 <header class="hdr">
-  <div class="logo" onclick="resetView()">
-    <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="none" stroke="var(--gold)" stroke-width="1.5"/><circle cx="16" cy="10" r="3" fill="var(--gold)"/><line x1="16" y1="13" x2="16" y2="24" stroke="var(--gold)" stroke-width="1.5"/></svg>
-    FASKA <span>Invaria 2</span>
-  </div>
-  <div class="hdr-actions">
-    <button class="hdr-btn active" onclick="switchWorld('garden')">🌱 Garten</button>
-    <button class="hdr-btn" onclick="switchWorld('team')">👥 Team</button>
-    <button class="hdr-btn" onclick="switchWorld('arch')">🏗️ Architektur</button>
-    <button class="hdr-btn" onclick="exportJSON()">📥 Export</button>
+  <a class="logo" onclick="resetAll()" style="cursor:pointer">
+    <img src="faska-logo-official.svg" alt="FASKA" style="width:32px;height:auto" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+    <span style="display:none">🌱</span>
+    FASKA Invaria 2
+  </a>
+  <div class="hdr-r">
+    <button class="hdr-btn active" onclick="world('garden')">🌱 Garten</button>
+    <button class="hdr-btn" onclick="world('team')">👥 Team</button>
+    <button class="hdr-btn" onclick="world('arch')">🏗️ Architektur</button>
+    <button class="hdr-btn" onclick="exportJSON()">📥</button>
+    <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
   </div>
 </header>
 
+<div class="cyc" id="cycleNav">
+  <button class="cyc-btn active" data-step="encounter">Begegnung</button>
+  <button class="cyc-btn" data-step="trace">Spur</button>
+  <button class="cyc-btn" data-step="meaning">Bedeutung</button>
+  <button class="cyc-btn" data-step="possibility">Möglichkeit</button>
+  <button class="cyc-btn" data-step="action">Handlung</button>
+  <button class="cyc-btn" data-step="return">neue Begegnung</button>
+</div>
+
 <div class="leg">
-  <div class="leg-item"><span class="leg-dot" style="background:var(--gold)"></span>Lernspur / Begegnung</div>
-  <div class="leg-item"><span class="leg-dot" style="background:var(--water)"></span>Verbindung / Bedeutung</div>
-  <div class="leg-item"><span class="leg-dot" style="background:var(--bloom)"></span>Möglichkeit / Wirkung</div>
-  <div class="leg-item"><span class="leg-dot" style="background:var(--leaf-light)"></span>Entwicklungsknoten</div>
+  <div class="leg-i"><span class="leg-d" style="background:var(--blue)"></span>Mathematik</div>
+  <div class="leg-i"><span class="leg-d" style="background:var(--red)"></span>Sprache</div>
+  <div class="leg-i"><span class="leg-d" style="background:var(--orange)"></span>Problemlösen</div>
+  <div class="leg-i"><span class="leg-d" style="background:var(--green)"></span>Soziales</div>
+  <div class="leg-i"><span class="leg-d" style="background:var(--yellow)"></span>Kreativität</div>
 </div>
 
-<div class="cycle-nav" id="cycleNav">
-  <button class="cy-btn active" data-step="encounter">Begegnung</button>
-  <button class="cy-btn" data-step="trace">Spur</button>
-  <button class="cy-btn" data-step="meaning">Bedeutung</button>
-  <button class="cy-btn" data-step="possibility">Möglichkeit</button>
-  <button class="cy-btn" data-step="action">Handlung</button>
-  <button class="cy-btn" data-step="return">neue Begegnung</button>
-</div>
-
-<div class="panel" id="panel"><div class="panel-inner" id="panelContent"></div></div>
+<div class="pnl" id="panel"><div class="pnl-in" id="panelContent"></div></div>
 <div class="tt" id="tt"><div class="ttn" id="ttn"></div><div class="ttd" id="ttd"></div></div>
-
-<div class="overlay" id="overlayTeam"><div class="overlay-card" id="overlayTeamContent"></div></div>
-<div class="overlay" id="overlayArch"><div class="overlay-card" id="overlayArchContent"></div></div>
+<div class="ovl" id="overlayTeam"><div class="ovl-card" id="overlayTeamContent"></div></div>
+<div class="ovl" id="overlayArch"><div class="ovl-card" id="overlayArchContent"></div></div>
 <div class="toast" id="toast"></div>
 
 <script>
-// ═══════════════ DATA — Lena-Fall + Repo-Daten ═══════════════
-const D = {
-  child: { id:'SYN-K07', name:'Lena', pseudonym:'Lena Morgenfeder', age:7 },
-  traces: [
-    { id:'t1', date:'Oktober 2025', title:'Türme stapeln', text:'Lena stapelt Holzklötze zu Türmen, vergleicht Höhen („meiner ist höher"). Erstes dokumentiertes Vergleichen ohne Messwerkzeug.', place:'Konstruktionsecke', observer:'Frau Meier' },
-    { id:'t2', date:'Dezember 2025', title:'Backen mit der Gruppe', text:'„Wir brauchen mehr Mehl, der Teig ist zu klebrig." — Mengenvergleich mit Handlungsfolge.', place:'Schulküche', observer:'Frau Meier' },
-    { id:'t3', date:'14. März 2026', title:'Stallbox passt nicht', text:'Lena baut in der Konstruktionsecke einen Pferdestall aus Holzklötzen. Nach etwa zehn Minuten bemerkt sie, dass die Stallbox zu klein für das Holz-Pferd ist. Sie hält das Pferd neben die Box, vergleicht die Längen mit der Hand, runzelt die Stirn. Dann nimmt sie vier weitere Klötze, verlängert eine Seitenwand und testet erneut. Sie wiederholt den Vorgang dreimal, bis das Pferd hineinpasst. Anschließend baut sie eine zweite Box daneben und vergleicht beide Boxen: „Diese hier ist größer, weil das braune Pferd dicker ist."', place:'Konstruktionsecke', observer:'Frau Meier', medium:'Sprachnotiz + Foto', childVoice:'„Das geht nicht" — „Diese hier ist größer, weil das braune Pferd dicker ist."', childVoiceMissing:'Kind-Perspektive nicht erhoben — keine Rückfrage, was Lena dachte oder fühlte' },
-    { id:'t4', date:'28. März 2026', title:'Bandmaß-Messung', text:'Lena nimmt ein Bandmaß aus dem Werkzeugkorb. Sie misst die Länge des Holz-Pferds: „Das Pferd ist sieben, der Stall muss acht sein." Sie überträgt das Maß auf die neue Box. Erste dokumentierte Verwendung eines standardisierten Messwerkzeugs mit Zahlbegriff.', place:'Werkstattraum', observer:'Frau Meier' },
+// ═══════════════ DATA ═══════════════
+const D={
+  traces:[
+    {id:'t1',date:'Okt 2025',title:'Türme stapeln',text:'Lena stapelt Holzklötze zu Türmen, vergleicht Höhen („meiner ist höher"). Erstes dokumentiertes Vergleichen ohne Messwerkzeug.'},
+    {id:'t2',date:'Dez 2025',title:'Backen',text:'„Wir brauchen mehr Mehl, der Teig ist zu klebrig." — Mengenvergleich mit Handlungsfolge.'},
+    {id:'t3',date:'14. März 2026',title:'Stallbox passt nicht',text:'Lena baut einen Pferdestall. Die Box ist zu klein. Sie vergleicht mit der Hand, verlängert die Wand, testet dreimal. „Diese hier ist größer, weil das braune Pferd dicker ist."'},
+    {id:'t4',date:'28. März 2026',title:'Bandmaß-Messung',text:'Nimmt Bandmaß: „Das Pferd ist sieben, der Stall muss acht sein." Erste Messwerkzeug-Nutzung mit Zahlbegriff.'},
   ],
-  plants: [
-    { id:'math', x:0.28, y:0.36, r:42, color:'#d4a853', glow:'rgba(212,168,83,0.35)', name:'Größen & Messen', domain:'Mathematik', phase:'bloom', traceIds:['t1','t3','t4'] },
-    { id:'lang', x:0.52, y:0.30, r:34, color:'#5b9ecf', glow:'rgba(91,158,207,0.3)', name:'Sprache & Ausdruck', domain:'Sprache', phase:'growing', traceIds:['t3'] },
-    { id:'social', x:0.74, y:0.44, r:28, color:'#6fbf7c', glow:'rgba(111,191,124,0.3)', name:'Miteinander', domain:'Soziales', phase:'seedling', traceIds:[] },
-    { id:'creative', x:0.62, y:0.60, r:30, color:'#a87dc2', glow:'rgba(168,125,194,0.3)', name:'Bauen & Gestalten', domain:'Kreativität', phase:'budding', traceIds:['t3'] },
-    { id:'problem', x:0.38, y:0.62, r:38, color:'#e8734a', glow:'rgba(232,115,74,0.3)', name:'Problemlösen', domain:'Überfachlich', phase:'bloom', traceIds:['t1','t2','t3'] },
+  plants:[
+    {id:'math',x:0.28,y:0.36,r:48,color:[61,166,218],name:'Größen & Messen',domain:'Mathematik',phase:'bloom',traceIds:['t1','t3','t4']},
+    {id:'lang',x:0.54,y:0.30,r:40,color:[189,24,42],name:'Sprache & Ausdruck',domain:'Sprache',phase:'growing',traceIds:['t3']},
+    {id:'social',x:0.74,y:0.44,r:34,color:[68,167,53],name:'Miteinander',domain:'Soziales',phase:'seedling',traceIds:[]},
+    {id:'creative',x:0.60,y:0.60,r:36,color:[255,206,5],name:'Bauen & Gestalten',domain:'Kreativität',phase:'budding',traceIds:['t3']},
+    {id:'problem',x:0.38,y:0.62,r:44,color:[226,94,43],name:'Problemlösen',domain:'Überfachlich',phase:'bloom',traceIds:['t1','t2','t3']},
   ],
-  reviews: [
-    { id:'r1', title:'Mathematik: Größen & Messen', text:'Die dokumentierte Veränderung der Boxengröße kann als mögliche Anschlussstelle zu „Größen und Messen" geprüft werden.', evidence:'Direkter Längenvergleich (Pferd–Box), iteratives Anpassen (3 Durchläufe), vergleichende Aussage („größer weil dicker").', boundary:'Kein Gebrauch standardisierter Einheiten zum Zeitpunkt der Beobachtung. Kein Zahlbegriff dokumentiert.', status:'unpr', refId:'math' },
-    { id:'r2', title:'Sprache: Begründen & Beschreiben', text:'Formulierung einer sprachlich komplexen Begründung (Komparativ + Kausalanschluss) im Handlungskontext.', evidence:'„Diese hier ist größer, weil das braune Pferd dicker ist." — vollständiger Kausalsatz.', boundary:'Einzeläußerung, keine dokumentierte Gesprächssequenz. Kein schriftlicher Ausdruck.', status:'unpr', refId:'lang' },
-    { id:'r3', title:'⚠️ Identitätszuschreibung (KI-Fehler)', text:'„Lena zeigt ausgeprägtes mathematisch-analytisches Talent und eine für ihr Alter ungewöhnliche Problemlösekompetenz."', evidence:'Keine ausreichende Evidenz. Eine einzelne Lernspur belegt keine stabile Eigenschaft.', boundary:'Dies ist eine Identitätszuschreibung, keine Spurenauswertung. Das System darf keine Eigenschaften zuschreiben.', status:'unpr', refId:null },
-    { id:'r4', title:'Problemlösen: Iteration & Selbstkorrektur', text:'Dreimaliger Zyklus aus Testen→Anpassen→Prüfen. Selbständige Korrektur ohne Hilfeanfrage.', evidence:'Drei dokumentierte Durchläufe in einer einzelnen Bausituation. Später erweiterte Messhandlung mit Bandmaß.', boundary:'Kein Beleg für Übertragbarkeit auf andere Kontexte außerhalb von Bausituationen.', status:'unpr', refId:'problem' },
+  cons:[[0,1,0.6],[0,4,0.9],[1,3,0.4],[4,2,0.5],[3,0,0.3]],
+  reviews:[
+    {id:'r1',title:'Mathematik: Größen & Messen',text:'Die Veränderung der Boxengröße als Anschlussstelle zu „Größen und Messen" prüfen.',evidence:'Direkter Längenvergleich, iteratives Anpassen (3×), vergleichende Aussage.',boundary:'Kein Messwerkzeug. Kein Zahlbegriff zum Zeitpunkt der Beobachtung.',status:'unpr',ref:'math'},
+    {id:'r2',title:'Sprache: Begründen & Beschreiben',text:'Sprachlich komplexe Begründung (Komparativ + Kausalanschluss) im Handlungskontext.',evidence:'„Diese hier ist größer, weil das braune Pferd dicker ist." — vollständiger Kausalsatz.',boundary:'Einzeläußerung. Kein schriftlicher Ausdruck.',status:'unpr',ref:'lang'},
+    {id:'r3',title:'⚠️ Identitätszuschreibung (KI-Fehler)',text:'„Lena zeigt ausgeprägtes mathematisch-analytisches Talent."',evidence:'Keine ausreichende Evidenz. Eine Lernspur ≠ stabile Eigenschaft.',boundary:'Dies ist eine Identitätszuschreibung, keine Spurenauswertung. Das System darf keine Eigenschaften zuschreiben.',status:'unpr',ref:null},
+    {id:'r4',title:'Problemlösen: Iteration & Selbstkorrektur',text:'Dreimaliger Zyklus Testen→Anpassen→Prüfen. Selbstkorrektur ohne Hilfe.',evidence:'Drei dokumentierte Durchläufe. Später erweiterte Messhandlung mit Bandmaß.',boundary:'Kein Beleg für Übertragbarkeit außerhalb von Bausituationen.',status:'unpr',ref:'problem'},
   ],
-  possibilities: [
-    { id:'p1', icon:'📏', title:'Größenvergleich mit Alltagsobjekten', desc:'Verschiedene Gefäße, Schnüre, Naturmaterialien zum direkten Vergleichen anbieten' },
-    { id:'p2', icon:'💬', title:'Nachbefragung: „Was war schwierig?"', desc:'Die fehlende Kind-Perspektive einholen — Lenas eigene Sicht auf die Herausforderung' },
-    { id:'p3', icon:'✏️', title:'Schreibanregung: Bauplan', desc:'Lena zeichnet und beschreibt ihren Stall — sprachliche Dokumentation der Konstruktion' },
-    { id:'p4', icon:'📐', title:'Individualisiertes Arbeitsblatt', desc:'Aus der Lernsituation abgeleitet: „Welches Tier passt in welche Box?"' },
-    { id:'p5', icon:'🤝', title:'Partnerarbeit: Stall für zwei', desc:'Mit einem anderen Kind gemeinsam planen und bauen — soziales Problemlösen' },
-    { id:'p6', icon:'🌱', title:'Nicht intervenieren', desc:'Bewusst abwarten — die Lernspur wirken lassen, ohne sofort zu handeln' },
+  possibilities:[
+    {id:'p1',icon:'📏',title:'Alltagsobjekte vergleichen',desc:'Gefäße, Schnüre, Naturmaterialien'},
+    {id:'p2',icon:'💬',title:'Nachbefragung',desc:'„Was war schwierig?" — Kind-Perspektive einholen'},
+    {id:'p3',icon:'✏️',title:'Bauplan zeichnen',desc:'Konstruktion sprachlich dokumentieren'},
+    {id:'p4',icon:'📐',title:'Arbeitsblatt',desc:'„Welches Tier passt in welche Box?"'},
+    {id:'p5',icon:'🤝',title:'Partnerarbeit',desc:'Gemeinsam planen und bauen'},
+    {id:'p6',icon:'🌱',title:'Nicht intervenieren',desc:'Lernspur wirken lassen'},
   ],
-  team: [
-    { name:'Frau Meier', role:'Klassenlehrerin', take:'„Lena hat sich auch in anderen Bausituationen stark auf Größenvergleiche konzentriert. Ich sehe hier ein wachsendes Interesse am Messen. Allerdings arbeitet sie selten in Partnerarbeit — das wäre eine mögliche Entwicklungsrichtung."', status:'Autorisiert' },
-    { name:'Herr Yılmaz', role:'Kunstpädagoge', take:'„Die dreimalige Wiederholung ist auch eine ästhetische Suche — Lena will nicht nur, dass es passt, sondern dass es ‚richtig' aussieht. Die zweite Box ist symmetrisch zur ersten angeordnet."', status:'Alternative Perspektive' },
-    { name:'Herr Schneider', role:'Schulsozialarbeit', take:'„Ich sehe in dieser Situation kein mathematisches, sondern ein soziales Phänomen: Lena hat die gesamte Bauzeit über keinen anderen Kindern Zugang zu ‚ihrem' Baumaterial gewährt. Die Frage ist nicht nur, was sie lernt — sondern unter welchen sozialen Bedingungen."', status:'Widerspruch' },
+  team:[
+    {name:'Frau Meier',role:'Klassenlehrerin',text:'„Lena konzentriert sich stark auf Größenvergleiche — wachsendes Interesse am Messen. Arbeitet selten in Partnerarbeit."',status:'Autorisiert',color:'var(--green)'},
+    {name:'Herr Yılmaz',role:'Kunstpädagoge',text:'„Die dreimalige Wiederholung ist ästhetische Suche. Die zweite Box ist symmetrisch zur ersten — es geht um ‚richtig aussehen\', nicht nur um Passform."',status:'Alternativ',color:'var(--orange)'},
+    {name:'Herr Schneider',role:'Schulsozialarbeit',text:'„Kein mathematisches, sondern ein soziales Phänomen: Lena gewährt anderen keinen Zugang zum Baumaterial. Unter welchen sozialen Bedingungen lernt sie?"',status:'Widerspruch',color:'var(--red)'},
   ]
 };
 
-// ═══════════════ CANVAS ENGINE ═══════════════
-const cv=document.getElementById('garden'),ctx=cv.getContext('2d');
-let W,H,DPR,t=0,activeStep='encounter',hovered=null,selectedPlant=null,currentWorld='garden';
+// ═══════════════ STATE ═══════════════
+let hovered=null, selected=null, activeStep='encounter', selPoss=null, dark=false;
 
-const cycleNodes=[
-  {label:'Begegnung',x:0.15,y:0.2},{label:'Spur',x:0.35,y:0.15},
-  {label:'Bedeutung',x:0.55,y:0.15},{label:'Möglichkeit',x:0.72,y:0.22},
-  {label:'Handlung',x:0.78,y:0.42},{label:'neue Begegnung',x:0.7,y:0.68},
-];
+// ═══════════════ P5 GARDEN ═══════════════
+const sketch=p=>{
+  const particles=[],N=80;
+  const cycleNodes=[{l:'Begegnung',x:.15,y:.18},{l:'Spur',x:.35,y:.13},{l:'Bedeutung',x:.55,y:.13},{l:'Möglichkeit',x:.74,y:.20},{l:'Handlung',x:.80,y:.44},{l:'neue Begegnung',x:.70,y:.68}];
+  for(let i=0;i<N;i++)particles.push({t:i/N,sp:.00015+Math.random()*.00035,sz:1.5+Math.random()*3,off:(Math.random()-.5)*.05});
+  function cr(p0,p1,p2,p3,t){const t2=t*t,t3=t2*t;return{x:.5*((2*p1.x)+(-p0.x+p2.x)*t+(2*p0.x-5*p1.x+4*p2.x-p3.x)*t2+(-p0.x+3*p1.x-3*p2.x+p3.x)*t3),y:.5*((2*p1.y)+(-p0.y+p2.y)*t+(2*p0.y-5*p1.y+4*p2.y-p3.y)*t2+(-p0.y+3*p1.y-3*p2.y+p3.y)*t3)}}
+  function cPos(t){const n=cycleNodes.length,seg=t*n,i=Math.floor(seg)%n,f=seg-Math.floor(seg);return cr(cycleNodes[(i-1+n)%n],cycleNodes[i],cycleNodes[(i+1)%n],cycleNodes[(i+2)%n],f)}
 
-const particles=[];
-for(let i=0;i<70;i++)particles.push({t:i/70,sp:0.0002+Math.random()*0.0005,sz:1+Math.random()*3,off:(Math.random()-0.5)*0.06});
+  p.setup=()=>{
+    p.createCanvas(1,1);p.pixelDensity(1);p.colorMode(p.HSB,360,100,100,100);resizeCanvas();
+  };
 
-function cr(p0,p1,p2,p3,t){const t2=t*t,t3=t2*t;return{x:.5*((2*p1.x)+(-p0.x+p2.x)*t+(2*p0.x-5*p1.x+4*p2.x-p3.x)*t2+(-p0.x+3*p1.x-3*p2.x+p3.x)*t3),y:.5*((2*p1.y)+(-p0.y+p2.y)*t+(2*p0.y-5*p1.y+4*p2.y-p3.y)*t2+(-p0.y+3*p1.y-3*p2.y+p3.y)*t3)}}
-function cyclePos(t){const n=cycleNodes.length,seg=t*n,i=Math.floor(seg)%n,f=seg-Math.floor(seg);return cr(cycleNodes[(i-1+n)%n],cycleNodes[i],cycleNodes[(i+1)%n],cycleNodes[(i+2)%n],f)}
+  function resizeCanvas(){const w=window.innerWidth,h=window.innerHeight-108;p.resizeCanvas(w,h)}
 
-const cons=[[0,1,0.6],[0,4,0.9],[1,3,0.4],[4,2,0.5],[3,0,0.3]];
+  p.draw=()=>{
+    const W=p.width,H=p.height;
+    const bg=dark?[40,10,12]:[42,12,97];
+    p.background(bg);
 
-function resize(){DPR=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;cv.style.width=W+'px';cv.style.height=H+'px';ctx.setTransform(DPR,0,0,DPR,0,0)}
-addEventListener('resize',resize);resize();
+    // Soil gradient
+    for(let i=0;i<H;i++){const a=p.map(i,0,H,1,0.5);p.stroke(bg[0],bg[1],bg[2]*a);p.line(0,i,W,i)}
 
-function draw(){
-  ctx.clearRect(0,0,W,H);
-  // Sky/soil
-  const g=ctx.createRadialGradient(W*.5,H*.35,0,W*.5,H*.5,Math.max(W,H)*.7);
-  g.addColorStop(0,'#182018');g.addColorStop(.5,'#101510');g.addColorStop(1,'#090d09');
-  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    // Connections
+    D.cons.forEach(c=>{
+      const a=D.plants[c[0]],b=D.plants[c[1]];if(!a||!b)return;
+      const fx=a.x*W,fy=a.y*H, tx=b.x*W,ty=b.y*H;
+      p.stroke(38,15,70,0.12+c[2]*0.1);p.strokeWeight(1+c[2]);p.drawingContext.setLineDash([6,10]);
+      p.noFill();p.beginShape();p.vertex(fx,fy);
+      const mx=(fx+tx)/2,my=(fy+ty)/2-35;
+      p.quadraticVertex(mx,my,tx,ty);p.endShape();
+      p.drawingContext.setLineDash([]);
+      p.fill(42,70,80,0.12+0.08*p.sin(p.millis()*0.001+c[2]*3));p.noStroke();p.circle(mx,my,3);
+    });
 
-  // Soil dots
-  ctx.fillStyle='rgba(30,36,24,.2)';
-  for(let i=0;i<35;i++){ctx.beginPath();ctx.arc((i*173+41)%W,(i*257+83)%H,.8+(i%3),0,Math.PI*2);ctx.fill()}
+    // Plants
+    D.plants.forEach(pl=>{
+      const px=pl.x*W,py=pl.y*H,r=pl.r;
+      const pulse=1+0.03*p.sin(p.millis()*0.002+pl.x*8);
+      const sel=pl===selected,hov=pl===hovered;
 
-  // Connections
-  cons.forEach(c=>{const a=D.plants[c[0]],b=D.plants[c[1]];if(!a||!b)return;ctx.strokeStyle=`rgba(255,255,255,${.04+c[2]*.1})`;ctx.lineWidth=1+c[2];ctx.setLineDash([4,8]);ctx.beginPath();ctx.moveTo(a.x*W,a.y*H-a.r);ctx.quadraticCurveTo((a.x+b.x)*W/2,(a.y+b.y)*H/2-40,b.x*W,b.y*H-b.r);ctx.stroke();ctx.setLineDash([]);
-    const mx=(a.x+b.x)*W/2,my=(a.y+b.y)*H/2-40;ctx.fillStyle=`rgba(212,168,83,${.15+.1*Math.sin(t*2+c[2]*5)})`;ctx.beginPath();ctx.arc(mx,my,2,0,Math.PI*2);ctx.fill()});
+      // Roots
+      p.stroke(28,20,50,0.15);p.strokeWeight(1);
+      for(let i=0;i<4;i++){const a=-0.35+i*0.22,len=r*(0.5+i*0.18);p.line(px,py+r*0.25,px+p.cos(a)*len,py+r*0.25+len*0.7)}
 
-  // Plants
-  D.plants.forEach(p=>{
-    const px=p.x*W,py=p.y*H,r=p.r,pulse=1+.04*Math.sin(t*2+p.x*10);
-    const sel=p===selectedPlant,hov=p===hovered;
-    // Roots
-    ctx.strokeStyle='rgba(90,70,50,.15)';ctx.lineWidth=1;
-    for(let i=0;i<4;i++){const a=-.4+i*.26,len=r*(.5+i*.2);ctx.beginPath();ctx.moveTo(px,py+r*.3);ctx.quadraticCurveTo(px+Math.cos(a)*len*.4,py+r*.3+len*.4,px+Math.cos(a)*len,py+r*.3+len);ctx.stroke()}
-    // Stem
-    const sh=r*(1+.5*(p.phase==='seedling'?.3:p.phase==='growing'?.6:p.phase==='budding'?.8:1));
-    ctx.strokeStyle=p.color;ctx.lineWidth=sel?4:3;ctx.lineCap='round';
-    ctx.beginPath();ctx.moveTo(px,py+r*.2);ctx.quadraticCurveTo(px-5,py-sh*.5,px,py-sh);ctx.stroke();
-    // Leaves
-    const lc=p.phase==='seedling'?2:p.phase==='growing'?3:p.phase==='budding'?4:5;
-    for(let i=0;i<lc;i++){const ly=py-sh*(.3+i*.15),side=i%2===0?1:-1;ctx.fillStyle='rgba(74,143,92,.45)';ctx.beginPath();ctx.ellipse(px+side*14,ly,10,5,side*.3,0,Math.PI*2);ctx.fill()}
-    // Bloom
-    const br=r*(p.phase==='bloom'?.5:p.phase==='budding'?.25:p.phase==='growing'?.15:.08),by=py-sh;
-    const gg=ctx.createRadialGradient(px,by,0,px,by,br*2.5*pulse);gg.addColorStop(0,p.glow);gg.addColorStop(1,'transparent');ctx.fillStyle=gg;ctx.beginPath();ctx.arc(px,by,br*2.5*pulse,0,Math.PI*2);ctx.fill();
-    const pc=p.phase==='bloom'?8:5;
-    for(let i=0;i<pc;i++){const a=(i/pc)*Math.PI*2+t*.3,pr=br*.7*pulse;ctx.fillStyle=p.color;ctx.globalAlpha=sel?1:.8;ctx.beginPath();ctx.arc(px+Math.cos(a)*pr*.6,by+Math.sin(a)*pr*.6,pr*.45,0,Math.PI*2);ctx.fill()}
-    ctx.globalAlpha=1;ctx.fillStyle='#f0ebe0';ctx.beginPath();ctx.arc(px,by,br*.3,0,Math.PI*2);ctx.fill();
-    // Label
-    ctx.fillStyle=sel?'#f0ebe0':hov?'rgba(200,195,185,.9)':'rgba(180,175,165,.6)';ctx.font=`${sel?11:10}px var(--font)`;ctx.textAlign='center';ctx.fillText(p.name,px,py+r+16);
-    // Selection ring
-    if(sel){ctx.strokeStyle=p.color;ctx.lineWidth=2;ctx.setLineDash([3,3]);ctx.beginPath();ctx.arc(px,py,r+12,0,Math.PI*2);ctx.stroke();ctx.setLineDash([])}
-  });
+      // Stem
+      const sh=r*(1+0.5*(pl.phase==='seedling'?0.3:pl.phase==='growing'?0.6:pl.phase==='budding'?0.8:1));
+      p.stroke(pl.color[0],35,65);p.strokeWeight(sel?5:3.5);
+      p.noFill();p.beginShape();p.vertex(px,py+r*0.2);p.quadraticVertex(px-4,py-sh*0.5,px,py-sh);p.endShape();
 
-  // Cycle
-  ctx.strokeStyle='rgba(212,168,83,.12)';ctx.lineWidth=2;ctx.setLineDash([8,16]);ctx.beginPath();
-  for(let i=0;i<=1;i+=.005){const p=cyclePos(i);(i===0)?ctx.moveTo(p.x*W,p.y*H):ctx.lineTo(p.x*W,p.y*H)}ctx.stroke();ctx.setLineDash([]);
+      // Leaves
+      const lc=pl.phase==='seedling'?2:pl.phase==='growing'?3:pl.phase==='budding'?4:6;
+      for(let i=0;i<lc;i++){const ly=py-sh*(0.28+i*0.14),side=i%2===0?1:-1;p.fill(120,50,60,0.35);p.noStroke();p.ellipse(px+side*15,ly,20,9)}
+      // Bloom
+      const br=r*(pl.phase==='bloom'?0.5:pl.phase==='budding'?0.28:pl.phase==='growing'?0.18:0.1),by=py-sh;
+      const glowR=br*2.8*pulse;
+      for(let g=3;g>0;g--){p.fill(pl.color[0],50,90,0.08/g);p.noStroke();p.circle(px,by,glowR*g)}
+      const pc=pl.phase==='bloom'?8:5;
+      for(let i=0;i<pc;i++){const a=p.TWO_PI*i/pc+p.millis()*0.0004,pr=br*0.7*pulse;p.fill(pl.color[0],60,85,sel?1:0.8);p.noStroke();p.circle(px+p.cos(a)*pr*0.55,by+p.sin(a)*pr*0.55,pr*0.8)}
+      p.fill(42,10,95);p.noStroke();p.circle(px,by,br*0.3);
 
-  particles.forEach(p=>{p.t=(p.t+p.sp)%1;const pos=cyclePos(p.t);const px=pos.x*W+p.off*W,py=pos.y*H+p.off*H;
-    const a=.2+.35*Math.sin(t*3+p.t*20);ctx.fillStyle=`rgba(212,168,83,${a})`;ctx.shadowColor=`rgba(212,168,83,${a})`;ctx.shadowBlur=8;ctx.beginPath();ctx.arc(px,py,p.sz,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0});
+      // Label
+      p.textAlign(p.CENTER);p.textSize(sel?11.5:10.5);
+      p.fill(sel?'#fff':hov?'rgba(255,255,255,0.85)':'rgba(255,255,255,0.5)');
+      p.text(pl.name,px,py+r+18);
 
-  cycleNodes.forEach((n,i)=>{const px=n.x*W,py=n.y*H;const isA=activeStep===['encounter','trace','meaning','possibility','action','return'][i];
-    ctx.fillStyle=isA?'#d4a853':'rgba(212,168,83,.25)';ctx.beginPath();ctx.arc(px,py,isA?6:4,0,Math.PI*2);ctx.fill();
-    if(isA){ctx.fillStyle='rgba(212,168,83,.25)';ctx.beginPath();ctx.arc(px,py,14,0,Math.PI*2);ctx.fill()}
-    ctx.fillStyle=isA?'#f0ebe0':'rgba(180,175,165,.45)';ctx.font=`${isA?11:10}px var(--font)`;ctx.textAlign='center';ctx.fillText(n.label,px,py-14)});
-  t+=.016;
-}
+      // Selection ring
+      if(sel){p.stroke(pl.color[0],80,90);p.strokeWeight(2.5);p.noFill();p.drawingContext.setLineDash([4,4]);p.circle(px,py,r+14);p.drawingContext.setLineDash([])}
+    });
 
-// ═══════════════ INTERACTION ═══════════════
-let mx=0,my=0;
-cv.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;let f=null;D.plants.forEach(p=>{const dx=e.clientX-p.x*W,dy=e.clientY-p.y*H;if(Math.sqrt(dx*dx+dy*dy)<p.r+15)f=p});if(f!==hovered){hovered=f;cv.style.cursor=f?'pointer':'default';const tt=document.getElementById('tt');if(f){document.getElementById('ttn').textContent=f.name;document.getElementById('ttd').textContent=`${f.domain} · ${f.traceIds.length} Lernspur${f.traceIds.length!==1?'en':''} · ${f.phase==='bloom'?'blühend':f.phase==='budding'?'knospend':f.phase==='growing'?'wachsend':'Keimling'}`;tt.style.left=(e.clientX+20)+'px';tt.style.top=(e.clientY-60)+'px';tt.classList.add('on')}else tt.classList.remove('on')}});
-cv.addEventListener('click',()=>{if(hovered){selectedPlant=hovered;openPlantDetail(hovered)}});
+    // Cycle path
+    p.stroke(42,60,85,0.15);p.strokeWeight(2.5);p.noFill();p.drawingContext.setLineDash([6,14]);
+    p.beginShape();
+    for(let i=0;i<=1;i+=0.004){const pos=cPos(i);p.vertex(pos.x*W,pos.y*H)}p.endShape();
+    p.drawingContext.setLineDash([]);
+
+    // Cycle particles
+    particles.forEach(pt=>{pt.t=(pt.t+pt.sp)%1;const pos=cPos(pt.t);const px=pos.x*W+pt.off*W,py=pos.y*H+pt.off*H;
+      p.fill(42,80,95,0.2+0.3*p.sin(p.millis()*0.003+pt.t*15));p.noStroke();p.circle(px,py,pt.sz)});
+
+    // Cycle nodes
+    cycleNodes.forEach((n,i)=>{const px=n.x*W,py=n.y*H;const isA=activeStep===['encounter','trace','meaning','possibility','action','return'][i];
+      p.fill(isA?42:0,isA?80:0,isA?90:60,isA?1:0.25);p.noStroke();p.circle(px,py,isA?6:4);
+      p.textAlign(p.CENTER);p.textSize(isA?10.5:9);p.fill(isA?'#fff':'rgba(255,255,255,0.4)');p.text(n.l,px,py-12)});
+  };
+
+  p.mouseMoved=()=>{
+    const W=p.width,H=p.height;let f=null;
+    D.plants.forEach(pl=>{const dx=p.mouseX-pl.x*W,dy=p.mouseY-pl.y*H;if(p.sqrt(dx*dx+dy*dy)<pl.r+16)f=pl});
+    if(f!==hovered){hovered=f;p.cursor(f?'pointer':'default');
+      const tt=document.getElementById('tt');if(f){document.getElementById('ttn').textContent=f.name;document.getElementById('ttd').textContent=f.domain+' · '+f.traceIds.length+' Lernspur'+(f.traceIds.length!==1?'en':'');tt.style.left=(p.mouseX+18)+'px';tt.style.top=(p.mouseY-50)+'px';tt.classList.add('on')}else tt.classList.remove('on')}
+  };
+
+  p.mouseClicked=()=>{if(hovered){selected=hovered;openDetail(hovered)}}
+  p.windowResized=resizeCanvas;
+};
+
+new p5(sketch);
 
 // ═══════════════ PANEL ═══════════════
-function openPlantDetail(plant){
+function openDetail(plant){
   const traces=D.traces.filter(t=>plant.traceIds.includes(t.id));
-  const reviews=D.reviews.filter(r=>r.refId===plant.id||(r.refId===null&&r.id==='r3'));
-  const panel=document.getElementById('panel'),pc=document.getElementById('panelContent');
+  const reviews=D.reviews.filter(r=>r.ref===plant.id||(r.ref===null&&r.id==='r3'));
+  const pc=document.getElementById('panelContent');
   pc.innerHTML=`
-    <button class="close-btn" onclick="closePanel()">×</button>
+    <button class="close" onclick="closePnl()">×</button>
     <h2>${plant.name}</h2><div class="meta">${plant.domain} · ${traces.length} Lernspuren · ${plant.phase==='bloom'?'🌼 blühend':plant.phase==='budding'?'🌷 knospend':'🌱 wachsend'}</div>
-    <div class="sec"><h3>📋 Lernspuren</h3><div class="tl">${traces.map(t=>`<div class="tl-item"><div class="tl-dot"></div><div class="tl-date">${t.date} · ${t.title}</div><div class="tl-text">${t.text}</div></div>`).join('')}</div></div>
-    ${traces.length===0?`<div class="sec"><p style="color:var(--text-dim);font-style:italic">Noch keine Lernspuren in diesem Bereich dokumentiert. Der Garten zeigt: hier ist Platz für Entwicklung.</p></div>`:''}
-    <div class="sec"><h3>🔗 Bezüge prüfen (KI-Vorschläge)</h3>${reviews.map(r=>`
-      <div class="review-card" id="review-${r.id}">
-        <div class="rc-head"><span class="rc-title">${r.title}</span><span class="rc-status ${r.status==='ok'?'rc-ok':r.status==='lim'?'rc-lim':r.status==='no'?'rc-no':'rc-unpr'}" id="status-${r.id}">${r.status==='ok'?'✓ Tragfähig':r.status==='lim'?'⚠ Begrenzt':r.status==='no'?'✗ Abgelehnt':'ungeprüft'}</span></div>
-        <div class="rc-evidence"><strong>Beleg:</strong> ${r.evidence}</div>
-        <div class="rc-bound">⚠️ <strong>Grenze:</strong> ${r.boundary}</div>
-        <div class="rc-actions">
-          <button class="rc-btn accept" onclick="review('${r.id}','ok')">✓ Tragfähig</button>
-          <button class="rc-btn limit" onclick="review('${r.id}','lim')">⚠ Begrenzt</button>
-          <button class="rc-btn reject" onclick="review('${r.id}','no')">✗ Ablehnen</button>
+    <div class="sec"><h3>📋 Lernspuren</h3><div class="tl">${traces.map(t=>`<div class="tl-i"><div class="tl-d"></div><div class="tl-date">${t.date} · ${t.title}</div><div class="tl-text">${t.text}</div></div>`).join('')}</div></div>
+    ${traces.length===0?`<p style="color:var(--text2);font-style:italic;font-size:0.8rem">Noch keine Lernspuren — hier ist Platz für Entwicklung.</p>`:''}
+    <div class="sec"><h3>🔗 Bezüge prüfen</h3>${reviews.map(r=>`
+      <div class="rc" id="review-${r.id}">
+        <div class="rc-head"><span class="rc-title">${r.title}</span><span class="rc-status rc-st${r.status==='ok'?1:r.status==='lim'?2:r.status==='no'?3:0}" id="status-${r.id}">${r.status==='ok'?'✓ Tragfähig':r.status==='lim'?'⚠ Begrenzt':r.status==='no'?'✗ Abgelehnt':'ungeprüft'}</span></div>
+        <div class="rc-evid"><strong>Beleg:</strong> ${r.evidence}</div>
+        <div class="rc-bound">⚠️ ${r.boundary}</div>
+        <div class="rc-acts">
+          <button class="rc-btn ok" onclick="review('${r.id}','ok')">✓ Tragfähig</button>
+          <button class="rc-btn lim" onclick="review('${r.id}','lim')">⚠ Begrenzt</button>
+          <button class="rc-btn no" onclick="review('${r.id}','no')">✗ Ablehnen</button>
         </div>
-      </div>
-    `).join('')}</div>
-    <div class="sec"><h3>🌿 Nächste Möglichkeiten</h3><div class="poss-grid">${D.possibilities.map(p=>`<div class="poss-card" onclick="selectPoss('${p.id}',this)"><div class="pc-icon">${p.icon}</div><div class="pc-title">${p.title}</div><div class="pc-desc">${p.desc}</div></div>`).join('')}</div></div>
-    <div class="sec" id="selPossSec" style="display:none"><p style="color:var(--gold);font-weight:600">✅ Ausgewählt: <span id="selPossName"></span></p><button class="rc-btn accept" style="margin-top:8px" onclick="prepareAction()">Handlung vorbereiten →</button></div>
+      </div>`).join('')}</div>
+    <div class="sec"><h3>🌿 Möglichkeiten</h3><div class="poss">${D.possibilities.map(p=>`<div class="pc" onclick="pick('${p.id}',this)"><div class="pc-i">${p.icon}</div><div class="pc-t">${p.title}</div><div class="pc-d">${p.desc}</div></div>`).join('')}</div></div>
+    <div id="selSec" style="display:none;margin-top:8px;padding:12px;background:var(--bg2);border-radius:var(--radius-sm)"><strong style="color:var(--green)">✅ Ausgewählt:</strong> <span id="selName"></span><br><button class="rc-btn ok" style="margin-top:6px" onclick="prepare()">Handlung vorbereiten →</button></div>
   `;
-  panel.classList.add('open');
-  selectedPlant=plant;
+  document.getElementById('panel').classList.add('open');
+}
+function closePnl(){document.getElementById('panel').classList.remove('open');selected=null}
+function review(id,st){D.reviews.find(r=>r.id===id).status=st;const el=document.getElementById('status-'+id);el.textContent=st==='ok'?'✓ Tragfähig':st==='lim'?'⚠ Begrenzt':'✗ Abgelehnt';el.className='rc-status rc-st'+(st==='ok'?1:st==='lim'?2:3);toast('Prüfung: '+el.textContent)}
+function pick(id,el){document.querySelectorAll('.pc').forEach(c=>c.classList.remove('sel'));el.classList.add('sel');selPoss=id;document.getElementById('selSec').style.display='block';document.getElementById('selName').textContent=D.possibilities.find(p=>p.id===id).title}
+function prepare(){toast('✅ Handlung vorbereitet. Team-Benachrichtigung → Umgebungsänderung → neue Begegnung → neue Lernspur.');activeStep='action';updateCyc()}
+
+// ═══════════════ NAVIGATION ═══════════════
+function updateCyc(){document.querySelectorAll('.cyc-btn').forEach(b=>b.classList.remove('active'));document.querySelector(`[data-step="${activeStep}"]`)?.classList.add('active')}
+document.getElementById('cycleNav').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;activeStep=b.dataset.step;updateCyc();const idx=['encounter','trace','meaning','possibility','action','return'].indexOf(activeStep);if(idx>=0&&D.plants[idx]){selected=D.plants[idx];openDetail(D.plants[idx])}});
+
+function world(w){
+  closePnl();document.getElementById('overlayTeam').classList.remove('on');document.getElementById('overlayArch').classList.remove('on');
+  document.querySelectorAll('.hdr-btn').forEach(b=>b.classList.remove('active'));
+  if(w==='garden')document.querySelector('.hdr-btn:nth-child(1)').classList.add('active');
+  else if(w==='team'){document.querySelector('.hdr-btn:nth-child(2)').classList.add('active');openTeam()}
+  else{document.querySelector('.hdr-btn:nth-child(3)').classList.add('active');openArch()}
 }
 
-function closePanel(){document.getElementById('panel').classList.remove('open');selectedPlant=null}
-function review(id,status){D.reviews.find(r=>r.id===id).status=status;const el=document.getElementById('status-'+id);el.textContent=status==='ok'?'✓ Tragfähig':status==='lim'?'⚠ Begrenzt':'✗ Abgelehnt';el.className='rc-status '+(status==='ok'?'rc-ok':status==='lim'?'rc-lim':'rc-no');showToast('Prüfung: '+el.textContent)}
-function selectPoss(id,el){document.querySelectorAll('.poss-card').forEach(c=>c.classList.remove('sel'));el.classList.add('sel');document.getElementById('selPossSec').style.display='block';document.getElementById('selPossName').textContent=D.possibilities.find(p=>p.id===id).title}
-function prepareAction(){showToast('✅ Handlung vorbereitet. In einer echten Instanz: Team-Benachrichtigung → autorisierte Umgebungsänderung → neue Begegnung → neue Lernspur.');activeStep='action';updateCycleNav()}
-function updateCycleNav(){document.querySelectorAll('.cy-btn').forEach(b=>b.classList.remove('active'));document.querySelector(`[data-step="${activeStep}"]`)?.classList.add('active')}
-
-// ═══════════════ WORLD SWITCHING ═══════════════
-function switchWorld(w){
-  currentWorld=w;document.querySelectorAll('.hdr-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelector(`.hdr-btn:nth-child(${w==='garden'?1:w==='team'?2:3})`)?.classList.add('active');
-  closePanel();document.getElementById('overlayTeam').classList.remove('on');document.getElementById('overlayArch').classList.remove('on');
-  if(w==='team')openTeamOverlay();if(w==='arch')openArchOverlay();
-}
-
-function openTeamOverlay(){
+function openTeam(){
   const c=document.getElementById('overlayTeamContent');
-  c.innerHTML=`<button class="close-btn" onclick="switchWorld('garden')">×</button><h2>👥 Team-Welt — Perspektiven auf Lena</h2>
-    <p style="color:var(--text-dim);margin-bottom:16px">Ergänzende, alternative und widersprechende Perspektiven auf dieselbe Lernspur (Stallbox, 14. März 2026). Alle bleiben sichtbar — keine wird harmonisiert.</p>
-    ${D.team.map(tm=>`<div class="tm-persp" style="border-left-color:${tm.status==='Autorisiert'?'var(--leaf)':tm.status==='Widerspruch'?'var(--bloom)':'var(--gold)'}"><div class="tmph"><span>${tm.name} · ${tm.role}</span><span style="font-size:.7rem;color:${tm.status==='Autorisiert'?'var(--leaf-light)':tm.status==='Widerspruch'?'var(--bloom)':'var(--gold)'}">${tm.status}</span></div><p class="tmp">${tm.take}</p></div>`).join('')}
-    <h3>🔐 Zweckgebundene Freigaben</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:.8rem">
-      <div style="background:rgba(74,143,92,.1);padding:10px;border-radius:8px"><strong>Elternansicht</strong><br><span style="color:var(--text-dim)">Entwicklungsgeschichte ohne Bezugsnorm</span></div>
-      <div style="background:rgba(255,255,255,.03);padding:10px;border-radius:8px"><strong>Fördergutachten</strong><br><span style="color:var(--text-dim)">Nur Mathematik-Bezug + Verlauf</span></div>
-      <div style="background:rgba(74,143,92,.1);padding:10px;border-radius:8px"><strong>Kollegiale Fallberatung</strong><br><span style="color:var(--text-dim)">Alle Bezüge + Perspektiven</span></div>
-      <div style="background:rgba(255,255,255,.03);padding:10px;border-radius:8px"><strong>Bildungsplan-Nachweis</strong><br><span style="color:var(--text-dim)">Nur autorisierte fachliche Bezüge</span></div>
-    </div>`;
+  c.innerHTML=`<button class="close" onclick="world('garden')">×</button><h2>👥 Team-Perspektiven</h2><p style="color:var(--text2);font-size:0.85rem;margin-bottom:14px">Alle Perspektiven bleiben sichtbar — keine wird harmonisiert.</p>${D.team.map(t=>`<div style="background:var(--bg2);border-left:3px solid ${t.color};border-radius:0 12px 12px 0;padding:14px;margin-bottom:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;font-weight:700;font-size:0.85rem"><span>${t.name} · ${t.role}</span><span style="font-size:0.7rem;color:${t.color}">${t.status}</span></div><p style="font-size:0.82rem;line-height:1.6;color:var(--text)">${t.text}</p></div>`).join('')}<h3 style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--green);margin:18px 0 8px">🔐 Zweckgebundene Freigaben</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.78rem">${[['Elternansicht','Entwicklung ohne Bezugsnorm','var(--green)'],['Fördergutachten','Nur Mathe-Bezug','var(--text2)'],['Kollegiale Fallberatung','Alle Bezüge + Perspektiven','var(--green)'],['Bildungsplan-Nachweis','Nur autorisierte Bezüge','var(--text2)']].map(f=>`<div style="background:var(--bg2);padding:10px;border-radius:10px;border-left:2px solid ${f[2]}"><strong>${f[0]}</strong><br><span style="color:var(--text2)">${f[1]}</span></div>`).join('')}</div>`;
   document.getElementById('overlayTeam').classList.add('on');
 }
 
-function openArchOverlay(){
+function openArch(){
   const c=document.getElementById('overlayArchContent');
-  c.innerHTML=`<button class="close-btn" onclick="switchWorld('garden')">×</button><h2>🏗️ Architektur — Vier Ebenen</h2>
-    <div class="arch-layer l1"><strong>Werdegefüge</strong><div style="font-size:.75rem;color:var(--text-dim);margin-top:4px">Verfassung · Organe · Spuren · Muster · Werkstattkompositionen · Projektionen</div><div class="arch-sub"><div>📜 Verfassung</div><div>🧠 Organe</div><div>👣 Spuren</div><div>🔄 Muster</div></div></div>
-    <div style="text-align:center;color:var(--text-dim);margin:4px 0">↓ generisch, domänenfrei</div>
-    <div class="arch-layer l2"><strong>Erfahrungslandschaftskern</strong><div style="font-size:.75rem;color:var(--text-dim);margin-top:4px">Experience Landscape Core — generischer Kern für Lern-, Spiel-, Kreativ- und Denkräume</div><p style="font-size:.8rem;color:var(--water);text-align:center;margin-top:6px;font-weight:600">Begegnung → Spur → Bedeutung → Möglichkeit → Handlung → neue Begegnung</p></div>
-    <div style="text-align:center;color:var(--text-dim);margin:4px 0">↓ Domänenpaket Pädagogik</div>
-    <div class="arch-layer l3"><strong>FASKA-Domänenprofil</strong><div style="font-size:.75rem;color:var(--text-dim);margin-top:4px">Lernlandschaft — pädagogische Werkstattkomposition · Bildungsplanbezüge · Team-Prüfung</div></div>
-    <div style="text-align:center;color:var(--text-dim);margin:4px 0">↓ konkrete Instanz</div>
-    <div class="arch-layer l4"><strong>FASKA Invaria 2 (diese Instanz)</strong><div style="font-size:.75rem;color:var(--text-dim);margin-top:4px">Lena · Frau Meier · Team · Garten-Projektion</div></div>
-    <h3>🤖 KI-Rolle</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:.8rem">
-      <div style="background:rgba(74,143,92,.08);padding:10px;border-radius:8px">✅ „Diese Beobachtung könnte mit Größenvergleich verbunden sein."</div>
-      <div style="background:rgba(232,115,74,.08);padding:10px;border-radius:8px">🚫 „Dieses Kind besitzt Kompetenz X." — <strong>nicht erlaubt</strong></div>
+  c.innerHTML=`<button class="close" onclick="world('garden')">×</button><h2>🏗️ Architektur</h2>
+    <div style="border:2px solid var(--blue);border-radius:14px;padding:14px;margin:8px 0;text-align:center;background:rgba(61,166,218,0.05)"><strong>Werdegefüge</strong><p style="color:var(--text2);font-size:0.75rem;margin-top:4px">Verfassung · Organe · Spuren · Muster · Werkstattkompositionen</p></div>
+    <div style="text-align:center;color:var(--text2);margin:3px 0;font-weight:700;font-size:0.8rem">↓</div>
+    <div style="border:2px solid var(--red);border-radius:14px;padding:14px;margin:8px 0;text-align:center;background:rgba(189,24,42,0.04)"><strong>Erfahrungslandschaftskern</strong><p style="color:var(--red);font-weight:700;font-size:0.8rem;margin-top:4px">Begegnung → Spur → Bedeutung → Möglichkeit → Handlung → neue Begegnung</p></div>
+    <div style="text-align:center;color:var(--text2);margin:3px 0;font-weight:700;font-size:0.8rem">↓ Pädagogik</div>
+    <div style="border:2px solid var(--orange);border-radius:14px;padding:14px;margin:8px 0;text-align:center;background:rgba(226,94,43,0.04)"><strong>FASKA-Domänenprofil</strong><p style="color:var(--text2);font-size:0.75rem;margin-top:4px">Lernlandschaft · Bildungsplanbezüge · Team-Prüfung</p></div>
+    <div style="text-align:center;color:var(--text2);margin:3px 0;font-weight:700;font-size:0.8rem">↓</div>
+    <div style="border:2px solid var(--green);border-radius:14px;padding:14px;margin:8px 0;text-align:center;background:rgba(68,167,53,0.04)"><strong>FASKA Invaria 2</strong><p style="color:var(--text2);font-size:0.75rem;margin-top:4px">Lena · Frau Meier · Team · Garten-Projektion</p></div>
+    <h3 style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--green);margin:18px 0 8px">🤖 KI-Rolle</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:0.78rem">
+      <div style="background:rgba(68,167,53,0.06);padding:10px;border-radius:10px;border-left:2px solid var(--green)">✅ „Diese Beobachtung könnte mit Größenvergleich verbunden sein."</div>
+      <div style="background:rgba(189,24,42,0.04);padding:10px;border-radius:10px;border-left:2px solid var(--red)">🚫 „Dieses Kind besitzt Kompetenz X."</div>
     </div>
-    <p style="font-size:.8rem;color:var(--text-dim);margin-top:8px">Die KI bleibt im Bereich der <strong>Vorschläge</strong>, nicht der <strong>Feststellungen</strong>.</p>
-    <h3>🔑 Fraktalkohärenz</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:.78rem">
-      <div style="padding:8px;background:rgba(212,168,83,.06);border-radius:6px"><strong>🏫 Lernlandschaft</strong><br>Nichtwissen → Erfahrung → Verstehen → Anwendung → Transfer</div>
-      <div style="padding:8px;background:rgba(91,158,207,.06);border-radius:6px"><strong>🎮 Spielwelt</strong><br>Unbekannte Situation → Erkundung → Entscheidung → Konsequenz → Weltveränderung</div>
-      <div style="padding:8px;background:rgba(168,125,194,.06);border-radius:6px"><strong>✍️ Kreative Werkstatt</strong><br>Idee → Entwurf → Kritik → Überarbeitung → Werk</div>
-      <div style="padding:8px;background:rgba(232,115,74,.06);border-radius:6px"><strong>🧠 Denkraum</strong><br>Frage → Recherche → Verbindung → Einsicht → neue Frage</div>
+    <h3 style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--green);margin:18px 0 8px">🔑 Fraktalkohärenz</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.75rem">
+      ${[['🏫','Lernlandschaft','Nichtwissen → Erfahrung → Verstehen'],['🎮','Spielwelt','Unbekannt → Erkundung → Entscheidung'],['✍️','Werkstatt','Idee → Entwurf → Überarbeitung'],['🧠','Denkraum','Frage → Verbindung → Einsicht']].map(f=>`<div style="background:var(--bg2);padding:10px;border-radius:10px"><strong>${f[0]} ${f[1]}</strong><br><span style="color:var(--text2)">${f[2]}</span></div>`).join('')}
     </div>`;
   document.getElementById('overlayArch').classList.add('on');
 }
 
-// ═══════════════ CYCLE NAV ═══════════════
-document.getElementById('cycleNav').addEventListener('click',e=>{
-  const btn=e.target.closest('button');if(!btn)return;activeStep=btn.dataset.step;updateCycleNav();
-  const idx=['encounter','trace','meaning','possibility','action','return'].indexOf(activeStep);
-  if(idx>=0&&D.plants[idx]){selectedPlant=D.plants[idx];openPlantDetail(D.plants[idx])}
-});
-
 // ═══════════════ UTILS ═══════════════
-function resetView(){closePanel();switchWorld('garden');activeStep='encounter';updateCycleNav();selectedPlant=null}
-function exportJSON(){const data={exportTime:new Date().toISOString(),version:'faska-invaria-2.0',child:D.child,traces:D.traces,reviews:D.reviews.map(r=>({...r})),plants:D.plants,team:D.team,activeStep};const b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='faska-invaria-2-export-'+new Date().toISOString().slice(0,10)+'.json';a.click();showToast('📥 JSON exportiert')}
-function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)}
+function resetAll(){closePnl();activeStep='encounter';updateCyc();selected=null;document.getElementById('overlayTeam').classList.remove('on');document.getElementById('overlayArch').classList.remove('on')}
+function toggleTheme(){dark=!dark;document.documentElement.classList.toggle('dark',dark);document.getElementById('themeBtn').textContent=dark?'☀️':'🌙'}
+function exportJSON(){const d={time:new Date().toISOString(),traces:D.traces,reviews:D.reviews.map(r=>({...r})),team:D.team};const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='faska-invaria-2-'+new Date().toISOString().slice(0,10)+'.json';a.click();toast('📥 Exportiert')}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)}
 
-// ═══════════════ INIT ═══════════════
-updateCycleNav();
-function animate(){draw();requestAnimationFrame(animate)}animate();
-console.log('🌱 FASKA Invaria 2 — Fraktalkohärenz-Demonstrator');
-console.log('   Begegnung → Spur → Bedeutung → Möglichkeit → Handlung → neue Begegnung');
-console.log('   Klick auf Pflanzen | Team/Architektur oben | Kreislauf unten');
+updateCyc();
 </script>
 </body>
 </html>
