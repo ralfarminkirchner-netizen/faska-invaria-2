@@ -1,0 +1,1048 @@
+{
+ "subject": "kind-pseudonym-7f3a",
+ "t0": "2026-05-12T09:20:00+02:00",
+ "t1": "2026-06-03T10:05:00+02:00",
+ "patterns": [
+  {
+   "id": "cf65c8a3-9b54-586f-b064-0814ae03d669",
+   "pattern_type": "appearance",
+   "timestamp": "2026-05-12T09:20:00+02:00",
+   "provenance": {
+    "source": "Werkstattprotokoll 2026-05-12 / kind-pseudonym-7f3a / Regalbau",
+    "generator": "lernbegleiterin:sabrina",
+    "generation_conditions": "handschriftliche Notiz während der Werkstattzeit, nachträglich abgetippt",
+    "parent_id": null,
+    "parents": []
+   },
+   "status": "spur",
+   "sealed_by": "unsealed",
+   "contested": false,
+   "claim_ceiling": "erscheinung",
+   "correctable": true,
+   "corrected_by": [],
+   "dormant": false,
+   "dormant_since": null,
+   "dormant_reason": null,
+   "phenomenon": {
+    "raw_observation": "Beim Regalbau legt sie zwei Bretter nebeneinander, hält sie hoch, legt eines zurück und holt ein kürzeres.",
+    "medium": "direkte Beobachtung, Werkstatt",
+    "salience": 0.4,
+    "duration": "ca. 2 Minuten"
+   },
+   "selection_filters": {
+    "active_filters": [
+     "Blick auf Materialumgang"
+    ],
+    "excluded_by_filter": [
+     "Gespräch am Nebentisch",
+     "vorherige halbe Stunde"
+    ],
+    "observer_standpoint": "Lernbegleiterin, zeitgleich mit drei weiteren Kindern befasst"
+   },
+   "known_blindspots": [
+    "Ich sehe Handlungen, nicht Absichten."
+   ],
+   "potentially_missed": [
+    "Ob das Zurückwechseln eine Korrektur oder ein Zufall war.",
+    "Ob sie vorher etwas gesagt hat."
+   ]
+  },
+  {
+   "id": "d94435d0-ac4e-5cb0-9712-d72bca6a224a",
+   "pattern_type": "relation",
+   "timestamp": "2026-05-12T09:20:00+02:00",
+   "provenance": {
+    "source": "abgeleitet aus cf65c8a3-9b54-586f-b064-0814ae03d669",
+    "generator": "lernbegleiterin:sabrina",
+    "generation_conditions": "Verdichtung derselben Beobachtung, ohne Rückfrage beim Kind",
+    "parent_id": null,
+    "parents": [
+     "cf65c8a3-9b54-586f-b064-0814ae03d669"
+    ]
+   },
+   "status": "spur",
+   "sealed_by": "unsealed",
+   "contested": false,
+   "claim_ceiling": "perspektiv",
+   "correctable": true,
+   "corrected_by": [],
+   "dormant": false,
+   "dormant_since": null,
+   "dormant_reason": null,
+   "elements": [
+    {
+     "id": "cf65c8a3-9b54-586f-b064-0814ae03d669",
+     "role": "Beobachtung",
+     "type": "appearance"
+    },
+    {
+     "id": "bildungsplan:mathematik/groessenvergleich",
+     "role": "fachlicher Bezug",
+     "type": "referenz"
+    }
+   ],
+   "relation_type": "semantic",
+   "properties": {
+    "strength": 0.4,
+    "symmetry": "directional",
+    "stability": "fragile",
+    "reversibility": "reversible"
+   },
+   "evidence": {
+    "level": "hypothesized",
+    "sources": [
+     "cf65c8a3-9b54-586f-b064-0814ae03d669"
+    ],
+    "counter_evidence": [
+     "Einmalige Situation. Kein Vergleichsfall dokumentiert."
+    ]
+   }
+  },
+  {
+   "id": "9a187be0-0180-580f-9b24-a1201bdeaabd",
+   "pattern_type": "appearance",
+   "timestamp": "2026-06-03T10:05:00+02:00",
+   "provenance": {
+    "source": "Werkstattprotokoll 2026-06-03 / kind-pseudonym-7f3a / Stallbox-Modell",
+    "generator": "lernbegleiterin:sabrina",
+    "generation_conditions": "Sprachnotiz direkt nach der Situation, plus ein Foto des Modells",
+    "parent_id": null,
+    "parents": []
+   },
+   "status": "spur",
+   "sealed_by": "unsealed",
+   "contested": false,
+   "claim_ceiling": "erscheinung",
+   "correctable": true,
+   "corrected_by": [],
+   "dormant": false,
+   "dormant_since": null,
+   "dormant_reason": null,
+   "phenomenon": {
+    "raw_observation": "Sie stellt das Pferdemodell in die selbstgebaute Stallbox, sagt 'das geht nicht', nimmt es wieder heraus, hält das Modell neben die Seitenwand und beginnt die Wand abzubauen.",
+    "medium": "Sprachnotiz + Foto",
+    "salience": 0.8,
+    "duration": "ca. 5 Minuten"
+   },
+   "selection_filters": {
+    "active_filters": [
+     "Blick auf das Bauprojekt",
+     "Aufnahme erst ab dem Ausruf gestartet"
+    ],
+    "excluded_by_filter": [
+     "was vor dem Ausruf geschah",
+     "Gespräch mit dem Nachbarkind"
+    ],
+    "observer_standpoint": "Lernbegleiterin, aus etwa drei Metern Entfernung"
+   },
+   "known_blindspots": [
+    "Ich weiss nicht, woran sie 'das geht nicht' festgemacht hat."
+   ],
+   "potentially_missed": [
+    "Die Kindperspektive wurde nicht erhoben — es gab keine Rückfrage.",
+    "Ob die Idee von ihr kam oder aus dem Nebengespräch."
+   ]
+  },
+  {
+   "id": "0669d956-c240-5431-93d4-2f2b6c4a6089",
+   "pattern_type": "relation",
+   "timestamp": "2026-06-03T10:05:00+02:00",
+   "provenance": {
+    "source": "KI-Vorschlag zu 9a187be0-0180-580f-9b24-a1201bdeaabd",
+    "generator": "tisch/kimi",
+    "generation_conditions": "Vorschlagslauf über die Beobachtung, Bildungsplanbezug Klasse 3/4",
+    "parent_id": null,
+    "parents": [
+     "9a187be0-0180-580f-9b24-a1201bdeaabd"
+    ]
+   },
+   "status": "spur",
+   "sealed_by": "unsealed",
+   "contested": false,
+   "claim_ceiling": "perspektiv",
+   "correctable": true,
+   "corrected_by": [],
+   "dormant": false,
+   "dormant_since": null,
+   "dormant_reason": null,
+   "elements": [
+    {
+     "id": "9a187be0-0180-580f-9b24-a1201bdeaabd",
+     "role": "Beobachtung",
+     "type": "appearance"
+    },
+    {
+     "id": "bildungsplan:mathematik/groessen-und-messen",
+     "role": "fachlicher Bezug",
+     "type": "referenz"
+    }
+   ],
+   "relation_type": "semantic",
+   "properties": {
+    "strength": 0.6,
+    "symmetry": "directional",
+    "stability": "dynamic",
+    "reversibility": "reversible"
+   },
+   "evidence": {
+    "level": "inferred",
+    "sources": [
+     "9a187be0-0180-580f-9b24-a1201bdeaabd"
+    ],
+    "counter_evidence": [
+     "Noch keine formale Messhandlung dokumentiert — Aussage über die Belegdichte, nicht über das Kind.",
+     "Der Vergleich könnte rein visuell erfolgt sein."
+    ]
+   }
+  },
+  {
+   "id": "0958528e-3029-5328-a788-62588f671115",
+   "pattern_type": "potential",
+   "timestamp": "2026-06-03T10:05:00+02:00",
+   "provenance": {
+    "source": "Möglichkeitsraum zu 9a187be0-0180-580f-9b24-a1201bdeaabd und 0669d956-c240-5431-93d4-2f2b6c4a6089",
+    "generator": "tisch/kimi+lernbegleiterin:sabrina",
+    "generation_conditions": "KI-Vorschläge, danach von Hand ergänzt und gekürzt",
+    "parent_id": null,
+    "parents": [
+     "9a187be0-0180-580f-9b24-a1201bdeaabd",
+     "0669d956-c240-5431-93d4-2f2b6c4a6089"
+    ]
+   },
+   "status": "spur",
+   "sealed_by": "unsealed",
+   "contested": false,
+   "claim_ceiling": "perspektiv",
+   "correctable": true,
+   "corrected_by": [],
+   "dormant": false,
+   "dormant_since": null,
+   "dormant_reason": null,
+   "references": [
+    "9a187be0-0180-580f-9b24-a1201bdeaabd",
+    "0669d956-c240-5431-93d4-2f2b6c4a6089"
+   ],
+   "candidate_space": {
+    "available_domains": [
+     "mathematik",
+     "sprache",
+     "werken",
+     "biologie",
+     "keine"
+    ],
+    "domain_weights": {
+     "mathematik": 0.6,
+     "werken": 0.5,
+     "sprache": 0.3,
+     "biologie": 0.2,
+     "keine": 0.4
+    },
+    "entry_points": [
+     {
+      "domain": "werken",
+      "suggestion": "Zollstock und Maßband in Reichweite legen, ohne Aufforderung",
+      "cost": "low",
+      "reversibility": "reversible"
+     },
+     {
+      "domain": "sprache",
+      "suggestion": "Rückfrage: 'Woran hast du gemerkt, dass es nicht passt?'",
+      "cost": "low",
+      "reversibility": "reversible"
+     },
+     {
+      "domain": "mathematik",
+      "suggestion": "Arbeitsblatt mit echten Stallmaßen anbieten",
+      "cost": "medium",
+      "reversibility": "reversible"
+     },
+     {
+      "domain": "sprache",
+      "suggestion": "Bauanleitung für ein anderes Kind schreiben lassen",
+      "cost": "medium",
+      "reversibility": "reversible"
+     },
+     {
+      "domain": "biologie",
+      "suggestion": "Frage nach der nötigen Boxengröße für ein echtes Pferd",
+      "cost": "medium",
+      "reversibility": "reversible"
+     },
+     {
+      "domain": "keine",
+      "suggestion": "Nichts tun und weiter beobachten",
+      "cost": "low",
+      "reversibility": "reversible"
+     }
+    ]
+   },
+   "constraints": {
+    "structural": [
+     "Werkstattzeit endet in 20 Minuten"
+    ],
+    "biographical": [
+     "Sie arbeitet ungern unter Beobachtung."
+    ],
+    "institutional": [
+     "Bildungsplanbezug muss dokumentierbar bleiben"
+    ],
+    "linguistic": [
+     "'Messen' ist als Wort im Gespräch noch nicht gefallen"
+    ],
+    "affective": [
+     "Frust über den misslungenen ersten Bau"
+    ],
+    "power_related": [
+     "Eine Rückfrage der Erwachsenen kann als Prüfung ankommen."
+    ]
+   },
+   "absent_dimensions": [
+    "Was sie selbst als nächstes vorhatte.",
+    "Ob sie überhaupt Hilfe will."
+   ],
+   "why_absent": [
+    "Nicht erhoben — es gab keine Rückfrage.",
+    "Die Aufnahme startete zu spät."
+   ]
+  },
+  {
+   "id": "d4964766-9381-513f-9c64-19f8d8a9bba3",
+   "pattern_type": "transition",
+   "timestamp": "2026-06-03T10:05:00+02:00",
+   "provenance": {
+    "source": "Übergangskandidat aus 0958528e-3029-5328-a788-62588f671115",
+    "generator": "lernbegleiterin:sabrina",
+    "generation_conditions": "Auswahl aus dem Möglichkeitsraum, vor der Teamprüfung",
+    "parent_id": null,
+    "parents": [
+     "0958528e-3029-5328-a788-62588f671115"
+    ]
+   },
+   "status": "spur",
+   "sealed_by": "unsealed",
+   "contested": false,
+   "claim_ceiling": "perspektiv",
+   "correctable": true,
+   "corrected_by": [],
+   "dormant": false,
+   "dormant_since": null,
+   "dormant_reason": null,
+   "references": [
+    "0958528e-3029-5328-a788-62588f671115"
+   ],
+   "transition": {
+    "from_state": "Größen werden nebeneinandergehalten und geschätzt",
+    "to_state": "Größen werden mit einem Werkzeug bestimmt und notiert",
+    "direction": "open",
+    "vector": [
+     {
+      "dimension": "umgang_mit_groessen",
+      "magnitude": 0.5,
+      "sign": 1
+     }
+    ]
+   },
+   "conditions": {
+    "necessary": [
+     "Messwerkzeug ist erreichbar"
+    ],
+    "sufficient": [],
+    "blocking": [
+     "Aufforderungscharakter — dann wird es eine Aufgabe statt einer Idee"
+    ],
+    "catalytic": [
+     "Ein zweites Kind mit demselben Problem"
+    ]
+   },
+   "risks": {
+    "side_effects": [
+     "Das Bauprojekt könnte zur Rechenaufgabe umgedeutet werden."
+    ],
+    "irreversible_if": [
+     "Die Situation wird benotet oder öffentlich besprochen."
+    ],
+    "affected_parties": [
+     "kind-pseudonym-7f3a",
+     "Nachbarkind",
+     "Team"
+    ]
+   }
+  },
+  {
+   "id": "634de808-ebac-54aa-89c8-68b26ebc8441",
+   "pattern_type": "coordination",
+   "timestamp": "2026-06-03T10:05:00+02:00",
+   "provenance": {
+    "source": "Teamsitzung 2026-06-05, Protokoll",
+    "generator": "team:faska-primar",
+    "generation_conditions": "drei Anwesende, 12 Minuten zu diesem Fall",
+    "parent_id": null,
+    "parents": [
+     "0669d956-c240-5431-93d4-2f2b6c4a6089",
+     "0958528e-3029-5328-a788-62588f671115",
+     "d4964766-9381-513f-9c64-19f8d8a9bba3"
+    ]
+   },
+   "status": "spur",
+   "sealed_by": "human",
+   "contested": true,
+   "claim_ceiling": "epistemisch",
+   "correctable": true,
+   "corrected_by": [],
+   "dormant": false,
+   "dormant_since": null,
+   "dormant_reason": null,
+   "participants": [
+    {
+     "perspective_id": "lernbegleiterin:sabrina",
+     "role": "Beobachterin",
+     "weight": 0.4,
+     "veto_power": true
+    },
+    {
+     "perspective_id": "kollege:mark",
+     "role": "Fachperspektive Mathematik",
+     "weight": 0.3,
+     "veto_power": true
+    },
+    {
+     "perspective_id": "kollegin:ines",
+     "role": "Fachperspektive Sprache",
+     "weight": 0.3,
+     "veto_power": true
+    }
+   ],
+   "mode": "interference",
+   "interferences": [
+    {
+     "between": [
+      "kollege:mark",
+      "kollegin:ines"
+     ],
+     "type": "tension",
+     "resolution": "preserved",
+     "note": "Mark liest die Szene als Größenvergleich. Ines liest sie als Erzählhandlung — das Pferd 'passt nicht in sein Zuhause'. Beide Lesarten bleiben stehen."
+    }
+   ],
+   "outcomes": {
+    "agreed": [
+     "Messwerkzeug wird bereitgelegt, ohne Aufforderung."
+    ],
+    "contested": [
+     "Ob der mathematische Bezug tragfähig ist oder nur die Lesart der Erwachsenen. Nicht aufgelöst."
+    ],
+    "open_questions": [
+     "Die Kindperspektive fehlt weiterhin. Rückfrage offen."
+    ],
+    "dormant_decisions": [
+     "Elterninformation zurückgestellt bis zur Rückfrage."
+    ]
+   }
+  },
+  {
+   "id": "718a0a11-ccd3-5106-b679-48e8b9b0892c",
+   "pattern_type": "dormancy",
+   "timestamp": "2026-06-03T10:05:00+02:00",
+   "provenance": {
+    "source": "Teamsitzung 2026-06-05 — abgelehnter KI-Vorschlag",
+    "generator": "team:faska-primar",
+    "generation_conditions": "Ablehnung protokolliert, Vorschlag nicht gelöscht",
+    "parent_id": null,
+    "parents": [
+     "9a187be0-0180-580f-9b24-a1201bdeaabd"
+    ]
+   },
+   "status": "spur",
+   "sealed_by": "human",
+   "contested": false,
+   "claim_ceiling": "erscheinung",
+   "correctable": true,
+   "corrected_by": [],
+   "dormant": false,
+   "dormant_since": null,
+   "dormant_reason": null,
+   "references": [
+    "9a187be0-0180-580f-9b24-a1201bdeaabd"
+   ],
+   "scope": "single",
+   "dormancy": {
+    "state": "rejected",
+    "since": "2026-06-03T10:05:00+02:00",
+    "reason": "Der Vorschlag lautete: 'Dieses Kind ist mathematisch kompetent.' Abgelehnt, weil er eine Eigenschaft zuschreibt statt einen Übergang zu beschreiben. Der Vorschlag bleibt als Spur erhalten, damit die Ablehnung nachvollziehbar ist.",
+    "review_criteria": [
+     "Wird nicht reaktiviert. Die Form selbst ist unzulässig."
+    ],
+    "next_review": null,
+    "max_dormancy": null
+   },
+   "protected_value": {
+    "what_is_protected": "Der offene Möglichkeitsraum des Kindes.",
+    "threat_if_activated": "Ein Kompetenzprofil wirkt als Erwartung zurück und verengt, was das Kind noch zeigen darf.",
+    "alternative_paths": [
+     "Entwicklungsgeschichte statt Zuschreibung (siehe Wirkung)."
+    ]
+   },
+   "reactivation_history": []
+  },
+  {
+   "id": "4af310e1-1f27-5b5a-9634-551949c77670",
+   "pattern_type": "embodiment",
+   "timestamp": "2026-06-03T10:05:00+02:00",
+   "provenance": {
+    "source": "autorisiert in 634de808-ebac-54aa-89c8-68b26ebc8441",
+    "generator": "lernbegleiterin:sabrina",
+    "generation_conditions": "Umsetzung des Teambeschlusses am Folgetag",
+    "parent_id": null,
+    "parents": [
+     "634de808-ebac-54aa-89c8-68b26ebc8441",
+     "d4964766-9381-513f-9c64-19f8d8a9bba3"
+    ]
+   },
+   "status": "spur",
+   "sealed_by": "human",
+   "contested": false,
+   "claim_ceiling": "epistemisch",
+   "correctable": true,
+   "corrected_by": [],
+   "dormant": false,
+   "dormant_since": null,
+   "dormant_reason": null,
+   "references": [
+    "d4964766-9381-513f-9c64-19f8d8a9bba3",
+    "634de808-ebac-54aa-89c8-68b26ebc8441"
+   ],
+   "candidates": [
+    {
+     "form": "Zollstock und Maßband auf dem Materialtisch",
+     "medium": "Werkstattraum",
+     "fidelity": "high",
+     "accessibility": [
+      "ohne Lesekompetenz nutzbar",
+      "frei zugänglich"
+     ],
+     "constraints": [
+      "wirkt nur, wenn es nicht kommentiert wird"
+     ]
+    },
+    {
+     "form": "Arbeitsblatt mit echten Stallmaßen",
+     "medium": "Papier",
+     "fidelity": "medium",
+     "accessibility": [
+      "setzt Lesen voraus"
+     ],
+     "constraints": [
+      "kann als Aufgabe ankommen"
+     ]
+    }
+   ],
+   "authorization": {
+    "status": "authorized",
+    "authorized_by": "team:faska-primar",
+    "authorized_at": "2026-06-05T16:40:00+02:00",
+    "reason": "Niedrigschwellig, reversibel, ohne Aufforderungscharakter."
+   },
+   "appearance_event": {
+    "appeared_at": "2026-06-06T09:00:00+02:00",
+    "appeared_in": "Werkstattraum, Materialtisch",
+    "initial_state": "unkommentiert bereitgelegt"
+   },
+   "effect_trace": {
+    "observed_effects": [
+     "Sie nimmt den Zollstock am zweiten Tag von sich aus."
+    ],
+    "unexpected_effects": [
+     "Das Nachbarkind beginnt zuerst zu messen, nicht sie."
+    ],
+    "affected_entities": [
+     "kind-pseudonym-7f3a",
+     "Nachbarkind"
+    ],
+    "measurement_method": "Beobachtungsnotiz, keine Messung im engeren Sinn"
+   },
+   "resonance": {
+    "resonance_type": "surprise",
+    "description": "Die Wirkung lief über das Nachbarkind, nicht direkt.",
+    "intensity": 0.6,
+    "source": "Beobachtung 2026-06-07"
+   }
+  },
+  {
+   "id": "578a8136-e939-5ebb-a7f8-5d62e4a8a7ad",
+   "pattern_type": "orientation",
+   "timestamp": "2026-06-03T10:05:00+02:00",
+   "provenance": {
+    "source": "Ausrichtungspruefung zu 4af310e1-1f27-5b5a-9634-551949c77670",
+    "generator": "kollegin:ines",
+    "generation_conditions": "Nachträgliche Prüfung, was die Umgebung nahelegt",
+    "parent_id": null,
+    "parents": [
+     "4af310e1-1f27-5b5a-9634-551949c77670"
+    ]
+   },
+   "status": "spur",
+   "sealed_by": "unsealed",
+   "contested": false,
+   "claim_ceiling": "perspektiv",
+   "correctable": true,
+   "corrected_by": [],
+   "dormant": false,
+   "dormant_since": null,
+   "dormant_reason": null,
+   "references": [
+    "4af310e1-1f27-5b5a-9634-551949c77670"
+   ],
+   "vectors": [
+    {
+     "toward": "Nachmessen als selbstverständlicher Teil des Bauens",
+     "away_from": "Schätzen und Danebenhalten",
+     "implicit_values": [
+      "Genauigkeit ist besser als Näherung"
+     ],
+     "affordances": [
+      "Werkzeug nehmen",
+      "Mass notieren"
+     ],
+     "discouragements": [
+      "Weiter nach Augenmass bauen"
+     ]
+    }
+   ],
+   "standpoint": {
+    "explicit_standpoint": "Erwachsene mit fachlichem Blick auf Größen",
+    "hidden_assumptions": [
+     "Dass Messen ein Fortschritt gegenüber Schätzen ist.",
+     "Dass das Bauprojekt ein Lernanlass sein soll."
+    ],
+    "alternative_orientations": [
+     "Die Szene als Erzählung ernst nehmen und gar nichts bereitlegen.",
+     "Das Nicht-Passen als gestalterische Entscheidung stehen lassen."
+    ]
+   },
+   "direction_history": [],
+   "position_history": [],
+   "possibility_space_history": [
+    {
+     "newly_visible_direction": "Wirkung kann über ein anderes Kind laufen.",
+     "previously_absent": "Der Möglichkeitsraum war auf das einzelne Kind verengt.",
+     "recognized_at": "2026-06-07T12:00:00+02:00"
+    }
+   ]
+  },
+  {
+   "id": "8afad0e9-1648-5a70-b0b8-6bbf22dab6ff",
+   "pattern_type": "renewal",
+   "timestamp": "2026-06-03T10:05:00+02:00",
+   "provenance": {
+    "source": "Wirkung zurück in die Kette 9a187be0-0180-580f-9b24-a1201bdeaabd",
+    "generator": "lernbegleiterin:sabrina",
+    "generation_conditions": "Nachtrag nach zwei Wochen, ohne Änderung der ursprünglichen Beobachtung",
+    "parent_id": null,
+    "parents": [
+     "4af310e1-1f27-5b5a-9634-551949c77670",
+     "578a8136-e939-5ebb-a7f8-5d62e4a8a7ad"
+    ]
+   },
+   "status": "spur",
+   "sealed_by": "unsealed",
+   "contested": false,
+   "claim_ceiling": "perspektiv",
+   "correctable": true,
+   "corrected_by": [],
+   "dormant": false,
+   "dormant_since": null,
+   "dormant_reason": null,
+   "references": [
+    "9a187be0-0180-580f-9b24-a1201bdeaabd",
+    "0669d956-c240-5431-93d4-2f2b6c4a6089",
+    "4af310e1-1f27-5b5a-9634-551949c77670",
+    "578a8136-e939-5ebb-a7f8-5d62e4a8a7ad"
+   ],
+   "changes": {
+    "revised_hypotheses": [
+     {
+      "before": "Noch keine formale Messhandlung dokumentiert.",
+      "after": "Eine Messhandlung ist jetzt dokumentiert (2026-06-18, Futterraufe).",
+      "trigger": "Sie misst die Futterraufe und notiert 14 cm auf einem Zettel."
+     }
+    ],
+    "revised_candidate_space": [
+     {
+      "dimension": "Wie Wirkung entsteht",
+      "before": [
+       "Angebot wirkt direkt auf das Kind"
+      ],
+      "after": [
+       "Angebot wirkt direkt",
+       "Angebot wirkt über andere Kinder"
+      ],
+      "newly_visible": [
+       "Umwege über die Gruppe sind eigenständige Wege."
+      ],
+      "newly_absent": [
+       "Die Annahme, ein Angebot müsse individuell zugeschnitten sein."
+      ]
+     }
+    ]
+   },
+   "re_entry": {
+    "process_re_entry": {
+     "original_process": "Stallbox-Bau",
+     "re_entry_point": "neue Begegnung: Futterraufe",
+     "context_preserved": [
+      "Das Bauprojekt bleibt ihres.",
+      "Die erste Beobachtung bleibt unverändert."
+     ]
+    },
+    "condition_re_entry": {
+     "original_conditions": [
+      "Beobachtung ab dem Ausruf",
+      "keine Rückfrage"
+     ],
+     "what_was_invisible_then": [
+      "Wirkung über das Nachbarkind"
+     ],
+     "what_is_visible_now": [
+      "Die Gruppe ist Teil der Lernumgebung, nicht Hintergrund."
+     ]
+    }
+   },
+   "new_capabilities": [
+    "Das Team kann Wirkung über Dritte als Wirkung erkennen."
+   ],
+   "transferred_insights": [
+    "Gilt vermutlich auch für Spiel- und Werkstattkontexte."
+   ]
+  },
+  {
+   "id": "ce1e39f7-6e21-5457-bb43-8551e88161d6",
+   "pattern_type": "renewal",
+   "timestamp": "2026-06-03T10:05:00+02:00",
+   "provenance": {
+    "source": "Verdichtung über Kette A (cf65c8a3-9b54-586f-b064-0814ae03d669) und Kette B (9a187be0-0180-580f-9b24-a1201bdeaabd)",
+    "generator": "team:faska-primar",
+    "generation_conditions": "Halbjahresrückblick, zwei dokumentierte Situationen",
+    "parent_id": null,
+    "parents": [
+     "d94435d0-ac4e-5cb0-9712-d72bca6a224a",
+     "8afad0e9-1648-5a70-b0b8-6bbf22dab6ff"
+    ]
+   },
+   "status": "spur",
+   "sealed_by": "unsealed",
+   "contested": false,
+   "claim_ceiling": "perspektiv",
+   "correctable": true,
+   "corrected_by": [],
+   "dormant": false,
+   "dormant_since": null,
+   "dormant_reason": null,
+   "references": [
+    "cf65c8a3-9b54-586f-b064-0814ae03d669",
+    "d94435d0-ac4e-5cb0-9712-d72bca6a224a",
+    "9a187be0-0180-580f-9b24-a1201bdeaabd",
+    "0669d956-c240-5431-93d4-2f2b6c4a6089",
+    "8afad0e9-1648-5a70-b0b8-6bbf22dab6ff"
+   ],
+   "changes": {
+    "revised_hypotheses": [
+     {
+      "before": "Einmalige Situation, kein Muster erkennbar.",
+      "after": "In zwei Bausituationen hat sie Größen verglichen, eine Entscheidung revidiert und ihre Planung angepasst.",
+      "trigger": "Zweite dokumentierte Situation mit derselben Bewegung."
+     }
+    ],
+    "revised_candidate_space": [
+     {
+      "dimension": "Was als Muster zählt",
+      "before": [
+       "Muster braucht viele Fälle"
+      ],
+      "after": [
+       "Zwei Fälle stützen eine Frage, nicht eine Aussage"
+      ],
+      "newly_visible": [
+       "Die nächste Frage: passiert das auch ohne Material?"
+      ],
+      "newly_absent": [
+       "Die Erwartung, dass ein Muster eine Eigenschaft anzeigt."
+      ]
+     }
+    ]
+   },
+   "re_entry": {
+    "process_re_entry": {
+     "original_process": "Halbjahresrückblick",
+     "re_entry_point": "offene Frage an die nächste Werkstattphase",
+     "context_preserved": [
+      "Beide Situationen bleiben einzeln lesbar."
+     ]
+    },
+    "condition_re_entry": {
+     "original_conditions": [
+      "zwei Beobachtungen derselben Begleiterin"
+     ],
+     "what_was_invisible_then": [
+      "Beobachterabhängigkeit"
+     ],
+     "what_is_visible_now": [
+      "Beide Spuren stammen von derselben Person — das begrenzt sie."
+     ]
+    }
+   },
+   "new_capabilities": [],
+   "transferred_insights": []
+  }
+ ],
+ "overclaim": {
+  "id": "9cf5409f-7ef6-5b04-8685-d07b548089b6",
+  "pattern_type": "relation",
+  "timestamp": "2026-06-03T10:05:00+02:00",
+  "provenance": {
+   "source": "KI-Vorschlag zu 9a187be0-0180-580f-9b24-a1201bdeaabd",
+   "generator": "tisch/kimi",
+   "generation_conditions": "derselbe Vorschlagslauf, zweiter Kandidat",
+   "parent_id": null,
+   "parents": [
+    "9a187be0-0180-580f-9b24-a1201bdeaabd"
+   ]
+  },
+  "status": "spur",
+  "sealed_by": "unsealed",
+  "contested": false,
+  "claim_ceiling": "epistemisch",
+  "correctable": true,
+  "corrected_by": [],
+  "dormant": false,
+  "dormant_since": null,
+  "dormant_reason": null,
+  "elements": [
+   {
+    "id": "9a187be0-0180-580f-9b24-a1201bdeaabd",
+    "role": "Beobachtung",
+    "type": "appearance"
+   },
+   {
+    "id": "claim",
+    "role": "Dieses Kind ist mathematisch kompetent",
+    "type": "zuschreibung"
+   }
+  ],
+  "relation_type": "causal",
+  "properties": {
+   "strength": 0.9,
+   "symmetry": "directional",
+   "stability": "stable",
+   "reversibility": "irreversible"
+  },
+  "evidence": {
+   "level": "inferred",
+   "sources": [
+    "9a187be0-0180-580f-9b24-a1201bdeaabd"
+   ],
+   "counter_evidence": []
+  }
+ },
+ "overclaim_violations": [
+  {
+   "rule": "R15 Geltung über der Herkunftsautorität",
+   "detail": "'tisch/kimi' ist 'modell' und darf ungesiegelt höchstens 'perspektiv' behaupten, behauptet aber 'epistemisch'",
+   "severity": "critical",
+   "layer": "kern"
+  },
+  {
+   "rule": "Profil 'faska': claim_ceiling zu hoch",
+   "detail": "relation darf hier hoechstens 'perspektiv', ist 'epistemisch'",
+   "severity": "critical",
+   "layer": "profil"
+  },
+  {
+   "rule": "Profil 'faska': verbotene Behauptungsform",
+   "detail": "Eigenschaftszuschreibung in elements[1].role: 'Dieses Kind ist mathematisch kompetent'",
+   "severity": "critical",
+   "layer": "profil"
+  }
+ ],
+ "chain_validation": {
+  "critical": 0,
+  "warning": 0
+ },
+ "profile": {
+  "profile_id": "faska",
+  "domain": "pädagogik",
+  "status": "proposed",
+  "sealed_by": "unsealed",
+  "derived_from": [
+   "ARCHITECTURE.md@2026-07-26",
+   "PATTERN-LIBRARY.md@2026-07-26"
+  ],
+  "note": "Domänenprofil, keine Architekturebene. Diese Datei enthält keinen Code. Wenn FASKA Code im Kern bräuchte, wäre der Freeze gebrochen.",
+  "projection_names": {
+   "appearance": "Begegnung",
+   "potential": "Möglichkeiten",
+   "relation": "Verbindungen",
+   "transition": "Nächster Schritt",
+   "embodiment": "Umgebung",
+   "orientation": "Ausrichtung",
+   "coordination": "Teamprüfung",
+   "renewal": "Wirkung",
+   "dormancy": "Bewusst offen gelassen"
+  },
+  "public_vocabulary": {
+   "note": "Die fünf Begriffe der Außendarstellung. Projektion, nicht Struktur.",
+   "Spuren": {
+    "module": "MiNDSOURCE",
+    "core": [
+     "appearance"
+    ]
+   },
+   "Perspektiven": {
+    "module": "MOONFiNGERS",
+    "core": [
+     "orientation",
+     "coordination"
+    ]
+   },
+   "Verbindungen": {
+    "module": "MiNDCEL",
+    "core": [
+     "relation"
+    ]
+   },
+   "Möglichkeiten": {
+    "module": "Potentialraum",
+    "core": [
+     "potential",
+     "transition"
+    ]
+   },
+   "Wirkung": {
+    "module": "Resonanz",
+    "core": [
+     "renewal"
+    ]
+   }
+  },
+  "chains": {
+   "lernpfad": {
+    "note": "Kein Typ. Ein Sichtname auf eine Kette von Kerntypen.",
+    "sequence": [
+     "appearance",
+     "relation",
+     "potential",
+     "coordination",
+     "embodiment",
+     "renewal"
+    ]
+   },
+   "entwicklungsknoten": {
+    "note": "Verdichtung mehrerer Ketten. Aussichtspunkt, nie Abschluss. Deshalb renewal und nicht ein eigener Typ.",
+    "sequence": [
+     "renewal"
+    ],
+    "requires_multiple_sources": true,
+    "min_referenced_chains": 2
+   }
+  },
+  "subject_handling": {
+   "note": "Es gibt keinen Personendatensatz. Ein Kind ist kein Objekt im System. 'Lenas Weg' wird zur Abfragezeit aus Ketten rekonstruiert, nicht gespeichert.",
+   "mechanism": "pseudonymes Kettenlabel in provenance.source",
+   "forbidden": [
+    "Personenakte",
+    "Kompetenzprofil",
+    "Punktestand",
+    "Rangfolge"
+   ]
+  },
+  "claim_ceiling_caps": {
+   "appearance": "erscheinung",
+   "potential": "perspektiv",
+   "relation": "perspektiv",
+   "transition": "perspektiv",
+   "orientation": "perspektiv",
+   "renewal": "perspektiv",
+   "dormancy": "erscheinung",
+   "coordination": "epistemisch",
+   "embodiment": "epistemisch"
+  },
+  "ceiling_note": "In diesem Profil ist 'handlung' für kein Pattern erreichbar. Keine Beobachtung, keine Verbindung und keine Verdichtung rechtfertigt für sich eine Handlung am Kind. Handlungen entstehen ausschließlich als menschlich autorisiertes embodiment.authorization — als Akt, nicht als Eigenschaft.",
+  "required_fields": {
+   "appearance": [
+    "phenomenon",
+    "selection_filters",
+    "potentially_missed"
+   ],
+   "relation": [
+    "evidence"
+   ],
+   "potential": [
+    "candidate_space",
+    "absent_dimensions"
+   ],
+   "embodiment": [
+    "authorization"
+   ],
+   "coordination": [
+    "interferences",
+    "outcomes"
+   ],
+   "renewal": [
+    "changes",
+    "re_entry"
+   ]
+  },
+  "required_note": "appearance.potentially_missed ist Pflicht: eine Beobachtung ohne Abwesenheitsspur behauptet Vollständigkeit. potential.absent_dimensions ist Pflicht: ein Möglichkeitsraum ohne benannte Lücken behauptet Ausschöpfung.",
+  "forbidden_claims": [
+   {
+    "name": "Eigenschaftszuschreibung",
+    "pattern": "\\b(ist|sind|war|waren|bleibt)\\s+(\\w+\\s+){0,2}(kompetent|inkompetent|begabt|unbegabt|leistungsstark|leistungsschwach|faul|unaufmerksam)\\b",
+    "why": "Das System verwaltet keine Eigenschaften, sondern Übergänge."
+   },
+   {
+    "name": "Kompetenzbesitz",
+    "pattern": "(besitzt|verf(ü|ue)gt\\s+(ü|ue)ber|hat)\\s+(die\\s+|eine\\s+)?Kompetenz",
+    "why": "Kompetenz ist keine Sache, die ein Kind besitzt."
+   },
+   {
+    "name": "Typisierung",
+    "pattern": "\\b(Lerntyp|Kompetenzprofil|Begabungsprofil|Pers(ö|oe)nlichkeitsprofil|Leistungsniveau)\\b",
+    "why": "Ein Profil schließt den Möglichkeitsraum, den die Architektur offen halten soll."
+   },
+   {
+    "name": "Defizitetikett",
+    "pattern": "\\b(Defizit|R(ü|ue)ckstand|verhaltensauff(ä|ae)llig|F(ö|oe)rderbedarf\\s+im\\s+Bereich)\\b",
+    "why": "Ein Etikett wirkt als Erwartung zurück auf das Kind (affirmativer Empfangsausfall, ARCHITECTURE.md §9)."
+   }
+  ],
+  "quote_paths": [
+   "dormancy",
+   "protected_value",
+   "counter_evidence",
+   "interferences",
+   "outcomes.contested",
+   "revised_hypotheses",
+   "authorization.reason",
+   "why_absent",
+   "known_blindspots"
+  ],
+  "quote_note": "In diesen Feldern darf eine verbotene Behauptung wörtlich stehen, weil sie dort abgelehnt, bestritten oder als Blindfleck markiert wird. Ohne diese Ausnahme könnte das System eine Überbehauptung nicht dokumentieren, ohne sie zu begehen.",
+  "teamstruktur": {
+   "note": "Ein Teamzimmer, eine Sitzung, zwei Phasen. Die Trennung von Grundschule und SEK ist keine Raumtrennung, sondern eine Zeitstruktur — und sie bestimmt, wer bei einer Abstimmung überhaupt anwesend war.",
+   "phasen": [
+    {
+     "id": "gemeinsam",
+     "dauer_h": 3,
+     "beteiligt": "alle Bereiche",
+     "gegenstand": "gemeinsame Themen"
+    },
+    {
+     "id": "getrennt",
+     "dauer_h": 2,
+     "beteiligt": "je Bereich getrennt",
+     "gegenstand": "bereichsspezifische Fälle"
+    }
+   ],
+   "folge": "coordination.participants muss die tatsächlich anwesende Runde abbilden. Eine Abstimmung aus dem getrennten Teil trägt nicht die Autorität der ganzen Runde — und eine aus dem gemeinsamen Teil bindet auch den anderen Bereich."
+  }
+ }
+}
