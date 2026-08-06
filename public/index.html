@@ -199,6 +199,27 @@ mark{background:rgba(189,24,42,.22);color:inherit;border-radius:3px;padding:0 2p
 .seg-kind{background:transparent;border:1.5px dashed var(--border);color:var(--text2);font-style:italic}
 .seg-kind .seg-tag{background:var(--bg2);border:1px solid var(--border);color:var(--text2)}
 
+/* ── Elterngespräche / Schülerprofile ── */
+.privacy{background:var(--red-soft);border:1.5px solid rgba(189,24,42,.35);border-radius:var(--radius-sm);padding:11px 14px;font-size:.74rem;line-height:1.55;margin-bottom:14px}
+.privacy b{color:var(--red)}
+.stu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:9px;margin:12px 0}
+.stu-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--radius);padding:15px 13px;cursor:pointer;transition:all .2s;text-align:center}
+.stu-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.stu-ava{width:46px;height:46px;border-radius:50%;color:#fff;font-weight:800;font-size:1.15rem;display:flex;align-items:center;justify-content:center;margin:0 auto 8px}
+.stu-name{font-weight:800;font-size:.9rem}
+.stu-kind{font-size:.64rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);margin:1px 0 7px}
+.stu-status{font-size:.66rem;font-weight:600;padding:3px 9px;border-radius:10px;display:inline-block}
+.stu-sec{margin-bottom:15px}
+.stu-sec>h3{font-size:.63rem;text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px;font-weight:800}
+.stu-sec.obs>h3{color:var(--blue)} .stu-sec.deut>h3{color:#8a6d00}.dark .stu-sec.deut>h3{color:var(--yellow)}
+.stu-sec.cont>h3{color:var(--red)} .stu-sec.next>h3{color:var(--green)} .stu-sec.offen>h3{color:var(--orange)}
+.stu-sec li{font-size:.79rem;line-height:1.6;margin-bottom:4px}
+.stu-src{font-size:.62rem;color:var(--text2);font-style:italic}
+.stu-back{display:inline-flex;align-items:center;gap:5px;font:700 .78rem var(--font);color:var(--text2);background:none;border:none;cursor:pointer;padding:4px 0;margin-bottom:8px}
+.stu-back:hover{color:var(--blue)}
+.faska-link{margin-top:4px;padding:11px 14px;border-radius:var(--radius-sm);background:var(--green-soft);border-left:3px solid var(--green);font-size:.76rem;line-height:1.6}
+.faska-link b{color:var(--green)}
+
 /* ── Toast / Tooltip / Legend ── */
 .toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 22px;border-radius:24px;font-size:.83rem;font-weight:700;z-index:80;opacity:0;transition:all .3s;pointer-events:none;max-width:88vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(-6px)}
@@ -246,6 +267,7 @@ mark{background:rgba(189,24,42,.22);color:inherit;border-radius:3px;padding:0 2p
     <button class="hdr-btn" onclick="openTeam()">👥 <span class="lbl">Team-Sitzung</span></button>
     <button class="hdr-btn" onclick="openClaim()">🛡 <span class="lbl">Claim-Prüfung</span></button>
     <button class="hdr-btn" onclick="openArch()">🏗 <span class="lbl">Architektur</span></button>
+    <button class="hdr-btn" onclick="openStudents()">📋 <span class="lbl">Elterngespräche</span></button>
     <button class="hdr-btn" onclick="openVoice()">🎙 <span class="lbl">Aufnahme</span></button>
     <button class="hdr-btn" onclick="exportJSON()" title="JSON-Export">📥</button>
     <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" title="Hell/Dunkel">🌙</button>
@@ -279,6 +301,7 @@ mark{background:rgba(189,24,42,.22);color:inherit;border-radius:3px;padding:0 2p
 <div class="ovl" id="ovlTeam"><div class="ovl-card wide" id="ovlTeamC"></div></div>
 <div class="ovl" id="ovlClaim"><div class="ovl-card wide" id="ovlClaimC"></div></div>
 <div class="ovl" id="ovlArch"><div class="ovl-card" id="ovlArchC"></div></div>
+<div class="ovl" id="ovlStudents"><div class="ovl-card wide" id="ovlStudentsC"></div></div>
 <div class="ovl" id="ovlVoice"><div class="ovl-card" id="ovlVoiceC"></div></div>
 <div class="toast" id="toast"></div>
 <div class="load-err" id="loadErr" style="display:none"><div>
@@ -1214,6 +1237,74 @@ function openArch(){
       '<button class="prim-btn o" style="flex:1;min-width:180px" onclick="closeOvl(\'ovlArch\');openBridge()">⇄ Übersetzungs-Brücke</button>'+
     '</div>';
   document.getElementById('ovlArch').classList.add('on');
+}
+
+/* ═══════════════ ELTERNGESPRÄCHE / SCHÜLER ═══════════════ */
+let STU=null, stuSel=null;
+async function ensureStudents(){
+  if(STU)return true;
+  try{
+    const r=await fetch('students.json');
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    STU=await r.json();
+    return true;
+  }catch(e){ return false; }
+}
+async function openStudents(){
+  const ok=await ensureStudents();
+  if(!ok){
+    document.getElementById('ovlStudentsC').innerHTML=
+      '<button class="close" onclick="closeOvl(\'ovlStudents\')">×</button>'+
+      '<h2>📋 Elterngespräche</h2>'+
+      '<div class="privacy"><b>Diese Ansicht ist bewusst lokal.</b><br>Die Gesprächs-Notizen enthalten echte Daten über reale Kinder und werden deshalb <b>nicht</b> mitdeployt. '+
+      'Auf der lokalen Instanz (npm start) liegt <span class="mono">public/students.json</span> — hier, auf der öffentlichen Seite, gibt es sie nicht. Das ist Absicht, kein Fehler.</div>';
+    document.getElementById('ovlStudents').classList.add('on');
+    return;
+  }
+  stuSel=null;
+  renderStudentList();
+  document.getElementById('ovlStudents').classList.add('on');
+}
+function renderStudentList(){
+  document.getElementById('ovlStudentsC').innerHTML=
+    '<button class="close" onclick="closeOvl(\'ovlStudents\')">×</button>'+
+    '<h2>📋 Elterngespräche — Schüler</h2>'+
+    '<div class="sub">Strukturierte Auszüge aus den Gesprächsnotizen. Beobachtung und Deutung getrennt — wie überall in dieser App.</div>'+
+    '<div class="privacy"><b>⚠️ Datenschutz:</b> Diese Ansicht enthält echte Daten über reale Kinder. Nur für den internen Gebrauch — niemals auf eine öffentliche Instanz deployen. Namen gelten hier als Tarnnamen-Vereinbarung. Es gibt keine Kompetenzprofile: beschrieben werden Übergänge, Beobachtungen und nächste Schritte.</div>'+
+    '<div class="stu-grid">'+STU.students.map(s=>
+      '<div class="stu-card" onclick="openStudent(\''+s.id+'\')">'+
+      '<div class="stu-ava" style="background:'+s.color+'">'+esc(s.name[0])+'</div>'+
+      '<div class="stu-name">'+esc(s.name)+'</div>'+
+      '<div class="stu-kind">'+s.gespraeche.length+' Gespräch'+(s.gespraeche.length!==1?'e':'')+'</div>'+
+      '<div class="stu-status" style="background:var(--bg);border:1px solid var(--border)">'+esc(s.status)+'</div>'+
+      '</div>').join('')+'</div>';
+}
+function openStudent(id){
+  const s=STU.students.find(x=>x.id===id); if(!s)return;
+  stuSel=id;
+  const sec=(cls,icon,title,items)=>items&&items.length?
+    '<div class="stu-sec '+cls+'"><h3>'+icon+' '+title+'</h3><ul>'+items.map(i=>'<li>'+esc(i)+'</li>').join('')+'</ul></div>':'';
+  const deut=s.deutungen.map(d=>'<li>'+esc(d.text)+' <span class="stu-src">— '+esc(d.quelle)+'</span></li>').join('');
+  document.getElementById('ovlStudentsC').innerHTML=
+    '<button class="close" onclick="closeOvl(\'ovlStudents\')">×</button>'+
+    '<button class="stu-back" onclick="renderStudentList()">← Alle Schüler</button>'+
+    '<div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">'+
+      '<div class="stu-ava" style="background:'+s.color+';margin:0">'+esc(s.name[0])+'</div>'+
+      '<div><h2 style="font-size:1.25rem">'+esc(s.name)+'</h2>'+
+      '<div class="meta" style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">'+
+        '<span class="badge b-n">'+esc(s.status)+'</span>'+
+        s.gespraeche.map(g=>'<span class="chip">'+esc(g)+'</span>').join('')+
+      '</div></div></div>'+
+    sec('obs','👁','Beobachtungen',s.beobachtungen)+
+    (deut?'<div class="stu-sec deut"><h3>🤔 Deutungen — als solche markiert</h3><ul>'+deut+'</ul></div>':'')+
+    sec('cont','💪','Was sie/ihn trägt / Interessen',s.weiter)+
+    sec('next','✅','Verabredete nächste Schritte',s.naechste_schritte)+
+    sec('offen','❓','Offene Fragen',s.offen)+
+    (s.elternhaltung?'<div class="stu-sec"><h3 style="color:var(--text2)">👨‍👩‍👧 Elternhaltung</h3><p style="font-size:.8rem;line-height:1.6">'+esc(s.elternhaltung)+'</p></div>':'')+
+    '<div class="faska-link"><b>Architektur-Hinweis:</b> Auch hier gilt der Deckel: Diese Notizen beschreiben Übergänge und Situationen — sie sind <b>keine</b> Eigenschafts- oder Kompetenzprofile. Deutungen bleiben als Deutungen sichtbar, Beobachtungen als Beobachtungen. '+
+    '<a href="javascript:closeOvl(\'ovlStudents\');openClaim()" style="color:var(--blue);font-weight:700">Zur Claim-Prüfung →</a></div>'+
+    '<div class="prov" style="margin-top:12px"><b>Quellen:</b> '+s.quellen.map(esc).join(' · ')+'</div>';
+  document.getElementById('ovlStudentsC').scrollTop=0;
 }
 
 /* ═══════════════ VOICE-MOCKUP ═══════════════ */

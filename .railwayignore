@@ -1,0 +1,4 @@
+# Sensible Schülerdaten nicht mit hochladen
+students-local.json
+.git
+node_modules
