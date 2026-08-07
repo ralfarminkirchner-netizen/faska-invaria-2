@@ -3,156 +3,218 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FASKA Dokumentation · Tätigkeiten → Rahmenplan-Kompetenzen</title>
+<title>FASKA Dokumentation · Tätigkeiten → Kompetenzen</title>
 <link rel="icon" href="faska-logo-official.svg">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
   --blue:#3da6da; --red:#bd182a; --orange:#e25e2b; --green:#44a735; --yellow:#ffce05;
-  --bg:#fefcf7; --bg2:#f8f4eb; --text:#2d2412; --text2:#6b5e48; --card:#fff;
-  --border:#e8e0d0; --radius:16px; --radius-sm:11px;
+  --bg:#fefcf7; --bg2:#f8f4eb; --text:#2d2412; --text2:#6b5e48; --card:rgba(255,255,255,.86);
+  --border:rgba(45,36,18,.09); --radius:20px; --radius-sm:13px;
   --font:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+  --shadow:0 1px 2px rgba(45,36,18,.04),0 8px 24px rgba(45,36,18,.07);
+  --shadow-lg:0 2px 4px rgba(45,36,18,.05),0 18px 48px rgba(45,36,18,.13);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font:14px/1.55 var(--font);color:var(--text);background:var(--bg);min-height:100vh}
-a{color:var(--blue)}
+html{scroll-behavior:smooth}
+body{font:14px/1.55 var(--font);color:var(--text);background:var(--bg);min-height:100vh;overflow-x:hidden}
 button{font-family:var(--font)}
+::selection{background:rgba(61,166,218,.25)}
 
-.hdr{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 18px;background:var(--card);border-bottom:1px solid var(--border)}
-.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1rem;text-decoration:none;color:var(--text)}
-.logo img{width:28px}
-.logo small{display:block;font-size:.58rem;font-weight:600;color:var(--text2);letter-spacing:.05em}
-.hdr-r{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.hbtn{padding:7px 14px;border-radius:22px;border:1.5px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font:600 12px var(--font);transition:.2s;white-space:nowrap}
-.hbtn:hover{border-color:var(--blue);color:var(--blue)}
-.hbtn.prim{background:var(--blue);border-color:var(--blue);color:#fff}
-.hbtn.prim:hover{filter:brightness(1.08)}
+/* ── lebendiger Hintergrund ── */
+.blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.16;z-index:0;pointer-events:none;animation:float 26s ease-in-out infinite}
+.blob.b1{width:440px;height:440px;background:var(--blue);top:-120px;left:-100px}
+.blob.b2{width:380px;height:380px;background:var(--yellow);top:20%;right:-140px;animation-delay:-8s;animation-duration:32s}
+.blob.b3{width:360px;height:360px;background:var(--green);bottom:-140px;left:22%;animation-delay:-16s;animation-duration:30s}
+.blob.b4{width:300px;height:300px;background:var(--orange);bottom:8%;right:18%;animation-delay:-4s;animation-duration:24s}
+.blob.b5{width:260px;height:260px;background:var(--red);top:55%;left:-90px;animation-delay:-12s;animation-duration:28s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-34px) scale(1.08)}66%{transform:translate(-30px,26px) scale(.94)}}
 
-.layout{display:grid;grid-template-columns:230px 1fr;gap:0;max-width:1280px;margin:0 auto;min-height:calc(100vh - 52px)}
-.side{border-right:1px solid var(--border);padding:16px 12px;background:var(--card)}
-.side h3{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin:14px 4px 6px;font-weight:800}
-.kid{display:flex;align-items:center;gap:9px;width:100%;padding:8px 10px;border-radius:var(--radius-sm);border:none;background:transparent;cursor:pointer;text-align:left;transition:.15s;font:600 13px var(--font);color:var(--text)}
-.kid:hover{background:var(--bg2)}
-.kid.sel{background:var(--bg2);box-shadow:inset 0 0 0 1.5px var(--blue)}
-.kid .ava{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem}
-.kid .n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
-.kid .c{font-size:.62rem;color:var(--text2);font-weight:700;background:var(--bg2);border-radius:9px;padding:1px 7px}
-.kid.sel .c{background:var(--card)}
-.add-kid{width:100%;margin-top:8px;padding:8px;border-radius:var(--radius-sm);border:1.5px dashed var(--border);background:transparent;color:var(--text2);cursor:pointer;font:600 12px var(--font)}
-.add-kid:hover{border-color:var(--blue);color:var(--blue)}
+/* ── Header (Glas) ── */
+.hdr{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 20px;background:rgba(255,253,247,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.02rem;text-decoration:none;color:var(--text);letter-spacing:-.01em}
+.logo img{width:30px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.15));transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.logo:hover img{transform:rotate(-8deg) scale(1.12)}
+.logo small{display:block;font-size:.56rem;font-weight:700;color:var(--text2);letter-spacing:.09em}
+.hdr-r{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.hbtn{padding:8px 15px;border-radius:24px;border:1.5px solid var(--border);background:rgba(255,255,255,.7);color:var(--text);cursor:pointer;font:700 12px var(--font);transition:all .22s;white-space:nowrap;text-decoration:none;display:inline-block}
+.hbtn:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px);box-shadow:0 4px 14px rgba(61,166,218,.2)}
 
-.main{padding:20px 26px 60px}
-.tabs{display:flex;gap:6px;margin-bottom:18px;border-bottom:1.5px solid var(--border);padding-bottom:0}
-.tab{padding:9px 18px;border:none;background:transparent;cursor:pointer;font:700 13px var(--font);color:var(--text2);border-bottom:3px solid transparent;margin-bottom:-1.5px;transition:.2s}
+/* ── Kinderleiste ── */
+.kidsbar{position:relative;z-index:5;display:flex;gap:10px;align-items:center;padding:14px 20px 6px;max-width:1200px;margin:0 auto;overflow-x:auto;scrollbar-width:none}
+.kidsbar::-webkit-scrollbar{display:none}
+.kidpill{display:flex;align-items:center;gap:9px;padding:7px 16px 7px 8px;border-radius:30px;border:2px solid transparent;background:var(--card);cursor:pointer;transition:all .25s cubic-bezier(.34,1.4,.64,1);box-shadow:var(--shadow);white-space:nowrap;font:700 13px var(--font);color:var(--text);animation:popIn .45s cubic-bezier(.34,1.56,.64,1) backwards}
+.kidpill:hover{transform:translateY(-3px) scale(1.03);box-shadow:var(--shadow-lg)}
+.kidpill.sel{border-color:var(--kc);transform:translateY(-3px);box-shadow:0 8px 22px color-mix(in srgb,var(--kc) 30%,transparent)}
+.kidpill .ava{width:32px;height:32px;border-radius:50%;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:.9rem;background:var(--kc);transition:transform .3s}
+.kidpill.sel .ava{animation:avaPulse 2.2s ease-in-out infinite}
+@keyframes avaPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.kidpill .cnt{font-size:.66rem;font-weight:800;background:var(--bg2);border-radius:10px;padding:2px 8px;color:var(--text2);transition:.2s}
+.kidpill.sel .cnt{background:color-mix(in srgb,var(--kc) 16%,white);color:var(--kc)}
+.addkid{flex-shrink:0;width:38px;height:38px;border-radius:50%;border:2px dashed rgba(45,36,18,.25);background:transparent;color:var(--text2);cursor:pointer;font-size:1.15rem;font-weight:700;transition:.25s;display:flex;align-items:center;justify-content:center}
+.addkid:hover{border-color:var(--blue);color:var(--blue);transform:rotate(90deg) scale(1.1)}
+@keyframes popIn{from{opacity:0;transform:translateY(14px) scale(.9)}}
+
+/* ── Tabs mit Gleiter ── */
+.tabwrap{position:relative;z-index:5;max-width:1200px;margin:10px auto 0;padding:0 20px}
+.tabs{position:relative;display:inline-flex;gap:2px;background:rgba(45,36,18,.05);border-radius:16px;padding:4px}
+.tab{position:relative;z-index:2;padding:9px 18px;border:none;background:transparent;cursor:pointer;font:800 12.5px var(--font);color:var(--text2);border-radius:12px;transition:color .25s;white-space:nowrap}
 .tab:hover{color:var(--text)}
-.tab.on{color:var(--blue);border-bottom-color:var(--blue)}
+.tab.on{color:var(--text)}
+.glider{position:absolute;z-index:1;top:4px;bottom:4px;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(45,36,18,.13);transition:left .35s cubic-bezier(.4,0,.2,1),width .35s cubic-bezier(.4,0,.2,1)}
 
-/* Form */
-.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
-.field label{font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);font-weight:800}
-.field input,.field select,.field textarea{border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font:500 13.5px var(--font);color:var(--text);background:var(--card);transition:.2s}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue)}
-.field textarea{min-height:84px;resize:vertical}
-.hint{font-size:.7rem;color:var(--text2)}
+.main{position:relative;z-index:5;max-width:1200px;margin:0 auto;padding:20px 20px 80px}
+section{display:none;animation:secIn .45s cubic-bezier(.22,1,.36,1)}
+section.on{display:block}
+@keyframes secIn{from{opacity:0;transform:translateY(16px)}}
 
-.sugg{margin-top:4px}
-.sugg-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.sugg-head h4{font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;color:var(--green);font-weight:800}
-.sugg-hint{font-size:.68rem;color:var(--text2)}
-.sc{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:7px;cursor:pointer;transition:.15s}
-.sc:hover{border-color:var(--blue)}
-.sc.on{border-color:var(--green);background:rgba(68,167,53,.06)}
-.sc input{margin-top:4px;accent-color:var(--green);width:15px;height:15px;flex-shrink:0}
-.sc .t{font-weight:700;font-size:.8rem}
-.sc .x{font-size:.73rem;color:var(--text2);margin-top:2px;line-height:1.5}
-.sc .badges{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
-.b{font-size:.6rem;font-weight:800;padding:2px 8px;border-radius:9px;text-transform:uppercase;letter-spacing:.04em}
-.b-f{background:rgba(61,166,218,.13);color:var(--blue)}
-.b-k{background:rgba(255,206,5,.2);color:#8a6d00}
-.b-s{background:rgba(68,167,53,.13);color:var(--green)}
-.scorebar{height:4px;border-radius:2px;background:var(--bg2);margin-top:6px;overflow:hidden}
-.scorebar i{display:block;height:100%;background:var(--green)}
+.card{background:var(--card);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;margin-bottom:16px}
+.card-t{font-size:1.06rem;font-weight:900;letter-spacing:-.01em;display:flex;align-items:center;gap:9px;margin-bottom:3px}
+.card-s{font-size:.76rem;color:var(--text2);margin-bottom:16px}
 
-.linsen{margin-top:6px}
-.lins-grp{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:11px 13px;margin-bottom:9px}
-.lins-grp h5{font-size:.7rem;font-weight:800;margin-bottom:3px}
-.lins-grp .sub{font-size:.68rem;color:var(--text2);margin-bottom:8px}
+/* ── Formular ── */
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);font-weight:800}
+.field input,.field select,.field textarea{border:2px solid rgba(45,36,18,.1);border-radius:var(--radius-sm);padding:11px 14px;font:500 13.5px var(--font);color:var(--text);background:rgba(255,255,255,.75);transition:all .22s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(61,166,218,.14);background:#fff}
+.field textarea{min-height:96px;resize:none;overflow:hidden}
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.step{display:flex;align-items:center;gap:7px;font-size:.7rem;font-weight:700;color:var(--text2);background:rgba(255,255,255,.6);border:1px solid var(--border);padding:6px 12px;border-radius:20px}
+.step b{width:19px;height:19px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:900}
+.step:nth-child(1) b{background:var(--blue)}.step:nth-child(2) b{background:var(--orange)}.step:nth-child(3) b{background:var(--green)}
+
+/* ── Vorschläge ── */
+.sugg-head{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0 10px;flex-wrap:wrap;gap:6px}
+.sugg-head h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--text);font-weight:900;display:flex;gap:8px;align-items:center}
+.sugg-head .live{width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+.sugg-hint{font-size:.72rem;color:var(--text2)}
+.sugg-card{display:flex;gap:13px;align-items:flex-start;background:rgba(255,255,255,.82);border:2px solid var(--border);border-radius:16px;padding:13px 15px;margin-bottom:9px;cursor:pointer;transition:all .22s;animation:suggIn .5s cubic-bezier(.22,1,.36,1) backwards;animation-delay:var(--d,0ms)}
+@keyframes suggIn{from{opacity:0;transform:translateY(12px) scale(.98)}}
+.sugg-card:hover{border-color:color-mix(in srgb,var(--fc) 55%,transparent);transform:translateY(-2px);box-shadow:var(--shadow)}
+.sugg-card.on{border-color:var(--fc);background:color-mix(in srgb,var(--fc) 6%,white)}
+.scheck{flex-shrink:0;width:24px;height:24px;margin-top:2px;border-radius:50%;border:2.5px solid rgba(45,36,18,.2);display:flex;align-items:center;justify-content:center;transition:all .25s cubic-bezier(.34,1.56,.64,1);color:#fff;font-size:.7rem;font-weight:900}
+.sugg-card.on .scheck{background:var(--fc);border-color:var(--fc);transform:scale(1.1)}
+.sbody{flex:1;min-width:0}
+.stitle{font-weight:800;font-size:.86rem;line-height:1.4}
+.stext{font-size:.74rem;color:var(--text2);margin-top:3px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.smeta{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;align-items:center}
+.fb{font-size:.6rem;font-weight:900;padding:3px 10px;border-radius:10px;letter-spacing:.03em;text-transform:uppercase;color:#fff;background:var(--fc)}
+.fb.dark{color:#4a3a00}
+.kb{font-size:.6rem;font-weight:800;padding:3px 9px;border-radius:10px;background:rgba(45,36,18,.06);color:var(--text2)}
+.pk{font-size:.6rem;font-weight:800;padding:3px 9px;border-radius:10px;background:rgba(61,166,218,.12);color:var(--blue)}
+.why{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:7px;font-size:.64rem;color:var(--text2);font-weight:600}
+.why i{font-style:normal;font-weight:800;background:color-mix(in srgb,var(--fc) 14%,white);color:color-mix(in srgb,var(--fc) 80%,black);padding:2px 8px;border-radius:8px;animation:chipPop .3s cubic-bezier(.34,1.56,.64,1) backwards}
+@keyframes chipPop{from{transform:scale(.5);opacity:0}}
+.sscore{flex-shrink:0;width:52px;text-align:center}
+.ring{width:44px;height:44px;border-radius:50%;background:conic-gradient(var(--fc) calc(var(--p)*1%),rgba(45,36,18,.08) 0);display:flex;align-items:center;justify-content:center;margin:0 auto}
+.ring::before{content:'';width:32px;height:32px;border-radius:50%;background:#fff;position:absolute}
+.ring span{position:relative;font-size:.66rem;font-weight:900;color:var(--text)}
+.sscore .sl{font-size:.54rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text2);font-weight:800;margin-top:3px}
+
+/* ── Linsen ── */
+.lins{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.lins-card{border-radius:var(--radius);padding:17px 18px;border:1.5px solid var(--border);transition:box-shadow .25s}
+.lins-card.wild{background:linear-gradient(135deg,rgba(68,167,53,.07),rgba(255,206,5,.07))}
+.lins-card.monte{background:linear-gradient(135deg,rgba(226,94,43,.07),rgba(189,24,42,.05))}
+.lins-card h5{font-size:.8rem;font-weight:900;display:flex;gap:7px;align-items:center}
+.lins-card .sub{font-size:.68rem;color:var(--text2);margin:3px 0 10px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{padding:5px 12px;border-radius:16px;border:1.5px solid var(--border);background:transparent;font:600 11.5px var(--font);color:var(--text2);cursor:pointer;transition:.15s}
-.chip:hover{border-color:var(--orange);color:var(--orange)}
-.chip.on{background:var(--orange);border-color:var(--orange);color:#fff}
-.chip.g.on{background:var(--green);border-color:var(--green)}
-.chip.b.on{background:var(--blue);border-color:var(--blue)}
+.chip{padding:6px 13px;border-radius:18px;border:1.5px solid rgba(45,36,18,.13);background:rgba(255,255,255,.75);font:700 11px var(--font);color:var(--text2);cursor:pointer;transition:all .2s cubic-bezier(.34,1.4,.64,1)}
+.chip:hover{transform:translateY(-2px);border-color:var(--cc);color:var(--cc)}
+.chip.on{background:var(--cc);border-color:var(--cc);color:#fff;transform:scale(1.04);box-shadow:0 4px 12px color-mix(in srgb,var(--cc) 40%,transparent);animation:chipPop .3s}
 
-.save-row{display:flex;gap:8px;margin-top:14px;align-items:center}
-.bigbtn{padding:12px 26px;border-radius:var(--radius-sm);border:none;background:var(--green);color:#fff;font:800 14px var(--font);cursor:pointer;transition:.2s}
-.bigbtn:hover{filter:brightness(1.07);transform:translateY(-1px)}
-.bigbtn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+/* ── Save ── */
+.save-row{display:flex;gap:12px;align-items:center;margin-top:20px;flex-wrap:wrap}
+.bigbtn{position:relative;padding:14px 30px;border-radius:16px;border:none;background:linear-gradient(135deg,var(--green),#5cbf4a);color:#fff;font:900 14.5px var(--font);cursor:pointer;transition:all .25s;box-shadow:0 6px 20px rgba(68,167,53,.35);letter-spacing:.01em}
+.bigbtn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 10px 28px rgba(68,167,53,.45)}
+.bigbtn:active{transform:scale(.97)}
+.savehint{font-size:.74rem;font-weight:700;color:var(--red)}
+.confetti{position:fixed;width:9px;height:9px;border-radius:2px;z-index:300;pointer-events:none}
 
-/* Listen */
-.act{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:10px}
+/* ── Timeline (Aktivitäten) ── */
+.tl{position:relative;padding-left:30px}
+.tl::before{content:'';position:absolute;left:9px;top:6px;bottom:6px;width:3px;border-radius:2px;background:linear-gradient(180deg,var(--blue),var(--green),var(--yellow),var(--orange))}
+.act{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:13px;box-shadow:var(--shadow);animation:suggIn .5s backwards;animation-delay:var(--d,0ms);transition:transform .2s,box-shadow .2s}
+.act:hover{transform:translateX(4px);box-shadow:var(--shadow-lg)}
+.act::before{content:'';position:absolute;left:-27px;top:20px;width:15px;height:15px;border-radius:50%;background:var(--ac,var(--blue));border:3px solid var(--bg);box-shadow:0 0 0 2px var(--ac,var(--blue))}
 .act-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
-.act-t{font-weight:800;font-size:.92rem}
-.act-d{font-size:.68rem;color:var(--text2);margin-top:1px}
-.act-desc{font-size:.8rem;color:var(--text2);margin:7px 0;line-height:1.6}
-.ktags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
-.ktag{font-size:.66rem;font-weight:700;padding:3px 9px;border-radius:9px;background:rgba(68,167,53,.12);color:var(--green)}
-.ktag.pk{background:rgba(61,166,218,.12);color:var(--blue)}
-.ltags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
-.ltag{font-size:.62rem;font-weight:600;padding:2px 9px;border-radius:9px;background:rgba(226,94,43,.1);color:var(--orange)}
-.ltag.dev{background:rgba(255,206,5,.18);color:#8a6d00}
-.mini{padding:4px 10px;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;font:600 10.5px var(--font)}
-.mini:hover{border-color:var(--red);color:var(--red)}
+.act-t{font-weight:900;font-size:.95rem}
+.act-d{font-size:.68rem;color:var(--text2);margin-top:2px;font-weight:600}
+.act-desc{font-size:.8rem;color:var(--text2);margin:9px 0;line-height:1.65;background:rgba(45,36,18,.03);border-radius:11px;padding:9px 12px}
+.ktags,.ltags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.ktag{font-size:.64rem;font-weight:800;padding:4px 10px;border-radius:10px;background:color-mix(in srgb,var(--kc2) 13%,white);color:color-mix(in srgb,var(--kc2) 78%,black);transition:transform .2s}
+.ktag:hover{transform:translateY(-1px)}
+.ltag{font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:10px;background:rgba(68,167,53,.1);color:var(--green)}
+.ltag.m{background:rgba(226,94,43,.1);color:var(--orange)}
+.mini{padding:5px 12px;border-radius:9px;border:1.5px solid var(--border);background:rgba(255,255,255,.7);color:var(--text2);cursor:pointer;font:700 10.5px var(--font);transition:.2s}
+.mini:hover{border-color:var(--red);color:var(--red);transform:translateY(-1px)}
+.provline{font-size:.62rem;color:var(--text2);margin-top:9px;font-style:italic;opacity:.85}
 
-/* Nachweis */
-.nw-fach{margin-bottom:18px}
-.nw-fach h4{font-size:.85rem;font-weight:800;margin-bottom:8px;display:flex;gap:8px;align-items:center}
-.nw-fach h4 .cnt{font-size:.66rem;background:var(--bg2);padding:2px 9px;border-radius:9px;color:var(--text2)}
-table.nw{width:100%;border-collapse:collapse;font-size:.76rem}
-table.nw th{text-align:left;font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);padding:5px 8px;border-bottom:1.5px solid var(--border)}
-table.nw td{padding:7px 8px;border-bottom:1px solid var(--border);vertical-align:top}
-table.nw td.k{font-weight:600}
-.empty{padding:26px;text-align:center;color:var(--text2);font-size:.85rem;background:var(--card);border:1.5px dashed var(--border);border-radius:var(--radius)}
-.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:20px}
-.stat{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;text-align:center}
-.stat .z{font-size:1.5rem;font-weight:800;color:var(--blue)}
-.stat .l{font-size:.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);font-weight:700}
+/* ── Nachweis ── */
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;box-shadow:var(--shadow);animation:popIn .5s backwards;animation-delay:var(--d,0ms);position:relative;overflow:hidden}
+.stat::after{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--sc)}
+.stat .z{font-size:1.9rem;font-weight:900;color:var(--sc);letter-spacing:-.02em}
+.stat .l{font-size:.6rem;text-transform:uppercase;letter-spacing:.09em;color:var(--text2);font-weight:800;margin-top:2px}
+.nw-fach{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:14px;box-shadow:var(--shadow);animation:suggIn .5s backwards;animation-delay:var(--d,0ms)}
+.nw-h{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.nw-h h4{font-size:.95rem;font-weight:900;display:flex;align-items:center;gap:9px}
+.nw-dot{width:13px;height:13px;border-radius:4px;background:var(--fc);flex-shrink:0}
+.covbar{flex:1;min-width:140px;max-width:300px;height:9px;border-radius:5px;background:rgba(45,36,18,.07);overflow:hidden}
+.covbar i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--fc),color-mix(in srgb,var(--fc) 60%,white));width:0;transition:width 1s cubic-bezier(.22,1,.36,1)}
+.covtxt{font-size:.66rem;font-weight:800;color:var(--text2);white-space:nowrap}
+table.nw{width:100%;border-collapse:collapse;font-size:.76rem;margin-top:9px}
+table.nw th{text-align:left;font-size:.58rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);padding:6px 8px;border-bottom:2px solid var(--border)}
+table.nw td{padding:8px;border-bottom:1px solid var(--border);vertical-align:top;animation:suggIn .4s backwards;animation-delay:var(--d,0ms)}
+table.nw td.k{font-weight:700}
+.cnt-pill{font-size:.66rem;font-weight:900;background:color-mix(in srgb,var(--fc) 14%,white);color:color-mix(in srgb,var(--fc) 80%,black);padding:3px 10px;border-radius:9px}
 
-/* Entwicklung */
-.dev-grp{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:12px}
-.dev-grp h4{font-size:.82rem;font-weight:800;margin-bottom:4px}
-.dev-grp .sub{font-size:.7rem;color:var(--text2);margin-bottom:8px}
-.obs{border-left:3px solid var(--yellow);padding:6px 12px;margin-bottom:8px;background:var(--bg2);border-radius:0 9px 9px 0;font-size:.8rem}
-.obs .od{font-size:.62rem;color:var(--text2);font-weight:700}
-.obs textarea{width:100%;border:none;background:transparent;font:500 .8rem var(--font);resize:none;min-height:20px}
+/* ── Entwicklung ── */
+.dev-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dev-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:17px 19px;box-shadow:var(--shadow);animation:popIn .5s backwards;animation-delay:var(--d,0ms)}
+.dev-card h4{font-size:.86rem;font-weight:900;display:flex;gap:8px;align-items:center}
+.dev-card .sub{font-size:.66rem;color:var(--text2);margin:2px 0 10px}
+.obs{border-left:3px solid var(--dc);background:color-mix(in srgb,var(--dc) 5%,white);border-radius:0 12px 12px 0;padding:9px 13px;margin-bottom:8px;animation:suggIn .4s}
+.obs .od{font-size:.6rem;color:var(--text2);font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.obs textarea{width:100%;border:none;background:transparent;font:500 .79rem var(--font);resize:none;min-height:22px;color:var(--text)}
 .obs textarea:focus{outline:none}
-.add-obs{margin-top:6px;padding:6px 13px;border-radius:8px;border:1.5px dashed var(--border);background:transparent;color:var(--text2);cursor:pointer;font:600 11px var(--font)}
-.add-obs:hover{border-color:var(--green);color:var(--green)}
-.ped-note{background:rgba(61,166,218,.07);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:10px 13px;font-size:.74rem;line-height:1.6;color:var(--text2);margin-bottom:12px}
+.add-obs{margin-top:7px;padding:7px 14px;border-radius:10px;border:1.5px dashed rgba(45,36,18,.2);background:transparent;color:var(--text2);cursor:pointer;font:700 11px var(--font);transition:.2s}
+.add-obs:hover{border-color:var(--dc);color:var(--dc);transform:translateY(-1px)}
+.ped-note{background:linear-gradient(135deg,rgba(61,166,218,.08),rgba(68,167,53,.06));border:1px solid rgba(61,166,218,.2);border-radius:var(--radius);padding:15px 18px;font-size:.76rem;line-height:1.65;color:var(--text2);margin-bottom:16px}
 .ped-note b{color:var(--text)}
 
-.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 22px;border-radius:22px;font-size:.82rem;font-weight:700;z-index:99;opacity:0;transition:.3s;pointer-events:none}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(-4px)}
+.empty{padding:38px 24px;text-align:center;color:var(--text2);font-size:.88rem;background:var(--card);border:2px dashed rgba(45,36,18,.14);border-radius:var(--radius);line-height:1.8}
+.empty .big{font-size:2.4rem;margin-bottom:8px;animation:bob 2.5s ease-in-out infinite;display:inline-block}
+@keyframes bob{50%{transform:translateY(-7px)}}
 
-@media(max-width:860px){
-  .layout{grid-template-columns:1fr}
-  .side{border-right:none;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-  .side h3{display:none}
-  .kid{width:auto;padding:6px 10px}
-  .add-kid{width:auto;margin-top:0}
-  .main{padding:16px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text);color:#fff;padding:12px 26px;border-radius:26px;font-size:.84rem;font-weight:800;z-index:400;opacity:0;transition:all .35s cubic-bezier(.34,1.4,.64,1);pointer-events:none;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:900px){
   .fgrid{grid-template-columns:1fr}
+  .lins{grid-template-columns:1fr}
+  .dev-grid{grid-template-columns:1fr}
+  .hdr{padding:8px 12px}
+  .logo small{display:none}
+  .hbtn{padding:6px 10px;font-size:10.5px}
+  .main{padding:16px 12px 70px}
+  .tab{padding:8px 12px;font-size:11px}
 }
 @media print{
-  .hdr,.side,.tabs,.save-row,.mini,.add-obs{display:none!important}
+  .hdr,.kidsbar,.tabwrap,.blob,.save-row,.mini,.add-obs,.addkid,.steps{display:none!important}
   body{background:#fff}
+  .card,.act,.nw-fach,.stat,.dev-card{box-shadow:none;border-color:#ddd;break-inside:avoid}
   .main{padding:0}
-  .act,.dev-grp,.stat{border-color:#ccc;break-inside:avoid}
+  section{display:none!important}
+  section.print-me{display:block!important}
 }
 </style>
 </head>
 <body>
+
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div><div class="blob b5"></div>
 
 <header class="hdr">
   <a class="logo" href="index.html">
@@ -160,239 +222,215 @@ table.nw td.k{font-weight:600}
     <div>FASKA Dokumentation<small>TÄTIGKEITEN → RAHMENPLAN-KOMPETENZEN</small></div>
   </a>
   <div class="hdr-r">
-    <a class="hbtn" href="index.html">🌱 Zum Garten</a>
-    <button class="hbtn" onclick="exportAll()">📥 Export (JSON)</button>
-    <button class="hbtn" onclick="window.print()">🖨 Nachweis drucken</button>
+    <a class="hbtn" href="index.html">🌱 Garten</a>
+    <button class="hbtn" onclick="exportAll()">📥 Export</button>
+    <button class="hbtn" onclick="printNw()">🖨 Nachweis drucken</button>
   </div>
 </header>
 
-<div class="layout">
-  <aside class="side">
-    <h3>Kinder</h3>
-    <div id="kidList"></div>
-    <button class="add-kid" onclick="addKid()">＋ Kind hinzufügen</button>
-  </aside>
+<div class="kidsbar" id="kidsbar"></div>
 
-  <main class="main">
-    <div class="tabs">
-      <button class="tab on" data-tab="act" onclick="tab('act')">📝 Tätigkeit dokumentieren</button>
-      <button class="tab" data-tab="list" onclick="tab('list')">📚 Alle Tätigkeiten</button>
-      <button class="tab" data-tab="nw" onclick="tab('nw')">🎯 Kompetenz-Nachweis</button>
-      <button class="tab" data-tab="dev" onclick="tab('dev')">🌱 Entwicklung &amp; Pädagogik</button>
-    </div>
+<div class="tabwrap">
+  <div class="tabs" id="tabbar">
+    <div class="glider" id="glider"></div>
+    <button class="tab on" data-tab="act" onclick="tab('act')">📝 Dokumentieren</button>
+    <button class="tab" data-tab="list" onclick="tab('list')">📚 Tätigkeiten</button>
+    <button class="tab" data-tab="nw" onclick="tab('nw')">🎯 Kompetenz-Nachweis</button>
+    <button class="tab" data-tab="dev" onclick="tab('dev')">🌱 Entwicklung</button>
+  </div>
+</div>
 
-    <!-- ══ TAB: Tätigkeit dokumentieren ══ -->
-    <section id="tab-act">
+<main class="main">
+
+  <!-- ══ DOKUMENTIEREN ══ -->
+  <section id="tab-act" class="on">
+    <div class="card">
+      <div class="card-t">📝 Neue Tätigkeit dokumentieren</div>
+      <div class="card-s">Beschreibe, was das Kind gemacht hat — die App findet automatisch die passenden Kompetenzen im Bildungsplan Grundschule (BW) und zeigt dir, <b>warum</b> jeder Vorschlag passt.</div>
+      <div class="steps">
+        <div class="step"><b>1</b>Tätigkeit beschreiben</div>
+        <div class="step"><b>2</b>Kompetenz-Vorschläge prüfen &amp; übernehmen</div>
+        <div class="step"><b>3</b>Pädagogische Bedeutung markieren</div>
+      </div>
       <div class="fgrid">
         <div class="field"><label>Datum</label><input type="date" id="f-date"></div>
-        <div class="field"><label>Klassenstufe (für Rahmenplan-Filter)</label>
-          <select id="f-klasse"><option value="1-2">Klasse 1–2</option><option value="3-4">Klasse 3–4</option><option value="alle">Alle (nicht filtern)</option></select>
+        <div class="field"><label>Art der Tätigkeit</label>
+          <select id="f-type">
+            <option>Freies Spiel</option><option>Projektarbeit</option><option>Werkstatt</option>
+            <option>Unterricht / Lernangebot</option><option>Kreatives Gestalten</option><option>Bewegung / Sport</option>
+            <option>Musik</option><option>Natur / Sachbegegnung</option><option>Sprache / Lesen</option>
+            <option>Soziales / Gemeinschaft</option><option>Alltag (Ankommen, Essen, Aufräumen)</option>
+          </select>
+        </div>
+        <div class="field"><label>Klassenstufe (Rahmenplan-Filter)</label>
+          <select id="f-klasse"><option value="1-2">Klasse 1–2</option><option value="3-4">Klasse 3–4</option><option value="alle">Alle Klassenstufen</option></select>
         </div>
       </div>
       <div class="field"><label>Titel der Tätigkeit *</label><input id="f-title" placeholder="z. B. Stallbox gebaut und Pferd vermessen"></div>
-      <div class="field"><label>Was hat das Kind gemacht? * — je genauer, desto besser die Kompetenz-Vorschläge</label>
-        <textarea id="f-desc" placeholder="Beschreibe konkret, was passiert ist: Was tat das Kind? Womit? Wie lange? Mit wem? Was war das Ergebnis?&#10;&#10;Beispiel: Sie stellte das Pferdemodell in die selbstgebaute Stallbox, merkte, dass es nicht passt, hielt das Modell neben die Seitenwand und baute die Wand um. Danach maß sie mit dem Zollstock nach und notierte 14 cm."></textarea>
-        <span class="hint">Tipp: Verben wie <i>messen, zählen, lesen, bauen, malen, singen, vergleichen, erzählen, ordnen</i> helfen der automatischen Zuordnung.</span>
-      </div>
-      <div class="field"><label>Art der Tätigkeit</label>
-        <select id="f-type">
-          <option>Freies Spiel</option><option>Projektarbeit</option><option>Werkstatt</option>
-          <option>Unterricht / Lernangebot</option><option>Kreatives Gestalten</option><option>Bewegung / Sport</option>
-          <option>Musik</option><option>Natur / Sachbegegnung</option><option>Sprache / Lesen</option>
-          <option>Soziales / Gemeinschaft</option><option>Alltag (Ankommen, Essen, Aufräumen)</option>
-        </select>
+      <div class="field"><label>Was hat das Kind gemacht? * — je genauer, desto besser die Zuordnung</label>
+        <textarea id="f-desc" placeholder="Beschreibe konkret: Was tat das Kind? Womit? Wie lange? Mit wem? Was war das Ergebnis?&#10;&#10;Beispiel: Sie stellte das Pferdemodell in die selbstgebaute Stallbox, merkte, dass es nicht passt, hielt das Modell neben die Seitenwand und baute die Wand um. Danach maß sie mit dem Zollstock nach und notierte 14 cm."></textarea>
       </div>
 
-      <div class="sugg">
-        <div class="sugg-head">
-          <h4>🎯 Automatisch zugeordnete Kompetenzen (Bildungsplan GS BW)</h4>
-          <span class="sugg-hint" id="suggHint">Beschreibung eingeben — Vorschläge erscheinen live.</span>
-        </div>
-        <div id="suggList"></div>
+      <div class="sugg-head">
+        <h4><span class="live"></span>🎯 Automatische Kompetenz-Vorschläge · Bildungsplan GS BW</h4>
+        <span class="sugg-hint" id="suggHint">Beschreibung eingeben — Vorschläge erscheinen live.</span>
       </div>
+      <div id="suggList"></div>
+    </div>
 
-      <div class="linsen">
-        <div class="lins-grp">
-          <h5>🧡 Rebecca Wild — freie, natürliche Erziehung</h5>
-          <div class="sub">Was war in dieser Situation aus Sicht der Wild-Pädagogik bedeutsam?</div>
-          <div class="chips" id="linsWild"></div>
-        </div>
-        <div class="lins-grp">
-          <h5>🔶 Montessori-Pädagogik — was bedeutet diese Tätigkeit hier?</h5>
-          <div class="sub">Welche Montessori-Prinzipien waren in dieser Tätigkeit wirksam?</div>
-          <div class="chips" id="linsMonte"></div>
-        </div>
+    <div class="lins">
+      <div class="lins-card wild">
+        <h5>🧡 Rebecca Wild — freie, natürliche Erziehung</h5>
+        <div class="sub">Was war in dieser Situation aus Sicht der Wild-Pädagogik bedeutsam?</div>
+        <div class="chips" id="linsWild"></div>
       </div>
-
-      <div class="save-row">
-        <button class="bigbtn" id="saveBtn" onclick="saveAct()">✓ Tätigkeit dokumentieren</button>
-        <span class="hint" id="saveHint"></span>
+      <div class="lins-card monte">
+        <h5>🔶 Montessori — was bedeutet diese Tätigkeit?</h5>
+        <div class="sub">Welche Montessori-Prinzipien waren hier wirksam?</div>
+        <div class="chips" id="linsMonte"></div>
       </div>
-    </section>
+    </div>
 
-    <!-- ══ TAB: Alle Tätigkeiten ══ -->
-    <section id="tab-list" style="display:none">
-      <div id="actList"></div>
-    </section>
+    <div class="save-row">
+      <button class="bigbtn" id="saveBtn" onclick="saveAct(event)">✓ Tätigkeit dokumentieren</button>
+      <span class="savehint" id="saveHint"></span>
+    </div>
+  </section>
 
-    <!-- ══ TAB: Nachweis ══ -->
-    <section id="tab-nw" style="display:none">
-      <div class="stat-row" id="nwStats"></div>
-      <div id="nwBody"></div>
-    </section>
+  <!-- ══ TÄTIGKEITEN ══ -->
+  <section id="tab-list">
+    <div id="actList"></div>
+  </section>
 
-    <!-- ══ TAB: Entwicklung ══ -->
-    <section id="tab-dev" style="display:none">
-      <div class="ped-note">
-        <b>Entwicklungsdokumentation — beobachten, nicht bewerten.</b><br>
-        Hier stehen freie Beobachtungen zur kindlichen Entwicklung (nach Rebecca Wild: Entwicklung geschieht aus innerem Antrieb, in sicherer Bindung und im eigenen Tempo — sie wird begleitet, nicht gemacht). Die Aspekte folgen den klassischen Entwicklungsbereichen; Einträge sind Beobachtungen und keine Diagnosen.
-      </div>
-      <div id="devBody"></div>
-    </section>
-  </main>
-</div>
+  <!-- ══ NACHWEIS ══ -->
+  <section id="tab-nw">
+    <div class="stat-row" id="nwStats"></div>
+    <div id="nwBody"></div>
+  </section>
+
+  <!-- ══ ENTWICKLUNG ══ -->
+  <section id="tab-dev">
+    <div class="ped-note">
+      <b>Entwicklungsdokumentation — beobachten, nicht bewerten.</b><br>
+      Entwicklung geschieht aus innerem Antrieb, in sicherer Bindung und im eigenen Tempo (Rebecca Wild) — sie wird begleitet, nicht gemacht. Die Bereiche folgen den klassischen Entwicklungsfeldern; Einträge sind Beobachtungen, keine Diagnosen.
+    </div>
+    <div class="dev-grid" id="devBody"></div>
+  </section>
+
+</main>
 
 <div class="toast" id="toast"></div>
 
 <script>
 /* ═══════════ STATE ═══════════ */
-let RP=null;                 // rahmenplan.json
-let kids=[];                 // [{id,name,color}]
-let acts=[];                 // [{id,kidId,date,title,desc,type,klasse,komps:[{id,fach,title,pk}],wild:[],monte:[]}]
-let devObs={};               // kidId -> {aspekt: [{date,text}]}
-let selKid=null;
-let selKomps=new Set();
-let selWild=new Set(), selMonte=new Set();
+let RP=null, IDX=[];
+let kids=[], acts=[], devObs={}, selKid=null;
+let selKomps=new Set(), selWild=new Set(), selMonte=new Set();
 
-const WILD=[
-  "Emotionale Sicherheit war spürbar","Das Kind folgte seinem eigenen Impuls",
-  "Selbstwirksamkeit erfahren","Echte, sinnliche Erfahrung","Freies Spiel ohne Zielvorgabe",
-  "Beziehung/Authentizität der Begleitung","Grenzen wurden gespürt, nicht diktiert",
-  "Rückzug/Beobachten war erlaubt","Konflikt wurde selbst gelöst"
-];
-const MONTE=[
-  "Vorbereitete Umgebung","Freie Wahl der Arbeit","Polarisation der Aufmerksamkeit (tiefe Versenkung)",
-  "Sensible Phase","Isolation der Schwierigkeit","Fehlerkontrolle durch das Material",
-  "Bewegung mit Hand und Sinn","Hilf mir, es selbst zu tun (Zurückhaltung der Erwachsenen)",
-  "Ordnung und Struktur","Übung des täglichen Lebens","Arbeit mit Schlüsselmaterial"
-];
-const DEV_ASPEKTE=[
-  ["Motorik","Grob- und Feinmotorik, Körpergefühl, Koordination"],
-  ["Sprache","Wortschatz, Erzählen, Zuhören, Schriftsprache"],
-  ["Kognition","Denken, Problemlösen, Aufmerksamkeit, Gedächtnis"],
-  ["Sozial-emotional","Bindung, Empathie, Konfliktfähigkeit, Selbstregulation"],
-  ["Selbstständigkeit","Eigeninitiative, Verantwortung, innere Ordnung"]
-];
+const WILD=["Emotionale Sicherheit war spürbar","Das Kind folgte seinem eigenen Impuls","Selbstwirksamkeit erfahren","Echte, sinnliche Erfahrung","Freies Spiel ohne Zielvorgabe","Beziehung/Authentizität der Begleitung","Grenzen wurden gespürt, nicht diktiert","Rückzug/Beobachten war erlaubt","Konflikt wurde selbst gelöst"];
+const MONTE=["Vorbereitete Umgebung","Freie Wahl der Arbeit","Polarisation der Aufmerksamkeit","Sensible Phase","Isolation der Schwierigkeit","Fehlerkontrolle durch das Material","Bewegung mit Hand und Sinn","Hilf mir, es selbst zu tun","Ordnung und Struktur","Übung des täglichen Lebens","Arbeit mit Schlüsselmaterial"];
+const DEV_ASPEKTE=[["Motorik","🤸","Grob- und Feinmotorik, Körpergefühl, Koordination","#e25e2b"],["Sprache","🗣️","Wortschatz, Erzählen, Zuhören, Schriftsprache","#3da6da"],["Kognition","🧠","Denken, Problemlösen, Aufmerksamkeit, Gedächtnis","#bd182a"],["Sozial-emotional","💛","Bindung, Empathie, Konfliktfähigkeit, Selbstregulation","#44a735"],["Selbstständigkeit","🧭","Eigeninitiative, Verantwortung, innere Ordnung","#ffce05"]];
 const KID_COLORS=['#3da6da','#bd182a','#e25e2b','#44a735','#ffce05','#7b68ee','#2aa9a0'];
+const FACHC={'Deutsch':'#3da6da','Mathematik':'#ffce05','Englisch':'#e25e2b','Französisch':'#bd182a','Sachunterricht':'#44a735','Kunst/Werken':'#e25e2b','Musik':'#bd182a','Sport':'#44a735','Religion ev.':'#3da6da','Religion rk.':'#ffce05'};
+const TYPE_ICON={'Freies Spiel':'🎲','Projektarbeit':'🚀','Werkstatt':'🔨','Unterricht / Lernangebot':'📖','Kreatives Gestalten':'🎨','Bewegung / Sport':'⚽','Musik':'🎵','Natur / Sachbegegnung':'🌿','Sprache / Lesen':'📚','Soziales / Gemeinschaft':'🤝','Alltag (Ankommen, Essen, Aufräumen)':'🍽️'};
+const TYPE_COLOR={'Freies Spiel':'#ffce05','Projektarbeit':'#e25e2b','Werkstatt':'#e25e2b','Unterricht / Lernangebot':'#3da6da','Kreatives Gestalten':'#bd182a','Bewegung / Sport':'#44a735','Musik':'#bd182a','Natur / Sachbegegnung':'#44a735','Sprache / Lesen':'#3da6da','Soziales / Gemeinschaft':'#44a735','Alltag (Ankommen, Essen, Aufräumen)':'#ffce05'};
 
-/* ═══════════ PERSISTENZ (localStorage) ═══════════ */
-function store(){
-  try{ localStorage.setItem('faska-doku', JSON.stringify({kids,acts,devObs,selKid})); }catch(e){}
-}
-function restore(){
-  try{
-    const s=JSON.parse(localStorage.getItem('faska-doku')||'null');
-    if(s){ kids=s.kids||[]; acts=s.acts||[]; devObs=s.devObs||{}; selKid=s.selKid||null; }
-  }catch(e){}
-}
+/* ═══════════ PERSISTENZ ═══════════ */
+function store(){try{localStorage.setItem('faska-doku',JSON.stringify({kids,acts,devObs,selKid}))}catch(e){}}
+function restore(){try{const s=JSON.parse(localStorage.getItem('faska-doku')||'null');if(s){kids=s.kids||[];acts=s.acts||[];devObs=s.devObs||{};selKid=s.selKid||null}}catch(e){}}
 
-/* ═══════════ LADEN ═══════════ */
+/* ═══════════ INIT ═══════════ */
 async function init(){
   document.getElementById('f-date').value=new Date().toISOString().slice(0,10);
   restore();
-  // Kinder aus students.json übernehmen (falls lokal vorhanden)
   try{
     const r=await fetch('students.json');
-    if(r.ok){
-      const s=await r.json();
-      s.students.forEach(st=>{
-        if(!kids.find(k=>k.name===st.name)) kids.push({id:'k-'+st.id,name:st.name,color:st.color});
-      });
-    }
+    if(r.ok){const s=await r.json();s.students.forEach(st=>{if(!kids.find(k=>k.name===st.name))kids.push({id:'k-'+st.id,name:st.name,color:st.color})});}
   }catch(e){}
-  if(!kids.length) kids=[{id:'k1',name:'Neues Kind',color:KID_COLORS[0]}];
-  if(!selKid||!kids.find(k=>k.id===selKid)) selKid=kids[0].id;
+  if(!kids.length)kids=[{id:'k1',name:'Neues Kind',color:KID_COLORS[0]}];
+  if(!selKid||!kids.find(k=>k.id===selKid))selKid=kids[0].id;
   try{
     const r2=await fetch('rahmenplan.json');
-    if(r2.ok){ RP=await r2.json(); buildIndex(); }
+    if(r2.ok){RP=await r2.json();buildIndex();}
     else document.getElementById('suggHint').textContent='⚠️ rahmenplan.json nicht gefunden.';
-  }catch(e){ document.getElementById('suggHint').textContent='⚠️ Rahmenplan konnte nicht geladen werden.'; }
-  renderKids(); renderChips(); renderAll();
+  }catch(e){document.getElementById('suggHint').textContent='⚠️ Rahmenplan konnte nicht geladen werden.';}
+  const ta=document.getElementById('f-desc');
+  ta.addEventListener('input',()=>{ta.style.height='auto';ta.style.height=ta.scrollHeight+'px';renderSugg();});
+  document.getElementById('f-klasse').addEventListener('change',renderSugg);
+  renderKids();renderChips();renderSugg();renderAll();
+  requestAnimationFrame(moveGlider);
+  window.addEventListener('resize',moveGlider);
 }
 
-/* ═══════════ SUCHE / MATCHING ═══════════ */
-let IDX=[];    // [{id,fach,title,text,klasse,pk,terms:Set,titleTerms:Set}]
-const STOP=new Set("und der die das den dem des ein eine einen einem einer mit für auf in im an am bei von vom zu zur zum als auch oder aber nicht nur noch schon sehr mehr weniger kann können sie er es wir ihr sich wie was wer wo wann dann wenn danach vorher während nach über unter zwischen aus durch um so etwa etwas ihnen ihrem ihren ich du man hier dort heute morgen gestern wieder dabei darum deshalb weil dass bis seit wurde wurden hat hatte haben war waren wird lässt ihnen".split(" "));
+/* ═══════════ MATCHING ═══════════ */
+const STOP=new Set("und der die das den dem des ein eine einen einem einer mit für auf in im an am bei von vom zu zur zum als auch oder aber nicht nur noch schon sehr mehr weniger kann können sie er es wir ihr sich wie was wer wo wann dann wenn danach vorher während nach über unter zwischen aus durch um so etwa etwas ihnen ihrem ihren ich du man hier dort heute morgen gestern wieder dabei darum deshalb weil dass bis seit wurde wurden hat hatte haben war waren wird lässt neben daran danach dann mal kurz".split(" "));
 function fold(w){return String(w).replace(/ä/g,'a').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ß/g,'ss')}
 function stem(raw){
   let w=fold(String(raw).toLowerCase()).replace(/[^a-z0-9]/g,'');
   if(w.length<=3)return w;
-  if(w.startsWith('ge')&&w.length>=6){
-    const r=w.slice(2);
-    if(r.endsWith('t'))w=r.slice(0,-1);
-    else if(r.endsWith('en'))w=r.slice(0,-2);
-  }
+  if(w.startsWith('ge')&&w.length>=6){const r=w.slice(2);w=r.endsWith('t')?r.slice(0,-1):r.endsWith('en')?r.slice(0,-2):r;}
   w=w.replace(/(ete|te)$/,'');
   if(w.length>3)w=w.replace(/(ern|eln|ier|en|er)$/,'');
   if(w.length>3)w=w.replace(/(ung|e)$/,'');
+  if(w.length>=4&&w.endsWith('t'))w=w.slice(0,-1);   // baut→bau, notiert→notier…
+  if(w.length>5)w=w.slice(0,5);                       // Präfix-Vergleich: bau/bauten, konstruier/konstruktion
   return w;
 }
-/* Kuratierte Synonym-Expansion: Tätigkeitsverb → Kompetenz-Vokabular */
 const SYN={
   las:['les'],liest:['les'],gelesen:['les'],vorlas:['les'],vorlesen:['les'],
-  mass:['mess'],gemessen:['mess'],misst:['mess'],
+  mass:['mess'],gemessen:['mess'],misst:['mess'],vermessen:['mess'],
   zahlte:['zahl'],gezahlt:['zahl'],zahlt:['zahl'],
-  baute:['bau'],gebaut:['bau'],konstruierte:['konstruier','bau'],
-  malte:['mal','gestalt'],gemalt:['mal','gestalt'],malt:['mal'],
-  bastelte:['bastel','gestalt'],gebastelt:['bastel'],
-  klebte:['kleb'],geklebt:['kleb'],
-  schrieb:['schreib'],geschrieben:['schreib'],schreibt:['schreib'],
-  erzahlte:['erzahl','prasentier'],erzahlt:['erzahl'],erzahlen:['erzahl'],
+  baute:['bau','konstruier'],gebaut:['bau','konstruier'],konstruierte:['konstruier','bau'],
+  malte:['mal','gestalt'],gemalt:['mal','gestalt'],malt:['mal'],zeichnete:['zeichn'],gezeichnet:['zeichn'],
+  bastelte:['bastel','gestalt'],gebastelt:['bastel'],klebte:['kleb'],geklebt:['kleb'],
+  schrieb:['schreib'],geschrieben:['schreib'],schreibt:['schreib'],beschriftete:['schreib'],
+  erzahlte:['erzahl','prasentier'],erzahlt:['erzahl'],erzahlen:['erzahl'],berichtete:['prasentier','sprech'],
   sang:['sing'],gesungen:['sing'],singt:['sing'],
-  lief:['lauf','beweg'],rannte:['lauf','beweg'],gelaufen:['lauf'],
-  sprang:['spring','beweg'],kletterte:['kletter','beweg'],tanzte:['tanz','beweg'],
-  rechnete:['rechn','zahl'],gerechnet:['rechn'],rechnet:['rechn'],
-  verglich:['vergleich'],vergleichen:['vergleich'],vergleiche:['vergleich'],
+  lief:['lauf','beweg'],rannte:['lauf','beweg'],gelaufen:['lauf'],sprang:['spring','beweg'],kletterte:['kletter','beweg'],tanzte:['tanz','beweg'],
+  rechnete:['rechn','zahl'],gerechnet:['rechn'],rechnet:['rechn'],addierte:['rechn'],subtrahierte:['rechn'],
+  verglich:['vergleich','gross'],vergleichen:['vergleich'],vergleiche:['vergleich'],
   ordnete:['ordn','klassifizier'],sortierte:['sortier','ordn'],sortiert:['sortier','ordn'],
-  notierte:['schreib','dokumentier'],
-  experimentierte:['experiment','forsch'],forschte:['forsch'],
-  pflanzte:['pflanz','natur'],
-  buk:['back'],backte:['back'],
+  notierte:['schreib','zahl'],experimentierte:['experiment','forsch'],forschte:['forsch'],
+  pflanzte:['pflanz','natur'],buk:['back'],backte:['back'],kochte:['koch','ernahrung'],
   schnitt:['schneid'],geschnitten:['schneid'],
-  buch:['les','text','literatur'],bucher:['les','text'],
+  buch:['les','text','literatur'],bucher:['les','text'],geschichte:['les','erzahl'],
   karte:['zeichn','orientier','raum'],landkarte:['orientier','raum'],
-  zollstock:['mess'],massband:['mess'],lineal:['mess','zeichn'],waage:['gewichte','mess'],
+  zollstock:['mess','gross'],massband:['mess','gross'],lineal:['mess','zeichn'],waage:['gewicht','mess'],
   wurfel:['zahl','geometr'],klotze:['geometr','bau'],klammer:['zahl'],perle:['zahl','feinmotor'],
-  schere:['feinmotor','schneid'],stift:['mal','schreib'],
+  schere:['feinmotor','schneid'],stift:['mal','schreib'],papier:['falt','gestalt'],
   spiel:['spiel','regel'],spiele:['spiel','regel'],spielte:['spiel'],
-  streit:['konflikt','sozial'],stritten:['konflikt','sozial'],konflikt:['konflikt','sozial'],
-  freund:['sozial','bezieh'],freunde:['sozial','bezieh'],half:['helf','sozial'],halfen:['helf'],
-  wut:['selbstregulation','emotion'],ruhig:['ruhe','selbstregulation'],trost:['emotion','bezieh'],
-  zahlen:['zahl','mathematik'],zahl:['zahl'],mengen:['zahl','menge'],
+  streit:['konflikt','sozial'],stritten:['konflikt','sozial'],konflikt:['konflikt','sozial'],versoehnt:['konflikt','sozial'],
+  freund:['sozial','bezieh'],freunde:['sozial','bezieh'],freundin:['sozial','bezieh'],half:['helf','sozial'],halfen:['helf'],
+  wut:['selbstregulation','emotion'],ruhig:['ruhe','selbstregulation'],trost:['emotion','bezieh'],angst:['emotion','angst'],
+  zahlen:['zahl','mathematik'],zahl:['zahl'],zahlenraum:['zahl'],mengen:['zahl','menge'],grossen:['gross','mess'],grosse:['gross'],groessen:['gross','mess'],
   lesen:['les'],vorlesen:['les'],schreiben:['schreib'],text:['text','les'],
   geometrie:['geometr'],formen:['geometr','form'],figuren:['geometr'],korper:['geometr'],
   zeit:['zeit','uhr'],uhr:['zeit','uhr'],kalender:['zeit'],
-  tiere:['tier','natur'],pflanze:['pflanz','natur'],natur:['natur'],wald:['natur'],
+  tiere:['tier','natur'],pferd:['tier','natur'],pflanze:['pflanz','natur'],natur:['natur'],wald:['natur'],
   musik:['musik'],rhythmus:['rhythmus','musik'],instrument:['musik','instrument'],
-  turnen:['beweg','sport'],sport:['beweg','sport'],ball:['beweg','spiel'],
+  turnen:['beweg','sport'],sport:['beweg','sport'],ball:['beweg','spiel'],leichtathletik:['beweg','sport'],
   theater:['spiel','darstell','sprech'],rolle:['spiel','darstell'],
-  englisch:['englisch'],worter:['wortschatz','sprache'],satz:['satz','grammatik'],
+  englisch:['englisch'],franzosisch:['franzosisch'],worter:['wortschatz','sprache'],satz:['satz','grammatik'],
   religion:['religion','ethik'],ethik:['ethik','religion'],werte:['ethik','werte'],
   wasser:['wasser','natur'],feuer:['feuer','natur'],luft:['luft','natur'],
   verkehr:['verkehr','mobilitat'],strasse:['verkehr'],fahrrad:['verkehr','mobilitat'],
-  korper:['korper','gesundheit'],gesundheit:['gesundheit','korper'],essen:['gesundheit','ernahrung'],kochen:['ernahrung']
+  korper:['korper','gesundheit'],gesundheit:['gesundheit','korper'],essen:['gesundheit','ernahrung'],kochen:['ernahrung','koch'],
+  wand:['bau'],wande:['bau'],box:['bau'],haus:['bau'],turm:['bau','geometr'],regal:['bau'],modell:['bau','gestalt']
 };
-function tokens(s){
-  return (s||'').toLowerCase().split(/[^a-zäöüß0-9]+/).filter(w=>w.length>2&&!STOP.has(w));
-}
-function expand(q){
-  const out=new Set(q);
-  for(const t of q){ if(SYN[t]) SYN[t].forEach(s=>out.add(s)); }
-  return [...out];
+function tokens(s){return (s||'').toLowerCase().split(/[^a-zäöüß0-9]+/).filter(w=>w.length>2&&!STOP.has(w))}
+function expand(qWords){
+  const out=new Set();
+  for(const w of qWords){
+    const st=stem(w);
+    out.add(st);
+    if(SYN[w])SYN[w].forEach(s=>out.add(stem(s)));
+    if(SYN[st])SYN[st].forEach(s=>out.add(stem(s)));
+  }
+  return[...out];
 }
 function buildIndex(){
   IDX=[];
-  for(const [fach,fd] of Object.entries(RP.faecher)){
+  for(const[fach,fd]of Object.entries(RP.faecher)){
     const fname=fach.replace('_','/');
     for(const ik of fd.inhaltskompetenzen){
       IDX.push({id:ik.id,fach:fname,title:ik.title||'Kompetenz '+ik.id,text:ik.text,klasse:ik.klassen,pk:false,
@@ -400,45 +438,59 @@ function buildIndex(){
         terms:new Set([...tokens(ik.title),...tokens(ik.text)].map(stem))});
     }
     for(const pk of fd.prozesskompetenzen){
-      IDX.push({id:pk.id,fach:fname,title:'Prozess: '+pk.text.slice(0,80)+'…',text:pk.text,
+      IDX.push({id:pk.id,fach:fname,title:'Prozess: '+pk.text,text:pk.text,
         klasse:Array.isArray(pk.klassen)?pk.klassen.join(', '):pk.klassen,pk:true,
-        titleTerms:new Set(), terms:new Set(tokens(pk.text).map(stem))});
+        titleTerms:new Set(),terms:new Set(tokens(pk.text).map(stem))});
     }
   }
 }
 function suggest(desc,klasse,minScore){
-  if(!IDX.length||desc.trim().length<4)return [];
-  const q=expand([...new Set(tokens(desc).map(stem))]);
+  if(!IDX.length||desc.trim().length<4)return[];
+  const qWords=[...new Set(tokens(desc))];
+  // Nachvollziehbarkeit: jeder Such-Stamm merkt sich sein Herkunfts-Wort
+  const qmap=new Map(); // stem -> Anzeige ("baute" oder "notierte → schreiben")
+  for(const w of qWords){
+    const st=stem(w);
+    if(!qmap.has(st))qmap.set(st,w);
+    const syns=(SYN[w]||[]).concat(SYN[st]||[]);
+    for(const s of syns){const ss=stem(s);if(!qmap.has(ss))qmap.set(ss,w+' → '+s)}
+  }
   const scored=[];
   for(const c of IDX){
     if(klasse!=='alle'&&c.klasse&&!String(c.klasse).includes(klasse))continue;
-    let s=0;
-    for(const t of q){
-      if(c.titleTerms.has(t))s+=3;
-      else if(c.terms.has(t))s+=1;
+    let s=0;const matched=[];
+    for(const[st,origin]of qmap){
+      if(c.titleTerms.has(st)){s+=3;matched.push(origin)}
+      else if(c.terms.has(st)){s+=1;matched.push(origin)}
     }
-    if(s>=(minScore||2))scored.push({c,s});
+    if(s>=(minScore||2))scored.push({c,s,matched:[...new Set(matched)]});
   }
   scored.sort((a,b)=>b.s-a.s);
   const max=scored.length?scored[0].s:1;
-  return scored.slice(0,8).map(x=>({...x.c,score:x.s,norm:Math.min(1,x.s/max)}));
+  return scored.slice(0,8).map(x=>({...x.c,score:x.s,norm:Math.min(1,x.s/max),matched:x.matched}));
 }
 
-/* ═══════════ RENDER ═══════════ */
+/* ═══════════ RENDER: KINDER ═══════════ */
 function renderKids(){
-  document.getElementById('kidList').innerHTML=kids.map(k=>{
+  const bar=document.getElementById('kidsbar');
+  bar.innerHTML=kids.map((k,i)=>{
     const n=acts.filter(a=>a.kidId===k.id).length;
-    return '<button class="kid'+(k.id===selKid?' sel':'')+'" onclick="pickKid(\''+k.id+'\')">'+
-      '<span class="ava" style="background:'+k.color+'">'+esc(k.name[0])+'</span>'+
-      '<span class="n">'+esc(k.name)+'</span><span class="c">'+n+'</span></button>';
-  }).join('');
+    return '<button class="kidpill'+(k.id===selKid?' sel':'')+'" style="--kc:'+k.color+';animation-delay:'+(i*60)+'ms" onclick="pickKid(\''+k.id+'\')">'+
+      '<span class="ava">'+esc(k.name[0])+'</span><span>'+esc(k.name)+'</span><span class="cnt">'+n+(n===1?' Tätigkeit':' Tätigkeiten')+'</span></button>';
+  }).join('')+'<button class="addkid" onclick="addKid()" title="Kind hinzufügen">＋</button>';
 }
+
+/* ═══════════ RENDER: CHIPS ═══════════ */
 function renderChips(){
   document.getElementById('linsWild').innerHTML=WILD.map(w=>
-    '<button class="chip g'+(selWild.has(w)?' on':'')+'" onclick="tglWild(this,\''+esc(w)+'\')">'+esc(w)+'</button>').join('');
+    '<button class="chip'+(selWild.has(w)?' on':'')+'" style="--cc:#44a735" onclick="tglWild(this,\''+esc(w)+'\')">'+esc(w)+'</button>').join('');
   document.getElementById('linsMonte').innerHTML=MONTE.map(m=>
-    '<button class="chip'+(selMonte.has(m)?' on':'')+'" onclick="tglMonte(this,\''+esc(m)+'\')">'+esc(m)+'</button>').join('');
+    '<button class="chip'+(selMonte.has(m)?' on':'')+'" style="--cc:#e25e2b" onclick="tglMonte(this,\''+esc(m)+'\')">'+esc(m)+'</button>').join('');
 }
+
+/* ═══════════ RENDER: VORSCHLÄGE ═══════════ */
+function fc(fach){return FACHC[fach]||'#3da6da'}
+function darkTxt(fach){return fach==='Mathematik'||fach==='Religion rk.'}
 function renderSugg(){
   const desc=document.getElementById('f-desc').value;
   const klasse=document.getElementById('f-klasse').value;
@@ -446,142 +498,163 @@ function renderSugg(){
   const box=document.getElementById('suggList');
   const hint=document.getElementById('suggHint');
   if(!hits.length){
-    hint.textContent=desc.trim().length<8?'Beschreibung eingeben — Vorschläge erscheinen live.':'Keine sicheren Treffer — Kompetenzen können auch manuell gesucht werden.';
-    box.innerHTML=manualSearch();
-    return;
+    hint.textContent=desc.trim().length<4?'Beschreibung eingeben — Vorschläge erscheinen live.':'Keine sicheren Treffer — unten manuell suchen.';
+    box.innerHTML=manualSearch();return;
   }
-  hint.textContent=hits.length+' Vorschläge — anklicken zum Übernehmen.';
-  box.innerHTML=hits.map(h=>
-    '<label class="sc'+(selKomps.has(h.id)?' on':'')+'"><input type="checkbox" '+(selKomps.has(h.id)?'checked':'')+' onchange="tglKomp(\''+h.id+'\',this)">'+
-    '<div style="flex:1"><div class="t">'+esc(h.title)+'</div><div class="x">'+esc(h.text)+'</div>'+
-    '<div class="badges"><span class="b b-f">'+esc(h.fach)+'</span><span class="b b-k">Kl. '+esc(String(h.klasse))+'</span>'+(h.pk?'<span class="b b-s">prozessbezogen</span>':'')+'</div>'+
-    '<div class="scorebar"><i style="width:'+Math.round(h.norm*100)+'%"></i></div></div></label>').join('')+manualSearch();
+  hint.textContent=hits.length+' Vorschlag'+(hits.length!==1?'e':'')+' · anklicken zum Übernehmen';
+  box.innerHTML=hits.map((h,i)=>{
+    const c=fc(h.fach);
+    return '<div class="sugg-card'+(selKomps.has(h.id)?' on':'')+'" style="--fc:'+c+';--d:'+(i*55)+'ms" onclick="tglKompCard(this,\''+h.id+'\')">'+
+      '<span class="scheck">✓</span>'+
+      '<div class="sbody"><div class="stitle">'+esc(h.title)+'</div><div class="stext">'+esc(h.text)+'</div>'+
+      '<div class="smeta"><span class="fb'+(darkTxt(h.fach)?' dark':'')+'" style="--fc:'+c+'">'+esc(h.fach)+'</span>'+
+      '<span class="kb">Kl. '+esc(String(h.klasse))+'</span>'+(h.pk?'<span class="pk">prozessbezogen</span>':'')+'</div>'+
+      (h.matched.length?'<div class="why">← trifft wegen '+h.matched.slice(0,5).map((m,j)=>'<i style="animation-delay:'+(j*60)+'ms">'+esc(m)+'</i>').join('')+'</div>':'')+
+      '</div>'+
+      '<div class="sscore"><div class="ring" style="--fc:'+c+';--p:'+Math.round(h.norm*100)+'"><span>'+h.score+'</span></div><div class="sl">Treffer</div></div>'+
+      '</div>';
+  }).join('')+manualSearch();
 }
 function manualSearch(){
-  return '<div style="margin-top:10px"><input id="manSearch" placeholder="🔍 Kompetenz manuell suchen (z. B. „Zahlenraum", „Lesen", „Körper")…" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:9px 12px;font:500 12.5px var(--font)" oninput="manSugg()"><div id="manHits"></div></div>';
+  return '<div style="margin-top:12px"><input id="manSearch" placeholder="🔍 Kompetenz manuell suchen — z. B. „Zahlenraum", „Lesen", „Körper"…" style="width:100%;border:2px solid rgba(45,36,18,.1);border-radius:13px;padding:11px 14px;font:500 13px var(--font);background:rgba(255,255,255,.8)" oninput="manSugg()"><div id="manHits"></div></div>';
 }
 function manSugg(){
   const q=document.getElementById('manSearch').value;
   const box=document.getElementById('manHits');
-  if(q.trim().length<3){box.innerHTML='';return;}
+  if(q.trim().length<3){box.innerHTML='';return}
   const hits=suggest(q,document.getElementById('f-klasse').value,1).slice(0,6);
-  box.innerHTML=hits.map(h=>
-    '<label class="sc'+(selKomps.has(h.id)?' on':'')+'"><input type="checkbox" '+(selKomps.has(h.id)?'checked':'')+' onchange="tglKomp(\''+h.id+'\',this)">'+
-    '<div style="flex:1"><div class="t">'+esc(h.title)+'</div><div class="badges"><span class="b b-f">'+esc(h.fach)+'</span><span class="b b-k">Kl. '+esc(String(h.klasse))+'</span></div></div></label>').join('')||'<div class="hint" style="padding:8px">Keine Treffer.</div>';
+  box.innerHTML=hits.map((h,i)=>{
+    const c=fc(h.fach);
+    return '<div class="sugg-card'+(selKomps.has(h.id)?' on':'')+'" style="--fc:'+c+';--d:'+(i*45)+'ms" onclick="tglKompCard(this,\''+h.id+'\')">'+
+      '<span class="scheck">✓</span><div class="sbody"><div class="stitle">'+esc(h.title)+'</div>'+
+      '<div class="smeta"><span class="fb'+(darkTxt(h.fach)?' dark':'')+'" style="--fc:'+c+'">'+esc(h.fach)+'</span><span class="kb">Kl. '+esc(String(h.klasse))+'</span></div></div></div>';
+  }).join('')||'<div style="padding:10px;font-size:.74rem;color:var(--text2)">Keine Treffer.</div>';
 }
-function renderAll(){ renderKids(); renderList(); renderNw(); renderDev(); }
+
+/* ═══════════ RENDER: ALLES ═══════════ */
+function renderAll(){renderKids();renderList();renderNw();renderDev()}
 
 function renderList(){
   const list=acts.filter(a=>a.kidId===selKid).sort((a,b)=>b.date.localeCompare(a.date));
   const box=document.getElementById('actList');
-  if(!list.length){ box.innerHTML='<div class="empty">Noch keine Tätigkeiten dokumentiert.<br>Lege oben unter „Tätigkeit dokumentieren" los.</div>'; return; }
-  box.innerHTML=list.map(a=>
-    '<div class="act"><div class="act-h"><div><div class="act-t">'+esc(a.title)+'</div>'+
-    '<div class="act-d">'+fmt(a.date)+' · '+esc(a.type)+' · Kl. '+esc(a.klasse)+'</div></div>'+
-    '<button class="mini" onclick="delAct(\''+a.id+'\')">löschen</button></div>'+
-    '<div class="act-desc">'+esc(a.desc)+'</div>'+
-    '<div class="ktags">'+a.komps.map(k=>'<span class="ktag'+(k.pk?' pk':'')+'">'+esc(k.fach)+' · '+esc(k.title.length>70?k.title.slice(0,70)+'…':k.title)+'</span>').join('')+'</div>'+
-    ((a.wild&&a.wild.length)?'<div class="ltags">'+a.wild.map(w=>'<span class="ltag">🧡 '+esc(w)+'</span>').join('')+'</div>':'')+
-    ((a.monte&&a.monte.length)?'<div class="ltags">'+a.monte.map(m=>'<span class="ltag">🔶 '+esc(m)+'</span>').join('')+'</div>':'')+
-    '</div>').join('');
+  if(!list.length){box.innerHTML='<div class="empty"><span class="big">🌱</span>Noch keine Tätigkeiten dokumentiert.<br>Lege unter „📝 Dokumentieren" los — jede Tätigkeit wird hier als Spur sichtbar.</div>';return}
+  box.innerHTML='<div class="tl">'+list.map((a,i)=>{
+    const ac=TYPE_COLOR[a.type]||'#3da6da';
+    return '<div class="act" style="--ac:'+ac+';--d:'+(i*70)+'ms"><div class="act-h"><div>'+
+      '<div class="act-t">'+(TYPE_ICON[a.type]||'✨')+' '+esc(a.title)+'</div>'+
+      '<div class="act-d">'+fmt(a.date)+' · '+esc(a.type)+' · Kl. '+esc(a.klasse)+'</div></div>'+
+      '<button class="mini" onclick="delAct(\''+a.id+'\')">löschen</button></div>'+
+      '<div class="act-desc">'+esc(a.desc)+'</div>'+
+      (a.komps.length?'<div class="ktags">'+a.komps.map(k=>'<span class="ktag" style="--kc2:'+(fc(k.fach))+'">'+esc(k.fach)+' · '+esc(k.title.length>60?k.title.slice(0,60)+'…':k.title)+'</span>').join('')+'</div>':'')+
+      ((a.wild&&a.wild.length)?'<div class="ltags">'+a.wild.map(w=>'<span class="ltag">🧡 '+esc(w)+'</span>').join('')+'</div>':'')+
+      ((a.monte&&a.monte.length)?'<div class="ltags">'+a.monte.map(m=>'<span class="ltag m">🔶 '+esc(m)+'</span>').join('')+'</div>':'')+
+      '<div class="provline">dokumentiert in FASKA Doku · '+a.komps.length+' Bildungsplan-Kompetenz'+(a.komps.length!==1?'en':'')+' zugeordnet · Rahmenplan BW GS ('+(RP?RP.metadata.stand:'')+') · keine Eigenschaftszuschreibung, nur belegte Übergänge</div>'+
+      '</div>';
+  }).join('')+'</div>';
 }
 
 function renderNw(){
-  const kid=kids.find(k=>k.id===selKid); if(!kid)return;
+  const kid=kids.find(k=>k.id===selKid);if(!kid)return;
   const list=acts.filter(a=>a.kidId===selKid);
-  const byFach={};
-  const kompMap={};
+  const kompMap={},byFach={};
   list.forEach(a=>a.komps.forEach(k=>{
     if(!kompMap[k.id])kompMap[k.id]={...k,count:0,dates:[]};
-    kompMap[k.id].count++; kompMap[k.id].dates.push(a.date);
-    (byFach[k.fach]=byFach[k.fach]||[]).push(k.id);
+    kompMap[k.id].count++;kompMap[k.id].dates.push(a.date);
+    (byFach[k.fach]=byFach[k.fach]||new Set()).add(k.id);
   }));
   const fachs=Object.keys(byFach).sort();
-  document.getElementById('nwStats').innerHTML=
-    '<div class="stat"><div class="z">'+list.length+'</div><div class="l">Tätigkeiten</div></div>'+
-    '<div class="stat"><div class="z">'+Object.keys(kompMap).length+'</div><div class="l">Kompetenzen berührt</div></div>'+
-    '<div class="stat"><div class="z">'+fachs.length+'</div><div class="l">Fächer</div></div>'+
-    '<div class="stat"><div class="z">'+(list.length?fmt(list.map(a=>a.date).sort()[0]).slice(0,6):'–')+'</div><div class="l">seit</div></div>';
+  const stats=[
+    [list.length,'Tätigkeiten','#3da6da'],
+    [Object.keys(kompMap).length,'Kompetenzen berührt','#44a735'],
+    [fachs.length,'Fächer','#e25e2b'],
+    [list.length?Math.max(...list.map(a=>a.komps.length)):0,'max. Kompetenzen / Tätigkeit','#ffce05']
+  ];
+  document.getElementById('nwStats').innerHTML=stats.map((s,i)=>
+    '<div class="stat" style="--sc:'+s[2]+';--d:'+(i*80)+'ms"><div class="z" data-to="'+s[0]+'">0</div><div class="l">'+s[1]+'</div></div>').join('');
+  document.querySelectorAll('#nwStats .z').forEach(el=>countUp(el,+el.dataset.to));
   if(!fachs.length){
-    document.getElementById('nwBody').innerHTML='<div class="empty">Noch keine Kompetenzen zugeordnet.<br>Sobald du Tätigkeiten mit Rahmenplan-Kompetenzen dokumentierst, entsteht hier der Nachweis: Fach für Fach, Kompetenz für Kompetenz.</div>';
+    document.getElementById('nwBody').innerHTML='<div class="empty"><span class="big">🎯</span>Noch keine Kompetenzen zugeordnet.<br>Sobald Tätigkeiten mit Rahmenplan-Kompetenzen dokumentiert sind, entsteht hier der Nachweis:<br><b>Fach für Fach · Kompetenz für Kompetenz · mit Datum belegt.</b></div>';
     return;
   }
   document.getElementById('nwBody').innerHTML=
-    '<h3 style="margin-bottom:12px;font-size:1.05rem">Kompetenz-Nachweis — '+esc(kid.name)+'</h3>'+
-    '<div class="ped-note" style="font-size:.72rem">Nachweisführung nach Bildungsplan Baden-Württemberg (Grundschule). Jede Kompetenz ist durch mindestens eine dokumentierte Tätigkeit belegt; das Datum der letzten Belegung und die Anzahl der Beleg-Tätigkeiten sind angegeben. <b>Dies ist eine Belegsammlung, kein Urteil über das Kind.</b></div>'+
-    fachs.map(f=>{
-      const ids=[...new Set(byFach[f])];
-      return '<div class="nw-fach"><h4>'+esc(f)+' <span class="cnt">'+ids.length+' Kompetenzen</span></h4>'+
-      '<table class="nw"><tr><th style="width:44%">Kompetenz</th><th>Klasse</th><th>Belege</th><th>zuletzt</th></tr>'+
-      ids.map(id=>{ const k=kompMap[id];
-        return '<tr><td class="k">'+esc(k.title)+'</td><td>'+esc(String(k.klasse))+'</td><td>'+k.count+'×</td><td>'+fmt(k.dates.sort()[k.dates.length-1])+'</td></tr>';
-      }).join('')+'</table></div>';
+    '<div class="ped-note"><b>Kompetenz-Nachweis für '+esc(kid.name)+'</b> — Bildungsplan Baden-Württemberg, Grundschule. Jede Kompetenz ist durch mindestens eine dokumentierte Tätigkeit belegt (Anzahl + letztes Datum). <b>Dies ist eine Belegsammlung, kein Urteil über das Kind.</b> Quelle: bildungsplaene-bw.de, Fassung '+(RP?RP.metadata.stand:'')+'.</div>'+
+    fachs.map((f,i)=>{
+      const c=fc(f),ids=[...byFach[f]];
+      const total=RP?(IDX.filter(x=>x.fach===f&&!x.pk).length||1):1;
+      const cov=Math.min(100,Math.round(ids.length/total*100));
+      return '<div class="nw-fach" style="--fc:'+c+';--d:'+(i*90)+'ms">'+
+        '<div class="nw-h"><h4><span class="nw-dot"></span>'+esc(f)+' <span class="cnt-pill">'+ids.length+' Kompetenz'+(ids.length!==1?'en':'')+'</span></h4>'+
+        '<div class="covbar"><i data-w="'+cov+'"></i></div><span class="covtxt">'+cov+' % des Fachs berührt</span></div>'+
+        '<table class="nw"><tr><th style="width:46%">Kompetenz</th><th>Klasse</th><th>Belege</th><th>zuletzt</th></tr>'+
+        ids.map((id,j)=>{const k=kompMap[id];
+          return '<tr style="--d:'+(j*45)+'ms"><td class="k">'+esc(k.title)+'</td><td>'+esc(String(k.klasse))+'</td><td><span class="cnt-pill" style="--fc:'+c+'">'+k.count+'×</span></td><td>'+fmt(k.dates.sort()[k.dates.length-1])+'</td></tr>';
+        }).join('')+'</table></div>';
     }).join('');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    document.querySelectorAll('.covbar i').forEach(el=>el.style.width=el.dataset.w+'%');
+  }));
 }
 
 function renderDev(){
   const obs=devObs[selKid]||{};
-  document.getElementById('devBody').innerHTML=DEV_ASPEKTE.map(([asp,sub])=>{
-    const items=(obs[asp]||[]).map((o,i)=>
-      '<div class="obs"><div class="od">'+fmt(o.date)+' <button class="mini" style="float:right;padding:1px 8px" onclick="delObs(\''+asp+'\','+i+')">×</button></div>'+
-      '<textarea oninput="editObs(this,\''+asp+'\','+i+')" rows="2">'+esc(o.text)+'</textarea></div>').join('');
-    return '<div class="dev-grp"><h4>'+esc(asp)+'</h4><div class="sub">'+esc(sub)+'</div>'+
-      (items||'<div class="hint" style="padding:4px 0">Noch keine Beobachtungen.</div>')+
-      '<button class="add-obs" onclick="addObs(\''+asp+'\')">＋ Beobachtung hinzufügen</button></div>';
+  document.getElementById('devBody').innerHTML=DEV_ASPEKTE.map(([asp,icon,sub,col],i)=>{
+    const items=(obs[asp]||[]).map((o,j)=>
+      '<div class="obs" style="--dc:'+col+'"><div class="od">'+fmt(o.date)+'<button class="mini" style="padding:1px 8px" onclick="delObs(\''+asp+'\','+j+')">×</button></div>'+
+      '<textarea oninput="editObs(this,\''+asp+'\','+j+')" rows="2">'+esc(o.text)+'</textarea></div>').join('');
+    return '<div class="dev-card" style="--d:'+(i*80)+'ms"><h4>'+icon+' '+esc(asp)+'</h4><div class="sub">'+esc(sub)+'</div>'+
+      (items||'<div style="font-size:.72rem;color:var(--text2);padding:3px 0">Noch keine Beobachtungen.</div>')+
+      '<button class="add-obs" style="--dc:'+col+'" onclick="addObs(\''+asp+'\')">＋ Beobachtung</button></div>';
   }).join('');
 }
 
 /* ═══════════ AKTIONEN ═══════════ */
-function pickKid(id){ selKid=id; store(); renderKids(); renderList(); renderNw(); renderDev(); }
+function pickKid(id){selKid=id;store();renderKids();renderList();renderNw();renderDev()}
 function addKid(){
   const n=prompt('Name des Kindes (intern gerne Tarnname):');
   if(!n||!n.trim())return;
   kids.push({id:'k'+Date.now(),name:n.trim(),color:KID_COLORS[kids.length%KID_COLORS.length]});
-  selKid=kids[kids.length-1].id; store(); renderAll();
+  selKid=kids[kids.length-1].id;store();renderAll();toast('👋 '+n.trim()+' angelegt');
 }
 function tab(t){
   document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('on',b.dataset.tab===t));
-  ['act','list','nw','dev'].forEach(x=>document.getElementById('tab-'+x).style.display=(x===t?'':'none'));
-  if(t==='list')renderList(); if(t==='nw')renderNw(); if(t==='dev')renderDev();
+  ['act','list','nw','dev'].forEach(x=>document.getElementById('tab-'+x).classList.toggle('on',x===t));
+  moveGlider();
+  if(t==='list')renderList();if(t==='nw')renderNw();if(t==='dev')renderDev();
 }
-function tglKomp(id,el){
-  if(selKomps.has(id))selKomps.delete(id); else selKomps.add(id);
-  el.closest('.sc').classList.toggle('on',selKomps.has(id));
+function moveGlider(){
+  const on=document.querySelector('.tab.on'),g=document.getElementById('glider');
+  if(on&&g){g.style.left=on.offsetLeft+'px';g.style.width=on.offsetWidth+'px'}
 }
-function tglWild(el,w){ selWild.has(w)?selWild.delete(w):selWild.add(w); el.classList.toggle('on'); }
-function tglMonte(el,m){ selMonte.has(m)?selMonte.delete(m):selMonte.add(m); el.classList.toggle('on'); }
+function tglKompCard(el,id){
+  selKomps.has(id)?selKomps.delete(id):selKomps.add(id);
+  el.classList.toggle('on',selKomps.has(id));
+}
+function tglWild(el,w){selWild.has(w)?selWild.delete(w):selWild.add(w);el.classList.toggle('on')}
+function tglMonte(el,m){selMonte.has(m)?selMonte.delete(m):selMonte.add(m);el.classList.toggle('on')}
 
-function saveAct(){
+function saveAct(ev){
   const title=document.getElementById('f-title').value.trim();
   const desc=document.getElementById('f-desc').value.trim();
   const hint=document.getElementById('saveHint');
-  if(!title||!desc){ hint.textContent='⚠️ Titel und Beschreibung sind Pflicht.'; hint.style.color='var(--red)'; return; }
-  const komps=[...selKomps].map(id=>{
-    const c=IDX.find(x=>x.id===id);
-    return c?{id:c.id,fach:c.fach,title:c.title,klasse:c.klasse,pk:c.pk}:null;
-  }).filter(Boolean);
+  if(!title||!desc){hint.textContent='⚠️ Titel und Beschreibung sind Pflicht.';return}
+  const komps=[...selKomps].map(id=>{const c=IDX.find(x=>x.id===id);return c?{id:c.id,fach:c.fach,title:c.title,klasse:c.klasse,pk:c.pk}:null}).filter(Boolean);
   acts.push({id:'a'+Date.now(),kidId:selKid,
-    date:document.getElementById('f-date').value,
-    title,desc,type:document.getElementById('f-type').value,
-    klasse:document.getElementById('f-klasse').value,
-    komps,wild:[...selWild],monte:[...selMonte]});
-  selKomps.clear(); selWild.clear(); selMonte.clear();
-  document.getElementById('f-title').value=''; document.getElementById('f-desc').value='';
-  document.getElementById('suggList').innerHTML=manualSearch();
-  renderChips(); store(); renderAll();
-  hint.textContent=''; 
+    date:document.getElementById('f-date').value,title,desc,
+    type:document.getElementById('f-type').value,klasse:document.getElementById('f-klasse').value,
+    komps,wild:[...selWild],monte:[...selMonte],savedAt:new Date().toISOString()});
+  selKomps.clear();selWild.clear();selMonte.clear();
+  document.getElementById('f-title').value='';
+  const ta=document.getElementById('f-desc');ta.value='';ta.style.height='auto';
+  renderChips();store();renderAll();hint.textContent='';
+  if(ev)confetti(ev.clientX,ev.clientY);
   toast('✓ Dokumentiert — '+komps.length+' Kompetenz'+(komps.length!==1?'en':'')+' zugeordnet');
-  tab('list');
+  setTimeout(()=>tab('list'),650);
 }
-function delAct(id){ if(!confirm('Diese Tätigkeit löschen?'))return; acts=acts.filter(a=>a.id!==id); store(); renderAll(); }
+function delAct(id){if(!confirm('Diese Tätigkeit löschen?'))return;acts=acts.filter(a=>a.id!==id);store();renderAll();toast('🗑 Gelöscht')}
 
-function addObs(asp){
-  devObs[selKid]=devObs[selKid]||{};
-  (devObs[selKid][asp]=devObs[selKid][asp]||[]).unshift({date:new Date().toISOString().slice(0,10),text:''});
-  store(); renderDev();
-}
-function editObs(el,asp,i){ devObs[selKid][asp][i].text=el.value; store(); }
-function delObs(asp,i){ devObs[selKid][asp].splice(i,1); store(); renderDev(); }
+function addObs(asp){devObs[selKid]=devObs[selKid]||{};(devObs[selKid][asp]=devObs[selKid][asp]||[]).unshift({date:new Date().toISOString().slice(0,10),text:''});store();renderDev()}
+function editObs(el,asp,i){devObs[selKid][asp][i].text=el.value;store()}
+function delObs(asp,i){devObs[selKid][asp].splice(i,1);store();renderDev()}
 
 function exportAll(){
   const kid=kids.find(k=>k.id===selKid);
@@ -594,13 +667,32 @@ function exportAll(){
   a.download='faska-doku-'+(kid?kid.name.toLowerCase():'export')+'-'+new Date().toISOString().slice(0,10)+'.json';a.click();
   toast('📥 Exportiert');
 }
+function printNw(){tab('nw');document.getElementById('tab-nw').classList.add('print-me');setTimeout(()=>{window.print();document.getElementById('tab-nw').classList.remove('print-me')},350)}
+
+/* ═══════════ EFFEKTE ═══════════ */
+function confetti(x,y){
+  const colors=['#3da6da','#bd182a','#e25e2b','#44a735','#ffce05'];
+  for(let i=0;i<30;i++){
+    const el=document.createElement('div');el.className='confetti';
+    el.style.background=colors[i%5];el.style.left=x+'px';el.style.top=y+'px';
+    if(i%3===0)el.style.borderRadius='50%';
+    document.body.appendChild(el);
+    const ang=Math.random()*Math.PI*2,v=70+Math.random()*150;
+    el.animate([
+      {transform:'translate(0,0) rotate(0deg)',opacity:1},
+      {transform:'translate('+Math.cos(ang)*v+'px,'+(Math.sin(ang)*v+140)+'px) rotate('+(Math.random()*720-360)+'deg)',opacity:0}
+    ],{duration:900+Math.random()*600,easing:'cubic-bezier(.2,.6,.3,1)'}).onfinish=()=>el.remove();
+  }
+}
+function countUp(el,to){
+  const t0=performance.now(),dur=750;
+  (function f(t){const p=Math.min(1,(t-t0)/dur);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0);
+}
 
 /* ═══════════ UTILS ═══════════ */
 function esc(s){return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
-function fmt(d){ if(!d)return''; const[x,y,z]=d.split('-'); return z+'.'+y+'.'+x; }
-function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2600); }
-document.getElementById('f-desc').addEventListener('input',renderSugg);
-document.getElementById('f-klasse').addEventListener('change',renderSugg);
+function fmt(d){if(!d)return'';const[x,y,z]=d.split('-');return z+'.'+y+'.'+x}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600)}
 init();
 </script>
 </body>
