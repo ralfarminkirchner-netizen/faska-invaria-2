@@ -1,0 +1,1589 @@
+{
+ "metadata": {
+  "quelle": "Bildungsplan Baden-Württemberg, Grundschule Kl. 1–4",
+  "url": "https://www.bildungsplaene-bw.de/",
+  "stand": "2026 (Fassung D/M 2024, übrige 2016)",
+  "hinweis": "bereinigt: Soft-Hyphens, CMS-Müll, Navigations-Chrome, Scraping-Artefakte entfernt"
+ },
+ "faecher": {
+  "Deutsch": {
+   "fassung": "2024-02-29",
+   "prozesskompetenzen": [
+    {
+     "id": "D-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Sprechen und Zuhören"
+    },
+    {
+     "id": "D-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Schreiben"
+    },
+    {
+     "id": "D-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Lesen"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "D-IK-1-2-01_01",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.1 Texte verfassen – Texte planen, schreiben und überarbeiten",
+     "text": "Die Schülerinnen und Schüler kennen und nutzen verschiedene Schreibanlässe. Sie können Schreibideen entwickeln und zu Schreibimpulsen kurze Texte verfassen. Sie berücksichtigen Hinweise für die Überarbeitung ihrer Texte. Sie können ihre Texte für die Veröffentlichung aufbereiten und dabei Gestaltungsmerkmale beachten."
+    },
+    {
+     "id": "D-IK-1-2-01_02",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.2 Texte verfassen – Handschrift entwickeln",
+     "text": "Die Schülerinnen und Schüler entwickeln – ausgehend von einer gedruckten Ausgangsschrift und einer verbundenen Schrift – eine individuelle Handschrift. Sie schreiben Buchstaben zunehmend formstabil und lesbar. Sie erproben unterschiedliche Schriftträger, Schreibwerkzeuge und Gestaltungsformen."
+    },
+    {
+     "id": "D-IK-1-2-01_03",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.3 Texte verfassen – richtig schreiben",
+     "text": "Die Schülerinnen und Schüler können lautentsprechend schreiben und dabei einige orthografische Aspekte umsetzen."
+    },
+    {
+     "id": "D-IK-1-2-01_04",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.4 Lesefähigkeit erwerben",
+     "text": "Die Schülerinnen und Schüler erwerben die Fähigkeit des Lesens. Sie können einfache Texte in ihren Aussagen, in ihren Absichten und in ihrer formalen Struktur lesen und verstehen."
+    },
+    {
+     "id": "D-IK-1-2-01_05",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.5 Lesefähigkeit und Leseerfahrung sichtbar machen",
+     "text": "Die Schülerinnen und Schüler können ihre Lesefähigkeit einschätzen und sich darüber mitteilen. Sie können über ihre Leseerfahrungen sprechen und sie veranschaulichen. Die Schülerinnen und Schüler gewinnen Vertrauen in die eigene Lesefähigkeit."
+    },
+    {
+     "id": "D-IK-1-2-01_06",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.6 Leseverstehen entwickeln",
+     "text": "Die Schülerinnen und Schüler lernen unterschiedliche Textarten kennen und verstehen. Sie können den Inhalt wiedergeben und sich mit dem Text auseinandersetzen. Außerdem lernen sie verschiedene Medien kennen."
+    },
+    {
+     "id": "D-IK-1-2-01_07",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.7 Texterschließungsstrategien kennenlernen und anwenden",
+     "text": "Die Schülerinnen und Schüler verfügen über erste Strategien, die sie dazu befähigen, Texte zu erschließen."
+    },
+    {
+     "id": "D-IK-1-2-01_08",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.8 Präsentieren",
+     "text": "Die Schülerinnen und Schüler planen und gestalten erste Präsentationen, die sie einem Publikum vorstellen. Jedes Kind stellt mindestens ein Buch vor."
+    },
+    {
+     "id": "D-IK-1-2-02_01",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.1 Gemeinsamkeiten und Unterschiede von Sprachen entdecken",
+     "text": "Die Schülerinnen und Schüler entdecken Gemeinsamkeiten und Unterschiede von Sprachen und setzen sich damit spielerisch auseinander."
+    },
+    {
+     "id": "D-IK-1-2-02_02",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.2 Unterschiede von gesprochener und geschriebener Sprache erkennen",
+     "text": "Die Schülerinnen und Schüler nehmen wahr, dass gesprochene und geschriebene Sprache sich unterscheiden. Sie erkennen die Bedeutung der nonverbalen Kommunikationsformen."
+    },
+    {
+     "id": "D-IK-1-2-02_03",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.3 Sprache als Mittel zur Kommunikation und Information kennen",
+     "text": "Die Schülerinnen und Schüler setzen sich mit verschiedenen Formen der sprachlichen Verständigung auseinander."
+    },
+    {
+     "id": "D-IK-1-2-02_04",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.4 Grundlegende sprachliche Strukturen und Begriffe wahrnehmen",
+     "text": "Die Schülerinnen und Schüler arbeiten an Wörtern, Sätzen und Texten. Dabei entdecken sie sprachliche Strukturen, deren Funktion und lernen Begriffe kennen. Sie lernen mit Sprache experimentell und spielerisch umzugehen."
+    },
+    {
+     "id": "D-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Texte verfassen – Texte planen, strukturieren schreiben und überarbeiten",
+     "text": "Die Schülerinnen und Schüler nutzen verschiedene Schreibanlässe. Sie können unter Berücksichtigung verschiedener Schreibabsichten Texte planen, strukturieren und schreiben. Sie überarbeiten ihre Texte im Hinblick auf Inhalt, Sprache, Orthografie und Gestaltung. Dabei beziehen sie mündliche und schriftliche Kommentare in die Überarbeitungen ein."
+    },
+    {
+     "id": "D-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Texte verfassen – Handschrift weiterentwickeln",
+     "text": "Die Schülerinnen und Schüler schreiben eine formstabile, flüssige, lesbare Handschrift und gestalten Texte auch mit digitalen Werkzeugen – sobald vorhanden – übersichtlich und zweckmäßig."
+    },
+    {
+     "id": "D-IK-3-4-01_03",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.3 Texte verfassen – richtig schreiben",
+     "text": "Die Schülerinnen und Schüler schreiben häufig vorkommende Inhalts- und Funktionswörter richtig, sie beachten die Zeichensetzung (Punkt, Komma, Fragezeichen, Ausrufezeichen, Anführungszeichen), haben eine Fehleraufmerksamkeit ausgebildet, kennen Rechtschreibstrategien und Rechtschreibhilfen und wenden diese zur Klärung fraglicher Schreibungen an. Sie überprüfen und korrigieren Texte auf ihre orthografische Richtigkeit."
+    },
+    {
+     "id": "D-IK-3-4-01_04",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.4 Lesefähigkeit erweitern",
+     "text": "Die Schülerinnen und Schüler lesen leise und laut, automatisiert, genau, sinngestaltend und zügig. Texte werden durch lautes Lesen sprechbar und damit verstehbar. Das regelmäßige, angstfreie und abwechslungsreiche Lautlesen im Unterricht ist die Grundlage für die basalen und die weiterführenden Lesekompetenzen in allen Schuljahren. Zum Lesen lernen gehört auch die Ausbildung prosodischer Fähigkeiten und die Erfahrung, dass ein Text auf verschiedene Arten und Weisen gelesen werden kann und sich dadurch die Wirkung des Gelesenen verändert."
+    },
+    {
+     "id": "D-IK-3-4-01_05",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.5 Lesefähigkeit und Leseerfahrung dokumentieren",
+     "text": "Die Schülerinnen und Schüler lesen dem Lernstand entsprechende Texte sinnverstehend. Die Schülerinnen und Schüler können ihre Lesefähigkeit einschätzen und sich darüber mitteilen. Sie können ihre Leseerfahrungen beschreiben, reflektieren und dokumentieren."
+    },
+    {
+     "id": "D-IK-3-4-01_06",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.6 Leseverstehen vertiefen",
+     "text": "Die Schülerinnen und Schüler können unterschiedliche Texte unterschiedlicher Textsorten sinnkonstruierend lesen. Sie nutzen die Inhalte der gelesenen Texte individuell und kooperativ zur Erweiterung ihrer Gedanken und Handlungen. Die Schülerinnen und Schüler wählen bewusst und zielorientiert verschiedene Medien aus. Sie erschließen sich Texte unterschiedlicher medialer Form, auch als Grundlage für die mündliche und schriftliche Anschlusskommunikation."
+    },
+    {
+     "id": "D-IK-3-4-01_07",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.7 Texterschließungsstrategien nutzen",
+     "text": "Die Schülerinnen und Schüler kennen erste grundlegende kognitive und metakognitive Lesestrategien zum Einsatz vor dem Lesen, während des Lesens und nach dem Lesen. Sie können diese bei gut strukturierten Texten anwenden und orientieren sich in und zwischen klar strukturierten Texten. Sie verschaffen sich auch mithilfe textueller Lesehilfen (unter anderem Überschriften, Zwischenüberschriften, Absätze, Abbildungen, Illustrationen) einen Überblick."
+    },
+    {
+     "id": "D-IK-3-4-01_08",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.8 Präsentieren",
+     "text": "Die Schülerinnen und Schüler kennen unterschiedliche Präsentationsformen und wenden diese adressaten‑, inhalts- und situationsgerecht an."
+    },
+    {
+     "id": "D-IK-3-4-02_01",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.1 Gemeinsamkeiten und Unterschiede von Sprachen reflektieren",
+     "text": "Die Schülerinnen und Schüler entdecken Gemeinsamkeiten und Unterschiede von Sprachen. Sie vergleichen die Standardsprache und Dialekte, erkennen den Einfluss von unterschiedlichen Sprachen und verstehen die Bedeutung gebräuchlicher Fremdwörter."
+    },
+    {
+     "id": "D-IK-3-4-02_02",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.2 Unterschiede von gesprochener und geschriebener Sprache kennen",
+     "text": "Die Schülerinnen und Schüler erweitern ihre Kompetenz, sprachliche Verständigung zu untersuchen. Sie lernen die Unterschiede von gesprochener und geschriebener Sprache kennen. Sie erfassen die Bedeutung von Sprachmitteln und erkennen Satzstrukturen. Sie wenden nonverbale Kommunikationsformen an."
+    },
+    {
+     "id": "D-IK-3-4-02_03",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.3 Sprache als Mittel zur Kommunikation und Information nutzen",
+     "text": "Die Schülerinnen und Schüler setzen sich mit verschiedenen Formen der sprachlichen Verständigung auseinander und wenden diese situationsangemessen an. Sie nutzen dabei auch nonverbale Kommunikationsformen."
+    },
+    {
+     "id": "D-IK-3-4-02_04",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.4 Grundlegende sprachliche Strukturen und Begriffe reflektieren und anwenden",
+     "text": "Die Schülerinnen und Schüler arbeiten an Wörtern, Wortgruppen, Sätzen und Texten. Sie entdecken sprachliche Strukturen und deren Funktion, lernen Fachbegriffe kennen und wenden diese an, auch im Hinblick auf die Rechtschreibung. Sie gehen mit Sprache experimentell und handelnd um."
+    }
+   ]
+  },
+  "Mathematik": {
+   "fassung": "2024-02-29",
+   "prozesskompetenzen": [
+    {
+     "id": "M-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Mathematisch kommunizieren"
+    },
+    {
+     "id": "M-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Mathematisch argumentieren"
+    },
+    {
+     "id": "M-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Probleme mathematisch lösen"
+    },
+    {
+     "id": "M-PK-1_2-ALLG_04",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.4 Mathematisch modellieren"
+    },
+    {
+     "id": "M-PK-1_2-ALLG_05",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.5 Mit mathematischen Darstellungen umgehen"
+    },
+    {
+     "id": "M-PK-1_2-ALLG_06",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.6 Mit mathematischen Objekten und Werkzeugen arbeiten"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "M-IK-1-2-01_01",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.1 Zahldarstellungen und Zahlbeziehungen verstehen",
+     "text": "Die Schülerinnen und Schüler kennen verschiedene Zahldarstellungen und Zahlbeziehungen im Zahlenraum bis 100. Sie sind in der Lage, sich im Zahlenraum bis 100 sicher zu orientieren."
+    },
+    {
+     "id": "M-IK-1-2-01_02",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.2 Rechenoperationen verstehen und beherrschen",
+     "text": "Die Schülerinnen und Schüler wenden die vier Grundrechenarten im Zahlenraum bis 100 sicher an und nutzen vorteilhafte Strategien. Sie verstehen Zusammenhänge zwischen einzelnen Operationen. Sie lernen arithmetische Muster kennen und gehen mit ihnen um."
+    },
+    {
+     "id": "M-IK-1-2-01_03",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.3 In Kontexten rechnen",
+     "text": "Die Schülerinnen und Schüler erschließen sich mit mathematischen Mitteln einfache Problemstellungen aus ihrer Lebenswelt."
+    },
+    {
+     "id": "M-IK-1-2-02_01",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.1 Sich im Raum orientieren",
+     "text": "Die Schülerinnen und Schüler machen erste Erfahrungen mit räumlichen Vorstellungen und orientieren sich im Raum. Sie erkunden Eigenschaften und Beziehungen von geometrischen Objekten und stellen diese mit geeigneten Medien (auch digitalen Mathematikwerkzeugen) – sobald vorhanden – dar. Sie verfügen über sprachliche Mittel, um einfache Lagebeziehungen auszudrücken."
+    },
+    {
+     "id": "M-IK-1-2-02_02",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.2 Einfache geometrische Figuren erkennen und benennen",
+     "text": "Die Schülerinnen und Schüler kennen ebene Figuren und Körper sowie deren Eigenschaften. Sie entwickeln ihre Wahrnehmung für geometrische Strukturen in ihrer Erfahrungswelt weiter."
+    },
+    {
+     "id": "M-IK-1-2-02_03",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.3 Einfache geometrische Abbildungen erkennen und benennen",
+     "text": "Die Schülerinnen und Schüler erfahren die Achsenspiegelung im Handeln als einfache geometrische Abbildung. Sie entwickeln eigene Muster und erkennen zunehmend Muster in ihrer Erfahrungswelt. Das gezielte Suchen und Beschreiben von Mustern sensibilisiert sie in ihrer Wahrnehmung."
+    },
+    {
+     "id": "M-IK-1-2-02_04",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.4 Flächen legen und auslegen",
+     "text": "Die Schülerinnen und Schüler können den Flächeninhalt einfacher ebener Figuren mittels nichtstandardisierter Einheiten auslegen und bestimmen. Dadurch sammeln sie erste Erfahrungen in Bezug auf Flächeninhalte."
+    },
+    {
+     "id": "M-IK-1-2-03_01",
+     "klassen": "1-2",
+     "bereich": "03",
+     "title": "3.1.3.1 Größenvorstellungen anbahnen und entwickeln",
+     "text": "Die Schülerinnen und Schüler entwickeln Größenvorstellungen zu den Bereichen: Geldwerte, Längen und Zeit. Diese Erfahrungen helfen ihnen bei der Bewältigung und Strukturierung ihres Alltags."
+    },
+    {
+     "id": "M-IK-1-2-03_02",
+     "klassen": "1-2",
+     "bereich": "03",
+     "title": "3.1.3.2 Mit Größen in Sachsituationen umgehen",
+     "text": "Die Schülerinnen und Schüler wenden ihr Wissen in Bezug auf Geldwerte, Längen und Zeit in Sachsituationen an. Auf diese Weise erschließen sie sich zunehmend ihre Umwelt."
+    },
+    {
+     "id": "M-IK-1-2-04_01",
+     "klassen": "1-2",
+     "bereich": "04",
+     "title": "3.1.4.1 Aus einfachen Situationen Daten erfassen und darstellen",
+     "text": "Die Schülerinnen und Schüler machen erste Erfahrungen beim Sammeln und strukturiertem Darstellen von Daten. Die Auseinandersetzung mit den gewonnenen Informationen befähigt sie, Situationen aus ihrem Alltag wahrzunehmen."
+    },
+    {
+     "id": "M-IK-1-2-04_02",
+     "klassen": "1-2",
+     "bereich": "04",
+     "title": "3.1.4.2 Einfache Zufallsexperimente durchführen",
+     "text": "Die Schülerinnen und Schüler setzen sich mit einfachen Zufallsexperimenten auseinander und werden dadurch für Wahrscheinlichkeiten von Ereignissen sensibilisiert."
+    },
+    {
+     "id": "M-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Zahldarstellungen und Zahlbeziehungen verstehen",
+     "text": "Die Schülerinnen und Schüler kennen verschiedene Zahldarstellungen und Zahlbeziehungen im erweiterten Zahlenraum bis 1.000.000. Sie orientieren sich sicher im dezimalen Stellenwertsystem."
+    },
+    {
+     "id": "M-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Rechenoperationen verstehen und beherrschen",
+     "text": "Die Schülerinnen und Schüler wenden die vier Grundrechenarten im Zahlenraum bis 1.000.000 sicher an und nutzen vorteilhafte Strategien. Sie verstehen Zusammenhänge zwischen einzelnen Operationen. Die Schülerinnen und Schüler beherrschen die schriftlichen Rechenverfahren. Sie kennen arithmetische Muster und gehen sicherer mit ihnen um."
+    },
+    {
+     "id": "M-IK-3-4-01_03",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.3 Rechenoperationen in Kontexten anwenden",
+     "text": "Die Schülerinnen und Schüler erschließen sich mit mathematischen Mitteln Problemstellungen aus der realen Welt."
+    },
+    {
+     "id": "M-IK-3-4-02_01",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.1 Über räumliches Vorstellungsvermögen verfügen",
+     "text": "Die Schülerinnen und Schüler verfügen über sprachliche Mittel, um Lagebeziehungen präzise auszudrücken, entwickeln ihr räumliches Vorstellungsvermögen weiter und können sich im Raum orientieren. Sie können diese Fähigkeiten in Alltagssituationen und in unterschiedlichen Kontexten zur Problemlösung einsetzen."
+    },
+    {
+     "id": "M-IK-3-4-02_02",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.2 Geometrische Figuren erkennen, benennen, untersuchen und darstellen",
+     "text": "Die Schülerinnen und Schüler kennen ebene Figuren und Körper sowie deren Eigenschaften und entwickeln dadurch ihre Wahrnehmung für geometrische Strukturen in ihrer Erfahrungswelt weiter. Sie gehen sachgemäß mit Zeichengeräten um."
+    },
+    {
+     "id": "M-IK-3-4-02_03",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.3 Geometrische Abbildungen erkennen, benennen und darstellen",
+     "text": "Die Schülerinnen und Schüler kennen die Achsensymmetrie als wichtige geometrische Eigenschaft und entwickeln ihre Vorstellungen zu Symmetriebeziehungen weiter. Sie kennen das Vergrößern und Verkleinern als einfache geometrische Abbildung. Sie suchen, beschreiben und entwickeln eigene Muster."
+    },
+    {
+     "id": "M-IK-3-4-02_04",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.4 Flächen- und Rauminhalte messen und vergleichen",
+     "text": "Die Schülerinnen und Schüler können den Umfang und Flächeninhalt einfacher ebener Figuren sowie den Rauminhalt einfacher Körper mittels nichtstandardisierter und standardisierter Einheiten bestimmen. Sie verfügen über ein erstes Verständnis von Umfang, Flächeninhalt und Rauminhalt."
+    },
+    {
+     "id": "M-IK-3-4-03_01",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.1 Über Größenvorstellungen verfügen",
+     "text": "Die Schülerinnen und Schüler verfügen über Größenvorstellungen zu den Bereichen: Längen, Zeit, Geldwerte, Massen und Rauminhalte. Sie kennen im Alltag übliche Einheiten und können damit sicher umgehen."
+    },
+    {
+     "id": "M-IK-3-4-03_02",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.2 Mit Größen in Kontexten umgehen",
+     "text": "Die Schülerinnen und Schüler wenden ihr Wissen in Bezug auf Größen und ihre Fähigkeit zu messen in Sachsituationen an. Auf diese Weise erschließen sie sich zunehmend ihre Erfahrungswelt."
+    },
+    {
+     "id": "M-IK-3-4-04_01",
+     "klassen": "3-4",
+     "bereich": "04",
+     "title": "3.2.4.1 Daten erfassen, darstellen und mit ihnen umgehen",
+     "text": "Die Schülerinnen und Schüler erschließen sich ihre Erfahrungswelt, indem sie Daten sammeln, strukturieren und darstellen. Die Auseinandersetzung mit den hieraus gewonnenen Informationen und Erkenntnissen befähigt die Kinder zunehmend, Situationen einzuschätzen und zu bewerten."
+    },
+    {
+     "id": "M-IK-3-4-04_02",
+     "klassen": "3-4",
+     "bereich": "04",
+     "title": "3.2.4.2 Wahrscheinlichkeiten von Ereignissen in Zufallsexperimenten vergleichen",
+     "text": "Die Schülerinnen und Schüler setzen sich mit einfachen Zufallsexperimenten auseinander und lernen Wahrscheinlichkeiten von Ereignissen einzuschätzen."
+    }
+   ]
+  },
+  "Englisch": {
+   "fassung": "2025-03-10",
+   "prozesskompetenzen": [
+    {
+     "id": "E-PK-3_4-ALLG_01",
+     "klassen": [
+      "3-4"
+     ],
+     "text": "2.1 Sprachlernkompetenz (und Sprachlernstrategien)"
+    },
+    {
+     "id": "E-PK-3_4-ALLG_02",
+     "klassen": [
+      "3-4"
+     ],
+     "text": "2.2 Kommunikative Kompetenz"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "E-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Hör-/Hörsehverstehen",
+     "text": "Themenfelder Die Schülerinnen und Schüler können strukturierten einsprachigen Unterrichtssituationen folgen und sprachliche Impulse verstehen, wenn diese durch Visualisierung wie Mimik, Gestik, Bilder und Realia unterstützt werden. Deutliche Artikulation, Intonation und „wenn sehr langsam und deutlich gesprochen wird“ (GeR A1) erleichtern den Schülerinnen und Schülern, das Gesprochene zu verstehen."
+    },
+    {
+     "id": "E-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Sprechen",
+     "text": "Themenfelder Die Schülerinnen und Schüler eignen sich ein „Repertoire an Wörtern und Wendungen, die sich auf (einfache) Informationen zur Person und einzelne konkrete Situationen beziehen“ (GeR A1) an. Sie können „vertraute Ausdrücke und ganz einfache Sätze […] verstehen und verwenden, die auf die Befriedigung konkreter Bedürfnisse zielen“ (GeR A1). Zusätzlich zum individuell erworbenen Wortschatz und der Unterstützung des Gesprochenen nutzen sie außersprachliche Mittel wie Mimik, Gestik und andere Visualisierungshilfen. Sie üben Intonationsmuster ein, um eine verständliche Aussprache zu erwerben."
+    },
+    {
+     "id": "E-IK-3-4-01_03",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.3 Leseverstehen, Schreiben, Umgang mit Texten",
+     "text": "Themenfelder Die Schülerinnen und Schüler sind in der Lage, „… einzelne vertraute Namen, Wörter oder ganz einfache Sätze (zu) verstehen …“ (GeR A1). Sie setzen sich auf vielfältige Art und Weise mit der Schriftsprache auseinander. Sie können „einfache isolierte Wendungen und Sätze (zu) schreiben“ (GeR A1)."
+    },
+    {
+     "id": "E-IK-3-4-02_01",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.1 Aussprache und Intonation, Wortschatz, sprachliche Mittel",
+     "text": "Themenfelder Die Schülerinnen und Schüler „verfügen über einen elementaren Vorrat an einzelnen Wörtern und Wendungen, die sich auf bestimmte konkrete Situationen beziehen“ (GeR A1). Sie können Unterschiede in der Intonation und Artikulation der Zielsprache erkennen. Unter Berücksichtigung erstsprachlicher Interferenzen können sie bekannte Wörter und Strukturen verständlich aussprechen."
+    },
+    {
+     "id": "E-IK-3-4-03_01",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.1 Soziokulturelles Wissen, interkulturelle Kompetenz",
+     "text": "Themenfelder Die Schülerinnen und Schüler setzen sich mit der Welt der Zielsprache auseinander und entwickeln Offenheit und Toleranz für Sprache, Menschen und die verschiedenen zielsprachlichen Kulturen. Unterschiedliche Kulturen werden zueinander in Beziehung gesetzt. Den Erstsprachen der Kinder kommt zum Beispiel durch Einbezug von Wortschatz oder soziokulturellem Wissen besondere Bedeutung zu."
+    }
+   ]
+  },
+  "Französisch": {
+   "fassung": "2025-03-10",
+   "prozesskompetenzen": [
+    {
+     "id": "F-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Sprachlernkompetenz (und Sprachlernstrategien)"
+    },
+    {
+     "id": "F-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Kommunikative Kompetenz"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "F-IK-1-2-01_01",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.1 Hör-/Hörsehverstehen",
+     "text": "Themenfelder Die Schülerinnen und Schüler können klar strukturierten einsprachigen Unterrichtssituationen weitgehend folgen, wenn diese durch Visualisierungen wie Mimik, Gestik, Bilder und Realia unterstützt werden. Deutliche Artikulation, Intonation und ein angepasstes Sprechtempo erleichtern den Schülerinnen und Schülern, das Gesprochene zu verstehen."
+    },
+    {
+     "id": "F-IK-1-2-01_02",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.2 Sprechen",
+     "text": "Themenfelder Die Schülerinnen und Schüler können sich zu vertrauten Themen mit kurzen Phrasen und formelhaften Wendungen äußern. Zusätzlich zum individuell erworbenen Wortschatz verwenden die Schülerinnen und Schüler auch außersprachliche Mittel wie Mimik, Gestik und andere Visualisierungshilfen oder nutzen ihre Erstsprache. Sie versuchen Intonationsmuster zu imitieren, um eine verständliche Aussprache zu erwerben."
+    },
+    {
+     "id": "F-IK-1-2-01_03",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.3 Leseverstehen, Schreiben",
+     "text": "Themenfelder Die Schülerinnen und Schüler machen erste Erfahrungen mit der Schriftsprache und setzen sich in einfacher Form mit ihr auseinander. Sie erkennen bekannte Namen, häufig wiederkehrende Wörter und einfachste Wendungen, bringen diese handelnd in einen Sinnzusammenhang und können ausgewählte Wörter abschreiben."
+    },
+    {
+     "id": "F-IK-1-2-02_01",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.1 Aussprache und Intonation, Wortschatz, sprachliche Mittel",
+     "text": "Themenfelder Die Schülerinnen und Schüler können wesentliche Phoneme (bedeutungsunterscheidende Laute) der Zielsprache und Unterschiede in der Intonation und Artikulation wahrnehmen. Unter Berücksichtigung erstsprachlicher Interferenzen können sie bekannte Wörter verständlich aussprechen. Die Schülerinnen und Schüler bauen ein Grundwissen an Wörtern und Redewendungen auf sowie ein Verständnis für sprachliche Strukturen."
+    },
+    {
+     "id": "F-IK-1-2-03_01",
+     "klassen": "1-2",
+     "bereich": "03",
+     "title": "3.1.3.1 Soziokulturelles Wissen, interkulturelle Kompetenz",
+     "text": "Themenfelder Die Schülerinnen und Schüler setzen sich mit der Welt der Zielsprache auseinander. Sie lernen Alltagsgewohnheiten und Traditionen der zielsprachlichen Kultur kennen und erfahren Offenheit und Toleranz für Menschen, deren Sprachen und Kulturen verschieden sind."
+    },
+    {
+     "id": "F-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Hör-/Hörsehverstehen",
+     "text": "Themenfelder Die Schülerinnen und Schüler können klar strukturierten einsprachigen Unterrichtssituationen folgen und sprachliche Impulse verstehen, „wenn sehr langsam und deutlich gesprochen wird“ (GeR A1). Aus didaktisierten Inhalten ihrer Lebenswelt können sie zentrale Informationen durch Hör‑/Hörsehverstehen entnehmen. Sie sind in der Lage, außersprachliche Mittel für das Verstehen zu nutzen."
+    },
+    {
+     "id": "F-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Sprechen",
+     "text": "Themenfelder Die Schülerinnen und Schüler haben ein „Repertoire an Wörtern und Wendungen, die sich auf (einfache) Informationen zur Person und einzelne konkrete Situationen beziehen“ (GeR A1). Sie können „vertraute Ausdrücke und ganz einfache Sätze [...] verwenden, die auf die Befriedigung konkreter Bedürfnisse zielen“ (GeR A1)."
+    },
+    {
+     "id": "F-IK-3-4-01_03",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.3 Leseverstehen, Schreiben, Umgang mit Texten",
+     "text": "Themenfelder Die Schülerinnen und Schüler setzen sich auf vielfältige Art und Weise mit der Schriftsprache auseinander. Sie sind in der Lage, den Inhalt möglichst authentischer, kurzer Texte mit weitgehend bekannter Lexik zu verstehen und „einfache isolierte Wendungen und Sätze zu schreiben“ (GeR A1)."
+    },
+    {
+     "id": "F-IK-3-4-02_01",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.1 Aussprache und Intonation, Wortschatz, sprachliche Mittel",
+     "text": "Themenfelder Die Schülerinnen und Schüler „verfügen über einen elementaren Vorrat an einzelnen Wörtern und Wendungen, die sich auf bestimmte konkrete Situationen beziehen“ (GeR A1). Sie können wesentliche Phoneme (bedeutungsunterscheidende Laute) der Zielsprache und Unterschiede in der Intonation und Artikulation wahrnehmen. Unter Berücksichtigung muttersprachlicher Interferenzen können sie bekannte Wörter und Strukturen verständlich aussprechen. Hierbei beachten sie grundlegende grammatikalische Strukturen."
+    },
+    {
+     "id": "F-IK-3-4-03_01",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.1 Soziokulturelles Wissen, interkulturelle Kompetenz",
+     "text": "Themenfelder Die Schülerinnen und Schüler setzen sich mit der Welt der Zielsprache auseinander und entwickeln Offenheit und Toleranz für Sprache, Menschen und die verschiedenen zielsprachlichen Kulturen. Unterschiedliche Kulturen werden zueinander in Beziehung gesetzt. Den Erstsprachen der Kinder kommt besondere Bedeutung zu."
+    }
+   ]
+  },
+  "Sachunterricht": {
+   "fassung": "2016-03-23",
+   "prozesskompetenzen": [
+    {
+     "id": "SU-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Welt erleben und wahrnehmen"
+    },
+    {
+     "id": "SU-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Welt erkunden und verstehen"
+    },
+    {
+     "id": "SU-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Kommunizieren und sich verständigen"
+    },
+    {
+     "id": "SU-PK-1_2-ALLG_04",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.4 In der Welt handeln – Welt gestalten"
+    },
+    {
+     "id": "SU-PK-1_2-ALLG_05",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.5 Reflektieren und sich positionieren"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "SU-IK-1-2-01_01",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.1 Leben in Gemeinschaft",
+     "text": "Die Schülerinnen und Schüler entwickeln ihr positives Selbstkonzept weiter und stärken die eigene Persönlichkeit. Sie gehen vielfältige Beziehungen ein. Dabei erproben sie ihre eigenen Rollen und gestalten sie im Zusammenleben mit anderen. Die Schülerinnen und Schüler nehmen die Perspektiven der anderen wahr und respektieren diese. Sie kennen Möglichkeiten der Mitbestimmung und erproben diese in vielfältigen Situationen."
+    },
+    {
+     "id": "SU-IK-1-2-01_02",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.2 Arbeit und Konsum",
+     "text": "Die Schülerinnen und Schüler vergegenwärtigen sich die Vielfalt der Medienlandschaft anhand ihrer eigenen Erfahrungen und überdenken ihre Mediennutzung. Sie artikulieren ihre Wünsche und Bedürfnisse und reflektieren Möglichkeiten und Grenzen hinsichtlich deren Erfüllung. Die Schülerinnen und Schüler erkennen, dass in verschiedenen Feldern des Zusammenlebens (in Familie, Schulklasse, Peergroup) unterschiedliche Aufgaben anfallen. Sie organisieren anfallende Aufgaben und führen diese durch."
+    },
+    {
+     "id": "SU-IK-1-2-01_03",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.3 Kultur und Vielfalt",
+     "text": "Die Schülerinnen und Schüler nehmen die Vielfalt unterschiedlicher Lebensweisen wahr. Sie stellen Vergleiche an und setzen ihre eigene Lebenswelt dazu in Beziehung. Gesellschaftliche Vielfalt in persönlichem Umfeld und Schule können sie tolerieren und akzeptieren."
+    },
+    {
+     "id": "SU-IK-1-2-02_01",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.1 Körper und Gesundheit",
+     "text": "Die Schülerinnen und Schüler nehmen ihren eigenen Körper mit seinen vielfältigen Leistungen, aber auch Grenzen wahr. Sie lernen diesen kennen und schützen und entwickeln den positiven Bezug zu ihrem Körper weiter. Die Schülerinnen und Schüler setzen sich mit geschlechtsspezifischen Zuschreibungen auseinander und hinterfragen diese. Sie können Aspekte einer gesunden Lebensführung beschreiben und das eigene Verhalten hierzu in Beziehung setzen."
+    },
+    {
+     "id": "SU-IK-1-2-02_02",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.2 Tiere und Pflanzen in ihren Lebensräumen",
+     "text": "Ausgehend von Erkundungen in der eigenen Schul- und Wohnumgebung können die Schülerinnen und Schüler Lebensräume von Tieren und Pflanzen beschreiben. Sie stellen einfache Zusammenhänge zwischen Lebensräumen und der Angepasstheit von Tieren und Pflanzen her und erkennen, dass es für eine intakte Natur wichtig ist, Lebensräume und Artenreichtum zu schützen und zu bewahren."
+    },
+    {
+     "id": "SU-IK-1-2-03_01",
+     "klassen": "1-2",
+     "bereich": "03",
+     "title": "3.1.3.1 Naturphänomene",
+     "text": "Die Schülerinnen und Schüler können ausgewählte Naturphänomene wahrnehmen und sachorientiert beschreiben. Sie stellen Fragen, auf die sie durch Explorieren und Experimentieren Antworten finden. Die Schülerinnen und Schüler überprüfen ihre Antworten und Deutungsmuster und erweitern so ihre Kenntnisse und Handlungsmöglichkeiten. Indem sie ihre Erfahrungen vergleichen und zueinander in Beziehung setzen, können sie in eigenen Worten einfache Regelmäßigkeiten formulieren."
+    },
+    {
+     "id": "SU-IK-1-2-03_02",
+     "klassen": "1-2",
+     "bereich": "03",
+     "title": "3.1.3.2 Materialien und ihre Eigenschaften",
+     "text": "Die Schülerinnen und Schüler sammeln und vergleichen Alltagsgegenstände aus unterschiedlichen"
+    },
+    {
+     "id": "SU-IK-1-2-03_03",
+     "klassen": "1-2",
+     "bereich": "03",
+     "title": "3.1.3.3 Bauten und Konstruktionen",
+     "text": "Die Schülerinnen und Schüler können sach- und sicherheitsgerecht mit Werkzeugen und"
+    },
+    {
+     "id": "SU-IK-1-2-04_01",
+     "klassen": "1-2",
+     "bereich": "04",
+     "title": "3.1.4.1 Orientierung im Raum",
+     "text": "Ausgehend von ihren Alltagserfahrungen können die Schülerinnen und Schüler sich in persönlich bedeutsamen und überschaubaren räumlichen Situationen zurechtfinden. Dabei betrachten sie räumliche Situationen zunehmend aus verschiedenen Blickwinkeln."
+    },
+    {
+     "id": "SU-IK-1-2-04_02",
+     "klassen": "1-2",
+     "bereich": "04",
+     "title": "3.1.4.2 Mobilität und Verkehr",
+     "text": "Die Schülerinnen und Schüler können auf der Basis einer umfassenden Bewegungs- und Wahrnehmungsschulung selbstständig als Fußgängerinnen und Fußgänger am Straßenverkehr teilnehmen. Sie können Gefahren entwicklungsentsprechend erkennen, einschätzen und darauf reagieren. Die Schülerinnen und Schüler kennen grundlegende Verkehrs- und Verhaltensregeln für Fußgängerinnen und Fußgänger und Mitfahrerinnen und Mitfahrer in öffentlichen und privaten Verkehrsmitteln. In ihrer unmittelbaren Umgebung, vor allem auf ihrem Schulweg, können sie diese sicher anwenden."
+    },
+    {
+     "id": "SU-IK-1-2-05_01",
+     "klassen": "1-2",
+     "bereich": "05",
+     "title": "3.1.5.1 Zeit und Zeitrhythmen",
+     "text": "Die Schülerinnen und Schüler begegnen dem Phänomen Zeit in vielfältiger Weise. Sie können sich in überschaubaren Zeiträumen orientieren. Die Schülerinnen und Schüler unterscheiden Zeitbegriffe und zeitliche Strukturen und wenden sie an. Sie nutzen unterschiedliche Instrumente zur Zeitmessung."
+    },
+    {
+     "id": "SU-IK-1-2-05_02",
+     "klassen": "1-2",
+     "bereich": "05",
+     "title": "3.1.5.2 Vergangenheit, Gegenwart und Zukunft",
+     "text": "Die Schülerinnen und Schüler können sich in persönlich bedeutsamen Zeiträumen orientieren. Sie begegnen Aspekten vergangener kindlicher Lebenswelten und setzen ihre Erkenntnisse zum gegenwärtigen Leben in Beziehung. Die Schülerinnen und Schüler ordnen vergangene Ereignisse und stellen ihre Ergebnisse mit geeigneten Medien dar."
+    },
+    {
+     "id": "SU-IK-1-2-1-2_06",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.6 Experimente",
+     "text": "Liste der verbindlichen Experimente für die Klassen 1/2 die nachfolgenden Experimente im inhaltlich darauf bezogenen Unterricht durchführen. Die Planung und Sorge für die Einhaltung der Sicherheit obliegt dabei der Lehrkraft. Körper und Gesundheit mindestens ein Experiment zu den Zähnen (Aufgaben der Zähne in Analogie zu Werkzeugen) Experimente zu den Leistungen des Auges (räumliches Sehen, Pupillenreaktion, Lidschlussreflex) Experimente zu den Leistungen des Ohres (Richtungshören, Ohrmuschel als Schalltrichter) mindestens ein Experiment zum Geschmacks- und Geruchssinn (der Zusammenhang zwischen Geruch und Geschmack) Tiere und Pflanzen in ihren Lebensräumen mindestens ein Experiment zu Wachstum und Keimung bei Pflanzen Naturphänomene Experimente zu Eigenschaften der Luft (Luft nimmt Raum ein, bremst, treibt an, kann etwas tragen, dehnt sich bei Erwärmung aus) Experimente zu Licht und Schatten Experimente zur Schallübertragung (durch Luft, feste"
+    },
+    {
+     "id": "SU-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Leben in Gemeinschaft",
+     "text": "Die Schülerinnen und Schüler entwickeln ihr positives Selbstkonzept weiter und stärken die eigene Persönlichkeit. Sie können Gemeinsamkeiten und Unterschiede verschiedener Formen des Zusammenlebens beschreiben, vergleichen und in Beziehung zum eigenen Leben setzen. Sofern diese den Grundrechten und demokratischen Grundsätzen entsprechen, entwickeln sie Achtung und Toleranz gegenüber unterschiedlichen Lebensweisen und Kulturen. Die Schülerinnen und Schüler beteiligen sich aktiv an Mitbestimmungsprozessen und initiieren solche. Dadurch wirken sie an der Gestaltung von Gemeinschaft mit."
+    },
+    {
+     "id": "SU-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Arbeit und Konsum",
+     "text": "Die Schülerinnen und Schüler reflektieren eigene Medienerfahrungen und die anderer in Bezug auf Gebrauch, Konsum und Wirkung. Zunehmend wird dabei eine kritische Reflexion angebahnt. Sie analysieren Konsumbedürfnisse und Faktoren, die das Konsumverhalten beeinflussen. Die Schülerinnen und Schüler entwickeln ein zunehmend reflektiertes Konsumverhalten. Sie beschreiben verschiedene Formen von Arbeit und vergleichen diese. Die Bedeutung von Arbeit analysieren sie in Bezug auf das gesellschaftliche Zusammenleben. Sie werden sich ihrer individuellen Fähigkeiten bewusst und entwickeln Perspektiven für die Zukunft."
+    },
+    {
+     "id": "SU-IK-3-4-01_03",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.3 Kultur und Vielfalt",
+     "text": "Die Schülerinnen und Schüler nehmen die Vielfalt und Unterschiedlichkeit von Räumen und Lebenswelten wahr (zum Beispiel hinsichtlich Wohnsituation, Essen, Schule, Freizeit, Sprache, klimatische Bedingungen, soziale Beziehungen, wirtschaftliche Voraussetzungen). Sie stellen Vergleiche an und setzen ihre eigene Lebenswelt damit in Beziehung. Die Schülerinnen und Schüler können gesellschaftliche Vielfalt tolerieren und daraus Konsequenzen für ihr eigenes Leben ableiten."
+    },
+    {
+     "id": "SU-IK-3-4-01_04",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.4 Politik und Zeitgeschehen",
+     "text": "Die Schülerinnen und Schüler erkennen anhand ausgewählter Aspekte, dass die politische Ordnung einen verlässlichen Rahmen für politische Handlungs- und Entscheidungsprozesse darstellt, die das Zusammenleben im Staat strukturieren. Sie nehmen demokratische Strukturen im Schulalltag wahr und nutzen diese. Die Schülerinnen und Schüler erkennen Diskussionen, Abstimmungen und das Mehrheitsprinzip als Elemente der Demokratie. Sie wirken an demokratischen Gestaltungsprozessen mit."
+    },
+    {
+     "id": "SU-IK-3-4-02_01",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.1 Körper und Gesundheit",
+     "text": "Die Schülerinnen und Schüler können die eigene Körperlichkeit und Geschlechtlichkeit zunehmend differenzierter wahrnehmen und reflektieren. Sie nehmen ausgewählte Leistungen des Körpers bewusst wahr, erleben Vielfalt als Normalität und kennen die eigene Verantwortung für die Gesunderhaltung ihres Körpers. Maßnahmen und Verhaltensweisen zur Gesunderhaltung des eigenen Körpers können sie zunehmend auch in den außerschulischen Alltag integrieren."
+    },
+    {
+     "id": "SU-IK-3-4-02_02",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.2 Tiere und Pflanzen in ihren Lebensräumen",
+     "text": "Die Schülerinnen und Schüler können verantwortlich und artgerecht mit Tieren und Pflanzen in natürlicher und vom Menschen kultivierter Umgebung umgehen. Sie erkennen Zusammenhänge zwischen Lebensräumen und der Angepasstheit von Tieren und Pflanzen. In der Auseinandersetzung mit Artenvielfalt entwickeln sie Verständnis für die Notwendigkeit von Natur‑, Umwelt- und Artenschutz und werden für verantwortliches Handeln und Verhalten in Bezug auf Natur und Umwelt sensibilisiert."
+    },
+    {
+     "id": "SU-IK-3-4-03_01",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.1 Naturphänomene",
+     "text": "Die Schülerinnen und Schüler können ausgewählte Naturphänomene wahrnehmen sowie sachorientiert beschreiben und begrifflich erfassen. Sie erwerben anschlussfähige Konzepte, indem sie ihre eigenen Vorstellungen durch Experimente überprüfen und diese dann entsprechend weiterentwickeln oder verändern. Dabei bauen sie erste Modellvorstellungen zu Naturphänomenen auf. Sie können ihre Erfahrungen und Erkenntnisse dokumentieren und miteinander vergleichen sowie Regelmäßigkeiten in anderen Kontexten wiedererkennen. Die Schülerinnen und Schüler verwenden einfache technische und mediale Hilfsmittel zur selbstständigen Informationsbeschaffung."
+    },
+    {
+     "id": "SU-IK-3-4-03_02",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.2 Materialien und ihre Eigenschaften",
+     "text": "Die Schülerinnen und Schüler können Eigenschaften ausgewählter"
+    },
+    {
+     "id": "SU-IK-3-4-03_03",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.3 Bauten und Konstruktionen",
+     "text": "Die Schülerinnen und Schüler können durch technisches Bauen und Analysieren Stabilitätsprinzipien erfassen und diese für eigene Objekte nutzen. Über das eigene Konstruieren und Erfinden entwickeln sie Verständnis für technische Funktionen und Zusammenhänge sowie ein Bewusstsein der eigenen technischen Fähigkeiten. Die Schülerinnen und Schüler erwerben an einfachen ausgewählten Beispielen erste Kompetenzen sowohl im Bewerten des eigenen technischen Handelns als auch im Bewerten technischer Entwicklungen."
+    },
+    {
+     "id": "SU-IK-3-4-03_04",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.4 Energie",
+     "text": "Die Schülerinnen und Schüler können Energie und Energieträger sowie deren Nutzung in der Alltagssprache beschreiben. Sie erschließen sich den Bereich der technischen Nutzung von Energie, indem sie einfache technische Modelle selbst bauen und analysieren. Die Notwendigkeit eines verantwortlichen Umgangs mit den endlichen Energieträgern können sie begründen und daraus Konsequenzen für das eigene Verhalten im Alltag ziehen."
+    },
+    {
+     "id": "SU-IK-3-4-04_01",
+     "klassen": "3-4",
+     "bereich": "04",
+     "title": "3.2.4.1 Orientierung im Raum",
+     "text": "Die Schülerinnen und Schüler können sich, auch unter Zuhilfenahme verschiedener Orientierungshilfen, in größeren Räumen zunehmend besser orientieren. Sie beschreiben Merkmale ihres Wohnorts, der Region, Baden-Württembergs und größerer geographischer Räume (zum Beispiel klimatisch, geomorphologisch, geologisch, infrastrukturell, politisch, kulturell)."
+    },
+    {
+     "id": "SU-IK-3-4-04_02",
+     "klassen": "3-4",
+     "bereich": "04",
+     "title": "3.2.4.2 Mobilität und Verkehr",
+     "text": "Die Schülerinnen und Schüler können verkehrsgerecht, rücksichtsvoll und sicherheitsorientiert am Verkehr teilnehmen. Sie setzen die im Schonraum erlernten Kenntnisse und Fertigkeiten als Radfahrerinnen und Radfahrer in der Verkehrsrealität sachgerecht um. Die Schülerinnen und Schüler können Verhaltensweisen von sich und anderen anhand konkreter Situationen hinsichtlich verkehrsgerechter, sozialer und umweltschonender Aspekte beurteilen."
+    },
+    {
+     "id": "SU-IK-3-4-05_01",
+     "klassen": "3-4",
+     "bereich": "05",
+     "title": "3.2.5.1 Vergangenheit, Gegenwart und Zukunft",
+     "text": "Die Schülerinnen und Schüler können sich in größeren Zeiträumen orientieren. Sie stellen Fragen an die Vergangenheit, recherchieren mithilfe von Quellen, präsentieren ihre Ergebnisse und setzen sie zu ihrem gegenwärtigen Leben in Beziehung. Die Schülerinnen und Schüler nehmen Veränderungen als zukunftsoffen wahr."
+    },
+    {
+     "id": "SU-IK-3-4-05_02",
+     "klassen": "3-4",
+     "bereich": "05",
+     "title": "3.2.5.2 Zeitzeugnisse, Zeitzeugen und Quellen",
+     "text": "Die Schülerinnen und Schüler erkennen, dass Quellen die Grundlage historischer Erkenntnisse sind. Sie kennen verschiedene Quellen und nutzen sie zur Erkenntnisgewinnung."
+    },
+    {
+     "id": "SU-IK-3-4-3-4_06",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.6 Experimente",
+     "text": "Liste der verbindlichen Experimente für die Klassen 3/4 die nachfolgenden Experimente im inhaltlich darauf bezogenen Unterricht durchführen. Die Planung und Sorge für die Einhaltung der Sicherheit obliegt dabei der Lehrkraft. &nbsp; Körper und Gesundheit mindestens ein Experiment zur Funktion wesentlicher Körperteile (zum Beispiel Gelenke, Wirbelsäule) mindestens ein Experiment zu den Inhaltsstoffen in Nahrungsmitteln (zum Beispiel Stärkegewinnung aus Kartoffeln, Flüssigkeitsbestimmung in Gurken, Fettnachweis mit der Fettfleckprobe in verschiedenen Nahrungsmitteln) Tiere und Pflanzen in ihren Lebensräumen mindestens ein Experiment zur Wärmeisolation bei Tieren (Überwinterung) Naturphänomene Experimente zu den Zustandsformen des Wassers in Zusammenhang mit dem Wasserkreislauf (Schmelzen, Verdunsten, Verdampfen, Kondensieren, Gefrieren) mindestens ein Experiment zum Lösen von Feststoffen in Wasser (Zucker und Salz in Wasser lösen) mindestens ein Experiment zur Wasserversorgung (Prinzip der verbundenen Röhren) mindestens jeweils ein Experiment zur natürlichen und künstlichen Abwasserreinigung (zum Beispiel Wasserdurchlässigkeit verschiedener Bodenarten, Absetz- und Filtrierversuche) Experimente zum Schwimmen und Sinken (Auftrieb und Verdrängung) Experimente zur Kerze (zum Beispiel zu den Kerzenzonen, der Saugfähigkeit des Dochtes) Experimente zu den Grundbedingungen für die Entstehung eines Feuers (vereinfachtes Verbrennungsdreieck: Einfluss der Luft auf die Verbrennung, Brennbarkeit verschiedener"
+    }
+   ]
+  },
+  "Kunst_Werken": {
+   "fassung": "2016-03-23",
+   "prozesskompetenzen": [
+    {
+     "id": "KuW-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Welt erleben und wahrnehmen"
+    },
+    {
+     "id": "KuW-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Welt erkunden und verstehen"
+    },
+    {
+     "id": "KuW-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Kommunizieren und sich verständigen"
+    },
+    {
+     "id": "KuW-PK-1_2-ALLG_04",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.4 In der Welt handeln – Welt gestalten"
+    },
+    {
+     "id": "KuW-PK-1_2-ALLG_05",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.5 Reflektieren und sich positionieren"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "KuW-IK-1-2-01_01",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.1 Kinder zeichnen",
+     "text": "Die Schülerinnen und Schüler stellen zeichnerisch ihre Welt dar. Sie entwickeln Bildideen aus ihrer Imagination, Fantasie- und Erlebniswelt. Sie erweitern ihr Repertoire an Darstellungsformen, Verfahren und Techniken. Sie nutzen die Zeichnung in ihren verschiedenen Funktionen (zum Beispiel: Erlebnisse darstellen, Ideen sammeln, Beobachtungen festhalten, skizzieren und entwerfen, dokumentieren, ...)"
+    },
+    {
+     "id": "KuW-IK-1-2-01_02",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.2 Kinder drucken",
+     "text": "Unterschiedliche Oberflächen, Materialien und Formen regen die Schülerinnen und Schüler zum Experimentieren im Bereich Drucken an. Sie nutzen einfache Vervielfältigungsverfahren und erkennen die Besonderheiten des Druckens im Vergleich zu anderen Techniken. Sie machen Erfahrungen mit Strategien, wie zum Beispiel Aus- und Umdeuten, Verfremden und Umfunktionieren."
+    },
+    {
+     "id": "KuW-IK-1-2-01_03",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.3 Kinder malen",
+     "text": "Die Schülerinnen und Schüler werden emotional von Farben angesprochen. Von ihren Empfindungen und Vorlieben geleitet, entdecken sie unterschiedliche Wirkungen und Funktionen von Farben in Kunst, Natur und Umwelt. Sie erweitern und differenzieren ihre Beobachtungsfähigkeit. Sie malen gegenständlich und abstrakt. Mit wachsender Malerfahrung nutzen sie Vorlieben für bestimmte Farbkombinationen und Farbwirkungen."
+    },
+    {
+     "id": "KuW-IK-1-2-1-2_02",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.2 Kinder erforschen und verarbeiten textile",
+     "text": "Die Schülerinnen und Schüler sind täglich von Textilien umgeben. Sie entdecken die Besonderheiten verschiedener textiler"
+    },
+    {
+     "id": "KuW-IK-1-2-1-2_03",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.3 Kinder werken",
+     "text": "Das Herstellen von Skulpturen, Objekten und Gegenständen übt auf Kinder eine große Faszination aus. Die Schülerinnen und Schüler stellen sie aus unterschiedlichen geeigneten"
+    },
+    {
+     "id": "KuW-IK-1-2-1-2_04",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.4 Kinder räumen um",
+     "text": "Die Schülerinnen und Schüler halten sich in vielfältig gestalteten geschlossenen und offenen Räumen auf. Sie bewegen sich in ihnen, verschaffen sich Orientierung, erforschen und verändern sie."
+    },
+    {
+     "id": "KuW-IK-1-2-1-2_05",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.5 Kinder spielen und agieren",
+     "text": "Die Schülerinnen und Schüler erwecken"
+    },
+    {
+     "id": "KuW-IK-1-2-1-2_06",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.6 Kinder nutzen Medien",
+     "text": "Die Schülerinnen und Schüler verfügen über unterschiedliche Vorerfahrungen mit Medien. Sie lernen den Umgang mit ihnen, nutzen sie zur Präsentation und Dokumentation. Sie verwenden Medien zum kreativen Arbeiten, um sich darzustellen und um sich zu positionieren."
+    },
+    {
+     "id": "KuW-IK-1-2-07_01",
+     "klassen": "1-2",
+     "bereich": "07",
+     "title": "3.1.7.1 Kinder erleben Natur",
+     "text": "Die Schülerinnen und Schüler erleben Natur vor Ort als aktives Wahrnehmungsfeld. Sie erkennen im Handeln (sammeln, sortieren, ordnen, legen) die Vielfalt an ästhetischen Aufbau- und Ordnungsprinzipien bei verschiedenen Erscheinungsformen (Pflanzen, Wasser, Gesteine, Landschaften, Gelände ...). Diese Prozesse können die Schülerinnen und Schüler für eigene Gestaltungsanlässe nutzen."
+    },
+    {
+     "id": "KuW-IK-1-2-07_02",
+     "klassen": "1-2",
+     "bereich": "07",
+     "title": "3.1.7.2 Kinder gehen mit Kunstwerken um",
+     "text": "Die Schülerinnen und Schüler lassen sich auf Kunst ein und erleben Bilder auf der Grundlage ihrer Seherfahrungen. Sie entwickeln individuelle Zugänge zu Kunstwerken. Sie stellen Beziehungen zu eigenen visuellen und praktischen Erfahrungen her, respektieren die Sichtweisen, Lesarten der anderen Kinder und versuchen sie nachzuvollziehen. Sie äußern erste Deutungen."
+    },
+    {
+     "id": "KuW-IK-1-2-07_03",
+     "klassen": "1-2",
+     "bereich": "07",
+     "title": "3.1.7.3 Kinder nehmen ihre Umwelt wahr",
+     "text": "Die Schülerinnen und Schüler sind von Abbildungen, Alltagsgegenständen und öffentlichen Räumen in ihrer Lebenswelt umgeben. Sie nehmen sie bewusst wahr, untersuchen und benennen ihre Eigenschaften, Besonderheiten, ihr Aussehen, ihren Gebrauch und Nutzen. Sie finden handlungsorientiert Kriterien zur Unterscheidung, werden für die Zusammenhänge von Gestaltung und Gebrauch sensibilisiert."
+    },
+    {
+     "id": "KuW-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Kinder zeichnen",
+     "text": "Die Schülerinnen und Schüler nutzen das Zeichnen zum Dokumentieren, Erforschen, Mitteilen und sich Ausdrücken. Sie erweitern ihre Ausdrucksformen mit verschiedenen individuell geeigneten Zeichenmitteln experimentell und themenorientiert. Sie beschäftigen sich konzentriert und ausdauernd mit einer Gestaltungsaufgabe und entwickeln eigene Ideen und Lösungen."
+    },
+    {
+     "id": "KuW-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Kinder drucken",
+     "text": "Die Schülerinnen und Schüler begegnen Druckerzeugnissen in vielen Bereichen ihres Alltags. Sie erstellen Druckstöcke nach ihren eigenen Gestaltungsideen. Sie nutzen Druckverfahren, um Bildthemen aus ihrer Lebenswelt umzusetzen."
+    },
+    {
+     "id": "KuW-IK-3-4-01_03",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.3 Kinder malen",
+     "text": "Die Schülerinnen und Schüler erleben farbige"
+    },
+    {
+     "id": "KuW-IK-3-4-3-4_02",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.2 Kinder erforschen und verarbeiten textile",
+     "text": "Die Schülerinnen und Schüler vertiefen ihre Kenntnisse über verschiedene textile"
+    },
+    {
+     "id": "KuW-IK-3-4-3-4_03",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.3 Kinder werken",
+     "text": "Materialien regen die Kinder zur Aus- und Umgestaltung an. Die Schülerinnen und Schüler fertigen Objekte aus unterschiedlichen Materialien an. Sie verwenden dabei verschiedene Werkzeuge sachgerecht und beherrschen einfache Arbeitstechniken, die zu dem jeweiligen Material passen. Sie erfinden, planen und konstruieren nach eigenen Gestaltungsideen."
+    },
+    {
+     "id": "KuW-IK-3-4-3-4_04",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.4 Kinder räumen um",
+     "text": "Die Schülerinnen und Schüler bewegen sich in natürlichen und vom Menschen geschaffenen Räumen. Sie erkennen ihre Besonderheiten, Gestaltungsprinzipien,"
+    },
+    {
+     "id": "KuW-IK-3-4-3-4_05",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.5 Kinder spielen und agieren",
+     "text": "Die Schülerinnen und Schüler verfügen über ein vielfältiges Repertoire an darstellerischen Fähigkeiten. Sie erfahren, erkennen, verfeinern und nutzen ihre darstellerischen Potenziale in vielfältigen Spielsituationen. Sie entwickeln ihre ästhetischen, emotionalen, sozialen und kognitiven Fähigkeiten und setzen ihre Kreativität frei. Sie entdecken ihre Mimik und Gestik als Ausdrucksmittel für Gefühle und Gedanken. Sie verwenden Sprache als Verstärkung ihres Ausdrucks."
+    },
+    {
+     "id": "KuW-IK-3-4-3-4_06",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.6 Kinder nutzen Medien",
+     "text": "Die Schülerinnen und Schüler erfahren im produktiven Umgang die Vielfalt von Medien, erkunden diese und entdecken deren kreative Nutzungsmöglichkeiten. Sie werden befähigt, Medien zunehmend selbstständig und kritisch reflektiert für ihre Arbeit auszuwählen, einzusetzen und sich darüber auszutauschen."
+    },
+    {
+     "id": "KuW-IK-3-4-07_01",
+     "klassen": "3-4",
+     "bereich": "07",
+     "title": "3.2.7.1 Kinder erleben Natur",
+     "text": "Die Schülerinnen und Schüler erleben Natur in ihrem Lebensumfeld sowie über Medien weltweit. Sie erkennen und finden Ordnungs‑, Strukturierungs‑, Wachstumsprinzipien und nutzen sie für ihr eigenes künstlerisches Schaffen."
+    },
+    {
+     "id": "KuW-IK-3-4-07_02",
+     "klassen": "3-4",
+     "bereich": "07",
+     "title": "3.2.7.2 Kinder gehen mit Kunstwerken um",
+     "text": "Die Schülerinnen und Schüler lassen sich auf Kunst ein und erleben Bilder aus verschiedenen Epochen der Kunst. Sie beschäftigen sich mit Kunstwerken auf dem Hintergrund ihrer eigenen praktischen und visuellen Erfahrungen und erkennen im Austausch mit anderen die Mehrdeutigkeit von Bildern. Verschiedene Zugangsweisen eröffnen Einsichten in die Gestaltungsweisen der Künstlerinnen und Künstler."
+    },
+    {
+     "id": "KuW-IK-3-4-07_03",
+     "klassen": "3-4",
+     "bereich": "07",
+     "title": "3.2.7.3 Kinder nehmen ihre Umwelt wahr",
+     "text": "Die Schülerinnen und Schüler sind von Abbildungen, Alltagsgegenständen und öffentlichen Räumen in ihrer Lebenswelt umgeben. Sie nehmen diese bewusst wahr und untersuchen sie. Sie finden unterschiedliche Kriterien zur Einordnung. Zusammenhänge von Gestaltung, Form und Gebrauch (Funktion) werden deutlich. Sie bilden Vorstellung und Ideen für eigenes Arbeiten aus."
+    }
+   ]
+  },
+  "Musik": {
+   "fassung": "2016-03-23",
+   "prozesskompetenzen": [
+    {
+     "id": "Mu-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Welt erleben und wahrnehmen"
+    },
+    {
+     "id": "Mu-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Welt erkunden und verstehen"
+    },
+    {
+     "id": "Mu-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Kommunizieren und sich verständigen"
+    },
+    {
+     "id": "Mu-PK-1_2-ALLG_04",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.4 In der Welt handeln – Welt gestalten"
+    },
+    {
+     "id": "Mu-PK-1_2-ALLG_05",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.5 Reflektieren und sich positionieren"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "Mu-IK-1-2-01_01",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.1 Umgang mit der Stimme – Stimmbildung und Singen",
+     "text": "Die Schülerinnen und Schüler können ihre Stimme als persönliches Ausdrucksmittel ganzheitlich und bewusst einsetzen."
+    },
+    {
+     "id": "Mu-IK-1-2-01_02",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.2 Instrumentales Musizieren",
+     "text": "Die Schülerinnen und Schüler können beim Musizieren Klangerfahrungen sammeln, Instrumente und ihre Beschaffenheit erkunden, rhythmische und melodische Strukturen erkennen, erste Begegnungen mit verschiedenen Notationsformen erleben, musikalische Grundelemente (wie leise – laut, langsam – schnell, kurz – lang) anwenden und Regeln des Zusammenspiels einhalten. Außerschulisch erworbene Kompetenzen werden aufgegriffen und integriert. Durch regelmäßiges Üben erfahren die Schülerinnen und Schüler musikalische Lernfortschritte."
+    },
+    {
+     "id": "Mu-IK-1-2-1-2_02",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.2 Musik hören und verstehen",
+     "text": "Die Schülerinnen und Schüler verfügen über eine offene Hörhaltung und können Geräusche, Klänge und Musikwerke wahrnehmen und aufmerksam hören. Im Umgang mit den Musikwerken gewinnen sie erste Einblicke in Notationsformen. Sie erfahren und beschreiben die Wirkungen und Funktionen von Musik."
+    },
+    {
+     "id": "Mu-IK-1-2-1-2_03",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.3 Musik umsetzen",
+     "text": "Die Schülerinnen und Schüler können ihre Emotionen und Eindrücke durch Bewegungen, szenische, bildliche oder textliche Darstellungen ganzheitlich zum Ausdruck bringen."
+    },
+    {
+     "id": "Mu-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Umgang mit der Stimme – Stimmbildung und Singen",
+     "text": "Die Schülerinnen und Schüler können ihre Stimme als persönliches Ausdrucksmittel und Instrument ganzheitlich und bewusst einsetzen und weiterentwickeln. Sie erfahren die Steigerung der Singqualität und erweitern ihr Verständnis für musikalische Zusammenhänge."
+    },
+    {
+     "id": "Mu-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Instrumentales Musizieren",
+     "text": "Die Schülerinnen und Schüler können beim Musizieren musikalische Gesetzmäßigkeiten erkennen, Bau und Funktion von Instrumenten erkunden, musikalische Grundelemente zunehmend selbstständig anwenden und mit anderen nach festgelegten Regeln unter Zuhilfenahme von unterschiedlichen Notationsformen gemeinsam musizieren. Außerschulisch erworbene Kompetenzen werden aufgegriffen und integriert. Durch regelmäßiges Üben bauen die Kinder musikalische Fertigkeiten auf."
+    },
+    {
+     "id": "Mu-IK-3-4-3-4_02",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.2 Musik hören und verstehen",
+     "text": "Die Schülerinnen und Schüler können über eine längere Zeitdauer hinweg Musikwerke zielgerichtet und differenziert hören und dabei ihre musikalischen Kompetenzen zunehmend erweitern. Sie gewinnen vertiefte Einblicke in Notationsformen und wenden diese an. Die Schülerinnen und Schüler reflektieren Musik, erkennen sie als Träger von Botschaften und können sie in den Kontext ihres persönlichen und gesellschaftlichen Umfelds einordnen."
+    },
+    {
+     "id": "Mu-IK-3-4-3-4_03",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.3 Musik umsetzen",
+     "text": "Die Schülerinnen und Schüler können sich die Musik durch vielfältige Ausdrucksmöglichkeiten ganzheitlich erschließen und dadurch vertiefte Zugänge gewinnen."
+    }
+   ]
+  },
+  "Sport": {
+   "fassung": "2016-03-23",
+   "prozesskompetenzen": [
+    {
+     "id": "Sp-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Bewegungskompetenz – Koordination und Kondition"
+    },
+    {
+     "id": "Sp-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Personalkompetenz – Persönlichkeit und Identität"
+    },
+    {
+     "id": "Sp-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Sozialkompetenz – Gemeinschaft und Verantwortung"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "Sp-IK-1-2-1-2_01",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.1 Körperwahrnehmung",
+     "text": "Die Schülerinnen und Schüler nehmen ihren Körper wahr und setzen sich explorierend und improvisierend mit ihm auseinander. Sie entwickeln ein Körperbewusstsein und entdecken vielfältige Bewegungsmöglichkeiten."
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_02",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.2 Spielen – Spiele – Spiel",
+     "text": "Die Schülerinnen und Schüler sammeln beim Spielen Bewegungs- und Sinneserfahrungen und gewinnen Bewegungssicherheit. Sie lernen verschiedene"
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_03",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.3 Laufen – Springen – Werfen",
+     "text": "Die Schülerinnen und Schüler erproben und erleben auf vielfältige spielerische Art und Weise verschiedene Formen des Laufens, Springens und Werfens in der Halle und im Gelände."
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_04",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.4 Bewegen an Geräten",
+     "text": "Die Schülerinnen und Schüler sammeln vielfältige Bewegungserfahrungen an Geräten und erlernen turnerische Grundfertigkeiten. Dabei entwickeln sie Geschicklichkeit, Gleichgewicht, Kraft und Körperspannung."
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_05",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.5 Tanzen – Gestalten – Darstellen",
+     "text": "Die Schülerinnen und Schüler können sich alleine, zu zweit und in der Gruppe durch und über Bewegung mitteilen, ausdrücken und darstellen. Dabei verbinden sie Rhythmus und Sprache über Bewegung. Sie können mit und ohne Handgerät gymnastisch-tänzerische Bewegungen entdecken, erproben, erlernen, gestalten und vorführen und einfache Tänze tanzen."
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_06",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.6 Bewegungskünste",
+     "text": "Die Schülerinnen und Schüler entdecken, erproben und gestalten Bewegungskunststücke mit und ohne Gerät, alleine, zu zweit und in der Gruppe."
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_07",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.7 Bewegen im Wasser",
+     "text": "Die Schülerinnen und Schüler erleben die besonderen physikalischen Eigenschaften des Wassers. Sie können das Medium Wasser durch vielfältige Spiel- und Experimentierformen erleben und erfahren (Wassergewöhnung). Die Schülerinnen und Schüler können die Wassereigenschaften nutzen und sich im Wasser fortbewegen (Wasserbewältigung). Die Schülerinnen und Schüler erlernen verschiedene Sprünge. Sie können sich unter Wasser orientieren und kurze Strecken tauchen."
+    },
+    {
+     "id": "Sp-IK-1-2-08_01",
+     "klassen": "1-2",
+     "bereich": "08",
+     "title": "3.1.8.1 Fahren – Rollen – Gleiten",
+     "text": "Die Schülerinnen und Schüler erlernen und üben grundlegende Fähigkeiten und Fertigkeiten zum adäquaten Umgang mit Fahr‑, Roll- und Gleitgeräten. Sie erproben verschiedene"
+    },
+    {
+     "id": "Sp-IK-1-2-08_02",
+     "klassen": "1-2",
+     "bereich": "08",
+     "title": "3.1.8.2 Miteinander und gegeneinander kämpfen",
+     "text": "Die Schülerinnen und Schüler erproben auf spielerische Art und Weise ihre Kräfte. Sie lernen, sich an vereinbarte Regeln zu halten, sich in andere hineinzuversetzen und achtsam miteinander umzugehen."
+    },
+    {
+     "id": "Sp-IK-1-2-08_03",
+     "klassen": "1-2",
+     "bereich": "08",
+     "title": "3.1.8.3 Erlebnispädagogik – Trendsportarten – Regionale Sportarten",
+     "text": "Die Schülerinnen und Schüler erproben erlebnispädagogische Inhalte in der Halle, im Gelände und in der Natur. Sie lernen die damit verbundene Verantwortung für die Mitmenschen und die Natur kennen und erleben verstärkt Wagnis und Risiko. Im Miteinander stärken sie ihre Persönlichkeit und bauen Vertrauen zu anderen auf. Die Schülerinnen und Schüler erweitern ihr Bewegungsrepertoire durch erste Erfahrungen mit aktuellen Trendsportarten und regionalen Sportarten."
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_09",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.9 Orientierung – Sicherheit – Hygiene",
+     "text": "Die Schülerinnen und Schüler können sich in den Sportstätten und auf dem Schulgelände orientieren. Sie entwickeln ein Sicherheitsbewusstsein und lernen den sicheren und sachgerechten Umgang mit Geräten und"
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_01",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.1 Körperwahrnehmung",
+     "text": "Die Schülerinnen und Schüler erfahren die Veränderbarkeit ihres Körpers und entdecken die Vielfalt von Bewegungsmöglichkeiten. Sie entwickeln ein Verständnis für funktionell richtiges Bewegen."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_02",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.2 Spielen – Spiele – Spiel",
+     "text": "Die Schülerinnen und Schüler spielen zu zweit und in Gruppen mit- und gegeneinander (Bewegungsspiele). Sie können komplexere Spielideen verstehen und umsetzen, Spielideen entwickeln, abwandeln und Spiele mitorganisieren. Sie vereinbaren, akzeptieren und gestalten Spielregeln/Ordnungsformen und halten diese ein. Die Schülerinnen und Schüler können in sportartorientierten Spielen mit der Hand und mit dem Fuß (Wurf‑, Torschuss- und Rückschlagspiele) einfache technische und taktische Handlungsmuster anwenden (Sportspiele). Sie kennen die Regeln, können selbstständig und fair spielen und Emotionen reflektieren."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_03",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.3 Laufen – Springen – Werfen",
+     "text": "Die Schülerinnen und Schüler laufen, springen und werfen auf vielfältige und spielerische Art und Weise."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_04",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.4 Bewegen an Geräten",
+     "text": "Die Schülerinnen und Schüler bewältigen vielseitige offene und gebundene turnerische Bewegungsaufgaben an Geräten und Gerätelandschaften. Sie entwickeln ihre turnerischen Grundfertigkeiten weiter und können diese bei komplexeren Bewegungsanforderungen anwenden."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_05",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.5 Tanzen – Gestalten – Darstellen",
+     "text": "Die Schülerinnen und Schüler können in Kombination mit Rhythmus, Sprache und Musik, auch mit Handgeräten, gymnastisch-tänzerisch, kreativ-gestalterisch improvisieren, Bewegungen entdecken, erproben, gestalten, variieren und präsentieren. Sie können Tänze erlernen, entwickeln, gestalten und vorführen."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_06",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.6 Bewegungskünste",
+     "text": "Die Schülerinnen und Schüler können Bewegungskunststücke mit und ohne Gerät, mit der Partnerin/dem Partner und in der Gruppe ausführen, selbst entwickeln, üben und präsentieren."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_07",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.7 Bewegen im Wasser",
+     "text": "In überwiegend spielerischer Form steigern die Schülerinnen und Schüler ihre Sicherheit im Wasser. Sie können in mindestens einer Schwimmart sicher schwimmen und eröffnen sich dadurch den Zugang zum Bewegungsraum Wasser. Die Entwicklung der Schwimmfähigkeit ist grundlegend für die sportliche und gesundheitspräventive Betätigung im Alltag (Freizeitgestaltung). Die Kinder lernen weitere Schwimmarten kennen. Die Schülerinnen und Schüler erlernen verschiedene Sprünge. Sie können in die Tiefe und auf Strecke tauchen."
+    },
+    {
+     "id": "Sp-IK-3-4-08_01",
+     "klassen": "3-4",
+     "bereich": "08",
+     "title": "3.2.8.1 Fahren – Rollen – Gleiten",
+     "text": "Die Schülerinnen und Schüler erweitern ihre Bewegungserfahrungen mit Fahr‑, Roll- und Gleitgeräten, lassen einschätzbare Risikosituationen zu und wagen etwas. Sie erhöhen dadurch ihre Bewegungssicherheit auch im Straßenverkehr."
+    },
+    {
+     "id": "Sp-IK-3-4-08_02",
+     "klassen": "3-4",
+     "bereich": "08",
+     "title": "3.2.8.2 Miteinander und gegeneinander kämpfen",
+     "text": "Die Schülerinnen und Schüler erproben auf spielerische Art und Weise in Ring‑, Rauf- und Kampfsituationen ihre Kräfte. Sie halten sich an vereinbarte Regeln, können sich in andere hineinversetzen und lernen sich gegenseitig zu respektieren."
+    },
+    {
+     "id": "Sp-IK-3-4-08_03",
+     "klassen": "3-4",
+     "bereich": "08",
+     "title": "3.2.8.3 Erlebnispädagogik – Trendsportarten – Regionale Sportarten",
+     "text": "Die Schülerinnen und Schüler erproben erlebnispädagogische Inhalte in der Halle, im Gelände und in der Natur. Sie lernen die damit verbundene Verantwortung für die Mitmenschen und die Natur kennen und erleben verstärkt Wagnis und Risiko. Die Schülerinnen und Schüler lernen im gemeinsamen Erleben eigene Stärken und Grenzen kennen und akzeptieren, lernen andere wertzuschätzen und zu unterstützen. Erlebnispädagogische Situationen unterstützen die Kinder dabei, einen Platz in der Gemeinschaft zu finden. Im Miteinander stärken sie ihre Persönlichkeit und bauen Vertrauen zu anderen auf. Die Schülerinnen und Schüler erweitern ihr Bewegungsrepertoire durch die Ausübung aktueller Trendsportarten und regionaler Sportarten."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_09",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.9 Orientierung – Sicherheit – Hygiene",
+     "text": "Die Schülerinnen und Schüler entwickeln ein Sicherheitsbewusstsein. Sie lernen den sicheren und sachgerechten Umgang mit Geräten sowie einfache Helfergriffe und wenden dies sachgerecht an."
+    }
+   ]
+  },
+  "Religion_ev": {
+   "fassung": "2016-03-23",
+   "prozesskompetenzen": [
+    {
+     "id": "REV-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Wahrnehmen und Darstellen"
+    },
+    {
+     "id": "REV-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Deuten"
+    },
+    {
+     "id": "REV-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Urteilen"
+    },
+    {
+     "id": "REV-PK-1_2-ALLG_04",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.4 Kommunizieren und Dialogfähig-Sein"
+    },
+    {
+     "id": "REV-PK-1_2-ALLG_05",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.5 Gestalten und Handeln"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "REV-IK-1-2-1-2_01",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.1 Mensch",
+     "text": "Die Schülerinnen und Schüler nehmen eigene Gefühle und Gedanken und die anderer wahr und kommen über Situationen des menschlichen Miteinanders ins Gespräch. Sie erzählen von Menschen und deren Erfahrungen mit Gott und beschreiben, dass aus christlicher Sicht alle Menschen von Gott geschaffen, gewollt und geliebt sind."
+    },
+    {
+     "id": "REV-IK-1-2-1-2_02",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.2 Welt und Verantwortung",
+     "text": "Die Schülerinnen und Schüler beschreiben sich und ihre Welt in ihrer Einzigartigkeit und Vielfalt. Sie stellen dar, dass Christinnen und Christen die Welt als Schöpfung und Geschenk Gottes deuten, für welche die Menschen Verantwortung übernehmen."
+    },
+    {
+     "id": "REV-IK-1-2-1-2_03",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.3 Bibel",
+     "text": "Die Kompetenzen im Bereich „Bibel“ sind im Sinne einer hermeneutischen Grundlage für den Umgang mit biblischen Texten in allen Bereichen zu verstehen. Daher sind in diesem Bereich die inhaltlichen Querverweise von besonderer Bedeutung. &nbsp; Die Schülerinnen und Schüler können in eigenen Worten biblische Geschichten nacherzählen. Sie entdecken darin Beziehungen zu ihren eigenen Erfahrungen und Fragen. Sie können Deutungen biblischer Erzählungen zum Ausdruck bringen."
+    },
+    {
+     "id": "REV-IK-1-2-1-2_04",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.4 Gott",
+     "text": "Die Schülerinnen und Schüler kommen über unterschiedliche Vorstellungen von Gott ins Gespräch. Sie entdecken, wie in biblischen Texten von Menschen und ihren Erfahrungen mit Gott erzählt wird und können diese Erfahrungen mit Gott beschreiben. Sie bringen zum Ausdruck, wie Menschen sich an Gott wenden."
+    },
+    {
+     "id": "REV-IK-1-2-1-2_05",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.5 Jesus Christus",
+     "text": "Die Schülerinnen und Schüler erzählen anhand biblischer Geschichten vom Leben und Wirken Jesu und beschreiben, wie er sich Menschen zuwendet. Sie zeigen an Beispielen auf und stellen dar, wie die Begegnung mit Jesus Menschen verändert."
+    },
+    {
+     "id": "REV-IK-1-2-1-2_06",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.6 Kirche und Kirchen",
+     "text": "Die Schülerinnen und Schüler wissen, dass Menschen verschiedenen Konfessionen angehören können. Sie erkunden und beschreiben Kirchen und Kirchenräume. Sie verfügen über grundlegendes Wissen zu zentralen Festen im Kirchenjahr. An der Gestaltung von religiösen Ritualen im Unterricht sowie an Festen und Feiern im Schuljahr wirken sie mit."
+    },
+    {
+     "id": "REV-IK-1-2-1-2_07",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.7 Religionen",
+     "text": "Die Schülerinnen und Schüler nehmen wahr und beschreiben, dass Menschen verschiedenen Religionen angehören können und tauschen sich darüber aus. Sie beschreiben ausgewählte Aspekte des Judentums oder des Islam. Sie entwickeln Verständnis für Menschen anderer Religionen."
+    },
+    {
+     "id": "REV-IK-3-4-3-4_01",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.1 Mensch",
+     "text": "Die Schülerinnen und Schüler nehmen eigene Erfahrungen wahr und vergleichen sie mit denen anderer Menschen. Sie stellen Beziehungen zwischen eigenen Erlebnissen, Erfahrungen beziehungsweise Fragen und biblischen sowie anderen Texten her. Sie setzen sich mit Situationen des eigenen Lebens und des Lebens anderer auseinander."
+    },
+    {
+     "id": "REV-IK-3-4-3-4_02",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.2 Welt und Verantwortung",
+     "text": "Die Schülerinnen und Schüler stellen dar, wie die Welt von Menschen unterschiedlich gesehen wird. Sie beschreiben naturwissenschaftliche Vorstellungen vom Werden der Welt und die Aussageabsicht biblischer Schöpfungstexte. Anhand biblischer Aussagen erläutern sie das Verhalten von Menschen zueinander und zu ihrer Umwelt und zeigen an Beispielen auf, wie Menschen Verantwortung übernehmen"
+    },
+    {
+     "id": "REV-IK-3-4-3-4_03",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.3 Bibel",
+     "text": "Die Kompetenzen im Bereich „Bibel“ sind im Sinne einer hermeneutischen Grundlage für den Umgang mit biblischen Texten in allen Bereichen zu verstehen. Daher sind in diesem Bereich die inhaltlichen Querverweise von besonderer Bedeutung. Die Schülerinnen und Schüler verfügen über biblisches Grundwissen. Sie deuten biblische Texte und setzen die darin enthaltenen Erfahrungen der Menschen mit Gott in Beziehung zu ihren eigenen Erfahrungen und Fragen."
+    },
+    {
+     "id": "REV-IK-3-4-3-4_04",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.4 Gott",
+     "text": "Die Schülerinnen und Schüler beschreiben und erläutern unterschiedliche Vorstellungen von Gott. Sie zeigen auf, wie in biblischen Texten von Erfahrungen mit Gott erzählt wird. Vor dem Hintergrund herausfordernder Lebenssituationen stellen sie Fragen und suchen nach möglichen Antworten. Sie setzen sich damit auseinander, wie Menschen ihre Beziehung zu Gott leben."
+    },
+    {
+     "id": "REV-IK-3-4-3-4_05",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.5 Jesus Christus",
+     "text": "Die Schülerinnen und Schüler zeigen anhand biblischer Texte auf, dass Jesus Mensch war und als Christus und Gottes Sohn geglaubt wird. Sie stellen anhand biblischer Erzählungen dar, wie Jesus von Gott und Gottes Reich erzählt. Sie formulieren aus dem Handeln und Reden Jesu Perspektiven für das Leben."
+    },
+    {
+     "id": "REV-IK-3-4-3-4_06",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.6 Kirche und Kirchen",
+     "text": "Die Schülerinnen und Schüler beschreiben evangelische und katholische Kirchen als einen besonderen und für den christlichen Glauben wichtigen Ort. Sie zeigen an Beispielen die Vielfalt von Gemeindeleben auf. Sie ordnen Feste des Kirchenjahres in den Festkreis ein und zeigen deren Bedeutung auf. Sie wirken an religiösen Ritualen, Andachten oder (Schul‑)Gottesdiensten mit und kennen Beispiele gelebter Ökumene."
+    },
+    {
+     "id": "REV-IK-3-4-3-4_07",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.7 Religionen",
+     "text": "Die Schülerinnen und Schüler beschreiben Grundzüge monotheistischer Religionen (Christentum sowie Judentum oder Islam) und vergleichen einzelne Aspekte. Sie entwickeln einen respektvollen Umgang mit Menschen anderer beziehungsweise ohne Religionszugehörigkeit."
+    }
+   ]
+  },
+  "Religion_rk": {
+   "fassung": "2016-03-23",
+   "prozesskompetenzen": [
+    {
+     "id": "RRK-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Wahrnehmen und Darstellen"
+    },
+    {
+     "id": "RRK-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Deuten"
+    },
+    {
+     "id": "RRK-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Urteilen"
+    },
+    {
+     "id": "RRK-PK-1_2-ALLG_04",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.4 Kommunizieren"
+    },
+    {
+     "id": "RRK-PK-1_2-ALLG_05",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.5 Gestalten"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "RRK-IK-1-2-1-2_01",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.1 Mensch",
+     "text": "Die Schülerinnen und Schüler kommen über Gefühle, Gedanken und Fähigkeiten sowie über menschliche Grunderfahrungen ins Gespräch. Sie beschreiben, dass aus christlicher Sicht alle Menschen von Gott geschaffen, gewollt und geliebt sind. Sie arbeiten aus dem christlichen Menschenbild Folgen für ein achtsames Miteinander heraus."
+    },
+    {
+     "id": "RRK-IK-1-2-1-2_02",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.2 Welt und Verantwortung",
+     "text": "Die Schülerinnen und Schüler beschreiben die Vielfalt der Welt. Sie stellen dar, dass Christinnen und Christen die Welt als Geschenk Gottes deuten. Sie formulieren eigene Beiträge zum angemessenen Umgang mit allem Lebendigen."
+    },
+    {
+     "id": "RRK-IK-1-2-1-2_03",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.3 Bibel",
+     "text": "Die Schülerinnen und Schüler entdecken die Bibel als wichtigstes Buch für Christinnen und Christen. Sie stellen anhand ausgewählter biblischer Texte Erfahrungen von Menschen mit Gott dar. Sie reflektieren, wie Erfahrungen von Menschen mit Gott in der Bibel zu eigenen Erfahrungen und Fragen in Beziehung stehen."
+    },
+    {
+     "id": "RRK-IK-1-2-1-2_04",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.4 Gott",
+     "text": "Die Schülerinnen und Schüler beschreiben, welche Vorstellungen sie von Gott haben. Sie erzählen von Gotteserfahrungen und ‑vorstellungen von Menschen in der Bibel. Sie zeigen, wie Menschen ihren Glauben an Gott zum Ausdruck bringen."
+    },
+    {
+     "id": "RRK-IK-1-2-1-2_05",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.5 Jesus Christus",
+     "text": "Die Schülerinnen und Schüler geben Aussagen biblischer Geschichten vom Leben Jesu wieder. Sie stellen an Beispielen dar, welche Bedeutung Jesu Zuwendung für die Menschen seiner Zeit besaß. Sie beschreiben, welche Bedeutung Jesus und seine Botschaft für den einzelnen Menschen und die Gemeinschaft haben kann."
+    },
+    {
+     "id": "RRK-IK-1-2-1-2_06",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.6 Kirche",
+     "text": "Die Schülerinnen und Schüler erkunden Kirchen und christliche Gemeinden vor Ort. Sie verstehen die Taufe als Sakrament der Zugehörigkeit zur Kirche. Sie reflektieren, ausgehend von Festen des Kirchenjahres, elementare liturgische Sprach- und Ausdrucksformen."
+    },
+    {
+     "id": "RRK-IK-1-2-1-2_07",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.7 Religionen",
+     "text": "Die Schülerinnen und Schüler beschreiben, dass Menschen in ihrer Umgebung verschiedenen Religionen oder keiner Religion angehören können. Sie beschreiben ausgewählte Phänomene im Judentum oder Islam. Sie entwickeln einen achtsamen Umgang mit Angehörigen und Ausdrucksformen anderer Religionen."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_01",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.1 Mensch",
+     "text": "Die Schülerinnen und Schüler setzen eigene Fragen an das Leben mit Grundfragen des Menschseins in Beziehung. Sie beschreiben, wie der Mensch schuldig werden kann und dennoch Gottes geliebtes Geschöpf bleibt. Sie zeigen, wie Kinder Gemeinschaft aus christlicher Sicht gestalten können."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_02",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.2 Welt und Verantwortung",
+     "text": "Die Schülerinnen und Schüler beschreiben die Umwelt sowie ihre Lebenswelt und die Lebenswelt anderer. Sie beschreiben, wie die christliche Glaubensüberlieferung zu einem verantwortungsbewussten Umgang mit der Welt auffordert. Sie zeigen an Beispielen, wie sich Christinnen und Christen für eine bessere Welt einsetzen können."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_03",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.3 Bibel",
+     "text": "Die Schülerinnen und Schüler ordnen zentrale biblische Geschichten dem Alten und Neuen Testament zu. Sie zeigen, dass die Bibel menschliche Erfahrungen mit Gott in Sprachformen beschreibt, die auf unterschiedliche Dimensionen von Wirklichkeit verweisen. Sie zeigen, dass die Bibel Menschen Orientierung geben kann."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_04",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.4 Gott",
+     "text": "Die Schülerinnen und Schüler vergleichen unterschiedliche Vorstellungen von Gott. Sie zeigen anhand biblischer Geschichten, wie Gott im Leben von Menschen wirkt. Sie setzen sich damit auseinander, wie Menschen ihren Glauben an Gott gestalten."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_05",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.5 Jesus Christus",
+     "text": "Die Schülerinnen und Schüler zeigen, dass nach christlicher Überlieferung Gott in Jesus Mensch geworden ist. Sie beschreiben, dass die Botschaft Jesu vom Reich Gottes Menschen Hoffnung gibt. Sie entwickeln aus dem Leben und der Botschaft Jesu Perspektiven für das Leben."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_06",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.6 Kirche",
+     "text": "Die Schülerinnen und Schüler beschreiben konfessionelle Gemeinsamkeiten und Unterschiede. Sie erklären ausgewählte Sakramente und Feste des Kirchenjahres. Sie beschreiben, wie Kinder an gottesdienstlichen Feiern mitwirken und am Gemeindeleben teilhaben können."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_07",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.7 Religionen",
+     "text": "Die Schülerinnen und Schüler zeigen auf, dass Menschen verschiedenen Religionen oder keiner Religion angehören können. Sie beschreiben Unterschiede und Gemeinsamkeiten zwischen Judentum, Christentum und Islam. Sie stellen beispielhaft dar, wie ein respektvolles Miteinander von Angehörigen verschiedener Religionen gelingen kann."
+    }
+   ]
+  }
+ }
+}

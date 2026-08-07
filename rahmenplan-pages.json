@@ -1,0 +1,1589 @@
+{
+ "metadata": {
+  "quelle": "Bildungsplan Baden-Württemberg, Grundschule Kl. 1–4",
+  "url": "https://www.bildungsplaene-bw.de/",
+  "stand": "2026 (Fassung D/M 2024, übrige 2016)",
+  "hinweis": "bereinigt: Soft-Hyphens, CMS-Müll, Scraping-Artefakte entfernt"
+ },
+ "faecher": {
+  "Deutsch": {
+   "fassung": "2024-02-29",
+   "prozesskompetenzen": [
+    {
+     "id": "D-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Sprechen und Zuhören - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Deutsch vom 23. M&auml;rz 2016 in der Fassung vom 29. Februar 2024 (V2) 2. Prozessbezogene Kompetenzen 2.1 Sprechen und Zuh&ouml;ren Download als PDF 2.1 Sprechen und Zuhören Die Schülerinnen und Schüler können sich an Gesprächen beteiligen und sind sich ihrer Rolle als Sprechende beziehungsweise Zuhörende bewusst und agieren entsprechend. Hierbei ist die Rolle des Sprechens für die Erziehung zum demokratischen Miteinander von Bedeutung. Sie können funktions- und situationsangemessen sprechen und zunehmend erkennen, wie sie sprechend ihre Handlungsabsichten verfolgen, um erhoffte Wirkungen zu erzielen. Sie entwickeln und nutzen Gesprächsregeln und setzen Konfliktlösungsstrategien ein. Im Austausch mit anderen lernen sie verstehend zuzuhören und sich in vielfältigen Kontexten und Lebensbereichen zu erfahren. Von Anfang an sollten Sprechen und Zuhören als Einstieg in die Welt des Lesens und der Literatur genutzt werden. Vorlesegespräche und der Austausch über Gehörtes und Gelesenes ist deshalb fester Bestandteil des Unterrichts in allen Jahrgangsstufen. Sie nutzen unterschiedliche, auch nonverbale, Ausdrucksformen, üben sie ein und reflektieren sie. Die Schülerinnen und Schüler erproben ausdrucksvolles Sprechen und szenisches Spiel. Sie können Medien bewusst für die Kommunikation einsetzen. Die Schülerinnen und Sc"
+    },
+    {
+     "id": "D-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Schreiben - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Deutsch vom 23. M&auml;rz 2016 in der Fassung vom 29. Februar 2024 (V2) 2. Prozessbezogene Kompetenzen 2.2 Schreiben Download als PDF 2.2 Schreiben Die Schülerinnen und Schüler lernen sich schriftlich auszudrücken. Vielfältige Angebote nutzen sie, um eigene Texte mit unterschiedlichen Absichten zu formulieren. Gemeinsam und individuell überarbeiten sie ihre Texte. Ausgehend von lautgetreuen Verschriftlichungen entdecken sie Regelmäßigkeiten, entwickeln ein Rechtschreibbewusstsein und beachten dabei orthografische Phänomene. Mit geeigneten Methoden prägen sie sich Merkwörter ein. Sie entwickeln – ausgehend von der Druckschrift – eine verbundene Schrift, die zu einer individuellen, gut lesbaren und flüssigen Handschrift führt. Die Schülerinnen und Schüler können Texte planen 1. eine Schreibidee entwickeln, planen und kooperativ Planungsschritte durchführen 2. die Schreibidee aufschreiben und auf eine logische Reihenfolge achten und – sobald vorhanden – digitale Schreibwerkzeuge zur Vorbereitung der Textproduktion nutzen Texte formulieren 3. je nach funktionalem Schreibanlass verständlich, strukturiert, adressaten- und funktionsgerecht schreiben und grundlegende Formulierungsstrategien anwenden Texte überarbeiten 4. einen Text inhaltlich und sprachlich auf der Basis von Rückmeldungen überarbeiten 5. Texte a"
+    },
+    {
+     "id": "D-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Lesen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Deutsch vom 23. M&auml;rz 2016 in der Fassung vom 29. Februar 2024 (V2) 2. Prozessbezogene Kompetenzen 2.3 Lesen Download als PDF 2.3 Lesen Die Schülerinnen und Schüler können Texte leise, laut, flüssig und verstehend lesen und sich in ihnen orientieren. Lesen ist ein eigenaktiver Prozess der Sinnkonstruktion. Lesen bildet die Grundlage sowohl für das selbstständige Lesen als auch für das Lernen aus Texten und die Auseinandersetzung mit der Welt mithilfe von Texten und Büchern. Die Schülerinnen und Schüler haben Vertrauen in die eigenen Lesefähigkeiten. Sie verfügen über grundlegende kognitive und metakognitive Lesestrategien zum Einsatz vor dem Lesen, während des Lesens und nach dem Lesen. Mithilfe dieser Lesestrategien erschließen sie sich unterschiedliche Texte. Das flüssige Lesen ist die Voraussetzung für die Erschließung längerer Texte. Deshalb sollten verschiedene Formen und Verfahren des lauten Lesens regelmäßig praktiziert werden. Um sich kreativ mit Texten auseinanderzusetzen und diese zu präsentieren, verwenden die Kinder produktions- und handlungsorientierte Verfahren. Sie lernen, sich in Klassen‑, Schulbüchereien und kommunalen Büchereien zurechtzufinden und entwickeln im Laufe ihrer Grundschulzeit die Fähigkeiten, mit verschiedenen Medien bewusst umzugehen. So erweitern sie ihre Leseerfahrungen und di"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "D-IK-1-2-01_01",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.1 Texte verfassen – Texte planen, schreiben und überarbeiten",
+     "text": "Die Schülerinnen und Schüler kennen und nutzen verschiedene Schreibanlässe. Sie können Schreibideen entwickeln und zu Schreibimpulsen kurze Texte verfassen. Sie berücksichtigen Hinweise für die Überarbeitung ihrer Texte. Sie können ihre Texte für die Veröffentlichung aufbereiten und dabei Gestaltungsmerkmale beachten."
+    },
+    {
+     "id": "D-IK-1-2-01_02",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.2 Texte verfassen – Handschrift entwickeln",
+     "text": "Die Schülerinnen und Schüler entwickeln – ausgehend von einer gedruckten Ausgangsschrift und einer verbundenen Schrift – eine individuelle Handschrift. Sie schreiben Buchstaben zunehmend formstabil und lesbar. Sie erproben unterschiedliche Schriftträger, Schreibwerkzeuge und Gestaltungsformen."
+    },
+    {
+     "id": "D-IK-1-2-01_03",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.3 Texte verfassen – richtig schreiben",
+     "text": "Die Schülerinnen und Schüler können lautentsprechend schreiben und dabei einige orthografische Aspekte umsetzen."
+    },
+    {
+     "id": "D-IK-1-2-01_04",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.4 Lesefähigkeit erwerben",
+     "text": "Die Schülerinnen und Schüler erwerben die Fähigkeit des Lesens. Sie können einfache Texte in ihren Aussagen, in ihren Absichten und in ihrer formalen Struktur lesen und verstehen."
+    },
+    {
+     "id": "D-IK-1-2-01_05",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.5 Lesefähigkeit und Leseerfahrung sichtbar machen",
+     "text": "Die Schülerinnen und Schüler können ihre Lesefähigkeit einschätzen und sich darüber mitteilen. Sie können über ihre Leseerfahrungen sprechen und sie veranschaulichen. Die Schülerinnen und Schüler gewinnen Vertrauen in die eigene Lesefähigkeit."
+    },
+    {
+     "id": "D-IK-1-2-01_06",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.6 Leseverstehen entwickeln",
+     "text": "Die Schülerinnen und Schüler lernen unterschiedliche Textarten kennen und verstehen. Sie können den Inhalt wiedergeben und sich mit dem Text auseinandersetzen. Außerdem lernen sie verschiedene Medien kennen."
+    },
+    {
+     "id": "D-IK-1-2-01_07",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.7 Texterschließungsstrategien kennenlernen und anwenden",
+     "text": "Die Schülerinnen und Schüler verfügen über erste Strategien, die sie dazu befähigen, Texte zu erschließen."
+    },
+    {
+     "id": "D-IK-1-2-01_08",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.8 Präsentieren",
+     "text": "Die Schülerinnen und Schüler planen und gestalten erste Präsentationen, die sie einem Publikum vorstellen. Jedes Kind stellt mindestens ein Buch vor."
+    },
+    {
+     "id": "D-IK-1-2-02_01",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.1 Gemeinsamkeiten und Unterschiede von Sprachen entdecken",
+     "text": "Die Schülerinnen und Schüler entdecken Gemeinsamkeiten und Unterschiede von Sprachen und setzen sich damit spielerisch auseinander."
+    },
+    {
+     "id": "D-IK-1-2-02_02",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.2 Unterschiede von gesprochener und geschriebener Sprache erkennen",
+     "text": "Die Schülerinnen und Schüler nehmen wahr, dass gesprochene und geschriebene Sprache sich unterscheiden. Sie erkennen die Bedeutung der nonverbalen Kommunikationsformen."
+    },
+    {
+     "id": "D-IK-1-2-02_03",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.3 Sprache als Mittel zur Kommunikation und Information kennen",
+     "text": "Die Schülerinnen und Schüler setzen sich mit verschiedenen Formen der sprachlichen Verständigung auseinander."
+    },
+    {
+     "id": "D-IK-1-2-02_04",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.4 Grundlegende sprachliche Strukturen und Begriffe wahrnehmen",
+     "text": "Die Schülerinnen und Schüler arbeiten an Wörtern, Sätzen und Texten. Dabei entdecken sie sprachliche Strukturen, deren Funktion und lernen Begriffe kennen. Sie lernen mit Sprache experimentell und spielerisch umzugehen."
+    },
+    {
+     "id": "D-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Texte verfassen – Texte planen, strukturieren schreiben und überarbeiten",
+     "text": "Die Schülerinnen und Schüler nutzen verschiedene Schreibanlässe. Sie können unter Berücksichtigung verschiedener Schreibabsichten Texte planen, strukturieren und schreiben. Sie überarbeiten ihre Texte im Hinblick auf Inhalt, Sprache, Orthografie und Gestaltung. Dabei beziehen sie mündliche und schriftliche Kommentare in die Überarbeitungen ein."
+    },
+    {
+     "id": "D-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Texte verfassen – Handschrift weiterentwickeln",
+     "text": "Die Schülerinnen und Schüler schreiben eine formstabile, flüssige, lesbare Handschrift und gestalten Texte auch mit digitalen Werkzeugen – sobald vorhanden – übersichtlich und zweckmäßig."
+    },
+    {
+     "id": "D-IK-3-4-01_03",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.3 Texte verfassen – richtig schreiben",
+     "text": "Die Schülerinnen und Schüler schreiben häufig vorkommende Inhalts- und Funktionswörter richtig, sie beachten die Zeichensetzung (Punkt, Komma, Fragezeichen, Ausrufezeichen, Anführungszeichen), haben eine Fehleraufmerksamkeit ausgebildet, kennen Rechtschreibstrategien und Rechtschreibhilfen und wenden diese zur Klärung fraglicher Schreibungen an. Sie überprüfen und korrigieren Texte auf ihre orthografische Richtigkeit."
+    },
+    {
+     "id": "D-IK-3-4-01_04",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.4 Lesefähigkeit erweitern",
+     "text": "Die Schülerinnen und Schüler lesen leise und laut, automatisiert, genau, sinngestaltend und zügig. Texte werden durch lautes Lesen sprechbar und damit verstehbar. Das regelmäßige, angstfreie und abwechslungsreiche Lautlesen im Unterricht ist die Grundlage für die basalen und die weiterführenden Lesekompetenzen in allen Schuljahren. Zum Lesen lernen gehört auch die Ausbildung prosodischer Fähigkeiten und die Erfahrung, dass ein Text auf verschiedene Arten und Weisen gelesen werden kann und sich dadurch die Wirkung des Gelesenen verändert."
+    },
+    {
+     "id": "D-IK-3-4-01_05",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.5 Lesefähigkeit und Leseerfahrung dokumentieren",
+     "text": "Die Schülerinnen und Schüler lesen dem Lernstand entsprechende Texte sinnverstehend. Die Schülerinnen und Schüler können ihre Lesefähigkeit einschätzen und sich darüber mitteilen. Sie können ihre Leseerfahrungen beschreiben, reflektieren und dokumentieren."
+    },
+    {
+     "id": "D-IK-3-4-01_06",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.6 Leseverstehen vertiefen",
+     "text": "Die Schülerinnen und Schüler können unterschiedliche Texte unterschiedlicher Textsorten sinnkonstruierend lesen. Sie nutzen die Inhalte der gelesenen Texte individuell und kooperativ zur Erweiterung ihrer Gedanken und Handlungen. Die Schülerinnen und Schüler wählen bewusst und zielorientiert verschiedene Medien aus. Sie erschließen sich Texte unterschiedlicher medialer Form, auch als Grundlage für die mündliche und schriftliche Anschlusskommunikation."
+    },
+    {
+     "id": "D-IK-3-4-01_07",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.7 Texterschließungsstrategien nutzen",
+     "text": "Die Schülerinnen und Schüler kennen erste grundlegende kognitive und metakognitive Lesestrategien zum Einsatz vor dem Lesen, während des Lesens und nach dem Lesen. Sie können diese bei gut strukturierten Texten anwenden und orientieren sich in und zwischen klar strukturierten Texten. Sie verschaffen sich auch mithilfe textueller Lesehilfen (unter anderem Überschriften, Zwischenüberschriften, Absätze, Abbildungen, Illustrationen) einen Überblick."
+    },
+    {
+     "id": "D-IK-3-4-01_08",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.8 Präsentieren",
+     "text": "Die Schülerinnen und Schüler kennen unterschiedliche Präsentationsformen und wenden diese adressaten‑, inhalts- und situationsgerecht an."
+    },
+    {
+     "id": "D-IK-3-4-02_01",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.1 Gemeinsamkeiten und Unterschiede von Sprachen reflektieren",
+     "text": "Die Schülerinnen und Schüler entdecken Gemeinsamkeiten und Unterschiede von Sprachen. Sie vergleichen die Standardsprache und Dialekte, erkennen den Einfluss von unterschiedlichen Sprachen und verstehen die Bedeutung gebräuchlicher Fremdwörter."
+    },
+    {
+     "id": "D-IK-3-4-02_02",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.2 Unterschiede von gesprochener und geschriebener Sprache kennen",
+     "text": "Die Schülerinnen und Schüler erweitern ihre Kompetenz, sprachliche Verständigung zu untersuchen. Sie lernen die Unterschiede von gesprochener und geschriebener Sprache kennen. Sie erfassen die Bedeutung von Sprachmitteln und erkennen Satzstrukturen. Sie wenden nonverbale Kommunikationsformen an."
+    },
+    {
+     "id": "D-IK-3-4-02_03",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.3 Sprache als Mittel zur Kommunikation und Information nutzen",
+     "text": "Die Schülerinnen und Schüler setzen sich mit verschiedenen Formen der sprachlichen Verständigung auseinander und wenden diese situationsangemessen an. Sie nutzen dabei auch nonverbale Kommunikationsformen."
+    },
+    {
+     "id": "D-IK-3-4-02_04",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.4 Grundlegende sprachliche Strukturen und Begriffe reflektieren und anwenden",
+     "text": "Die Schülerinnen und Schüler arbeiten an Wörtern, Wortgruppen, Sätzen und Texten. Sie entdecken sprachliche Strukturen und deren Funktion, lernen Fachbegriffe kennen und wenden diese an, auch im Hinblick auf die Rechtschreibung. Sie gehen mit Sprache experimentell und handelnd um."
+    }
+   ]
+  },
+  "Mathematik": {
+   "fassung": "2024-02-29",
+   "prozesskompetenzen": [
+    {
+     "id": "M-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Mathematisch kommunizieren - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Mathematik vom 23. M&auml;rz 2016 in der Fassung vom 29. Februar 2024 (V2) 2. Prozessbezogene Kompetenzen 2.1 Mathematisch kommunizieren Download als PDF 2.1 Mathematisch kommunizieren Die Schülerinnen und Schüler beschreiben ihre Überlegungen, Lösungsansätze und Lösungswege zu mathematischen Sachverhalten zunehmend mit mathematischen Fachbegriffen. Sie setzen sich mit Äußerungen anderer auseinander und führen Gespräche über mathematische Themen. Die Schülerinnen und Schüler können 1. eigene Denk- und Vorgehensweisen beschreiben und erläutern, auch unter Nutzung geeigneter Medien 2. Lösungswege anderer nachvollziehen und verstehen 3. Lösungswege anderer gemeinsam reflektieren 4. mathematische Fachbegriffe und Zeichen sachgerecht verwenden 5. Aufgaben gemeinsam bearbeiten Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "M-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Mathematisch argumentieren - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Mathematik vom 23. M&auml;rz 2016 in der Fassung vom 29. Februar 2024 (V2) 2. Prozessbezogene Kompetenzen 2.2 Mathematisch argumentieren Download als PDF 2.2 Mathematisch argumentieren Die Schülerinnen und Schüler stellen Fragen und äußern Vermutungen. Sie entwickeln mathematisches Argumentieren (zum Beispiel Beschreiben, Erläutern, Begründen), um ihre Lösungswege, auch handelnd, rechnerisch, zeichnerisch oder mithilfe geeigneter Medien, vorstellen zu können. Die Schülerinnen und Schüler können 1. Fragen stellen, Vermutungen äußern 2. mathematische Zusammenhänge erkennen, beschreiben und erläutern 3. eigene Denk- und Lösungswege begründen und die Begründungen anderer nachvollziehen 4. Begründungen suchen (auch von Gesetzmäßigkeiten) 5. mathematische Aussagen und Lösungswege hinterfragen, auf Korrektheit prüfen Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "M-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Probleme mathematisch lösen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Mathematik vom 23. M&auml;rz 2016 in der Fassung vom 29. Februar 2024 (V2) 2. Prozessbezogene Kompetenzen 2.3 Probleme mathematisch l&ouml;sen Download als PDF 2.3 Probleme mathematisch lösen Die Schülerinnen und Schüler setzen sich mit vorgegebenen Problemen und solchen, die sie selbst erkannt haben, auseinander. Sie beschreiben diese und bearbeiten sie, indem sie geeignete Strategien zum Problemlösen wählen und anwenden. Die Schülerinnen und Schüler können 1. mathematische Kenntnisse, Fähigkeiten und Fertigkeiten bei der Bearbeitung problemhaltiger Aufgaben anwenden 2. Lösungsstrategien entwickeln (zum Beispiel systemisches Probieren) und heuristische Hilfsmittel nutzen (zum Beispiel Tabellen, Skizzen und Gleichungen) 3. Vorgehensweisen überdenken und gegebenenfalls anpassen 4. Zusammenhänge erkennen und nutzen diese Erkenntnisse, um sie auf ähnliche Sachverhalte zu übertragen Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "M-PK-1_2-ALLG_04",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.4 Mathematisch modellieren - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Mathematik vom 23. M&auml;rz 2016 in der Fassung vom 29. Februar 2024 (V2) 2. Prozessbezogene Kompetenzen 2.4 Mathematisch modellieren Download als PDF 2.4 Mathematisch modellieren Die Schülerinnen und Schüler bearbeiten Fragestellungen aus ihrer Umwelt. Dabei übersetzen sie Alltagssituationen und Probleme in mathematische Modelle. Die Schülerinnen und Schüler können 1. für die mathematische Bearbeitung einer Fragestellung die relevanten Informationen aus Sachtexten und anderen Darstellungen der Lebenswirklichkeit entnehmen 2. Sachsituationen oder ‑probleme in die Sprache der Mathematik übersetzen 3. Sachsituationen oder ‑probleme mathematisch lösen 4. Lösungen auf die Ausgangssituation beziehen und überprüfen 5. zu Termen, Gleichungen und bildlichen Darstellungen Sachaufgaben formulieren Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "M-PK-1_2-ALLG_05",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.5 Mit mathematischen Darstellungen umgehen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Mathematik vom 23. M&auml;rz 2016 in der Fassung vom 29. Februar 2024 (V2) 2. Prozessbezogene Kompetenzen 2.5 Mit mathematischen Darstellungen umgehen Download als PDF 2.5 Mit mathematischen Darstellungen umgehen Die Schülerinnen und Schüler verwenden unterschiedliche Formen der Darstellung (zum Beispiel Skizzen, Mengendarstellungen, Diagramme, Tabellen). Sie verwenden und interpretieren diese. Die Schülerinnen und Schüler können 1. mathematische Darstellungen entwickeln, auswählen und diese nutzen 2. eine Darstellung in eine andere übertragen 3. Darstellungsformen miteinander vergleichen und bewerten Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "M-PK-1_2-ALLG_06",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.6 Mit mathematischen Objekten und Werkzeugen arbeiten - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Mathematik vom 23. M&auml;rz 2016 in der Fassung vom 29. Februar 2024 (V2) 2. Prozessbezogene Kompetenzen 2.6 Mit mathematischen Objekten und Werkzeugen arbeiten Download als PDF 2.6 Mit mathematischen Objekten und Werkzeugen arbeiten Die Schülerinnen und Schüler beherrschen die für den Mathematikunterricht relevanten mathematischen Objekte sowohl fachlich als auch sprachlich. Mathematische Objekte können beispielsweise Zahldarstellungen, Symbole, Terme, Gleichungen, Tabellen, Diagramme und geometrische Elemente wie zum Beispiel: Ecken, Kanten, Formen, Winkel und Symmetrieachsen sein. Sie beherrschen den Einsatz von mathematischen Werkzeugen (unter anderem Lineal, Zirkel, Taschenrechner, Apps). Die Schülerinnen und Schüler können 1. symbolische und formale Sprache in Alltagssprache übersetzen und umgekehrt 2. mathematische Fachbegriffe und Zeichen sachgerecht verwenden 3. mathematische Objekte (zum Beispiel Zahldarstellungen, Terme, Ecken, Kanten, Tabellen, Diagramme) bei der Bearbeitung mathematischer Aufgaben- und Problemstellungen sicher und flexibel anwenden 4. mathematische Werkzeuge und physische Werkzeuge wie zum Beispiel Lineal, Geodreieck, Zirkel und andere Zeichenwerkzeuge, aber auch – sobald vorhanden – digitale Werkzeuge sachgerecht einsetzen Download als PDF Di"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "M-IK-1-2-01_01",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.1 Zahldarstellungen und Zahlbeziehungen verstehen",
+     "text": "Die Schülerinnen und Schüler kennen verschiedene Zahldarstellungen und Zahlbeziehungen im Zahlenraum bis 100. Sie sind in der Lage, sich im Zahlenraum bis 100 sicher zu orientieren."
+    },
+    {
+     "id": "M-IK-1-2-01_02",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.2 Rechenoperationen verstehen und beherrschen",
+     "text": "Die Schülerinnen und Schüler wenden die vier Grundrechenarten im Zahlenraum bis 100 sicher an und nutzen vorteilhafte Strategien. Sie verstehen Zusammenhänge zwischen einzelnen Operationen. Sie lernen arithmetische Muster kennen und gehen mit ihnen um."
+    },
+    {
+     "id": "M-IK-1-2-01_03",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.3 In Kontexten rechnen",
+     "text": "Die Schülerinnen und Schüler erschließen sich mit mathematischen Mitteln einfache Problemstellungen aus ihrer Lebenswelt."
+    },
+    {
+     "id": "M-IK-1-2-02_01",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.1 Sich im Raum orientieren",
+     "text": "Die Schülerinnen und Schüler machen erste Erfahrungen mit räumlichen Vorstellungen und orientieren sich im Raum. Sie erkunden Eigenschaften und Beziehungen von geometrischen Objekten und stellen diese mit geeigneten Medien (auch digitalen Mathematikwerkzeugen) – sobald vorhanden – dar. Sie verfügen über sprachliche Mittel, um einfache Lagebeziehungen auszudrücken."
+    },
+    {
+     "id": "M-IK-1-2-02_02",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.2 Einfache geometrische Figuren erkennen und benennen",
+     "text": "Die Schülerinnen und Schüler kennen ebene Figuren und Körper sowie deren Eigenschaften. Sie entwickeln ihre Wahrnehmung für geometrische Strukturen in ihrer Erfahrungswelt weiter."
+    },
+    {
+     "id": "M-IK-1-2-02_03",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.3 Einfache geometrische Abbildungen erkennen und benennen",
+     "text": "Die Schülerinnen und Schüler erfahren die Achsenspiegelung im Handeln als einfache geometrische Abbildung. Sie entwickeln eigene Muster und erkennen zunehmend Muster in ihrer Erfahrungswelt. Das gezielte Suchen und Beschreiben von Mustern sensibilisiert sie in ihrer Wahrnehmung."
+    },
+    {
+     "id": "M-IK-1-2-02_04",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.4 Flächen legen und auslegen",
+     "text": "Die Schülerinnen und Schüler können den Flächeninhalt einfacher ebener Figuren mittels nichtstandardisierter Einheiten auslegen und bestimmen. Dadurch sammeln sie erste Erfahrungen in Bezug auf Flächeninhalte."
+    },
+    {
+     "id": "M-IK-1-2-03_01",
+     "klassen": "1-2",
+     "bereich": "03",
+     "title": "3.1.3.1 Größenvorstellungen anbahnen und entwickeln",
+     "text": "Die Schülerinnen und Schüler entwickeln Größenvorstellungen zu den Bereichen: Geldwerte, Längen und Zeit. Diese Erfahrungen helfen ihnen bei der Bewältigung und Strukturierung ihres Alltags."
+    },
+    {
+     "id": "M-IK-1-2-03_02",
+     "klassen": "1-2",
+     "bereich": "03",
+     "title": "3.1.3.2 Mit Größen in Sachsituationen umgehen",
+     "text": "Die Schülerinnen und Schüler wenden ihr Wissen in Bezug auf Geldwerte, Längen und Zeit in Sachsituationen an. Auf diese Weise erschließen sie sich zunehmend ihre Umwelt."
+    },
+    {
+     "id": "M-IK-1-2-04_01",
+     "klassen": "1-2",
+     "bereich": "04",
+     "title": "3.1.4.1 Aus einfachen Situationen Daten erfassen und darstellen",
+     "text": "Die Schülerinnen und Schüler machen erste Erfahrungen beim Sammeln und strukturiertem Darstellen von Daten. Die Auseinandersetzung mit den gewonnenen Informationen befähigt sie, Situationen aus ihrem Alltag wahrzunehmen."
+    },
+    {
+     "id": "M-IK-1-2-04_02",
+     "klassen": "1-2",
+     "bereich": "04",
+     "title": "3.1.4.2 Einfache Zufallsexperimente durchführen",
+     "text": "Die Schülerinnen und Schüler setzen sich mit einfachen Zufallsexperimenten auseinander und werden dadurch für Wahrscheinlichkeiten von Ereignissen sensibilisiert."
+    },
+    {
+     "id": "M-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Zahldarstellungen und Zahlbeziehungen verstehen",
+     "text": "Die Schülerinnen und Schüler kennen verschiedene Zahldarstellungen und Zahlbeziehungen im erweiterten Zahlenraum bis 1.000.000. Sie orientieren sich sicher im dezimalen Stellenwertsystem."
+    },
+    {
+     "id": "M-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Rechenoperationen verstehen und beherrschen",
+     "text": "Die Schülerinnen und Schüler wenden die vier Grundrechenarten im Zahlenraum bis 1.000.000 sicher an und nutzen vorteilhafte Strategien. Sie verstehen Zusammenhänge zwischen einzelnen Operationen. Die Schülerinnen und Schüler beherrschen die schriftlichen Rechenverfahren. Sie kennen arithmetische Muster und gehen sicherer mit ihnen um."
+    },
+    {
+     "id": "M-IK-3-4-01_03",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.3 Rechenoperationen in Kontexten anwenden",
+     "text": "Die Schülerinnen und Schüler erschließen sich mit mathematischen Mitteln Problemstellungen aus der realen Welt."
+    },
+    {
+     "id": "M-IK-3-4-02_01",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.1 Über räumliches Vorstellungsvermögen verfügen",
+     "text": "Die Schülerinnen und Schüler verfügen über sprachliche Mittel, um Lagebeziehungen präzise auszudrücken, entwickeln ihr räumliches Vorstellungsvermögen weiter und können sich im Raum orientieren. Sie können diese Fähigkeiten in Alltagssituationen und in unterschiedlichen Kontexten zur Problemlösung einsetzen."
+    },
+    {
+     "id": "M-IK-3-4-02_02",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.2 Geometrische Figuren erkennen, benennen, untersuchen und darstellen",
+     "text": "Die Schülerinnen und Schüler kennen ebene Figuren und Körper sowie deren Eigenschaften und entwickeln dadurch ihre Wahrnehmung für geometrische Strukturen in ihrer Erfahrungswelt weiter. Sie gehen sachgemäß mit Zeichengeräten um."
+    },
+    {
+     "id": "M-IK-3-4-02_03",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.3 Geometrische Abbildungen erkennen, benennen und darstellen",
+     "text": "Die Schülerinnen und Schüler kennen die Achsensymmetrie als wichtige geometrische Eigenschaft und entwickeln ihre Vorstellungen zu Symmetriebeziehungen weiter. Sie kennen das Vergrößern und Verkleinern als einfache geometrische Abbildung. Sie suchen, beschreiben und entwickeln eigene Muster."
+    },
+    {
+     "id": "M-IK-3-4-02_04",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.4 Flächen- und Rauminhalte messen und vergleichen",
+     "text": "Die Schülerinnen und Schüler können den Umfang und Flächeninhalt einfacher ebener Figuren sowie den Rauminhalt einfacher Körper mittels nichtstandardisierter und standardisierter Einheiten bestimmen. Sie verfügen über ein erstes Verständnis von Umfang, Flächeninhalt und Rauminhalt."
+    },
+    {
+     "id": "M-IK-3-4-03_01",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.1 Über Größenvorstellungen verfügen",
+     "text": "Die Schülerinnen und Schüler verfügen über Größenvorstellungen zu den Bereichen: Längen, Zeit, Geldwerte, Massen und Rauminhalte. Sie kennen im Alltag übliche Einheiten und können damit sicher umgehen."
+    },
+    {
+     "id": "M-IK-3-4-03_02",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.2 Mit Größen in Kontexten umgehen",
+     "text": "Die Schülerinnen und Schüler wenden ihr Wissen in Bezug auf Größen und ihre Fähigkeit zu messen in Sachsituationen an. Auf diese Weise erschließen sie sich zunehmend ihre Erfahrungswelt."
+    },
+    {
+     "id": "M-IK-3-4-04_01",
+     "klassen": "3-4",
+     "bereich": "04",
+     "title": "3.2.4.1 Daten erfassen, darstellen und mit ihnen umgehen",
+     "text": "Die Schülerinnen und Schüler erschließen sich ihre Erfahrungswelt, indem sie Daten sammeln, strukturieren und darstellen. Die Auseinandersetzung mit den hieraus gewonnenen Informationen und Erkenntnissen befähigt die Kinder zunehmend, Situationen einzuschätzen und zu bewerten."
+    },
+    {
+     "id": "M-IK-3-4-04_02",
+     "klassen": "3-4",
+     "bereich": "04",
+     "title": "3.2.4.2 Wahrscheinlichkeiten von Ereignissen in Zufallsexperimenten vergleichen",
+     "text": "Die Schülerinnen und Schüler setzen sich mit einfachen Zufallsexperimenten auseinander und lernen Wahrscheinlichkeiten von Ereignissen einzuschätzen."
+    }
+   ]
+  },
+  "Englisch": {
+   "fassung": "2025-03-10",
+   "prozesskompetenzen": [
+    {
+     "id": "E-PK-3_4-ALLG_01",
+     "klassen": [
+      "3-4"
+     ],
+     "text": "2.1 Sprachlernkompetenz (und Sprachlernstrategien) - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Englisch (ab Klasse 3/4) 2. Prozessbezogene Kompetenzen 2.1 Sprachlernkompetenz (und Sprachlernstrategien) Download als PDF 2.1 Sprachlernkompetenz (und Sprachlernstrategien) Die Schülerinnen und Schüler entwickeln Sprachbewusstsein. Sie wenden Strategien an, „um die eigenen Ressourcen zu mobilisieren und ausgewogen zu nutzen“ (GeR, 2001, S.62). Sie bauen kommunikative Strategien auf, um zielsprachliche Äußerungen und Informationen, die situativ gestützt sind, zu verstehen. Wiederkehrende sprachliche Strukturen werden erkannt und übernommen. Sie lernen zunehmend ihre sprachlichen Fähigkeiten zu beobachten und angeleitet zu dokumentieren. Dabei nutzen sie vertraute Lern- und Arbeitstechniken. Die Schülerinnen und Schüler können 1. die neue Sprache durch unterschiedliche mediale Zugänge erkunden 2. Strategien zum Verstehen kurzer kommunikativer Botschaften nutzen 3. sprachlich und inhaltlich Neues erfassen, mit ihrem Vorwissen verknüpfen und anwenden 4. Schriftsprache als Merkhilfe nutzen 5. in altersgerechter Form Selbsteinschätzung, Selbstdarstellung und Fremdeinschätzung dokumentieren 6. altersangemessene Informationsquellen und Nachschlagewerke nutzen Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildung"
+    },
+    {
+     "id": "E-PK-3_4-ALLG_02",
+     "klassen": [
+      "3-4"
+     ],
+     "text": "2.2 Kommunikative Kompetenz - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Englisch (ab Klasse 3/4) 2. Prozessbezogene Kompetenzen 2.2 Kommunikative Kompetenz Download als PDF 2.2 Kommunikative Kompetenz Die Schülerinnen und Schüler entwickeln Kompetenzen im Hör‑/Hörsehverstehen, Sprechen, Leseverstehen und Schreiben. Sie können zunehmend einsprachigen Unterrichtssituationen folgen. Dabei nutzen sie kontextuelle Hilfen wie Mimik, Gestik und Visualisierung durch Bilder und Realia. Die Betonung von Schlüsselwörtern, häufige Wiederholungen und Sprechpausen sind weitere Unterstützungselemente, um die Fremdsprache zu verstehen. Die Schülerinnen und Schüler können Gespräche in der Fremdsprache initiieren und Strategien entwickeln, um auf Fragen und Antworten verbal und nonverbal zu reagieren. Die Schülerinnen und Schüler können 1. eine verständliche Aussprache erwerben 2. für die unterschiedlichen kommunikativen Intentionen (Fragen, Mitteilen, Auffordern) eine klare Intonation nutzen 3. sich mithilfe eingeübter formelhafter Wendungen und kurzer Phrasen verständlich machen (monologisches Sprechen) 4. zunehmend aktiv an Gesprächen teilnehmen (dialogisches Sprechen) 5. schrittweise die Möglichkeiten schriftlicher Kommunikation (Verstehen beziehungsweise Verfassen kurzer schriftlicher Nachrichten) nutzen &nbsp; Download als PDF Die verlinkten Unterstützungsmaterialien sind"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "E-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Hör-/Hörsehverstehen",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler können strukturierten einsprachigen Unterrichtssituationen folgen und sprachliche Impulse verstehen, wenn diese durch Visualisierung wie Mimik, Gestik, Bilder und Realia unterstützt werden. Deutliche Artikulation, Intonation und „wenn sehr langsam und deutlich gesprochen wird“ (GeR A1) erleichtern den Schülerinnen und Schülern, das Gesprochene zu verstehen."
+    },
+    {
+     "id": "E-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Sprechen",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler eignen sich ein „Repertoire an Wörtern und Wendungen, die sich auf (einfache) Informationen zur Person und einzelne konkrete Situationen beziehen“ (GeR A1) an. Sie können „vertraute Ausdrücke und ganz einfache Sätze […] verstehen und verwenden, die auf die Befriedigung konkreter Bedürfnisse zielen“ (GeR A1). Zusätzlich zum individuell erworbenen Wortschatz und der Unterstützung des Gesprochenen nutzen sie außersprachliche Mittel wie Mimik, Gestik und andere Visualisierungshilfen. Sie üben Intonationsmuster ein, um eine verständliche Aussprache zu erwerben."
+    },
+    {
+     "id": "E-IK-3-4-01_03",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.3 Leseverstehen, Schreiben, Umgang mit Texten",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler sind in der Lage, „… einzelne vertraute Namen, Wörter oder ganz einfache Sätze (zu) verstehen …“ (GeR A1). Sie setzen sich auf vielfältige Art und Weise mit der Schriftsprache auseinander. Sie können „einfache isolierte Wendungen und Sätze (zu) schreiben“ (GeR A1)."
+    },
+    {
+     "id": "E-IK-3-4-02_01",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.1 Aussprache und Intonation, Wortschatz, sprachliche Mittel",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler „verfügen über einen elementaren Vorrat an einzelnen Wörtern und Wendungen, die sich auf bestimmte konkrete Situationen beziehen“ (GeR A1). Sie können Unterschiede in der Intonation und Artikulation der Zielsprache erkennen. Unter Berücksichtigung erstsprachlicher Interferenzen können sie bekannte Wörter und Strukturen verständlich aussprechen."
+    },
+    {
+     "id": "E-IK-3-4-03_01",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.1 Soziokulturelles Wissen, interkulturelle Kompetenz",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler setzen sich mit der Welt der Zielsprache auseinander und entwickeln Offenheit und Toleranz für Sprache, Menschen und die verschiedenen zielsprachlichen Kulturen. Unterschiedliche Kulturen werden zueinander in Beziehung gesetzt. Den Erstsprachen der Kinder kommt zum Beispiel durch Einbezug von Wortschatz oder soziokulturellem Wissen besondere Bedeutung zu."
+    }
+   ]
+  },
+  "Französisch": {
+   "fassung": "2025-03-10",
+   "prozesskompetenzen": [
+    {
+     "id": "F-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Sprachlernkompetenz (und Sprachlernstrategien) - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Franz&ouml;sisch 2. Prozessbezogene Kompetenzen 2.1 Sprachlernkompetenz (und Sprachlernstrategien) Download als PDF 2.1 Sprachlernkompetenz (und Sprachlernstrategien) Die Schülerinnen und Schüler entwickeln Sprachbewusstsein. Sie wenden Strategien an, „um die eigenen Ressourcen zu mobilisieren und ausgewogen zu nutzen“ (GeR, 2001, S.62). Sie nutzen altersgemäße Lern- und Arbeitstechniken als Grundlage für ihr weiteres Sprachenlernen. Sie stellen Vergleiche mit der Erstsprache an und entdecken Besonderheiten der Zielsprache und deren Kulturen. Parallel dazu bauen sie kommunikative Strategien auf, um zielsprachliche Äußerungen und Informationen, die situativ gestützt sind, zu verstehen. Wiederkehrende sprachliche Strukturen werden erkannt und übernommen. Sie lernen zunehmend, ihre sprachlichen Fähigkeiten zu beobachten und angeleitet zu dokumentieren. Die Schülerinnen und Schüler können 1. die neue Sprache durch unterschiedliche mediale Zugänge erkunden 2. Strategien zum Verstehen kurzer kommunikativer Botschaften nutzen 3. sprachlich und inhaltlich Neues mit ihrem Vorwissen vergleichen 4. in altersgerechter Form Selbsteinschätzung und Selbstdarstellung (Sprachenportfolio) dokumentieren 5. Schriftsprache als Merkhilfe nutzen 6. altersangemessene Informationsquellen und"
+    },
+    {
+     "id": "F-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Kommunikative Kompetenz - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Franz&ouml;sisch 2. Prozessbezogene Kompetenzen 2.2 Kommunikative Kompetenz Download als PDF 2.2 Kommunikative Kompetenz Die Schülerinnen und Schüler entwickeln Kompetenzen im Hörverstehen, Sprechen, Leseverstehen und Schreiben. Sie können zunehmend einsprachigen Unterrichtssituationen folgen. Dabei nutzen sie kontextuelle Hilfen wie Mimik, Gestik und Visualisierung durch Bilder und Realia, aber auch verbale und paralinguistische Hilfen, wie zum Beispiel Betonung von Schlüsselwörtern sowie Pausen, Wiederholungen und Paraphrasen sprachlicher Strukturen. Sie können Gespräche in der Fremdsprache initiieren und entwickeln Strategien, um auf Fragen und Antworten verbal und nonverbal zu reagieren. Sie begegnen Menschen unterschiedlicher Staatsangehörigkeit, Nationalität und unterschiedlichen Alters, zeigen Respekt, gegenseitige Achtung und bringen Wertschätzung von Verschiedenheit zum Ausdruck. Die Schülerinnen und Schüler können 1. sich mithilfe eingeübter formelhafter Wendungen und kurzer Phrasen verständlich machen (monologisches Sprechen) 2. zunehmend aktiv an Gesprächen teilnehmen (dialogisches Sprechen) 3. eine verständliche Aussprache erwerben 4. für die unterschiedlichen kommunikativen Intentionen (Fragen, Mitteilen, Auffordern) eine klare Intonation nutzen 5. schrittweise die M"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "F-IK-1-2-01_01",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.1 Hör-/Hörsehverstehen",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler können klar strukturierten einsprachigen Unterrichtssituationen weitgehend folgen, wenn diese durch Visualisierungen wie Mimik, Gestik, Bilder und Realia unterstützt werden. Deutliche Artikulation, Intonation und ein angepasstes Sprechtempo erleichtern den Schülerinnen und Schülern, das Gesprochene zu verstehen."
+    },
+    {
+     "id": "F-IK-1-2-01_02",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.2 Sprechen",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler können sich zu vertrauten Themen mit kurzen Phrasen und formelhaften Wendungen äußern. Zusätzlich zum individuell erworbenen Wortschatz verwenden die Schülerinnen und Schüler auch außersprachliche Mittel wie Mimik, Gestik und andere Visualisierungshilfen oder nutzen ihre Erstsprache. Sie versuchen Intonationsmuster zu imitieren, um eine verständliche Aussprache zu erwerben."
+    },
+    {
+     "id": "F-IK-1-2-01_03",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.3 Leseverstehen, Schreiben",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler machen erste Erfahrungen mit der Schriftsprache und setzen sich in einfacher Form mit ihr auseinander. Sie erkennen bekannte Namen, häufig wiederkehrende Wörter und einfachste Wendungen, bringen diese handelnd in einen Sinnzusammenhang und können ausgewählte Wörter abschreiben."
+    },
+    {
+     "id": "F-IK-1-2-02_01",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.1 Aussprache und Intonation, Wortschatz, sprachliche Mittel",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler können wesentliche Phoneme (bedeutungsunterscheidende Laute) der Zielsprache und Unterschiede in der Intonation und Artikulation wahrnehmen. Unter Berücksichtigung erstsprachlicher Interferenzen können sie bekannte Wörter verständlich aussprechen. Die Schülerinnen und Schüler bauen ein Grundwissen an Wörtern und Redewendungen auf sowie ein Verständnis für sprachliche Strukturen."
+    },
+    {
+     "id": "F-IK-1-2-03_01",
+     "klassen": "1-2",
+     "bereich": "03",
+     "title": "3.1.3.1 Soziokulturelles Wissen, interkulturelle Kompetenz",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler setzen sich mit der Welt der Zielsprache auseinander. Sie lernen Alltagsgewohnheiten und Traditionen der zielsprachlichen Kultur kennen und erfahren Offenheit und Toleranz für Menschen, deren Sprachen und Kulturen verschieden sind."
+    },
+    {
+     "id": "F-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Hör-/Hörsehverstehen",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler können klar strukturierten einsprachigen Unterrichtssituationen folgen und sprachliche Impulse verstehen, „wenn sehr langsam und deutlich gesprochen wird“ (GeR A1). Aus didaktisierten Inhalten ihrer Lebenswelt können sie zentrale Informationen durch Hör‑/Hörsehverstehen entnehmen. Sie sind in der Lage, außersprachliche Mittel für das Verstehen zu nutzen."
+    },
+    {
+     "id": "F-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Sprechen",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler haben ein „Repertoire an Wörtern und Wendungen, die sich auf (einfache) Informationen zur Person und einzelne konkrete Situationen beziehen“ (GeR A1). Sie können „vertraute Ausdrücke und ganz einfache Sätze [...] verwenden, die auf die Befriedigung konkreter Bedürfnisse zielen“ (GeR A1)."
+    },
+    {
+     "id": "F-IK-3-4-01_03",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.3 Leseverstehen, Schreiben, Umgang mit Texten",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler setzen sich auf vielfältige Art und Weise mit der Schriftsprache auseinander. Sie sind in der Lage, den Inhalt möglichst authentischer, kurzer Texte mit weitgehend bekannter Lexik zu verstehen und „einfache isolierte Wendungen und Sätze zu schreiben“ (GeR A1)."
+    },
+    {
+     "id": "F-IK-3-4-02_01",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.1 Aussprache und Intonation, Wortschatz, sprachliche Mittel",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler „verfügen über einen elementaren Vorrat an einzelnen Wörtern und Wendungen, die sich auf bestimmte konkrete Situationen beziehen“ (GeR A1). Sie können wesentliche Phoneme (bedeutungsunterscheidende Laute) der Zielsprache und Unterschiede in der Intonation und Artikulation wahrnehmen. Unter Berücksichtigung muttersprachlicher Interferenzen können sie bekannte Wörter und Strukturen verständlich aussprechen. Hierbei beachten sie grundlegende grammatikalische Strukturen."
+    },
+    {
+     "id": "F-IK-3-4-03_01",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.1 Soziokulturelles Wissen, interkulturelle Kompetenz",
+     "text": "Themenfelder Anhänge zu Fachplänen Die Schülerinnen und Schüler setzen sich mit der Welt der Zielsprache auseinander und entwickeln Offenheit und Toleranz für Sprache, Menschen und die verschiedenen zielsprachlichen Kulturen. Unterschiedliche Kulturen werden zueinander in Beziehung gesetzt. Den Erstsprachen der Kinder kommt besondere Bedeutung zu."
+    }
+   ]
+  },
+  "Sachunterricht": {
+   "fassung": "2016-03-23",
+   "prozesskompetenzen": [
+    {
+     "id": "SU-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Welt erleben und wahrnehmen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Sachunterricht 2. Prozessbezogene Kompetenzen 2.1 Welt erleben und wahrnehmen Download als PDF 2.1 Welt erleben und wahrnehmen Die Schülerinnen und Schüler lassen sich an schulischen und außerschulischen Lernorten auf Darstellungen, Ereignisse, Situationen und Phänomene mit verschiedenen Sinnen ein. Sie nehmen sich und die Welt differenziert wahr. Sie entwickeln Sensibilität, Offenheit, Interesse und Neugier gegenüber der Welt. Aus dieser Grundhaltung heraus verfeinern sie ihre Wahrnehmung, äußern ihre Eindrücke und Fragen und sammeln ästhetische Erfahrungen. Die Schülerinnen und Schüler können 1. sich einem natürlichen oder kulturellen Phänomen zuwenden, darüber staunen und sich darauf konzentrieren (zum Beispiel gesellschaftliche und soziale Formen des Zusammenlebens, Institutionen, Naturphänomene, Bauten, Erfindungen) 2. grundlegende Wahrnehmungen in den Bereichen Gestaltung, Klang und Phänomen vertiefen (zum Beispiel durch Wahrnehmung und Gesunderhaltung des eigenen Körpers, durch eine vertiefte Auseinandersetzung mit alltäglichen Naturphänomenen und durch bewusstes Wahrnehmen von Räumen) 3. Vorstellungen entwickeln und interessengeleitete Fragen formulieren (zum Beispiel in der Auseinandersetzung mit aktuellem Zeitgeschehen, mit Naturphänomenen, mit historischen Gegebenheiten"
+    },
+    {
+     "id": "SU-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Welt erkunden und verstehen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Sachunterricht 2. Prozessbezogene Kompetenzen 2.2 Welt erkunden und verstehen Download als PDF 2.2 Welt erkunden und verstehen Die Schülerinnen und Schüler können unterschiedliche Erscheinungsformen von Kultur und Natur erkennen, beschreiben, vergleichen und für ästhetische Prozesse nutzen. Sie finden zu einer ergebnisoffenen Grundhaltung, die Explorieren und Experimentieren in den Mittelpunkt stellt. Sie eignen sich Methoden der Welterkundung und Erkenntnisgewinnung an. Sie probieren, kombinieren und gestalten sowohl intuitiv als auch planvoll. Sie analysieren, deuten und erklären. Hierzu nutzen sie in vielfältiger Weise unterschiedliche Kunstformen, Medien,"
+    },
+    {
+     "id": "SU-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Kommunizieren und sich verständigen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Sachunterricht 2. Prozessbezogene Kompetenzen 2.3 Kommunizieren und sich verst&auml;ndigen Download als PDF 2.3 Kommunizieren und sich verständigen Die Schülerinnen und Schüler lernen in der Kommunikation mit anderen deren Meinung, Erfahrungen, Erkenntnisse, Interessen und Emotionen kennen sowie ihre eigenen darzustellen. Sie können unter Einbezug verschiedener Ausdrucksformen konstruktiv mit anderen kommunizieren sowie kooperativ arbeiten. Die Schülerinnen und Schüler akzeptieren ihre eigenen Lösungen und respektieren die der anderen in ihrer Vielfalt. Sie vergleichen ihre Wahrnehmungen, Vermutungen, Beobachtungen, Vorgehensweisen, Prozesse und Erklärungen, wobei die Alltagssprache die Grundlage bildet und zunehmend Fachbegriffe verwendet werden. Sie präsentieren ihre Erkenntnisse und Fertigkeiten, auch unter Einbezug altersgemäßer und zweckentsprechender Medien, und tauschen sich darüber aus. Die Schülerinnen und Schüler können 1. Ideen, Lern- und Lösungswege, gewonnene Erkenntnisse sowie die eigene Meinung ausdrücken und begründen (zum Beispiel in Bezug auf Konfliktbewältigung und Konfliktlösestrategien, bei der Planung und Durchführung eigener Experimente, bei Planung und Bau technischer Produkte, in Bezug auf Planung, Durchführung und Optimierung individueller Le"
+    },
+    {
+     "id": "SU-PK-1_2-ALLG_04",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.4 In der Welt handeln – Welt gestalten - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Sachunterricht 2. Prozessbezogene Kompetenzen 2.4 In der Welt handeln &ndash; Welt gestalten Download als PDF 2.4 In der Welt handeln – Welt gestalten Die Schülerinnen und Schüler wirken aktiv an der Gestaltung ihrer Lebenswelt mit. Sie agieren plan- und fantasievoll, erkennen Auswirkungen ihres Handelns und übernehmen Verantwortung. Die Schülerinnen und Schüler können sich ausdauernd und konzentriert über einen längeren Zeitraum mit einer Sache beschäftigen. Sie planen und führen Gestaltungsvorhaben durch, reflektieren Entstehungsprozesse und Ergebnisse und entwickeln Handlungsalternativen. Die Schülerinnen und Schüler können 1. aus den gewonnenen Erkenntnissen Konsequenzen – auch für das Alltagshandeln – ableiten (zum Beispiel im Hinblick auf Strategien zur Gewaltvermeidung, beim Freizeitverhalten und den Möglichkeiten der Freizeitgestaltung, durch das Medienverhalten, beim Verhalten im Notfall, im sach- und sicherheitsgerechten Umgang mit Werkzeugen,"
+    },
+    {
+     "id": "SU-PK-1_2-ALLG_05",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.5 Reflektieren und sich positionieren - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Sachunterricht 2. Prozessbezogene Kompetenzen 2.5 Reflektieren und sich positionieren Download als PDF 2.5 Reflektieren und sich positionieren Die Schülerinnen und Schüler denken über sich selbst und ihre Umwelt in der Begegnung mit Natur und Kulturen nach. Sie überprüfen und reflektieren die eigene Meinung sowie die Meinung anderer. Sie können eigene Arbeitsergebnisse darstellen, die anderer akzeptieren und diese sachbezogen und differenziert bewerten. Dabei wenden sie erworbene Kenntnisse, Fähigkeiten und Fertigkeiten in Diskussions- und Reflexionsphasen an. Sie verfügen über die Fähigkeit, zu einer Sache, einem Problem und/oder einer Situation eine eigene Position zu beziehen, zu begründen und zu vertreten sowie respektvoll mit anderen Positionen umzugehen. Die Schülerinnen und Schüler können 1. eigenes Verhalten reflektieren und hinsichtlich eigener Gestaltungsmöglichkeiten bewerten (zum Beispiel bei Veranstaltungen in der Klassengemeinschaft und Schule, in Bezug auf Konfliktlösung und ‑vermeidung, im Verhalten innerhalb sozialer Beziehungen, bezogen auf Mediennutzung, Ernährungsbildung, Umweltschutz) 2. Empathiefähigkeit entwickeln und Perspektivwechsel vornehmen (zum Beispiel durch das Hineinversetzen in andere Meinungen und Auffassungen – gegenwärtig und vergangen"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "SU-IK-1-2-01_01",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.1 Leben in Gemeinschaft",
+     "text": "Die Schülerinnen und Schüler entwickeln ihr positives Selbstkonzept weiter und stärken die eigene Persönlichkeit. Sie gehen vielfältige Beziehungen ein. Dabei erproben sie ihre eigenen Rollen und gestalten sie im Zusammenleben mit anderen. Die Schülerinnen und Schüler nehmen die Perspektiven der anderen wahr und respektieren diese. Sie kennen Möglichkeiten der Mitbestimmung und erproben diese in vielfältigen Situationen."
+    },
+    {
+     "id": "SU-IK-1-2-01_02",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.2 Arbeit und Konsum",
+     "text": "Die Schülerinnen und Schüler vergegenwärtigen sich die Vielfalt der Medienlandschaft anhand ihrer eigenen Erfahrungen und überdenken ihre Mediennutzung. Sie artikulieren ihre Wünsche und Bedürfnisse und reflektieren Möglichkeiten und Grenzen hinsichtlich deren Erfüllung. Die Schülerinnen und Schüler erkennen, dass in verschiedenen Feldern des Zusammenlebens (in Familie, Schulklasse, Peergroup) unterschiedliche Aufgaben anfallen. Sie organisieren anfallende Aufgaben und führen diese durch."
+    },
+    {
+     "id": "SU-IK-1-2-01_03",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.3 Kultur und Vielfalt",
+     "text": "Die Schülerinnen und Schüler nehmen die Vielfalt unterschiedlicher Lebensweisen wahr. Sie stellen Vergleiche an und setzen ihre eigene Lebenswelt dazu in Beziehung. Gesellschaftliche Vielfalt in persönlichem Umfeld und Schule können sie tolerieren und akzeptieren."
+    },
+    {
+     "id": "SU-IK-1-2-02_01",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.1 Körper und Gesundheit",
+     "text": "Die Schülerinnen und Schüler nehmen ihren eigenen Körper mit seinen vielfältigen Leistungen, aber auch Grenzen wahr. Sie lernen diesen kennen und schützen und entwickeln den positiven Bezug zu ihrem Körper weiter. Die Schülerinnen und Schüler setzen sich mit geschlechtsspezifischen Zuschreibungen auseinander und hinterfragen diese. Sie können Aspekte einer gesunden Lebensführung beschreiben und das eigene Verhalten hierzu in Beziehung setzen."
+    },
+    {
+     "id": "SU-IK-1-2-02_02",
+     "klassen": "1-2",
+     "bereich": "02",
+     "title": "3.1.2.2 Tiere und Pflanzen in ihren Lebensräumen",
+     "text": "Ausgehend von Erkundungen in der eigenen Schul- und Wohnumgebung können die Schülerinnen und Schüler Lebensräume von Tieren und Pflanzen beschreiben. Sie stellen einfache Zusammenhänge zwischen Lebensräumen und der Angepasstheit von Tieren und Pflanzen her und erkennen, dass es für eine intakte Natur wichtig ist, Lebensräume und Artenreichtum zu schützen und zu bewahren."
+    },
+    {
+     "id": "SU-IK-1-2-03_01",
+     "klassen": "1-2",
+     "bereich": "03",
+     "title": "3.1.3.1 Naturphänomene",
+     "text": "Die Schülerinnen und Schüler können ausgewählte Naturphänomene wahrnehmen und sachorientiert beschreiben. Sie stellen Fragen, auf die sie durch Explorieren und Experimentieren Antworten finden. Die Schülerinnen und Schüler überprüfen ihre Antworten und Deutungsmuster und erweitern so ihre Kenntnisse und Handlungsmöglichkeiten. Indem sie ihre Erfahrungen vergleichen und zueinander in Beziehung setzen, können sie in eigenen Worten einfache Regelmäßigkeiten formulieren."
+    },
+    {
+     "id": "SU-IK-1-2-03_02",
+     "klassen": "1-2",
+     "bereich": "03",
+     "title": "3.1.3.2 Materialien und ihre Eigenschaften",
+     "text": "Die Schülerinnen und Schüler sammeln und vergleichen Alltagsgegenstände aus unterschiedlichen"
+    },
+    {
+     "id": "SU-IK-1-2-03_03",
+     "klassen": "1-2",
+     "bereich": "03",
+     "title": "3.1.3.3 Bauten und Konstruktionen",
+     "text": "Die Schülerinnen und Schüler können sach- und sicherheitsgerecht mit Werkzeugen und"
+    },
+    {
+     "id": "SU-IK-1-2-04_01",
+     "klassen": "1-2",
+     "bereich": "04",
+     "title": "3.1.4.1 Orientierung im Raum",
+     "text": "Ausgehend von ihren Alltagserfahrungen können die Schülerinnen und Schüler sich in persönlich bedeutsamen und überschaubaren räumlichen Situationen zurechtfinden. Dabei betrachten sie räumliche Situationen zunehmend aus verschiedenen Blickwinkeln."
+    },
+    {
+     "id": "SU-IK-1-2-04_02",
+     "klassen": "1-2",
+     "bereich": "04",
+     "title": "3.1.4.2 Mobilität und Verkehr",
+     "text": "Die Schülerinnen und Schüler können auf der Basis einer umfassenden Bewegungs- und Wahrnehmungsschulung selbstständig als Fußgängerinnen und Fußgänger am Straßenverkehr teilnehmen. Sie können Gefahren entwicklungsentsprechend erkennen, einschätzen und darauf reagieren. Die Schülerinnen und Schüler kennen grundlegende Verkehrs- und Verhaltensregeln für Fußgängerinnen und Fußgänger und Mitfahrerinnen und Mitfahrer in öffentlichen und privaten Verkehrsmitteln. In ihrer unmittelbaren Umgebung, vor allem auf ihrem Schulweg, können sie diese sicher anwenden."
+    },
+    {
+     "id": "SU-IK-1-2-05_01",
+     "klassen": "1-2",
+     "bereich": "05",
+     "title": "3.1.5.1 Zeit und Zeitrhythmen",
+     "text": "Die Schülerinnen und Schüler begegnen dem Phänomen Zeit in vielfältiger Weise. Sie können sich in überschaubaren Zeiträumen orientieren. Die Schülerinnen und Schüler unterscheiden Zeitbegriffe und zeitliche Strukturen und wenden sie an. Sie nutzen unterschiedliche Instrumente zur Zeitmessung."
+    },
+    {
+     "id": "SU-IK-1-2-05_02",
+     "klassen": "1-2",
+     "bereich": "05",
+     "title": "3.1.5.2 Vergangenheit, Gegenwart und Zukunft",
+     "text": "Die Schülerinnen und Schüler können sich in persönlich bedeutsamen Zeiträumen orientieren. Sie begegnen Aspekten vergangener kindlicher Lebenswelten und setzen ihre Erkenntnisse zum gegenwärtigen Leben in Beziehung. Die Schülerinnen und Schüler ordnen vergangene Ereignisse und stellen ihre Ergebnisse mit geeigneten Medien dar."
+    },
+    {
+     "id": "SU-IK-1-2-1-2_06",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.6 Experimente",
+     "text": "Liste der verbindlichen Experimente für die Klassen 1/2 die nachfolgenden Experimente im inhaltlich darauf bezogenen Unterricht durchführen. Die Planung und Sorge für die Einhaltung der Sicherheit obliegt dabei der Lehrkraft. Körper und Gesundheit mindestens ein Experiment zu den Zähnen (Aufgaben der Zähne in Analogie zu Werkzeugen) Experimente zu den Leistungen des Auges (räumliches Sehen, Pupillenreaktion, Lidschlussreflex) Experimente zu den Leistungen des Ohres (Richtungshören, Ohrmuschel als Schalltrichter) mindestens ein Experiment zum Geschmacks- und Geruchssinn (der Zusammenhang zwischen Geruch und Geschmack) Tiere und Pflanzen in ihren Lebensräumen mindestens ein Experiment zu Wachstum und Keimung bei Pflanzen Naturphänomene Experimente zu Eigenschaften der Luft (Luft nimmt Raum ein, bremst, treibt an, kann etwas tragen, dehnt sich bei Erwärmung aus) Experimente zu Licht und Schatten Experimente zur Schallübertragung (durch Luft, feste"
+    },
+    {
+     "id": "SU-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Leben in Gemeinschaft",
+     "text": "Die Schülerinnen und Schüler entwickeln ihr positives Selbstkonzept weiter und stärken die eigene Persönlichkeit. Sie können Gemeinsamkeiten und Unterschiede verschiedener Formen des Zusammenlebens beschreiben, vergleichen und in Beziehung zum eigenen Leben setzen. Sofern diese den Grundrechten und demokratischen Grundsätzen entsprechen, entwickeln sie Achtung und Toleranz gegenüber unterschiedlichen Lebensweisen und Kulturen. Die Schülerinnen und Schüler beteiligen sich aktiv an Mitbestimmungsprozessen und initiieren solche. Dadurch wirken sie an der Gestaltung von Gemeinschaft mit."
+    },
+    {
+     "id": "SU-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Arbeit und Konsum",
+     "text": "Die Schülerinnen und Schüler reflektieren eigene Medienerfahrungen und die anderer in Bezug auf Gebrauch, Konsum und Wirkung. Zunehmend wird dabei eine kritische Reflexion angebahnt. Sie analysieren Konsumbedürfnisse und Faktoren, die das Konsumverhalten beeinflussen. Die Schülerinnen und Schüler entwickeln ein zunehmend reflektiertes Konsumverhalten. Sie beschreiben verschiedene Formen von Arbeit und vergleichen diese. Die Bedeutung von Arbeit analysieren sie in Bezug auf das gesellschaftliche Zusammenleben. Sie werden sich ihrer individuellen Fähigkeiten bewusst und entwickeln Perspektiven für die Zukunft."
+    },
+    {
+     "id": "SU-IK-3-4-01_03",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.3 Kultur und Vielfalt",
+     "text": "Die Schülerinnen und Schüler nehmen die Vielfalt und Unterschiedlichkeit von Räumen und Lebenswelten wahr (zum Beispiel hinsichtlich Wohnsituation, Essen, Schule, Freizeit, Sprache, klimatische Bedingungen, soziale Beziehungen, wirtschaftliche Voraussetzungen). Sie stellen Vergleiche an und setzen ihre eigene Lebenswelt damit in Beziehung. Die Schülerinnen und Schüler können gesellschaftliche Vielfalt tolerieren und daraus Konsequenzen für ihr eigenes Leben ableiten."
+    },
+    {
+     "id": "SU-IK-3-4-01_04",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.4 Politik und Zeitgeschehen",
+     "text": "Die Schülerinnen und Schüler erkennen anhand ausgewählter Aspekte, dass die politische Ordnung einen verlässlichen Rahmen für politische Handlungs- und Entscheidungsprozesse darstellt, die das Zusammenleben im Staat strukturieren. Sie nehmen demokratische Strukturen im Schulalltag wahr und nutzen diese. Die Schülerinnen und Schüler erkennen Diskussionen, Abstimmungen und das Mehrheitsprinzip als Elemente der Demokratie. Sie wirken an demokratischen Gestaltungsprozessen mit."
+    },
+    {
+     "id": "SU-IK-3-4-02_01",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.1 Körper und Gesundheit",
+     "text": "Die Schülerinnen und Schüler können die eigene Körperlichkeit und Geschlechtlichkeit zunehmend differenzierter wahrnehmen und reflektieren. Sie nehmen ausgewählte Leistungen des Körpers bewusst wahr, erleben Vielfalt als Normalität und kennen die eigene Verantwortung für die Gesunderhaltung ihres Körpers. Maßnahmen und Verhaltensweisen zur Gesunderhaltung des eigenen Körpers können sie zunehmend auch in den außerschulischen Alltag integrieren."
+    },
+    {
+     "id": "SU-IK-3-4-02_02",
+     "klassen": "3-4",
+     "bereich": "02",
+     "title": "3.2.2.2 Tiere und Pflanzen in ihren Lebensräumen",
+     "text": "Die Schülerinnen und Schüler können verantwortlich und artgerecht mit Tieren und Pflanzen in natürlicher und vom Menschen kultivierter Umgebung umgehen. Sie erkennen Zusammenhänge zwischen Lebensräumen und der Angepasstheit von Tieren und Pflanzen. In der Auseinandersetzung mit Artenvielfalt entwickeln sie Verständnis für die Notwendigkeit von Natur‑, Umwelt- und Artenschutz und werden für verantwortliches Handeln und Verhalten in Bezug auf Natur und Umwelt sensibilisiert."
+    },
+    {
+     "id": "SU-IK-3-4-03_01",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.1 Naturphänomene",
+     "text": "Die Schülerinnen und Schüler können ausgewählte Naturphänomene wahrnehmen sowie sachorientiert beschreiben und begrifflich erfassen. Sie erwerben anschlussfähige Konzepte, indem sie ihre eigenen Vorstellungen durch Experimente überprüfen und diese dann entsprechend weiterentwickeln oder verändern. Dabei bauen sie erste Modellvorstellungen zu Naturphänomenen auf. Sie können ihre Erfahrungen und Erkenntnisse dokumentieren und miteinander vergleichen sowie Regelmäßigkeiten in anderen Kontexten wiedererkennen. Die Schülerinnen und Schüler verwenden einfache technische und mediale Hilfsmittel zur selbstständigen Informationsbeschaffung."
+    },
+    {
+     "id": "SU-IK-3-4-03_02",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.2 Materialien und ihre Eigenschaften",
+     "text": "Die Schülerinnen und Schüler können Eigenschaften ausgewählter"
+    },
+    {
+     "id": "SU-IK-3-4-03_03",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.3 Bauten und Konstruktionen",
+     "text": "Die Schülerinnen und Schüler können durch technisches Bauen und Analysieren Stabilitätsprinzipien erfassen und diese für eigene Objekte nutzen. Über das eigene Konstruieren und Erfinden entwickeln sie Verständnis für technische Funktionen und Zusammenhänge sowie ein Bewusstsein der eigenen technischen Fähigkeiten. Die Schülerinnen und Schüler erwerben an einfachen ausgewählten Beispielen erste Kompetenzen sowohl im Bewerten des eigenen technischen Handelns als auch im Bewerten technischer Entwicklungen."
+    },
+    {
+     "id": "SU-IK-3-4-03_04",
+     "klassen": "3-4",
+     "bereich": "03",
+     "title": "3.2.3.4 Energie",
+     "text": "Die Schülerinnen und Schüler können Energie und Energieträger sowie deren Nutzung in der Alltagssprache beschreiben. Sie erschließen sich den Bereich der technischen Nutzung von Energie, indem sie einfache technische Modelle selbst bauen und analysieren. Die Notwendigkeit eines verantwortlichen Umgangs mit den endlichen Energieträgern können sie begründen und daraus Konsequenzen für das eigene Verhalten im Alltag ziehen."
+    },
+    {
+     "id": "SU-IK-3-4-04_01",
+     "klassen": "3-4",
+     "bereich": "04",
+     "title": "3.2.4.1 Orientierung im Raum",
+     "text": "Die Schülerinnen und Schüler können sich, auch unter Zuhilfenahme verschiedener Orientierungshilfen, in größeren Räumen zunehmend besser orientieren. Sie beschreiben Merkmale ihres Wohnorts, der Region, Baden-Württembergs und größerer geographischer Räume (zum Beispiel klimatisch, geomorphologisch, geologisch, infrastrukturell, politisch, kulturell)."
+    },
+    {
+     "id": "SU-IK-3-4-04_02",
+     "klassen": "3-4",
+     "bereich": "04",
+     "title": "3.2.4.2 Mobilität und Verkehr",
+     "text": "Die Schülerinnen und Schüler können verkehrsgerecht, rücksichtsvoll und sicherheitsorientiert am Verkehr teilnehmen. Sie setzen die im Schonraum erlernten Kenntnisse und Fertigkeiten als Radfahrerinnen und Radfahrer in der Verkehrsrealität sachgerecht um. Die Schülerinnen und Schüler können Verhaltensweisen von sich und anderen anhand konkreter Situationen hinsichtlich verkehrsgerechter, sozialer und umweltschonender Aspekte beurteilen."
+    },
+    {
+     "id": "SU-IK-3-4-05_01",
+     "klassen": "3-4",
+     "bereich": "05",
+     "title": "3.2.5.1 Vergangenheit, Gegenwart und Zukunft",
+     "text": "Die Schülerinnen und Schüler können sich in größeren Zeiträumen orientieren. Sie stellen Fragen an die Vergangenheit, recherchieren mithilfe von Quellen, präsentieren ihre Ergebnisse und setzen sie zu ihrem gegenwärtigen Leben in Beziehung. Die Schülerinnen und Schüler nehmen Veränderungen als zukunftsoffen wahr."
+    },
+    {
+     "id": "SU-IK-3-4-05_02",
+     "klassen": "3-4",
+     "bereich": "05",
+     "title": "3.2.5.2 Zeitzeugnisse, Zeitzeugen und Quellen",
+     "text": "Die Schülerinnen und Schüler erkennen, dass Quellen die Grundlage historischer Erkenntnisse sind. Sie kennen verschiedene Quellen und nutzen sie zur Erkenntnisgewinnung."
+    },
+    {
+     "id": "SU-IK-3-4-3-4_06",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.6 Experimente",
+     "text": "Liste der verbindlichen Experimente für die Klassen 3/4 die nachfolgenden Experimente im inhaltlich darauf bezogenen Unterricht durchführen. Die Planung und Sorge für die Einhaltung der Sicherheit obliegt dabei der Lehrkraft. &nbsp; Körper und Gesundheit mindestens ein Experiment zur Funktion wesentlicher Körperteile (zum Beispiel Gelenke, Wirbelsäule) mindestens ein Experiment zu den Inhaltsstoffen in Nahrungsmitteln (zum Beispiel Stärkegewinnung aus Kartoffeln, Flüssigkeitsbestimmung in Gurken, Fettnachweis mit der Fettfleckprobe in verschiedenen Nahrungsmitteln) Tiere und Pflanzen in ihren Lebensräumen mindestens ein Experiment zur Wärmeisolation bei Tieren (Überwinterung) Naturphänomene Experimente zu den Zustandsformen des Wassers in Zusammenhang mit dem Wasserkreislauf (Schmelzen, Verdunsten, Verdampfen, Kondensieren, Gefrieren) mindestens ein Experiment zum Lösen von Feststoffen in Wasser (Zucker und Salz in Wasser lösen) mindestens ein Experiment zur Wasserversorgung (Prinzip der verbundenen Röhren) mindestens jeweils ein Experiment zur natürlichen und künstlichen Abwasserreinigung (zum Beispiel Wasserdurchlässigkeit verschiedener Bodenarten, Absetz- und Filtrierversuche) Experimente zum Schwimmen und Sinken (Auftrieb und Verdrängung) Experimente zur Kerze (zum Beispiel zu den Kerzenzonen, der Saugfähigkeit des Dochtes) Experimente zu den Grundbedingungen für die Entstehung eines Feuers (vereinfachtes Verbrennungsdreieck: Einfluss der Luft auf die Verbrennung, Brennbarkeit verschiedener"
+    }
+   ]
+  },
+  "Kunst_Werken": {
+   "fassung": "2016-03-23",
+   "prozesskompetenzen": [
+    {
+     "id": "KuW-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Welt erleben und wahrnehmen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Kunst/Werken 2. Prozessbezogene Kompetenzen 2.1 Welt erleben und wahrnehmen Download als PDF 2.1 Welt erleben und wahrnehmen Die Schülerinnen und Schüler lassen sich an schulischen und außerschulischen Lernorten auf Darstellungen, Ereignisse, Situationen und Phänomene mit verschiedenen Sinnen ein. Sie nehmen sich und die Welt differenziert wahr. Sie entwickeln Sensibilität, Offenheit, Interesse und Neugier gegenüber der Welt. Aus dieser Grundhaltung heraus verfeinern sie ihre Wahrnehmung und äußern ihre Eindrücke und Fragen und sammeln ästhetische Erfahrungen. Die Schülerinnen und Schüler können 1. sich einem natürlichen oder kulturellen Phänomen zuwenden, darüber staunen und konzentrieren (zum Beispiel: Kinder sehen, erfahren, betrachten und beobachten) 2. grundlegende Wahrnehmungen in den Bereichen Gestaltung, Klang und Phänomen vertiefen (zum Beispiel Kinder werken:"
+    },
+    {
+     "id": "KuW-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Welt erkunden und verstehen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Kunst/Werken 2. Prozessbezogene Kompetenzen 2.2 Welt erkunden und verstehen Download als PDF 2.2 Welt erkunden und verstehen Die Schülerinnen und Schüler können unterschiedliche Erscheinungsformen von Kultur und Natur erkennen, beschreiben, vergleichen und für ästhetische Prozesse nutzen. Sie finden zu einer ergebnisoffenen Grundhaltung, die Explorieren und Experimentieren in den Mittelpunkt stellt. Sie eignen sich Methoden der Welterkundung und Erkenntnisgewinnung an. Sie probieren, kombinieren und gestalten sowohl intuitiv als auch planvoll. Sie analysieren, deuten und erklären. Hierzu nutzen sie in vielfältiger Weise unterschiedliche Kunstformen, Medien,"
+    },
+    {
+     "id": "KuW-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Kommunizieren und sich verständigen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Kunst/Werken 2. Prozessbezogene Kompetenzen 2.3 Kommunizieren und sich verst&auml;ndigen Download als PDF 2.3 Kommunizieren und sich verständigen Die Schülerinnen und Schüler lernen in der Kommunikation mit ihren Mitschülerinnen und Mitschülern deren Meinungen, Erfahrungen, Erkenntnisse, Interessen und Emotionen kennen sowie ihre eigenen darzustellen. Sie können unter Einbezug verschiedener Ausdrucksformen konstruktiv mit anderen kommunizieren sowie kooperativ arbeiten. Die Schülerinnen und Schüler akzeptieren ihre eigenen Lösungen und respektieren die der anderen in ihrer Vielfalt. Sie vergleichen ihre Wahrnehmungen, Vermutungen, Beobachtungen, Vorgehensweisen, Prozesse und Erklärungen, wobei die Alltagssprache die Grundlage bildet und zunehmend Fachbegriffe verwendet werden. Sie präsentieren ihre Erkenntnisse und Fertigkeiten, auch unter Einbezug altersgemäßer und zweckentsprechender Medien, und tauschen sich darüber aus. Die Schülerinnen und Schüler können 1. Ideen, Lern- und Lösungswege, gewonnene Erkenntnisse sowie die eigene Meinung ausdrücken und begründen 2. verschiedene Arten der Kommunikation nutzen (zum Beispiel gestalterische Ausdrucksformen: Zeichnen, Malen, Drucken, Collagieren, Bauen, Darstellen; theatrale Ausdrucksformen: Mimik, Gestik, (Körper‑)Spra"
+    },
+    {
+     "id": "KuW-PK-1_2-ALLG_04",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.4 In der Welt handeln – Welt gestalten - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Kunst/Werken 2. Prozessbezogene Kompetenzen 2.4 In der Welt handeln &ndash; Welt gestalten Download als PDF 2.4 In der Welt handeln – Welt gestalten Die Schülerinnen und Schüler wirken aktiv an der Gestaltung ihrer Lebenswelt mit. Sie agieren plan- und fantasievoll, erkennen Auswirkungen ihres Handelns und übernehmen Verantwortung. Die Schülerinnen und Schüler können sich ausdauernd und konzentriert über einen längeren Zeitraum mit einer Sache beschäftigen. Sie planen und führen Gestaltungsvorhaben durch, reflektieren Entstehungsprozesse und Ergebnisse und entwickeln Handlungsalternativen. Die Schülerinnen und Schüler können 1. aus den gewonnenen Erkenntnissen Konsequenzen – auch für das Alltagshandeln – ableiten 2. im Rahmen ihrer Möglichkeiten gemeinschaftliches Leben gestalten und Verantwortung übernehmen (zum Beispiel ausstellen, aufführen, dekorieren, agieren, um- und ausgestalten) 3. nachhaltige Handlungsweisen als Lebensgrundlage für alle Menschen umsetzen (zum Beispiel Wegwerfmaterialien nutzen,"
+    },
+    {
+     "id": "KuW-PK-1_2-ALLG_05",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.5 Reflektieren und sich positionieren - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Kunst/Werken 2. Prozessbezogene Kompetenzen 2.5 Reflektieren und sich positionieren Download als PDF 2.5 Reflektieren und sich positionieren Die Schülerinnen und Schüler denken über sich selbst und ihre Umwelt in der Begegnung mit Natur und Kulturen nach. Sie überprüfen und reflektieren die eigene Meinung sowie die Meinung anderer. Sie können eigene Arbeitsergebnisse darstellen, die anderer akzeptieren und diese sachbezogen und differenziert bewerten. Dabei wenden sie erworbene Kenntnisse, Fähigkeiten und Fertigkeiten in Diskussions- und Reflexionsphasen an. Sie verfügen über die Fähigkeit, zu einer Sache, einem Problem und/oder einer Situation eine eigene Position zu beziehen, zu begründen und zu vertreten sowie respektvoll mit anderen Positionen umzugehen. Die Schülerinnen und Schüler können 1. eigenes Verhalten reflektieren und hinsichtlich eigener Gestaltungsmöglichkeiten bewerten 2. Empathiefähigkeit entwickeln und Perspektivwechsel vornehmen (zum Beispiel in der Auseinandersetzung mit dem „Anderssein“, andere Lebenswelten mittels Kunst und medialen Produkten erforschen, in gelebter Inklusion, im Erleben von Vielfalt als Normalität) 3. Informationen, Sachverhalte, Situationen und Entwicklungen bewerten (zum Beispiel visuelle Botschaften entschlüsseln, erklären, pr"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "KuW-IK-1-2-01_01",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.1 Kinder zeichnen",
+     "text": "Die Schülerinnen und Schüler stellen zeichnerisch ihre Welt dar. Sie entwickeln Bildideen aus ihrer Imagination, Fantasie- und Erlebniswelt. Sie erweitern ihr Repertoire an Darstellungsformen, Verfahren und Techniken. Sie nutzen die Zeichnung in ihren verschiedenen Funktionen (zum Beispiel: Erlebnisse darstellen, Ideen sammeln, Beobachtungen festhalten, skizzieren und entwerfen, dokumentieren, ...)"
+    },
+    {
+     "id": "KuW-IK-1-2-01_02",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.2 Kinder drucken",
+     "text": "Unterschiedliche Oberflächen, Materialien und Formen regen die Schülerinnen und Schüler zum Experimentieren im Bereich Drucken an. Sie nutzen einfache Vervielfältigungsverfahren und erkennen die Besonderheiten des Druckens im Vergleich zu anderen Techniken. Sie machen Erfahrungen mit Strategien, wie zum Beispiel Aus- und Umdeuten, Verfremden und Umfunktionieren."
+    },
+    {
+     "id": "KuW-IK-1-2-01_03",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.3 Kinder malen",
+     "text": "Die Schülerinnen und Schüler werden emotional von Farben angesprochen. Von ihren Empfindungen und Vorlieben geleitet, entdecken sie unterschiedliche Wirkungen und Funktionen von Farben in Kunst, Natur und Umwelt. Sie erweitern und differenzieren ihre Beobachtungsfähigkeit. Sie malen gegenständlich und abstrakt. Mit wachsender Malerfahrung nutzen sie Vorlieben für bestimmte Farbkombinationen und Farbwirkungen."
+    },
+    {
+     "id": "KuW-IK-1-2-1-2_02",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.2 Kinder erforschen und verarbeiten textile",
+     "text": "Die Schülerinnen und Schüler sind täglich von Textilien umgeben. Sie entdecken die Besonderheiten verschiedener textiler"
+    },
+    {
+     "id": "KuW-IK-1-2-1-2_03",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.3 Kinder werken",
+     "text": "Das Herstellen von Skulpturen, Objekten und Gegenständen übt auf Kinder eine große Faszination aus. Die Schülerinnen und Schüler stellen sie aus unterschiedlichen geeigneten"
+    },
+    {
+     "id": "KuW-IK-1-2-1-2_04",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.4 Kinder räumen um",
+     "text": "Die Schülerinnen und Schüler halten sich in vielfältig gestalteten geschlossenen und offenen Räumen auf. Sie bewegen sich in ihnen, verschaffen sich Orientierung, erforschen und verändern sie."
+    },
+    {
+     "id": "KuW-IK-1-2-1-2_05",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.5 Kinder spielen und agieren",
+     "text": "Die Schülerinnen und Schüler erwecken Materialien und Objekte zum Leben. Sie nutzen sie für Aktionen und Spiele, agieren mit ihnen und stellen sie in einen für sie sinnvollen Zusammenhang. Sie probieren aus, verändern und improvisieren, erfinden spontan einfache Spielsituationen. Sie entwickeln Möglichkeiten, um Spielfiguren nach eigenen Ideen herzustellen."
+    },
+    {
+     "id": "KuW-IK-1-2-1-2_06",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.6 Kinder nutzen Medien",
+     "text": "Die Schülerinnen und Schüler verfügen über unterschiedliche Vorerfahrungen mit Medien. Sie lernen den Umgang mit ihnen, nutzen sie zur Präsentation und Dokumentation. Sie verwenden Medien zum kreativen Arbeiten, um sich darzustellen und um sich zu positionieren."
+    },
+    {
+     "id": "KuW-IK-1-2-07_01",
+     "klassen": "1-2",
+     "bereich": "07",
+     "title": "3.1.7.1 Kinder erleben Natur",
+     "text": "Die Schülerinnen und Schüler erleben Natur vor Ort als aktives Wahrnehmungsfeld. Sie erkennen im Handeln (sammeln, sortieren, ordnen, legen) die Vielfalt an ästhetischen Aufbau- und Ordnungsprinzipien bei verschiedenen Erscheinungsformen (Pflanzen, Wasser, Gesteine, Landschaften, Gelände ...). Diese Prozesse können die Schülerinnen und Schüler für eigene Gestaltungsanlässe nutzen."
+    },
+    {
+     "id": "KuW-IK-1-2-07_02",
+     "klassen": "1-2",
+     "bereich": "07",
+     "title": "3.1.7.2 Kinder gehen mit Kunstwerken um",
+     "text": "Die Schülerinnen und Schüler lassen sich auf Kunst ein und erleben Bilder auf der Grundlage ihrer Seherfahrungen. Sie entwickeln individuelle Zugänge zu Kunstwerken. Sie stellen Beziehungen zu eigenen visuellen und praktischen Erfahrungen her, respektieren die Sichtweisen, Lesarten der anderen Kinder und versuchen sie nachzuvollziehen. Sie äußern erste Deutungen."
+    },
+    {
+     "id": "KuW-IK-1-2-07_03",
+     "klassen": "1-2",
+     "bereich": "07",
+     "title": "3.1.7.3 Kinder nehmen ihre Umwelt wahr",
+     "text": "Die Schülerinnen und Schüler sind von Abbildungen, Alltagsgegenständen und öffentlichen Räumen in ihrer Lebenswelt umgeben. Sie nehmen sie bewusst wahr, untersuchen und benennen ihre Eigenschaften, Besonderheiten, ihr Aussehen, ihren Gebrauch und Nutzen. Sie finden handlungsorientiert Kriterien zur Unterscheidung, werden für die Zusammenhänge von Gestaltung und Gebrauch sensibilisiert."
+    },
+    {
+     "id": "KuW-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Kinder zeichnen",
+     "text": "Die Schülerinnen und Schüler nutzen das Zeichnen zum Dokumentieren, Erforschen, Mitteilen und sich Ausdrücken. Sie erweitern ihre Ausdrucksformen mit verschiedenen individuell geeigneten Zeichenmitteln experimentell und themenorientiert. Sie beschäftigen sich konzentriert und ausdauernd mit einer Gestaltungsaufgabe und entwickeln eigene Ideen und Lösungen."
+    },
+    {
+     "id": "KuW-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Kinder drucken",
+     "text": "Die Schülerinnen und Schüler begegnen Druckerzeugnissen in vielen Bereichen ihres Alltags. Sie erstellen Druckstöcke nach ihren eigenen Gestaltungsideen. Sie nutzen Druckverfahren, um Bildthemen aus ihrer Lebenswelt umzusetzen."
+    },
+    {
+     "id": "KuW-IK-3-4-01_03",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.3 Kinder malen",
+     "text": "Die Schülerinnen und Schüler erleben farbige"
+    },
+    {
+     "id": "KuW-IK-3-4-3-4_02",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.2 Kinder erforschen und verarbeiten textile",
+     "text": "Die Schülerinnen und Schüler vertiefen ihre Kenntnisse über verschiedene textile"
+    },
+    {
+     "id": "KuW-IK-3-4-3-4_03",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.3 Kinder werken",
+     "text": "Materialien regen die Kinder zur Aus- und Umgestaltung an. Die Schülerinnen und Schüler fertigen Objekte aus unterschiedlichen Materialien an. Sie verwenden dabei verschiedene Werkzeuge sachgerecht und beherrschen einfache Arbeitstechniken, die zu dem jeweiligen Material passen. Sie erfinden, planen und konstruieren nach eigenen Gestaltungsideen."
+    },
+    {
+     "id": "KuW-IK-3-4-3-4_04",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.4 Kinder räumen um",
+     "text": "Die Schülerinnen und Schüler bewegen sich in natürlichen und vom Menschen geschaffenen Räumen. Sie erkennen ihre Besonderheiten, Gestaltungsprinzipien,"
+    },
+    {
+     "id": "KuW-IK-3-4-3-4_05",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.5 Kinder spielen und agieren",
+     "text": "Die Schülerinnen und Schüler verfügen über ein vielfältiges Repertoire an darstellerischen Fähigkeiten. Sie erfahren, erkennen, verfeinern und nutzen ihre darstellerischen Potenziale in vielfältigen Spielsituationen. Sie entwickeln ihre ästhetischen, emotionalen, sozialen und kognitiven Fähigkeiten und setzen ihre Kreativität frei. Sie entdecken ihre Mimik und Gestik als Ausdrucksmittel für Gefühle und Gedanken. Sie verwenden Sprache als Verstärkung ihres Ausdrucks."
+    },
+    {
+     "id": "KuW-IK-3-4-3-4_06",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.6 Kinder nutzen Medien",
+     "text": "Die Schülerinnen und Schüler erfahren im produktiven Umgang die Vielfalt von Medien, erkunden diese und entdecken deren kreative Nutzungsmöglichkeiten. Sie werden befähigt, Medien zunehmend selbstständig und kritisch reflektiert für ihre Arbeit auszuwählen, einzusetzen und sich darüber auszutauschen."
+    },
+    {
+     "id": "KuW-IK-3-4-07_01",
+     "klassen": "3-4",
+     "bereich": "07",
+     "title": "3.2.7.1 Kinder erleben Natur",
+     "text": "Die Schülerinnen und Schüler erleben Natur in ihrem Lebensumfeld sowie über Medien weltweit. Sie erkennen und finden Ordnungs‑, Strukturierungs‑, Wachstumsprinzipien und nutzen sie für ihr eigenes künstlerisches Schaffen."
+    },
+    {
+     "id": "KuW-IK-3-4-07_02",
+     "klassen": "3-4",
+     "bereich": "07",
+     "title": "3.2.7.2 Kinder gehen mit Kunstwerken um",
+     "text": "Die Schülerinnen und Schüler lassen sich auf Kunst ein und erleben Bilder aus verschiedenen Epochen der Kunst. Sie beschäftigen sich mit Kunstwerken auf dem Hintergrund ihrer eigenen praktischen und visuellen Erfahrungen und erkennen im Austausch mit anderen die Mehrdeutigkeit von Bildern. Verschiedene Zugangsweisen eröffnen Einsichten in die Gestaltungsweisen der Künstlerinnen und Künstler."
+    },
+    {
+     "id": "KuW-IK-3-4-07_03",
+     "klassen": "3-4",
+     "bereich": "07",
+     "title": "3.2.7.3 Kinder nehmen ihre Umwelt wahr",
+     "text": "Die Schülerinnen und Schüler sind von Abbildungen, Alltagsgegenständen und öffentlichen Räumen in ihrer Lebenswelt umgeben. Sie nehmen diese bewusst wahr und untersuchen sie. Sie finden unterschiedliche Kriterien zur Einordnung. Zusammenhänge von Gestaltung, Form und Gebrauch (Funktion) werden deutlich. Sie bilden Vorstellung und Ideen für eigenes Arbeiten aus."
+    }
+   ]
+  },
+  "Musik": {
+   "fassung": "2016-03-23",
+   "prozesskompetenzen": [
+    {
+     "id": "Mu-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Welt erleben und wahrnehmen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Musik 2. Prozessbezogene Kompetenzen 2.1 Welt erleben und wahrnehmen Download als PDF 2.1 Welt erleben und wahrnehmen Die Schülerinnen und Schüler lassen sich an schulischen und außerschulischen Lernorten auf Darstellungen, Ereignisse, Situationen und Phänomene mit verschiedenen Sinnen ein. Sie nehmen sich und die Welt differenziert wahr. Sie entwickeln Sensibilität, Offenheit, Interesse und Neugier gegenüber der Welt. Aus dieser Grundhaltung heraus verfeinern sie ihre Wahrnehmung, äußern ihre Eindrücke und Fragen und sammeln ästhetische Erfahrungen. Die Schülerinnen und Schüler können 1. sich einem natürlichen oder kulturellen Phänomen zuwenden, darüber staunen und sich darauf konzentrieren (zum Beispiel Klangereignisse, Wirkungen von Musik wahrnehmen) 2. grundlegende Wahrnehmungen in den Bereichen Gestaltung, Klang und Phänomen vertiefen (zum Beispiel beim Experimentieren mit Klangerzeugern) 3. Vorstellungen entwickeln und interessengeleitete Fragen formulieren (zum Beispiel Klang- und Tonvorstellungen entwickeln) Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "Mu-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Welt erkunden und verstehen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Musik 2. Prozessbezogene Kompetenzen 2.2 Welt erkunden und verstehen Download als PDF 2.2 Welt erkunden und verstehen Die Schülerinnen und Schüler können unterschiedliche Erscheinungsformen von Kultur und Natur erkennen, beschreiben, vergleichen und für ästhetische Prozesse nutzen. Sie finden zu einer ergebnisoffenen Grundhaltung, die Explorieren und Experimentieren in den Mittelpunkt stellt. Sie eignen sich Methoden der Welterkundung und Erkenntnisgewinnung an. Sie probieren, kombinieren und gestalten sowohl intuitiv als auch planvoll. Sie analysieren, deuten und erklären. Hierzu nutzen sie in vielfältiger Weise unterschiedliche Kunstformen, Medien,"
+    },
+    {
+     "id": "Mu-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Kommunizieren und sich verständigen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Musik 2. Prozessbezogene Kompetenzen 2.3 Kommunizieren und sich verst&auml;ndigen Download als PDF 2.3 Kommunizieren und sich verständigen Die Schülerinnen und Schüler lernen in der Kommunikation mit anderen deren Meinung, Erfahrungen, Erkenntnisse, Interessen und Emotionen kennen sowie ihre eigenen darzustellen. Sie können unter Einbezug verschiedener Ausdrucksformen konstruktiv mit anderen kommunizieren sowie kooperativ arbeiten. Die Schülerinnen und Schüler akzeptieren ihre eigenen Lösungen und respektieren die der anderen in ihrer Vielfalt. Sie vergleichen ihre Wahrnehmungen, Vermutungen, Beobachtungen, Vorgehensweisen, Prozesse und Erklärungen, wobei die Alltagssprache die Grundlage bildet und zunehmend Fachbegriffe verwendet werden. Sie präsentieren ihre Erkenntnisse und Fertigkeiten, auch unter Einbezug altersgemäßer und zweckentsprechender Medien, und tauschen sich darüber aus. Die Schülerinnen und Schüler können 1. Ideen, Lern- und Lösungswege, gewonnene Erkenntnisse sowie die eigene Meinung ausdrücken und begründen (zum Beispiel Musik als Auslöser für Wortsammlungen verwenden, um Musikeindrücke zu beschreiben) 2. verschiedene Arten und Methoden der Kommunikation nutzen (zum Beispiel Stimme, Mimik, Gestik, Bewegung, Klang, Sprache, Notation, Schrift, digital –"
+    },
+    {
+     "id": "Mu-PK-1_2-ALLG_04",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.4 In der Welt handeln – Welt gestalten - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Musik 2. Prozessbezogene Kompetenzen 2.4 In der Welt handeln &ndash; Welt gestalten Download als PDF 2.4 In der Welt handeln – Welt gestalten Die Schülerinnen und Schüler wirken aktiv an der Gestaltung ihrer Lebenswelt mit. Sie agieren plan- und fantasievoll, erkennen Auswirkungen ihres Handelns und übernehmen Verantwortung. Die Schülerinnen und Schüler können sich ausdauernd und konzentriert über einen längeren Zeitraum mit einer Sache beschäftigen. Sie planen und führen Gestaltungsvorhaben durch, reflektieren Entstehungsprozesse und Ergebnisse und entwickeln Handlungsalternativen. Die Schülerinnen und Schüler können 1. aus den gewonnenen Erkenntnissen Konsequenzen – auch für das Alltagshandeln – ableiten (zum Beispiel durch musikalische Präsentationen Anregungen für das eigene musikalische Handeln gewinnen) 2. im Rahmen ihrer Möglichkeiten gemeinschaftliches Leben gestalten und Verantwortung übernehmen (zum Beispiel in Schule, Familie, Verein, am Schulort kulturell mitwirken und sich dabei an vereinbarte Regeln halten) 3. nachhaltige Handlungsweisen als Lebensgrundlage für alle Menschen umsetzen (zum Beispiel Pflege musikalischer Traditionen, gemeinsames Singen inner- und außerhalb der Schule) Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und"
+    },
+    {
+     "id": "Mu-PK-1_2-ALLG_05",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.5 Reflektieren und sich positionieren - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Musik 2. Prozessbezogene Kompetenzen 2.5 Reflektieren und sich positionieren Download als PDF 2.5 Reflektieren und sich positionieren Die Schülerinnen und Schüler denken über sich selbst und ihre Umwelt in der Begegnung mit Natur und Kulturen nach. Sie überprüfen und reflektieren die eigene Meinung sowie die Meinung anderer. Sie können eigene Arbeitsergebnisse darstellen und die anderer akzeptieren und diese sachbezogen und differenziert bewerten. Dabei wenden sie erworbene Kenntnisse, Fähigkeiten und Fertigkeiten in Diskussions- und Reflexionsphasen an. Sie verfügen über die Fähigkeit, zu einer Sache, einem Problem und/oder einer Situation eine eigene Position zu beziehen, zu begründen und zu vertreten sowie respektvoll mit anderen Positionen umzugehen. Die Schülerinnen und Schüler können 1. eigenes Verhalten reflektieren und hinsichtlich eigener Gestaltungsmöglichkeiten bewerten (zum Beispiel musikalische Präsentationen auf Datenträger aufnehmen – sobald Medien vorhanden – und die Aufnahme zur konstruktiven Weiterarbeit nutzen) 2. Empathiefähigkeit entwickeln und Perspektivwechsel vornehmen (zum Beispiel durch musikalische Präsentationen neue Sichtweisen erfahren und reflektieren) 3. Informationen, Sachverhalte, Situationen und Entwicklungen bewerten (zum Beispiel"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "Mu-IK-1-2-01_01",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.1 Umgang mit der Stimme – Stimmbildung und Singen",
+     "text": "Die Schülerinnen und Schüler können ihre Stimme als persönliches Ausdrucksmittel ganzheitlich und bewusst einsetzen."
+    },
+    {
+     "id": "Mu-IK-1-2-01_02",
+     "klassen": "1-2",
+     "bereich": "01",
+     "title": "3.1.1.2 Instrumentales Musizieren",
+     "text": "Die Schülerinnen und Schüler können beim Musizieren Klangerfahrungen sammeln, Instrumente und ihre Beschaffenheit erkunden, rhythmische und melodische Strukturen erkennen, erste Begegnungen mit verschiedenen Notationsformen erleben, musikalische Grundelemente (wie leise – laut, langsam – schnell, kurz – lang) anwenden und Regeln des Zusammenspiels einhalten. Außerschulisch erworbene Kompetenzen werden aufgegriffen und integriert. Durch regelmäßiges Üben erfahren die Schülerinnen und Schüler musikalische Lernfortschritte."
+    },
+    {
+     "id": "Mu-IK-1-2-1-2_02",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.2 Musik hören und verstehen",
+     "text": "Die Schülerinnen und Schüler verfügen über eine offene Hörhaltung und können Geräusche, Klänge und Musikwerke wahrnehmen und aufmerksam hören. Im Umgang mit den Musikwerken gewinnen sie erste Einblicke in Notationsformen. Sie erfahren und beschreiben die Wirkungen und Funktionen von Musik."
+    },
+    {
+     "id": "Mu-IK-1-2-1-2_03",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.3 Musik umsetzen",
+     "text": "Die Schülerinnen und Schüler können ihre Emotionen und Eindrücke durch Bewegungen, szenische, bildliche oder textliche Darstellungen ganzheitlich zum Ausdruck bringen."
+    },
+    {
+     "id": "Mu-IK-3-4-01_01",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.1 Umgang mit der Stimme – Stimmbildung und Singen",
+     "text": "Die Schülerinnen und Schüler können ihre Stimme als persönliches Ausdrucksmittel und Instrument ganzheitlich und bewusst einsetzen und weiterentwickeln. Sie erfahren die Steigerung der Singqualität und erweitern ihr Verständnis für musikalische Zusammenhänge."
+    },
+    {
+     "id": "Mu-IK-3-4-01_02",
+     "klassen": "3-4",
+     "bereich": "01",
+     "title": "3.2.1.2 Instrumentales Musizieren",
+     "text": "Die Schülerinnen und Schüler können beim Musizieren musikalische Gesetzmäßigkeiten erkennen, Bau und Funktion von Instrumenten erkunden, musikalische Grundelemente zunehmend selbstständig anwenden und mit anderen nach festgelegten Regeln unter Zuhilfenahme von unterschiedlichen Notationsformen gemeinsam musizieren. Außerschulisch erworbene Kompetenzen werden aufgegriffen und integriert. Durch regelmäßiges Üben bauen die Kinder musikalische Fertigkeiten auf."
+    },
+    {
+     "id": "Mu-IK-3-4-3-4_02",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.2 Musik hören und verstehen",
+     "text": "Die Schülerinnen und Schüler können über eine längere Zeitdauer hinweg Musikwerke zielgerichtet und differenziert hören und dabei ihre musikalischen Kompetenzen zunehmend erweitern. Sie gewinnen vertiefte Einblicke in Notationsformen und wenden diese an. Die Schülerinnen und Schüler reflektieren Musik, erkennen sie als Träger von Botschaften und können sie in den Kontext ihres persönlichen und gesellschaftlichen Umfelds einordnen."
+    },
+    {
+     "id": "Mu-IK-3-4-3-4_03",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.3 Musik umsetzen",
+     "text": "Die Schülerinnen und Schüler können sich die Musik durch vielfältige Ausdrucksmöglichkeiten ganzheitlich erschließen und dadurch vertiefte Zugänge gewinnen."
+    }
+   ]
+  },
+  "Sport": {
+   "fassung": "2016-03-23",
+   "prozesskompetenzen": [
+    {
+     "id": "Sp-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Bewegungskompetenz – Koordination und Kondition - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Bewegung, Spiel und Sport 2. Prozessbezogene Kompetenzen 2.1 Bewegungskompetenz &ndash; Koordination und Kondition Download als PDF 2.1 Bewegungskompetenz – Koordination und Kondition Die Schülerinnen und Schüler erwerben spielerisch Bewegungskompetenz durch vielfältige Bewegungserfahrungen in unterschiedlichen Handlungssituationen, in denen sie sich mit bewegungs- und sportbezogenen Anforderungen auseinandersetzen. Außerschulische Lernorte sowie die Kooperation der Schule mit außerschulischen Partnern sind als unterstützende Elemente in einem rhythmisierten Bewegungsalltag der Kinder zu verankern. Da die Bewegungskompetenz sich in allen inhaltsbezogenen Kompetenzbereichen findet, wird auf separate Verweise verzichtet. Die Schülerinnen und Schüler können 1. koordinative Fähigkeiten und technische Fertigkeiten entwickeln und diese anwenden 2. altersgemäße konditionelle Anforderungen bewältigen 3. Bewegungen gestalten und sich mit und durch Bewegung ausdrücken Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "Sp-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Personalkompetenz – Persönlichkeit und Identität - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Bewegung, Spiel und Sport 2. Prozessbezogene Kompetenzen 2.2 Personalkompetenz &ndash; Pers&ouml;nlichkeit und Identit&auml;t Download als PDF 2.2 Personalkompetenz – Persönlichkeit und Identität Die Schülerinnen und Schüler nehmen ihren Körper bewusst wahr und setzen sich individuelle Lern- und Leistungsziele. Regelmäßige physiologische Reizsetzungen steigern das physische und psychische Wohlbefinden der Kinder. Vielfältige mehrperspektivische Bewegungserfahrungen tragen zur Stärkung ihrer Persönlichkeit bei. Die Selbstregulation mit gut ausgebildeten exekutiven Funktionen (Arbeitsgedächtnis, Verhaltens- und Aufmerksamkeitskontrolle und kognitive Flexibilität) unterstützt das erfolgreiche Lernen in allen schulischen Bereichen. Die Schülerinnen und Schüler können 1. sich selbst und ihren Körper wahrnehmen, ihn akzeptieren und mit ihm verantwortungsvoll umgehen (Selbstverantwortung, Selbsteinschätzung, Selbstwertgefühl) 2. körperliche Reaktionen und die Veränderbarkeit des Körpers durch sportliche Reizsetzungen kennenlernen und sich dazu äußern 3. körperliche Anstrengungsbereitschaft und Durchhaltevermögen entwickeln 4. ihre Selbstregulationsfähigkeit durch die Förderung der exekutiven Funktionen (Arbeitsgedächtnis, Inhibition/Impulskontrolle, kognitive Fle"
+    },
+    {
+     "id": "Sp-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Sozialkompetenz – Gemeinschaft und Verantwortung - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Bewegung, Spiel und Sport 2. Prozessbezogene Kompetenzen 2.3 Sozialkompetenz &ndash; Gemeinschaft und Verantwortung Download als PDF 2.3 Sozialkompetenz – Gemeinschaft und Verantwortung Die Schülerinnen und Schüler lernen durch Bewegung, Spiel und Sport soziale Verantwortung zu übernehmen und steigern ihre kommunikativen Basiskompetenzen und ihre Teamfähigkeit. Sie bringen eigene Bedürfnisse ein und nehmen Rücksicht auf alle Kinder in ihrer Unterschiedlichkeit. Die Selbstregulation mit gut ausgebildeten exekutiven Funktionen unterstützt die Schülerinnen und Schüler in allen Prozessen, die das soziale Zusammenleben betreffen. Gut ausgebildete soziale Kompetenzen stärken das Wohlbefinden. Die Schülerinnen und Schüler können 1. im Bereich Bewegung, Spiel und Sport einfühlsam und rücksichtsvoll handeln, anderen helfen und sie unterstützen 2. gemeinsam mit anderen Bewegungsaufgaben bearbeiten und ausführen 3. sachlich kommunizieren, Konflikte wahrnehmen und sind in der Lage, diese zu lösen 4. Absprachen, Regeln und Rituale in Bewegung, Spiel und Sport vereinbaren, akzeptieren und einhalten 5. mit Erfolg und Misserfolg, auch in Wettkampfsituationen, konstruktiv umgehen 6. beim Spielen und Sporttreiben in der Natur verantwortungs- und umweltbewusst handeln 7. achtsam mit Geräten, Mat"
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "Sp-IK-1-2-1-2_01",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.1 Körperwahrnehmung",
+     "text": "Die Schülerinnen und Schüler nehmen ihren Körper wahr und setzen sich explorierend und improvisierend mit ihm auseinander. Sie entwickeln ein Körperbewusstsein und entdecken vielfältige Bewegungsmöglichkeiten."
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_02",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.2 Spielen – Spiele – Spiel",
+     "text": "Die Schülerinnen und Schüler sammeln beim Spielen Bewegungs- und Sinneserfahrungen und gewinnen Bewegungssicherheit. Sie lernen verschiedene"
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_03",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.3 Laufen – Springen – Werfen",
+     "text": "Die Schülerinnen und Schüler erproben und erleben auf vielfältige spielerische Art und Weise verschiedene Formen des Laufens, Springens und Werfens in der Halle und im Gelände."
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_04",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.4 Bewegen an Geräten",
+     "text": "Die Schülerinnen und Schüler sammeln vielfältige Bewegungserfahrungen an Geräten und erlernen turnerische Grundfertigkeiten. Dabei entwickeln sie Geschicklichkeit, Gleichgewicht, Kraft und Körperspannung."
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_05",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.5 Tanzen – Gestalten – Darstellen",
+     "text": "Die Schülerinnen und Schüler können sich alleine, zu zweit und in der Gruppe durch und über Bewegung mitteilen, ausdrücken und darstellen. Dabei verbinden sie Rhythmus und Sprache über Bewegung. Sie können mit und ohne Handgerät gymnastisch-tänzerische Bewegungen entdecken, erproben, erlernen, gestalten und vorführen und einfache Tänze tanzen."
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_06",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.6 Bewegungskünste",
+     "text": "Die Schülerinnen und Schüler entdecken, erproben und gestalten Bewegungskunststücke mit und ohne Gerät, alleine, zu zweit und in der Gruppe."
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_07",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.7 Bewegen im Wasser",
+     "text": "Die Schülerinnen und Schüler erleben die besonderen physikalischen Eigenschaften des Wassers. Sie können das Medium Wasser durch vielfältige Spiel- und Experimentierformen erleben und erfahren (Wassergewöhnung). Die Schülerinnen und Schüler können die Wassereigenschaften nutzen und sich im Wasser fortbewegen (Wasserbewältigung). Die Schülerinnen und Schüler erlernen verschiedene Sprünge. Sie können sich unter Wasser orientieren und kurze Strecken tauchen."
+    },
+    {
+     "id": "Sp-IK-1-2-08_01",
+     "klassen": "1-2",
+     "bereich": "08",
+     "title": "3.1.8.1 Fahren – Rollen – Gleiten",
+     "text": "Die Schülerinnen und Schüler erlernen und üben grundlegende Fähigkeiten und Fertigkeiten zum adäquaten Umgang mit Fahr‑, Roll- und Gleitgeräten. Sie erproben verschiedene"
+    },
+    {
+     "id": "Sp-IK-1-2-08_02",
+     "klassen": "1-2",
+     "bereich": "08",
+     "title": "3.1.8.2 Miteinander und gegeneinander kämpfen",
+     "text": "Die Schülerinnen und Schüler erproben auf spielerische Art und Weise ihre Kräfte. Sie lernen, sich an vereinbarte Regeln zu halten, sich in andere hineinzuversetzen und achtsam miteinander umzugehen."
+    },
+    {
+     "id": "Sp-IK-1-2-08_03",
+     "klassen": "1-2",
+     "bereich": "08",
+     "title": "3.1.8.3 Erlebnispädagogik – Trendsportarten – Regionale Sportarten",
+     "text": "Die Schülerinnen und Schüler erproben erlebnispädagogische Inhalte in der Halle, im Gelände und in der Natur. Sie lernen die damit verbundene Verantwortung für die Mitmenschen und die Natur kennen und erleben verstärkt Wagnis und Risiko. Im Miteinander stärken sie ihre Persönlichkeit und bauen Vertrauen zu anderen auf. Die Schülerinnen und Schüler erweitern ihr Bewegungsrepertoire durch erste Erfahrungen mit aktuellen Trendsportarten und regionalen Sportarten."
+    },
+    {
+     "id": "Sp-IK-1-2-1-2_09",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.9 Orientierung – Sicherheit – Hygiene",
+     "text": "Die Schülerinnen und Schüler können sich in den Sportstätten und auf dem Schulgelände orientieren. Sie entwickeln ein Sicherheitsbewusstsein und lernen den sicheren und sachgerechten Umgang mit Geräten und"
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_01",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.1 Körperwahrnehmung",
+     "text": "Die Schülerinnen und Schüler erfahren die Veränderbarkeit ihres Körpers und entdecken die Vielfalt von Bewegungsmöglichkeiten. Sie entwickeln ein Verständnis für funktionell richtiges Bewegen."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_02",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.2 Spielen – Spiele – Spiel",
+     "text": "Die Schülerinnen und Schüler spielen zu zweit und in Gruppen mit- und gegeneinander (Bewegungsspiele). Sie können komplexere Spielideen verstehen und umsetzen, Spielideen entwickeln, abwandeln und Spiele mitorganisieren. Sie vereinbaren, akzeptieren und gestalten Spielregeln/Ordnungsformen und halten diese ein. Die Schülerinnen und Schüler können in sportartorientierten Spielen mit der Hand und mit dem Fuß (Wurf‑, Torschuss- und Rückschlagspiele) einfache technische und taktische Handlungsmuster anwenden (Sportspiele). Sie kennen die Regeln, können selbstständig und fair spielen und Emotionen reflektieren."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_03",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.3 Laufen – Springen – Werfen",
+     "text": "Die Schülerinnen und Schüler laufen, springen und werfen auf vielfältige und spielerische Art und Weise."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_04",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.4 Bewegen an Geräten",
+     "text": "Die Schülerinnen und Schüler bewältigen vielseitige offene und gebundene turnerische Bewegungsaufgaben an Geräten und Gerätelandschaften. Sie entwickeln ihre turnerischen Grundfertigkeiten weiter und können diese bei komplexeren Bewegungsanforderungen anwenden."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_05",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.5 Tanzen – Gestalten – Darstellen",
+     "text": "Die Schülerinnen und Schüler können in Kombination mit Rhythmus, Sprache und Musik, auch mit Handgeräten, gymnastisch-tänzerisch, kreativ-gestalterisch improvisieren, Bewegungen entdecken, erproben, gestalten, variieren und präsentieren. Sie können Tänze erlernen, entwickeln, gestalten und vorführen."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_06",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.6 Bewegungskünste",
+     "text": "Die Schülerinnen und Schüler können Bewegungskunststücke mit und ohne Gerät, mit der Partnerin/dem Partner und in der Gruppe ausführen, selbst entwickeln, üben und präsentieren."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_07",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.7 Bewegen im Wasser",
+     "text": "In überwiegend spielerischer Form steigern die Schülerinnen und Schüler ihre Sicherheit im Wasser. Sie können in mindestens einer Schwimmart sicher schwimmen und eröffnen sich dadurch den Zugang zum Bewegungsraum Wasser. Die Entwicklung der Schwimmfähigkeit ist grundlegend für die sportliche und gesundheitspräventive Betätigung im Alltag (Freizeitgestaltung). Die Kinder lernen weitere Schwimmarten kennen. Die Schülerinnen und Schüler erlernen verschiedene Sprünge. Sie können in die Tiefe und auf Strecke tauchen."
+    },
+    {
+     "id": "Sp-IK-3-4-08_01",
+     "klassen": "3-4",
+     "bereich": "08",
+     "title": "3.2.8.1 Fahren – Rollen – Gleiten",
+     "text": "Die Schülerinnen und Schüler erweitern ihre Bewegungserfahrungen mit Fahr‑, Roll- und Gleitgeräten, lassen einschätzbare Risikosituationen zu und wagen etwas. Sie erhöhen dadurch ihre Bewegungssicherheit auch im Straßenverkehr."
+    },
+    {
+     "id": "Sp-IK-3-4-08_02",
+     "klassen": "3-4",
+     "bereich": "08",
+     "title": "3.2.8.2 Miteinander und gegeneinander kämpfen",
+     "text": "Die Schülerinnen und Schüler erproben auf spielerische Art und Weise in Ring‑, Rauf- und Kampfsituationen ihre Kräfte. Sie halten sich an vereinbarte Regeln, können sich in andere hineinversetzen und lernen sich gegenseitig zu respektieren."
+    },
+    {
+     "id": "Sp-IK-3-4-08_03",
+     "klassen": "3-4",
+     "bereich": "08",
+     "title": "3.2.8.3 Erlebnispädagogik – Trendsportarten – Regionale Sportarten",
+     "text": "Die Schülerinnen und Schüler erproben erlebnispädagogische Inhalte in der Halle, im Gelände und in der Natur. Sie lernen die damit verbundene Verantwortung für die Mitmenschen und die Natur kennen und erleben verstärkt Wagnis und Risiko. Die Schülerinnen und Schüler lernen im gemeinsamen Erleben eigene Stärken und Grenzen kennen und akzeptieren, lernen andere wertzuschätzen und zu unterstützen. Erlebnispädagogische Situationen unterstützen die Kinder dabei, einen Platz in der Gemeinschaft zu finden. Im Miteinander stärken sie ihre Persönlichkeit und bauen Vertrauen zu anderen auf. Die Schülerinnen und Schüler erweitern ihr Bewegungsrepertoire durch die Ausübung aktueller Trendsportarten und regionaler Sportarten."
+    },
+    {
+     "id": "Sp-IK-3-4-3-4_09",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.9 Orientierung – Sicherheit – Hygiene",
+     "text": "Die Schülerinnen und Schüler entwickeln ein Sicherheitsbewusstsein. Sie lernen den sicheren und sachgerechten Umgang mit Geräten sowie einfache Helfergriffe und wenden dies sachgerecht an."
+    }
+   ]
+  },
+  "Religion_ev": {
+   "fassung": "2016-03-23",
+   "prozesskompetenzen": [
+    {
+     "id": "REV-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Wahrnehmen und Darstellen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Evangelische Religionslehre 2. Prozessbezogene Kompetenzen 2.1 Wahrnehmen und Darstellen Download als PDF 2.1 Wahrnehmen und Darstellen Die Schülerinnen und Schüler können die religiöse Dimension von Phänomenen und Fragen in ihrem Lebensumfeld wahrnehmen und beschreiben. Die Schülerinnen und Schüler können 1. wahrnehmen und beschreiben, wo sie religiösen Spuren, Ausdrucksformen gelebten Glaubens und religiösen Fragestellungen in ihrem Leben begegnen 2. eigene Fragen stellen, in der Lerngruppe nach Antworten suchen und sich dabei mit biblisch-christlichen Deutungen auseinandersetzen 3. erkennen und beschreiben, dass Menschen religiöse und andere Fragen stellen und wie sie diese deuten Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "REV-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Deuten - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Evangelische Religionslehre 2. Prozessbezogene Kompetenzen 2.2 Deuten Download als PDF 2.2 Deuten Die Schülerinnen und Schüler können religiöse Ausdrucksformen, Symbole und Texte verstehen und deuten. Die Schülerinnen und Schüler können 1. Sprach- und Ausdrucksformen wie Metaphern, Symbole oder Bilder, die auf eine andere Dimension von Wirklichkeit verweisen, erkennen und deuten 2. erlebte Symbole und Symbolhandlungen sowie liturgische Formen deuten 3. Texte religiöser Überlieferung inhaltlich wiedergeben und Deutungen formulieren 4. Erfahrungen von Menschen mit Gott in Beziehung setzen zu eigenen Erfahrungen Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "REV-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Urteilen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Evangelische Religionslehre 2. Prozessbezogene Kompetenzen 2.3 Urteilen Download als PDF 2.3 Urteilen Die Schülerinnen und Schüler können religiöse und ethische Problem- und Fragestellungen in konkreten Situationen erkennen, unterschiedliche Positionen zu diesen vergleichen sowie eine eigene Position einnehmen und begründen. Die Schülerinnen und Schüler können 1. aus menschlichen Erfahrungen wie Liebe, Geborgenheit, Hoffnung, Vertrauen, Freude, Leid, Trauer, Scheitern, Ungerechtigkeit oder Schuld religiöse und ethische Fragen entwickeln 2. aus menschlichen Erfahrungen wie Freundschaft, Enttäuschung, Streit oder der Erfahrung mit Trauer und Tod unterschiedliche Antwort- und Handlungsmöglichkeiten finden, diese miteinander vergleichen und auf Basis der biblisch-christlichen Überlieferung reflektieren 3. einen eigenen Standpunkt zu religiösen und ethischen Problem- und Fragestellungen einnehmen und diesen begründen Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "REV-PK-1_2-ALLG_04",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.4 Kommunizieren und Dialogfähig-Sein - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Evangelische Religionslehre 2. Prozessbezogene Kompetenzen 2.4 Kommunizieren und Dialogf&auml;hig-Sein Download als PDF 2.4 Kommunizieren und Dialogfähig-Sein Die Schülerinnen und Schüler können, auch in Auseinandersetzung mit christlichen Wertvorstellungen, einen respektvollen Umgang mit anderen Menschen entwickeln. Die Schülerinnen und Schüler können 1. eigene Gedanken, Gefühle und Sicht- beziehungsweise Verhaltensweisen ausdrücken und in Beziehung setzen zu denen anderer Kinder in der Lerngruppe 2. sich in Gedanken, Gefühle und Sicht- beziehungsweise Verhaltensweisen anderer Menschen (Mitmenschen, biblische Figuren, Vorbilder) hineinversetzen 3. anderen Menschen in deren Vielfalt tolerant, achtsam und wertschätzend begegnen, auch im Kontext interkonfessioneller und interreligiöser Begegnungen Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "REV-PK-1_2-ALLG_05",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.5 Gestalten und Handeln - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Evangelische Religionslehre 2. Prozessbezogene Kompetenzen 2.5 Gestalten und Handeln Download als PDF 2.5 Gestalten und Handeln Die Schülerinnen und Schüler können über Situationen des Lebens aus biblisch-christlicher Perspektive nachdenken sowie ihre Handlungsmöglichkeiten erweitern. Sie können an Formen religiöser Praxis in der Schule reflektiert teilnehmen oder diese mitgestalten. Die Schülerinnen und Schüler können 1. sich gestaltend-kreativ mit eigenen Erfahrungen, menschlichen Grunderfahrungen und der biblisch-christlichen Überlieferung auseinandersetzen 2. an religiösen und liturgischen Ausdrucksformen reflektiert teilnehmen oder diese mitgestalten 3. aus dem Nachdenken über biblische Texte und Personen aus Vergangenheit und Gegenwart Impulse für verantwortungsvolles Handeln entwickeln 4. ein achtsames Miteinander im Schulalltag mitgestalten Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "REV-IK-1-2-1-2_01",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.1 Mensch",
+     "text": "Die Schülerinnen und Schüler nehmen eigene Gefühle und Gedanken und die anderer wahr und kommen über Situationen des menschlichen Miteinanders ins Gespräch. Sie erzählen von Menschen und deren Erfahrungen mit Gott und beschreiben, dass aus christlicher Sicht alle Menschen von Gott geschaffen, gewollt und geliebt sind."
+    },
+    {
+     "id": "REV-IK-1-2-1-2_02",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.2 Welt und Verantwortung",
+     "text": "Die Schülerinnen und Schüler beschreiben sich und ihre Welt in ihrer Einzigartigkeit und Vielfalt. Sie stellen dar, dass Christinnen und Christen die Welt als Schöpfung und Geschenk Gottes deuten, für welche die Menschen Verantwortung übernehmen."
+    },
+    {
+     "id": "REV-IK-1-2-1-2_03",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.3 Bibel",
+     "text": "Die Kompetenzen im Bereich „Bibel“ sind im Sinne einer hermeneutischen Grundlage für den Umgang mit biblischen Texten in allen Bereichen zu verstehen. Daher sind in diesem Bereich die inhaltlichen Querverweise von besonderer Bedeutung. &nbsp; Die Schülerinnen und Schüler können in eigenen Worten biblische Geschichten nacherzählen. Sie entdecken darin Beziehungen zu ihren eigenen Erfahrungen und Fragen. Sie können Deutungen biblischer Erzählungen zum Ausdruck bringen."
+    },
+    {
+     "id": "REV-IK-1-2-1-2_04",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.4 Gott",
+     "text": "Die Schülerinnen und Schüler kommen über unterschiedliche Vorstellungen von Gott ins Gespräch. Sie entdecken, wie in biblischen Texten von Menschen und ihren Erfahrungen mit Gott erzählt wird und können diese Erfahrungen mit Gott beschreiben. Sie bringen zum Ausdruck, wie Menschen sich an Gott wenden."
+    },
+    {
+     "id": "REV-IK-1-2-1-2_05",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.5 Jesus Christus",
+     "text": "Die Schülerinnen und Schüler erzählen anhand biblischer Geschichten vom Leben und Wirken Jesu und beschreiben, wie er sich Menschen zuwendet. Sie zeigen an Beispielen auf und stellen dar, wie die Begegnung mit Jesus Menschen verändert."
+    },
+    {
+     "id": "REV-IK-1-2-1-2_06",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.6 Kirche und Kirchen",
+     "text": "Die Schülerinnen und Schüler wissen, dass Menschen verschiedenen Konfessionen angehören können. Sie erkunden und beschreiben Kirchen und Kirchenräume. Sie verfügen über grundlegendes Wissen zu zentralen Festen im Kirchenjahr. An der Gestaltung von religiösen Ritualen im Unterricht sowie an Festen und Feiern im Schuljahr wirken sie mit."
+    },
+    {
+     "id": "REV-IK-1-2-1-2_07",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.7 Religionen",
+     "text": "Die Schülerinnen und Schüler nehmen wahr und beschreiben, dass Menschen verschiedenen Religionen angehören können und tauschen sich darüber aus. Sie beschreiben ausgewählte Aspekte des Judentums oder des Islam. Sie entwickeln Verständnis für Menschen anderer Religionen."
+    },
+    {
+     "id": "REV-IK-3-4-3-4_01",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.1 Mensch",
+     "text": "Die Schülerinnen und Schüler nehmen eigene Erfahrungen wahr und vergleichen sie mit denen anderer Menschen. Sie stellen Beziehungen zwischen eigenen Erlebnissen, Erfahrungen beziehungsweise Fragen und biblischen sowie anderen Texten her. Sie setzen sich mit Situationen des eigenen Lebens und des Lebens anderer auseinander."
+    },
+    {
+     "id": "REV-IK-3-4-3-4_02",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.2 Welt und Verantwortung",
+     "text": "Die Schülerinnen und Schüler stellen dar, wie die Welt von Menschen unterschiedlich gesehen wird. Sie beschreiben naturwissenschaftliche Vorstellungen vom Werden der Welt und die Aussageabsicht biblischer Schöpfungstexte. Anhand biblischer Aussagen erläutern sie das Verhalten von Menschen zueinander und zu ihrer Umwelt und zeigen an Beispielen auf, wie Menschen Verantwortung übernehmen"
+    },
+    {
+     "id": "REV-IK-3-4-3-4_03",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.3 Bibel",
+     "text": "Die Kompetenzen im Bereich „Bibel“ sind im Sinne einer hermeneutischen Grundlage für den Umgang mit biblischen Texten in allen Bereichen zu verstehen. Daher sind in diesem Bereich die inhaltlichen Querverweise von besonderer Bedeutung. Die Schülerinnen und Schüler verfügen über biblisches Grundwissen. Sie deuten biblische Texte und setzen die darin enthaltenen Erfahrungen der Menschen mit Gott in Beziehung zu ihren eigenen Erfahrungen und Fragen."
+    },
+    {
+     "id": "REV-IK-3-4-3-4_04",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.4 Gott",
+     "text": "Die Schülerinnen und Schüler beschreiben und erläutern unterschiedliche Vorstellungen von Gott. Sie zeigen auf, wie in biblischen Texten von Erfahrungen mit Gott erzählt wird. Vor dem Hintergrund herausfordernder Lebenssituationen stellen sie Fragen und suchen nach möglichen Antworten. Sie setzen sich damit auseinander, wie Menschen ihre Beziehung zu Gott leben."
+    },
+    {
+     "id": "REV-IK-3-4-3-4_05",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.5 Jesus Christus",
+     "text": "Die Schülerinnen und Schüler zeigen anhand biblischer Texte auf, dass Jesus Mensch war und als Christus und Gottes Sohn geglaubt wird. Sie stellen anhand biblischer Erzählungen dar, wie Jesus von Gott und Gottes Reich erzählt. Sie formulieren aus dem Handeln und Reden Jesu Perspektiven für das Leben."
+    },
+    {
+     "id": "REV-IK-3-4-3-4_06",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.6 Kirche und Kirchen",
+     "text": "Die Schülerinnen und Schüler beschreiben evangelische und katholische Kirchen als einen besonderen und für den christlichen Glauben wichtigen Ort. Sie zeigen an Beispielen die Vielfalt von Gemeindeleben auf. Sie ordnen Feste des Kirchenjahres in den Festkreis ein und zeigen deren Bedeutung auf. Sie wirken an religiösen Ritualen, Andachten oder (Schul‑)Gottesdiensten mit und kennen Beispiele gelebter Ökumene."
+    },
+    {
+     "id": "REV-IK-3-4-3-4_07",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.7 Religionen",
+     "text": "Die Schülerinnen und Schüler beschreiben Grundzüge monotheistischer Religionen (Christentum sowie Judentum oder Islam) und vergleichen einzelne Aspekte. Sie entwickeln einen respektvollen Umgang mit Menschen anderer beziehungsweise ohne Religionszugehörigkeit."
+    }
+   ]
+  },
+  "Religion_rk": {
+   "fassung": "2016-03-23",
+   "prozesskompetenzen": [
+    {
+     "id": "RRK-PK-1_2-ALLG_01",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.1 Wahrnehmen und Darstellen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Katholische Religionslehre 2. Prozessbezogene Kompetenzen 2.1 Wahrnehmen und Darstellen Download als PDF 2.1 Wahrnehmen und Darstellen Die Schülerinnen und Schüler können religiös bedeutsame Phänomene in ihrem Lebensumfeld wahrnehmen und beschreiben. Die Schülerinnen und Schüler können 1. Spuren des Christentums und anderer Religionen in der persönlichen Lebenswelt entdecken 2. grundlegende Ausdrucksformen religiösen Glaubens beschreiben 3. eigene Fragen stellen und in der Lerngruppe nach Antworten suchen Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "RRK-PK-1_2-ALLG_02",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.2 Deuten - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Katholische Religionslehre 2. Prozessbezogene Kompetenzen 2.2 Deuten Download als PDF 2.2 Deuten Die Schülerinnen und Schüler können religiös bedeutsame Sprache und Zeugnisse verstehen und deuten. Die Schülerinnen und Schüler können 1. Grundformen religiöser Sprache ganzheitlich erschließen (zum Beispiel Metapher, Symbol, Wundererzählung, Gleichnis, Legende, Gebet, Stille, Ritual, Musik, Bild) 2. ausgewählte Fachbegriffe und Glaubensaussagen verstehen 3. zentrale Zeugnisse der biblisch-christlichen Überlieferung in eigenen Worten wiedergeben und sich diese erschließen Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "RRK-PK-1_2-ALLG_03",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.3 Urteilen - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Katholische Religionslehre 2. Prozessbezogene Kompetenzen 2.3 Urteilen Download als PDF 2.3 Urteilen Die Schülerinnen und Schüler können in religiösen und ethischen Fragen ein begründetes Urteil entwickeln. Die Schülerinnen und Schüler können 1. in Situationen aus ihrem Lebensumfeld, die religiös oder ethisch herausfordern, Antworten und Handlungsmöglichkeiten prüfen 2. unterschiedliche Antworten und Handlungsmöglichkeiten mit der biblisch-christlichen Überlieferung in Beziehung setzen 3. sich mit anderen religiösen und nichtreligiösen Überzeugungen auseinandersetzen 4. im Kontext des eigenen Lebensumfelds zu religiösen und ethischen Fragen einen Standpunkt einnehmen und argumentativ vertreten Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "RRK-PK-1_2-ALLG_04",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.4 Kommunizieren - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Katholische Religionslehre 2. Prozessbezogene Kompetenzen 2.4 Kommunizieren Download als PDF 2.4 Kommunizieren Die Schülerinnen und Schüler können respektvoll miteinander umgehen und über religiöse Fragen sprechen. Die Schülerinnen und Schüler können 1. eigene Gedanken, Gefühle, Sicht- und Verhaltensweisen beschreiben und erläutern 2. sich in Gedanken, Gefühle, Sicht- und Verhaltensweisen anderer hineinversetzen und dadurch die eigene Perspektive erweitern 3. erworbene Kenntnisse zu religiösen und ethischen Fragen verständlich erklären und im Dialog argumentativ verwenden 4. anderen im interkonfessionellen und interreligiösen Kontext respektvoll begegnen Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    },
+    {
+     "id": "RRK-PK-1_2-ALLG_05",
+     "klassen": [
+      "1-2",
+      "3-4"
+     ],
+     "text": "2.5 Gestalten - Bildungsplan Zum Inhalt springen Baden-Württemberg Bildungspläne Kultusministerium Zentrum für Schulqualität und Lehrerbildung Links Barrierefreiheit Barrierefreiheit Funktionen für barrierefreien Zugriff Leichte Sprache Gebärdensprache Leichte Sprache Leichte Sprache Gebärdensprache Gebärdensprache Suche Suche Menü Menü Allgemein bildende Schulen Berufliche Schulen Sonderpädagogische Bildung Service Suche Suche Menü Menü Bildungspl&auml;ne 2016 Grundschule Katholische Religionslehre 2. Prozessbezogene Kompetenzen 2.5 Gestalten Download als PDF 2.5 Gestalten Die Schülerinnen und Schüler können religiöse Ausdrucksformen und Fragen der Lebensgestaltung reflektieren sowie fachspezifische Methoden anwenden. Die Schülerinnen und Schüler können 1. Erkenntnisse aus Gelerntem kreativ ausdrücken 2. religiöse Ausdrucksformen reflektiert gestalten 3. über menschliche Grundfragen angemessen sprechen 4. Impulse für verantwortungsvolles Handeln entwickeln 5. fachliche Kenntnisse medial und adressatenbezogen aufbereitet präsentieren Download als PDF Die verlinkten Unterstützungsmaterialien sind nicht Bestandteil des Bildungsplans und liegen außerhalb von www.bildungsplaene-bw.de . Die inhaltliche Verantwortung liegt beim jeweiligen Anbieter."
+    }
+   ],
+   "inhaltskompetenzen": [
+    {
+     "id": "RRK-IK-1-2-1-2_01",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.1 Mensch",
+     "text": "Die Schülerinnen und Schüler kommen über Gefühle, Gedanken und Fähigkeiten sowie über menschliche Grunderfahrungen ins Gespräch. Sie beschreiben, dass aus christlicher Sicht alle Menschen von Gott geschaffen, gewollt und geliebt sind. Sie arbeiten aus dem christlichen Menschenbild Folgen für ein achtsames Miteinander heraus."
+    },
+    {
+     "id": "RRK-IK-1-2-1-2_02",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.2 Welt und Verantwortung",
+     "text": "Die Schülerinnen und Schüler beschreiben die Vielfalt der Welt. Sie stellen dar, dass Christinnen und Christen die Welt als Geschenk Gottes deuten. Sie formulieren eigene Beiträge zum angemessenen Umgang mit allem Lebendigen."
+    },
+    {
+     "id": "RRK-IK-1-2-1-2_03",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.3 Bibel",
+     "text": "Die Schülerinnen und Schüler entdecken die Bibel als wichtigstes Buch für Christinnen und Christen. Sie stellen anhand ausgewählter biblischer Texte Erfahrungen von Menschen mit Gott dar. Sie reflektieren, wie Erfahrungen von Menschen mit Gott in der Bibel zu eigenen Erfahrungen und Fragen in Beziehung stehen."
+    },
+    {
+     "id": "RRK-IK-1-2-1-2_04",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.4 Gott",
+     "text": "Die Schülerinnen und Schüler beschreiben, welche Vorstellungen sie von Gott haben. Sie erzählen von Gotteserfahrungen und ‑vorstellungen von Menschen in der Bibel. Sie zeigen, wie Menschen ihren Glauben an Gott zum Ausdruck bringen."
+    },
+    {
+     "id": "RRK-IK-1-2-1-2_05",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.5 Jesus Christus",
+     "text": "Die Schülerinnen und Schüler geben Aussagen biblischer Geschichten vom Leben Jesu wieder. Sie stellen an Beispielen dar, welche Bedeutung Jesu Zuwendung für die Menschen seiner Zeit besaß. Sie beschreiben, welche Bedeutung Jesus und seine Botschaft für den einzelnen Menschen und die Gemeinschaft haben kann."
+    },
+    {
+     "id": "RRK-IK-1-2-1-2_06",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.6 Kirche",
+     "text": "Die Schülerinnen und Schüler erkunden Kirchen und christliche Gemeinden vor Ort. Sie verstehen die Taufe als Sakrament der Zugehörigkeit zur Kirche. Sie reflektieren, ausgehend von Festen des Kirchenjahres, elementare liturgische Sprach- und Ausdrucksformen."
+    },
+    {
+     "id": "RRK-IK-1-2-1-2_07",
+     "klassen": "1-2",
+     "bereich": "1-2",
+     "title": "3.1.7 Religionen",
+     "text": "Die Schülerinnen und Schüler beschreiben, dass Menschen in ihrer Umgebung verschiedenen Religionen oder keiner Religion angehören können. Sie beschreiben ausgewählte Phänomene im Judentum oder Islam. Sie entwickeln einen achtsamen Umgang mit Angehörigen und Ausdrucksformen anderer Religionen."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_01",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.1 Mensch",
+     "text": "Die Schülerinnen und Schüler setzen eigene Fragen an das Leben mit Grundfragen des Menschseins in Beziehung. Sie beschreiben, wie der Mensch schuldig werden kann und dennoch Gottes geliebtes Geschöpf bleibt. Sie zeigen, wie Kinder Gemeinschaft aus christlicher Sicht gestalten können."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_02",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.2 Welt und Verantwortung",
+     "text": "Die Schülerinnen und Schüler beschreiben die Umwelt sowie ihre Lebenswelt und die Lebenswelt anderer. Sie beschreiben, wie die christliche Glaubensüberlieferung zu einem verantwortungsbewussten Umgang mit der Welt auffordert. Sie zeigen an Beispielen, wie sich Christinnen und Christen für eine bessere Welt einsetzen können."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_03",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.3 Bibel",
+     "text": "Die Schülerinnen und Schüler ordnen zentrale biblische Geschichten dem Alten und Neuen Testament zu. Sie zeigen, dass die Bibel menschliche Erfahrungen mit Gott in Sprachformen beschreibt, die auf unterschiedliche Dimensionen von Wirklichkeit verweisen. Sie zeigen, dass die Bibel Menschen Orientierung geben kann."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_04",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.4 Gott",
+     "text": "Die Schülerinnen und Schüler vergleichen unterschiedliche Vorstellungen von Gott. Sie zeigen anhand biblischer Geschichten, wie Gott im Leben von Menschen wirkt. Sie setzen sich damit auseinander, wie Menschen ihren Glauben an Gott gestalten."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_05",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.5 Jesus Christus",
+     "text": "Die Schülerinnen und Schüler zeigen, dass nach christlicher Überlieferung Gott in Jesus Mensch geworden ist. Sie beschreiben, dass die Botschaft Jesu vom Reich Gottes Menschen Hoffnung gibt. Sie entwickeln aus dem Leben und der Botschaft Jesu Perspektiven für das Leben."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_06",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.6 Kirche",
+     "text": "Die Schülerinnen und Schüler beschreiben konfessionelle Gemeinsamkeiten und Unterschiede. Sie erklären ausgewählte Sakramente und Feste des Kirchenjahres. Sie beschreiben, wie Kinder an gottesdienstlichen Feiern mitwirken und am Gemeindeleben teilhaben können."
+    },
+    {
+     "id": "RRK-IK-3-4-3-4_07",
+     "klassen": "3-4",
+     "bereich": "3-4",
+     "title": "3.2.7 Religionen",
+     "text": "Die Schülerinnen und Schüler zeigen auf, dass Menschen verschiedenen Religionen oder keiner Religion angehören können. Sie beschreiben Unterschiede und Gemeinsamkeiten zwischen Judentum, Christentum und Islam. Sie stellen beispielhaft dar, wie ein respektvolles Miteinander von Angehörigen verschiedener Religionen gelingen kann."
+    }
+   ]
+  }
+ }
+}

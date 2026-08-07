@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FASKA Dokumentation · Tätigkeiten → Rahmenplan-Kompetenzen</title>
+<link rel="icon" href="faska-logo-official.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#3da6da; --red:#bd182a; --orange:#e25e2b; --green:#44a735; --yellow:#ffce05;
+  --bg:#fefcf7; --bg2:#f8f4eb; --text:#2d2412; --text2:#6b5e48; --card:#fff;
+  --border:#e8e0d0; --radius:16px; --radius-sm:11px;
+  --font:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:14px/1.55 var(--font);color:var(--text);background:var(--bg);min-height:100vh}
+a{color:var(--blue)}
+button{font-family:var(--font)}
+
+.hdr{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 18px;background:var(--card);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1rem;text-decoration:none;color:var(--text)}
+.logo img{width:28px}
+.logo small{display:block;font-size:.58rem;font-weight:600;color:var(--text2);letter-spacing:.05em}
+.hdr-r{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.hbtn{padding:7px 14px;border-radius:22px;border:1.5px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font:600 12px var(--font);transition:.2s;white-space:nowrap}
+.hbtn:hover{border-color:var(--blue);color:var(--blue)}
+.hbtn.prim{background:var(--blue);border-color:var(--blue);color:#fff}
+.hbtn.prim:hover{filter:brightness(1.08)}
+
+.layout{display:grid;grid-template-columns:230px 1fr;gap:0;max-width:1280px;margin:0 auto;min-height:calc(100vh - 52px)}
+.side{border-right:1px solid var(--border);padding:16px 12px;background:var(--card)}
+.side h3{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin:14px 4px 6px;font-weight:800}
+.kid{display:flex;align-items:center;gap:9px;width:100%;padding:8px 10px;border-radius:var(--radius-sm);border:none;background:transparent;cursor:pointer;text-align:left;transition:.15s;font:600 13px var(--font);color:var(--text)}
+.kid:hover{background:var(--bg2)}
+.kid.sel{background:var(--bg2);box-shadow:inset 0 0 0 1.5px var(--blue)}
+.kid .ava{width:30px;height:30px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem}
+.kid .n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.kid .c{font-size:.62rem;color:var(--text2);font-weight:700;background:var(--bg2);border-radius:9px;padding:1px 7px}
+.kid.sel .c{background:var(--card)}
+.add-kid{width:100%;margin-top:8px;padding:8px;border-radius:var(--radius-sm);border:1.5px dashed var(--border);background:transparent;color:var(--text2);cursor:pointer;font:600 12px var(--font)}
+.add-kid:hover{border-color:var(--blue);color:var(--blue)}
+
+.main{padding:20px 26px 60px}
+.tabs{display:flex;gap:6px;margin-bottom:18px;border-bottom:1.5px solid var(--border);padding-bottom:0}
+.tab{padding:9px 18px;border:none;background:transparent;cursor:pointer;font:700 13px var(--font);color:var(--text2);border-bottom:3px solid transparent;margin-bottom:-1.5px;transition:.2s}
+.tab:hover{color:var(--text)}
+.tab.on{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* Form */
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.field label{font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);font-weight:800}
+.field input,.field select,.field textarea{border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font:500 13.5px var(--font);color:var(--text);background:var(--card);transition:.2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue)}
+.field textarea{min-height:84px;resize:vertical}
+.hint{font-size:.7rem;color:var(--text2)}
+
+.sugg{margin-top:4px}
+.sugg-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.sugg-head h4{font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;color:var(--green);font-weight:800}
+.sugg-hint{font-size:.68rem;color:var(--text2)}
+.sc{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:7px;cursor:pointer;transition:.15s}
+.sc:hover{border-color:var(--blue)}
+.sc.on{border-color:var(--green);background:rgba(68,167,53,.06)}
+.sc input{margin-top:4px;accent-color:var(--green);width:15px;height:15px;flex-shrink:0}
+.sc .t{font-weight:700;font-size:.8rem}
+.sc .x{font-size:.73rem;color:var(--text2);margin-top:2px;line-height:1.5}
+.sc .badges{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
+.b{font-size:.6rem;font-weight:800;padding:2px 8px;border-radius:9px;text-transform:uppercase;letter-spacing:.04em}
+.b-f{background:rgba(61,166,218,.13);color:var(--blue)}
+.b-k{background:rgba(255,206,5,.2);color:#8a6d00}
+.b-s{background:rgba(68,167,53,.13);color:var(--green)}
+.scorebar{height:4px;border-radius:2px;background:var(--bg2);margin-top:6px;overflow:hidden}
+.scorebar i{display:block;height:100%;background:var(--green)}
+
+.linsen{margin-top:6px}
+.lins-grp{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:11px 13px;margin-bottom:9px}
+.lins-grp h5{font-size:.7rem;font-weight:800;margin-bottom:3px}
+.lins-grp .sub{font-size:.68rem;color:var(--text2);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{padding:5px 12px;border-radius:16px;border:1.5px solid var(--border);background:transparent;font:600 11.5px var(--font);color:var(--text2);cursor:pointer;transition:.15s}
+.chip:hover{border-color:var(--orange);color:var(--orange)}
+.chip.on{background:var(--orange);border-color:var(--orange);color:#fff}
+.chip.g.on{background:var(--green);border-color:var(--green)}
+.chip.b.on{background:var(--blue);border-color:var(--blue)}
+
+.save-row{display:flex;gap:8px;margin-top:14px;align-items:center}
+.bigbtn{padding:12px 26px;border-radius:var(--radius-sm);border:none;background:var(--green);color:#fff;font:800 14px var(--font);cursor:pointer;transition:.2s}
+.bigbtn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.bigbtn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+
+/* Listen */
+.act{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:10px}
+.act-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.act-t{font-weight:800;font-size:.92rem}
+.act-d{font-size:.68rem;color:var(--text2);margin-top:1px}
+.act-desc{font-size:.8rem;color:var(--text2);margin:7px 0;line-height:1.6}
+.ktags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.ktag{font-size:.66rem;font-weight:700;padding:3px 9px;border-radius:9px;background:rgba(68,167,53,.12);color:var(--green)}
+.ktag.pk{background:rgba(61,166,218,.12);color:var(--blue)}
+.ltags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.ltag{font-size:.62rem;font-weight:600;padding:2px 9px;border-radius:9px;background:rgba(226,94,43,.1);color:var(--orange)}
+.ltag.dev{background:rgba(255,206,5,.18);color:#8a6d00}
+.mini{padding:4px 10px;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;font:600 10.5px var(--font)}
+.mini:hover{border-color:var(--red);color:var(--red)}
+
+/* Nachweis */
+.nw-fach{margin-bottom:18px}
+.nw-fach h4{font-size:.85rem;font-weight:800;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.nw-fach h4 .cnt{font-size:.66rem;background:var(--bg2);padding:2px 9px;border-radius:9px;color:var(--text2)}
+table.nw{width:100%;border-collapse:collapse;font-size:.76rem}
+table.nw th{text-align:left;font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);padding:5px 8px;border-bottom:1.5px solid var(--border)}
+table.nw td{padding:7px 8px;border-bottom:1px solid var(--border);vertical-align:top}
+table.nw td.k{font-weight:600}
+.empty{padding:26px;text-align:center;color:var(--text2);font-size:.85rem;background:var(--card);border:1.5px dashed var(--border);border-radius:var(--radius)}
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:20px}
+.stat{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;text-align:center}
+.stat .z{font-size:1.5rem;font-weight:800;color:var(--blue)}
+.stat .l{font-size:.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);font-weight:700}
+
+/* Entwicklung */
+.dev-grp{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:12px}
+.dev-grp h4{font-size:.82rem;font-weight:800;margin-bottom:4px}
+.dev-grp .sub{font-size:.7rem;color:var(--text2);margin-bottom:8px}
+.obs{border-left:3px solid var(--yellow);padding:6px 12px;margin-bottom:8px;background:var(--bg2);border-radius:0 9px 9px 0;font-size:.8rem}
+.obs .od{font-size:.62rem;color:var(--text2);font-weight:700}
+.obs textarea{width:100%;border:none;background:transparent;font:500 .8rem var(--font);resize:none;min-height:20px}
+.obs textarea:focus{outline:none}
+.add-obs{margin-top:6px;padding:6px 13px;border-radius:8px;border:1.5px dashed var(--border);background:transparent;color:var(--text2);cursor:pointer;font:600 11px var(--font)}
+.add-obs:hover{border-color:var(--green);color:var(--green)}
+.ped-note{background:rgba(61,166,218,.07);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:10px 13px;font-size:.74rem;line-height:1.6;color:var(--text2);margin-bottom:12px}
+.ped-note b{color:var(--text)}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:10px 22px;border-radius:22px;font-size:.82rem;font-weight:700;z-index:99;opacity:0;transition:.3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-4px)}
+
+@media(max-width:860px){
+  .layout{grid-template-columns:1fr}
+  .side{border-right:none;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .side h3{display:none}
+  .kid{width:auto;padding:6px 10px}
+  .add-kid{width:auto;margin-top:0}
+  .main{padding:16px}
+  .fgrid{grid-template-columns:1fr}
+}
+@media print{
+  .hdr,.side,.tabs,.save-row,.mini,.add-obs{display:none!important}
+  body{background:#fff}
+  .main{padding:0}
+  .act,.dev-grp,.stat{border-color:#ccc;break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="logo" href="index.html">
+    <img src="faska-logo-official.svg" alt="FASKA" onerror="this.outerHTML='🌱'">
+    <div>FASKA Dokumentation<small>TÄTIGKEITEN → RAHMENPLAN-KOMPETENZEN</small></div>
+  </a>
+  <div class="hdr-r">
+    <a class="hbtn" href="index.html">🌱 Zum Garten</a>
+    <button class="hbtn" onclick="exportAll()">📥 Export (JSON)</button>
+    <button class="hbtn" onclick="window.print()">🖨 Nachweis drucken</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="side">
+    <h3>Kinder</h3>
+    <div id="kidList"></div>
+    <button class="add-kid" onclick="addKid()">＋ Kind hinzufügen</button>
+  </aside>
+
+  <main class="main">
+    <div class="tabs">
+      <button class="tab on" data-tab="act" onclick="tab('act')">📝 Tätigkeit dokumentieren</button>
+      <button class="tab" data-tab="list" onclick="tab('list')">📚 Alle Tätigkeiten</button>
+      <button class="tab" data-tab="nw" onclick="tab('nw')">🎯 Kompetenz-Nachweis</button>
+      <button class="tab" data-tab="dev" onclick="tab('dev')">🌱 Entwicklung &amp; Pädagogik</button>
+    </div>
+
+    <!-- ══ TAB: Tätigkeit dokumentieren ══ -->
+    <section id="tab-act">
+      <div class="fgrid">
+        <div class="field"><label>Datum</label><input type="date" id="f-date"></div>
+        <div class="field"><label>Klassenstufe (für Rahmenplan-Filter)</label>
+          <select id="f-klasse"><option value="1-2">Klasse 1–2</option><option value="3-4">Klasse 3–4</option><option value="alle">Alle (nicht filtern)</option></select>
+        </div>
+      </div>
+      <div class="field"><label>Titel der Tätigkeit *</label><input id="f-title" placeholder="z. B. Stallbox gebaut und Pferd vermessen"></div>
+      <div class="field"><label>Was hat das Kind gemacht? * — je genauer, desto besser die Kompetenz-Vorschläge</label>
+        <textarea id="f-desc" placeholder="Beschreibe konkret, was passiert ist: Was tat das Kind? Womit? Wie lange? Mit wem? Was war das Ergebnis?&#10;&#10;Beispiel: Sie stellte das Pferdemodell in die selbstgebaute Stallbox, merkte, dass es nicht passt, hielt das Modell neben die Seitenwand und baute die Wand um. Danach maß sie mit dem Zollstock nach und notierte 14 cm."></textarea>
+        <span class="hint">Tipp: Verben wie <i>messen, zählen, lesen, bauen, malen, singen, vergleichen, erzählen, ordnen</i> helfen der automatischen Zuordnung.</span>
+      </div>
+      <div class="field"><label>Art der Tätigkeit</label>
+        <select id="f-type">
+          <option>Freies Spiel</option><option>Projektarbeit</option><option>Werkstatt</option>
+          <option>Unterricht / Lernangebot</option><option>Kreatives Gestalten</option><option>Bewegung / Sport</option>
+          <option>Musik</option><option>Natur / Sachbegegnung</option><option>Sprache / Lesen</option>
+          <option>Soziales / Gemeinschaft</option><option>Alltag (Ankommen, Essen, Aufräumen)</option>
+        </select>
+      </div>
+
+      <div class="sugg">
+        <div class="sugg-head">
+          <h4>🎯 Automatisch zugeordnete Kompetenzen (Bildungsplan GS BW)</h4>
+          <span class="sugg-hint" id="suggHint">Beschreibung eingeben — Vorschläge erscheinen live.</span>
+        </div>
+        <div id="suggList"></div>
+      </div>
+
+      <div class="linsen">
+        <div class="lins-grp">
+          <h5>🧡 Rebecca Wild — freie, natürliche Erziehung</h5>
+          <div class="sub">Was war in dieser Situation aus Sicht der Wild-Pädagogik bedeutsam?</div>
+          <div class="chips" id="linsWild"></div>
+        </div>
+        <div class="lins-grp">
+          <h5>🔶 Montessori-Pädagogik — was bedeutet diese Tätigkeit hier?</h5>
+          <div class="sub">Welche Montessori-Prinzipien waren in dieser Tätigkeit wirksam?</div>
+          <div class="chips" id="linsMonte"></div>
+        </div>
+      </div>
+
+      <div class="save-row">
+        <button class="bigbtn" id="saveBtn" onclick="saveAct()">✓ Tätigkeit dokumentieren</button>
+        <span class="hint" id="saveHint"></span>
+      </div>
+    </section>
+
+    <!-- ══ TAB: Alle Tätigkeiten ══ -->
+    <section id="tab-list" style="display:none">
+      <div id="actList"></div>
+    </section>
+
+    <!-- ══ TAB: Nachweis ══ -->
+    <section id="tab-nw" style="display:none">
+      <div class="stat-row" id="nwStats"></div>
+      <div id="nwBody"></div>
+    </section>
+
+    <!-- ══ TAB: Entwicklung ══ -->
+    <section id="tab-dev" style="display:none">
+      <div class="ped-note">
+        <b>Entwicklungsdokumentation — beobachten, nicht bewerten.</b><br>
+        Hier stehen freie Beobachtungen zur kindlichen Entwicklung (nach Rebecca Wild: Entwicklung geschieht aus innerem Antrieb, in sicherer Bindung und im eigenen Tempo — sie wird begleitet, nicht gemacht). Die Aspekte folgen den klassischen Entwicklungsbereichen; Einträge sind Beobachtungen und keine Diagnosen.
+      </div>
+      <div id="devBody"></div>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════ STATE ═══════════ */
+let RP=null;                 // rahmenplan.json
+let kids=[];                 // [{id,name,color}]
+let acts=[];                 // [{id,kidId,date,title,desc,type,klasse,komps:[{id,fach,title,pk}],wild:[],monte:[]}]
+let devObs={};               // kidId -> {aspekt: [{date,text}]}
+let selKid=null;
+let selKomps=new Set();
+let selWild=new Set(), selMonte=new Set();
+
+const WILD=[
+  "Emotionale Sicherheit war spürbar","Das Kind folgte seinem eigenen Impuls",
+  "Selbstwirksamkeit erfahren","Echte, sinnliche Erfahrung","Freies Spiel ohne Zielvorgabe",
+  "Beziehung/Authentizität der Begleitung","Grenzen wurden gespürt, nicht diktiert",
+  "Rückzug/Beobachten war erlaubt","Konflikt wurde selbst gelöst"
+];
+const MONTE=[
+  "Vorbereitete Umgebung","Freie Wahl der Arbeit","Polarisation der Aufmerksamkeit (tiefe Versenkung)",
+  "Sensible Phase","Isolation der Schwierigkeit","Fehlerkontrolle durch das Material",
+  "Bewegung mit Hand und Sinn","Hilf mir, es selbst zu tun (Zurückhaltung der Erwachsenen)",
+  "Ordnung und Struktur","Übung des täglichen Lebens","Arbeit mit Schlüsselmaterial"
+];
+const DEV_ASPEKTE=[
+  ["Motorik","Grob- und Feinmotorik, Körpergefühl, Koordination"],
+  ["Sprache","Wortschatz, Erzählen, Zuhören, Schriftsprache"],
+  ["Kognition","Denken, Problemlösen, Aufmerksamkeit, Gedächtnis"],
+  ["Sozial-emotional","Bindung, Empathie, Konfliktfähigkeit, Selbstregulation"],
+  ["Selbstständigkeit","Eigeninitiative, Verantwortung, innere Ordnung"]
+];
+const KID_COLORS=['#3da6da','#bd182a','#e25e2b','#44a735','#ffce05','#7b68ee','#2aa9a0'];
+
+/* ═══════════ PERSISTENZ (localStorage) ═══════════ */
+function store(){
+  try{ localStorage.setItem('faska-doku', JSON.stringify({kids,acts,devObs,selKid})); }catch(e){}
+}
+function restore(){
+  try{
+    const s=JSON.parse(localStorage.getItem('faska-doku')||'null');
+    if(s){ kids=s.kids||[]; acts=s.acts||[]; devObs=s.devObs||{}; selKid=s.selKid||null; }
+  }catch(e){}
+}
+
+/* ═══════════ LADEN ═══════════ */
+async function init(){
+  document.getElementById('f-date').value=new Date().toISOString().slice(0,10);
+  restore();
+  // Kinder aus students.json übernehmen (falls lokal vorhanden)
+  try{
+    const r=await fetch('students.json');
+    if(r.ok){
+      const s=await r.json();
+      s.students.forEach(st=>{
+        if(!kids.find(k=>k.name===st.name)) kids.push({id:'k-'+st.id,name:st.name,color:st.color});
+      });
+    }
+  }catch(e){}
+  if(!kids.length) kids=[{id:'k1',name:'Neues Kind',color:KID_COLORS[0]}];
+  if(!selKid||!kids.find(k=>k.id===selKid)) selKid=kids[0].id;
+  try{
+    const r2=await fetch('rahmenplan.json');
+    if(r2.ok){ RP=await r2.json(); buildIndex(); }
+    else document.getElementById('suggHint').textContent='⚠️ rahmenplan.json nicht gefunden.';
+  }catch(e){ document.getElementById('suggHint').textContent='⚠️ Rahmenplan konnte nicht geladen werden.'; }
+  renderKids(); renderChips(); renderAll();
+}
+
+/* ═══════════ SUCHE / MATCHING ═══════════ */
+let IDX=[];    // [{id,fach,title,text,klasse,pk,terms:Set,titleTerms:Set}]
+const STOP=new Set("und der die das den dem des ein eine einen einem einer mit für auf in im an am bei von vom zu zur zum als auch oder aber nicht nur noch schon sehr mehr weniger kann können sie er es wir ihr sich wie was wer wo wann dann wenn danach vorher während nach über unter zwischen aus durch um so etwa etwas ihnen ihrem ihren ich du man hier dort heute morgen gestern wieder dabei darum deshalb weil dass bis seit wurde wurden hat hatte haben war waren wird lässt ihnen".split(" "));
+function fold(w){return String(w).replace(/ä/g,'a').replace(/ö/g,'o').replace(/ü/g,'u').replace(/ß/g,'ss')}
+function stem(raw){
+  let w=fold(String(raw).toLowerCase()).replace(/[^a-z0-9]/g,'');
+  if(w.length<=3)return w;
+  if(w.startsWith('ge')&&w.length>=6){
+    const r=w.slice(2);
+    if(r.endsWith('t'))w=r.slice(0,-1);
+    else if(r.endsWith('en'))w=r.slice(0,-2);
+  }
+  w=w.replace(/(ete|te)$/,'');
+  if(w.length>3)w=w.replace(/(ern|eln|ier|en|er)$/,'');
+  if(w.length>3)w=w.replace(/(ung|e)$/,'');
+  return w;
+}
+/* Kuratierte Synonym-Expansion: Tätigkeitsverb → Kompetenz-Vokabular */
+const SYN={
+  las:['les'],liest:['les'],gelesen:['les'],vorlas:['les'],vorlesen:['les'],
+  mass:['mess'],gemessen:['mess'],misst:['mess'],
+  zahlte:['zahl'],gezahlt:['zahl'],zahlt:['zahl'],
+  baute:['bau'],gebaut:['bau'],konstruierte:['konstruier','bau'],
+  malte:['mal','gestalt'],gemalt:['mal','gestalt'],malt:['mal'],
+  bastelte:['bastel','gestalt'],gebastelt:['bastel'],
+  klebte:['kleb'],geklebt:['kleb'],
+  schrieb:['schreib'],geschrieben:['schreib'],schreibt:['schreib'],
+  erzahlte:['erzahl','prasentier'],erzahlt:['erzahl'],erzahlen:['erzahl'],
+  sang:['sing'],gesungen:['sing'],singt:['sing'],
+  lief:['lauf','beweg'],rannte:['lauf','beweg'],gelaufen:['lauf'],
+  sprang:['spring','beweg'],kletterte:['kletter','beweg'],tanzte:['tanz','beweg'],
+  rechnete:['rechn','zahl'],gerechnet:['rechn'],rechnet:['rechn'],
+  verglich:['vergleich'],vergleichen:['vergleich'],vergleiche:['vergleich'],
+  ordnete:['ordn','klassifizier'],sortierte:['sortier','ordn'],sortiert:['sortier','ordn'],
+  notierte:['schreib','dokumentier'],
+  experimentierte:['experiment','forsch'],forschte:['forsch'],
+  pflanzte:['pflanz','natur'],
+  buk:['back'],backte:['back'],
+  schnitt:['schneid'],geschnitten:['schneid'],
+  buch:['les','text','literatur'],bucher:['les','text'],
+  karte:['zeichn','orientier','raum'],landkarte:['orientier','raum'],
+  zollstock:['mess'],massband:['mess'],lineal:['mess','zeichn'],waage:['gewichte','mess'],
+  wurfel:['zahl','geometr'],klotze:['geometr','bau'],klammer:['zahl'],perle:['zahl','feinmotor'],
+  schere:['feinmotor','schneid'],stift:['mal','schreib'],
+  spiel:['spiel','regel'],spiele:['spiel','regel'],spielte:['spiel'],
+  streit:['konflikt','sozial'],stritten:['konflikt','sozial'],konflikt:['konflikt','sozial'],
+  freund:['sozial','bezieh'],freunde:['sozial','bezieh'],half:['helf','sozial'],halfen:['helf'],
+  wut:['selbstregulation','emotion'],ruhig:['ruhe','selbstregulation'],trost:['emotion','bezieh'],
+  zahlen:['zahl','mathematik'],zahl:['zahl'],mengen:['zahl','menge'],
+  lesen:['les'],vorlesen:['les'],schreiben:['schreib'],text:['text','les'],
+  geometrie:['geometr'],formen:['geometr','form'],figuren:['geometr'],korper:['geometr'],
+  zeit:['zeit','uhr'],uhr:['zeit','uhr'],kalender:['zeit'],
+  tiere:['tier','natur'],pflanze:['pflanz','natur'],natur:['natur'],wald:['natur'],
+  musik:['musik'],rhythmus:['rhythmus','musik'],instrument:['musik','instrument'],
+  turnen:['beweg','sport'],sport:['beweg','sport'],ball:['beweg','spiel'],
+  theater:['spiel','darstell','sprech'],rolle:['spiel','darstell'],
+  englisch:['englisch'],worter:['wortschatz','sprache'],satz:['satz','grammatik'],
+  religion:['religion','ethik'],ethik:['ethik','religion'],werte:['ethik','werte'],
+  wasser:['wasser','natur'],feuer:['feuer','natur'],luft:['luft','natur'],
+  verkehr:['verkehr','mobilitat'],strasse:['verkehr'],fahrrad:['verkehr','mobilitat'],
+  korper:['korper','gesundheit'],gesundheit:['gesundheit','korper'],essen:['gesundheit','ernahrung'],kochen:['ernahrung']
+};
+function tokens(s){
+  return (s||'').toLowerCase().split(/[^a-zäöüß0-9]+/).filter(w=>w.length>2&&!STOP.has(w));
+}
+function expand(q){
+  const out=new Set(q);
+  for(const t of q){ if(SYN[t]) SYN[t].forEach(s=>out.add(s)); }
+  return [...out];
+}
+function buildIndex(){
+  IDX=[];
+  for(const [fach,fd] of Object.entries(RP.faecher)){
+    const fname=fach.replace('_','/');
+    for(const ik of fd.inhaltskompetenzen){
+      IDX.push({id:ik.id,fach:fname,title:ik.title||'Kompetenz '+ik.id,text:ik.text,klasse:ik.klassen,pk:false,
+        titleTerms:new Set(tokens(ik.title).map(stem)),
+        terms:new Set([...tokens(ik.title),...tokens(ik.text)].map(stem))});
+    }
+    for(const pk of fd.prozesskompetenzen){
+      IDX.push({id:pk.id,fach:fname,title:'Prozess: '+pk.text.slice(0,80)+'…',text:pk.text,
+        klasse:Array.isArray(pk.klassen)?pk.klassen.join(', '):pk.klassen,pk:true,
+        titleTerms:new Set(), terms:new Set(tokens(pk.text).map(stem))});
+    }
+  }
+}
+function suggest(desc,klasse,minScore){
+  if(!IDX.length||desc.trim().length<4)return [];
+  const q=expand([...new Set(tokens(desc).map(stem))]);
+  const scored=[];
+  for(const c of IDX){
+    if(klasse!=='alle'&&c.klasse&&!String(c.klasse).includes(klasse))continue;
+    let s=0;
+    for(const t of q){
+      if(c.titleTerms.has(t))s+=3;
+      else if(c.terms.has(t))s+=1;
+    }
+    if(s>=(minScore||2))scored.push({c,s});
+  }
+  scored.sort((a,b)=>b.s-a.s);
+  const max=scored.length?scored[0].s:1;
+  return scored.slice(0,8).map(x=>({...x.c,score:x.s,norm:Math.min(1,x.s/max)}));
+}
+
+/* ═══════════ RENDER ═══════════ */
+function renderKids(){
+  document.getElementById('kidList').innerHTML=kids.map(k=>{
+    const n=acts.filter(a=>a.kidId===k.id).length;
+    return '<button class="kid'+(k.id===selKid?' sel':'')+'" onclick="pickKid(\''+k.id+'\')">'+
+      '<span class="ava" style="background:'+k.color+'">'+esc(k.name[0])+'</span>'+
+      '<span class="n">'+esc(k.name)+'</span><span class="c">'+n+'</span></button>';
+  }).join('');
+}
+function renderChips(){
+  document.getElementById('linsWild').innerHTML=WILD.map(w=>
+    '<button class="chip g'+(selWild.has(w)?' on':'')+'" onclick="tglWild(this,\''+esc(w)+'\')">'+esc(w)+'</button>').join('');
+  document.getElementById('linsMonte').innerHTML=MONTE.map(m=>
+    '<button class="chip'+(selMonte.has(m)?' on':'')+'" onclick="tglMonte(this,\''+esc(m)+'\')">'+esc(m)+'</button>').join('');
+}
+function renderSugg(){
+  const desc=document.getElementById('f-desc').value;
+  const klasse=document.getElementById('f-klasse').value;
+  const hits=suggest(desc,klasse);
+  const box=document.getElementById('suggList');
+  const hint=document.getElementById('suggHint');
+  if(!hits.length){
+    hint.textContent=desc.trim().length<8?'Beschreibung eingeben — Vorschläge erscheinen live.':'Keine sicheren Treffer — Kompetenzen können auch manuell gesucht werden.';
+    box.innerHTML=manualSearch();
+    return;
+  }
+  hint.textContent=hits.length+' Vorschläge — anklicken zum Übernehmen.';
+  box.innerHTML=hits.map(h=>
+    '<label class="sc'+(selKomps.has(h.id)?' on':'')+'"><input type="checkbox" '+(selKomps.has(h.id)?'checked':'')+' onchange="tglKomp(\''+h.id+'\',this)">'+
+    '<div style="flex:1"><div class="t">'+esc(h.title)+'</div><div class="x">'+esc(h.text)+'</div>'+
+    '<div class="badges"><span class="b b-f">'+esc(h.fach)+'</span><span class="b b-k">Kl. '+esc(String(h.klasse))+'</span>'+(h.pk?'<span class="b b-s">prozessbezogen</span>':'')+'</div>'+
+    '<div class="scorebar"><i style="width:'+Math.round(h.norm*100)+'%"></i></div></div></label>').join('')+manualSearch();
+}
+function manualSearch(){
+  return '<div style="margin-top:10px"><input id="manSearch" placeholder="🔍 Kompetenz manuell suchen (z. B. „Zahlenraum", „Lesen", „Körper")…" style="width:100%;border:1.5px solid var(--border);border-radius:10px;padding:9px 12px;font:500 12.5px var(--font)" oninput="manSugg()"><div id="manHits"></div></div>';
+}
+function manSugg(){
+  const q=document.getElementById('manSearch').value;
+  const box=document.getElementById('manHits');
+  if(q.trim().length<3){box.innerHTML='';return;}
+  const hits=suggest(q,document.getElementById('f-klasse').value,1).slice(0,6);
+  box.innerHTML=hits.map(h=>
+    '<label class="sc'+(selKomps.has(h.id)?' on':'')+'"><input type="checkbox" '+(selKomps.has(h.id)?'checked':'')+' onchange="tglKomp(\''+h.id+'\',this)">'+
+    '<div style="flex:1"><div class="t">'+esc(h.title)+'</div><div class="badges"><span class="b b-f">'+esc(h.fach)+'</span><span class="b b-k">Kl. '+esc(String(h.klasse))+'</span></div></div></label>').join('')||'<div class="hint" style="padding:8px">Keine Treffer.</div>';
+}
+function renderAll(){ renderKids(); renderList(); renderNw(); renderDev(); }
+
+function renderList(){
+  const list=acts.filter(a=>a.kidId===selKid).sort((a,b)=>b.date.localeCompare(a.date));
+  const box=document.getElementById('actList');
+  if(!list.length){ box.innerHTML='<div class="empty">Noch keine Tätigkeiten dokumentiert.<br>Lege oben unter „Tätigkeit dokumentieren" los.</div>'; return; }
+  box.innerHTML=list.map(a=>
+    '<div class="act"><div class="act-h"><div><div class="act-t">'+esc(a.title)+'</div>'+
+    '<div class="act-d">'+fmt(a.date)+' · '+esc(a.type)+' · Kl. '+esc(a.klasse)+'</div></div>'+
+    '<button class="mini" onclick="delAct(\''+a.id+'\')">löschen</button></div>'+
+    '<div class="act-desc">'+esc(a.desc)+'</div>'+
+    '<div class="ktags">'+a.komps.map(k=>'<span class="ktag'+(k.pk?' pk':'')+'">'+esc(k.fach)+' · '+esc(k.title.length>70?k.title.slice(0,70)+'…':k.title)+'</span>').join('')+'</div>'+
+    ((a.wild&&a.wild.length)?'<div class="ltags">'+a.wild.map(w=>'<span class="ltag">🧡 '+esc(w)+'</span>').join('')+'</div>':'')+
+    ((a.monte&&a.monte.length)?'<div class="ltags">'+a.monte.map(m=>'<span class="ltag">🔶 '+esc(m)+'</span>').join('')+'</div>':'')+
+    '</div>').join('');
+}
+
+function renderNw(){
+  const kid=kids.find(k=>k.id===selKid); if(!kid)return;
+  const list=acts.filter(a=>a.kidId===selKid);
+  const byFach={};
+  const kompMap={};
+  list.forEach(a=>a.komps.forEach(k=>{
+    if(!kompMap[k.id])kompMap[k.id]={...k,count:0,dates:[]};
+    kompMap[k.id].count++; kompMap[k.id].dates.push(a.date);
+    (byFach[k.fach]=byFach[k.fach]||[]).push(k.id);
+  }));
+  const fachs=Object.keys(byFach).sort();
+  document.getElementById('nwStats').innerHTML=
+    '<div class="stat"><div class="z">'+list.length+'</div><div class="l">Tätigkeiten</div></div>'+
+    '<div class="stat"><div class="z">'+Object.keys(kompMap).length+'</div><div class="l">Kompetenzen berührt</div></div>'+
+    '<div class="stat"><div class="z">'+fachs.length+'</div><div class="l">Fächer</div></div>'+
+    '<div class="stat"><div class="z">'+(list.length?fmt(list.map(a=>a.date).sort()[0]).slice(0,6):'–')+'</div><div class="l">seit</div></div>';
+  if(!fachs.length){
+    document.getElementById('nwBody').innerHTML='<div class="empty">Noch keine Kompetenzen zugeordnet.<br>Sobald du Tätigkeiten mit Rahmenplan-Kompetenzen dokumentierst, entsteht hier der Nachweis: Fach für Fach, Kompetenz für Kompetenz.</div>';
+    return;
+  }
+  document.getElementById('nwBody').innerHTML=
+    '<h3 style="margin-bottom:12px;font-size:1.05rem">Kompetenz-Nachweis — '+esc(kid.name)+'</h3>'+
+    '<div class="ped-note" style="font-size:.72rem">Nachweisführung nach Bildungsplan Baden-Württemberg (Grundschule). Jede Kompetenz ist durch mindestens eine dokumentierte Tätigkeit belegt; das Datum der letzten Belegung und die Anzahl der Beleg-Tätigkeiten sind angegeben. <b>Dies ist eine Belegsammlung, kein Urteil über das Kind.</b></div>'+
+    fachs.map(f=>{
+      const ids=[...new Set(byFach[f])];
+      return '<div class="nw-fach"><h4>'+esc(f)+' <span class="cnt">'+ids.length+' Kompetenzen</span></h4>'+
+      '<table class="nw"><tr><th style="width:44%">Kompetenz</th><th>Klasse</th><th>Belege</th><th>zuletzt</th></tr>'+
+      ids.map(id=>{ const k=kompMap[id];
+        return '<tr><td class="k">'+esc(k.title)+'</td><td>'+esc(String(k.klasse))+'</td><td>'+k.count+'×</td><td>'+fmt(k.dates.sort()[k.dates.length-1])+'</td></tr>';
+      }).join('')+'</table></div>';
+    }).join('');
+}
+
+function renderDev(){
+  const obs=devObs[selKid]||{};
+  document.getElementById('devBody').innerHTML=DEV_ASPEKTE.map(([asp,sub])=>{
+    const items=(obs[asp]||[]).map((o,i)=>
+      '<div class="obs"><div class="od">'+fmt(o.date)+' <button class="mini" style="float:right;padding:1px 8px" onclick="delObs(\''+asp+'\','+i+')">×</button></div>'+
+      '<textarea oninput="editObs(this,\''+asp+'\','+i+')" rows="2">'+esc(o.text)+'</textarea></div>').join('');
+    return '<div class="dev-grp"><h4>'+esc(asp)+'</h4><div class="sub">'+esc(sub)+'</div>'+
+      (items||'<div class="hint" style="padding:4px 0">Noch keine Beobachtungen.</div>')+
+      '<button class="add-obs" onclick="addObs(\''+asp+'\')">＋ Beobachtung hinzufügen</button></div>';
+  }).join('');
+}
+
+/* ═══════════ AKTIONEN ═══════════ */
+function pickKid(id){ selKid=id; store(); renderKids(); renderList(); renderNw(); renderDev(); }
+function addKid(){
+  const n=prompt('Name des Kindes (intern gerne Tarnname):');
+  if(!n||!n.trim())return;
+  kids.push({id:'k'+Date.now(),name:n.trim(),color:KID_COLORS[kids.length%KID_COLORS.length]});
+  selKid=kids[kids.length-1].id; store(); renderAll();
+}
+function tab(t){
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('on',b.dataset.tab===t));
+  ['act','list','nw','dev'].forEach(x=>document.getElementById('tab-'+x).style.display=(x===t?'':'none'));
+  if(t==='list')renderList(); if(t==='nw')renderNw(); if(t==='dev')renderDev();
+}
+function tglKomp(id,el){
+  if(selKomps.has(id))selKomps.delete(id); else selKomps.add(id);
+  el.closest('.sc').classList.toggle('on',selKomps.has(id));
+}
+function tglWild(el,w){ selWild.has(w)?selWild.delete(w):selWild.add(w); el.classList.toggle('on'); }
+function tglMonte(el,m){ selMonte.has(m)?selMonte.delete(m):selMonte.add(m); el.classList.toggle('on'); }
+
+function saveAct(){
+  const title=document.getElementById('f-title').value.trim();
+  const desc=document.getElementById('f-desc').value.trim();
+  const hint=document.getElementById('saveHint');
+  if(!title||!desc){ hint.textContent='⚠️ Titel und Beschreibung sind Pflicht.'; hint.style.color='var(--red)'; return; }
+  const komps=[...selKomps].map(id=>{
+    const c=IDX.find(x=>x.id===id);
+    return c?{id:c.id,fach:c.fach,title:c.title,klasse:c.klasse,pk:c.pk}:null;
+  }).filter(Boolean);
+  acts.push({id:'a'+Date.now(),kidId:selKid,
+    date:document.getElementById('f-date').value,
+    title,desc,type:document.getElementById('f-type').value,
+    klasse:document.getElementById('f-klasse').value,
+    komps,wild:[...selWild],monte:[...selMonte]});
+  selKomps.clear(); selWild.clear(); selMonte.clear();
+  document.getElementById('f-title').value=''; document.getElementById('f-desc').value='';
+  document.getElementById('suggList').innerHTML=manualSearch();
+  renderChips(); store(); renderAll();
+  hint.textContent=''; 
+  toast('✓ Dokumentiert — '+komps.length+' Kompetenz'+(komps.length!==1?'en':'')+' zugeordnet');
+  tab('list');
+}
+function delAct(id){ if(!confirm('Diese Tätigkeit löschen?'))return; acts=acts.filter(a=>a.id!==id); store(); renderAll(); }
+
+function addObs(asp){
+  devObs[selKid]=devObs[selKid]||{};
+  (devObs[selKid][asp]=devObs[selKid][asp]||[]).unshift({date:new Date().toISOString().slice(0,10),text:''});
+  store(); renderDev();
+}
+function editObs(el,asp,i){ devObs[selKid][asp][i].text=el.value; store(); }
+function delObs(asp,i){ devObs[selKid][asp].splice(i,1); store(); renderDev(); }
+
+function exportAll(){
+  const kid=kids.find(k=>k.id===selKid);
+  const data={app:'faska-dokumentation',exportiert:new Date().toISOString(),kind:kid?kid.name:null,
+    rahmenplan:RP?RP.metadata:null,
+    taetigkeiten:acts.filter(a=>a.kidId===selKid).sort((a,b)=>a.date.localeCompare(b.date)),
+    entwicklung:devObs[selKid]||{}};
+  const b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);
+  a.download='faska-doku-'+(kid?kid.name.toLowerCase():'export')+'-'+new Date().toISOString().slice(0,10)+'.json';a.click();
+  toast('📥 Exportiert');
+}
+
+/* ═══════════ UTILS ═══════════ */
+function esc(s){return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function fmt(d){ if(!d)return''; const[x,y,z]=d.split('-'); return z+'.'+y+'.'+x; }
+function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2600); }
+document.getElementById('f-desc').addEventListener('input',renderSugg);
+document.getElementById('f-klasse').addEventListener('change',renderSugg);
+init();
+</script>
+</body>
+</html>
