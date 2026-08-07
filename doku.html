@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>FASKA Dokumentation · Lerngarten</title>
 <link rel="icon" href="faska-logo-official.svg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -338,8 +341,9 @@ const FACHC={'Deutsch':'#3da6da','Mathematik':'#ffce05','Englisch':'#e25e2b','Fr
 function fc(f){return FACHC[f]||'#8d8474'}
 function darkTxt(f){return f==='Mathematik'||f==='Religion rk.'}
 
-/* ═══════════ PERSISTENZ (localStorage) ═══════════ */
-function store(){try{localStorage.setItem('faska-doku',JSON.stringify({kids,acts,devObs,selKid}))}catch(e){}}
+/* ═══════════ PERSISTENZ (localStorage, versioniert) ═══════════ */
+const DATA_VERSION=2;
+function store(){try{localStorage.setItem('faska-doku',JSON.stringify({v:DATA_VERSION,kids,acts,devObs,selKid}))}catch(e){}}
 function restore(){try{const s=JSON.parse(localStorage.getItem('faska-doku')||'null');if(s){kids=s.kids||[];acts=s.acts||[];devObs=s.devObs||{};selKid=s.selKid||null}}catch(e){}}
 
 /* ═══════════ MATCHING ═══════════ */
@@ -705,6 +709,50 @@ function addObs(asp){devObs[selKid]=devObs[selKid]||{};(devObs[selKid][asp]=devO
 function editObs(el,asp,i){devObs[selKid][asp][i].text=el.value;store()}
 function delObs(asp,i){devObs[selKid][asp].splice(i,1);store();openDev()}
 
+/* ═══════════ SEED: Beispiel-Blüten beim allerersten Start ═══════════ */
+function seedIfNeeded(){
+  // Beim ersten Start ODER nach Datenmodell-Update: Beispiel-Blüten pflanzen,
+  // damit das „Warum" sofort sichtbar ist.
+  let v=0;
+  try{v=(JSON.parse(localStorage.getItem('faska-doku')||'{}')||{}).v||0}catch(e){}
+  if(v>=DATA_VERSION)return;
+  const lena={id:'k-lena',name:'Lena',color:'#3da6da'};
+  kids=[lena,{id:'k-ylva',name:'Ylva',color:'#bd182a'},{id:'k-yannik',name:'Yannik',color:'#e25e2b'},{id:'k-claire',name:'Claire',color:'#44a735'},{id:'k-bjarki',name:'Bjarki',color:'#ffce05'}];
+  selKid='k-lena';
+  const today=new Date();
+  const d=(minus)=>{const x=new Date(today);x.setDate(x.getDate()-minus);return x.toISOString().slice(0,10)};
+  acts=[
+    {id:'seed1',kidId:'k-lena',date:d(0),title:'Stallbox gebaut und vermessen',
+     desc:'Sie baute eine Stallbox für das Pferdemodell, merkte, dass es nicht passt, hielt das Modell neben die Seitenwand und baute die Wand um. Danach maß sie mit dem Zollstock nach und notierte die Zahl.',
+     type:'Projektarbeit',klasse:'1-2',
+     komps:[
+       {id:'M-3.1.3.3',fach:'Mathematik',title:'3.1.3.3 Bauten und Konstruktionen',klasse:'1-2',pk:false,why:['baute','baute → konstruieren']},
+       {id:'M-3.1.3.2',fach:'Mathematik',title:'3.1.3.2 Mit Größen in Sachsituationen umgehen',klasse:'1-2',pk:false,why:['Zollstock → messen','verglich → Größen','notierte → schreiben']},
+       {id:'M-3.1.3.1',fach:'Mathematik',title:'3.1.3.1 Größenvorstellungen anbahnen und entwickeln',klasse:'1-2',pk:false,why:['verglich → Größen']}
+     ],
+     wild:['Das Kind folgte seinem eigenen Impuls','Selbstwirksamkeit erfahren'],
+     monte:['Fehlerkontrolle durch das Material','Bewegung mit Hand und Sinn'],savedAt:new Date().toISOString()},
+    {id:'seed2',kidId:'k-lena',date:d(2),title:'Warrior Cats vorgelesen und Clan-Karte gemalt',
+     desc:'Sie las eine spannende Stelle aus dem Buch vor und erzählte frei über die Clans. Danach malte sie eine Karte der Welt und beschriftete die Orte mit Namen.',
+     type:'Sprache / Lesen',klasse:'1-2',
+     komps:[
+       {id:'D-3.1.1.2',fach:'Deutsch',title:'3.1.1.2 Sprechen – vorlesen und frei erzählen',klasse:'1-2',pk:false,why:['las → lesen','erzählte → erzählen']},
+       {id:'SU-3.1.2.1',fach:'Sachunterricht',title:'3.1.2.1 Sich im Raum orientieren',klasse:'1-2',pk:false,why:['Karte → orientieren / Raum']},
+       {id:'D-3.1.1.3',fach:'Deutsch',title:'3.1.1.3 Leseverstehen, Schreiben',klasse:'1-2',pk:false,why:['beschriftete → schreiben']}
+     ],
+     wild:['Echte, sinnliche Erfahrung'],monte:['Polarisation der Aufmerksamkeit','Freie Wahl der Arbeit'],savedAt:new Date().toISOString()},
+    {id:'seed3',kidId:'k-lena',date:d(4),title:'Streit mit Freundin geklärt',
+     desc:'Es gab Streit mit einer Freundin um die Stifte. Danach haben beide gesprochen, sich versöhnt und zusammen weitergespielt.',
+     type:'Soziales / Gemeinschaft',klasse:'1-2',
+     komps:[
+       {id:'D-3.1.5',fach:'Deutsch',title:'3.1.5 Kinder spielen und agieren',klasse:'1-2',pk:false,why:['gespielt','Streit → Konflikt / sozial']},
+       {id:'SU-3.1.4.2',fach:'Sachunterricht',title:'3.1.4.2 Zusammen leben und Konflikte lösen',klasse:'1-2',pk:false,why:['Streit → Konflikt','versöhnt → Konflikt / sozial']}
+     ],
+     wild:['Konflikt wurde selbst gelöst'],monte:[],savedAt:new Date().toISOString()}
+  ];
+  devObs={'k-lena':{'Kognition':[{date:d(0),text:'Vergleicht Größen sicher und korrigiert eigene Planungen selbstständig.'}]}};
+  store();
+}
 /* ═══════════ AKTIONEN ═══════════ */
 function pickKid(id){selKid=id;store();hideFcard();renderKids();renderScene()}
 function addKid(){
@@ -766,6 +814,7 @@ function spawnPollen(){
 /* ═══════════ INIT ═══════════ */
 async function init(){
   document.getElementById('f-date').value=new Date().toISOString().slice(0,10);
+  seedIfNeeded();
   restore();
   try{
     const r=await fetch('students.json');
@@ -781,7 +830,9 @@ async function init(){
   ta.addEventListener('input',()=>{ta.style.height='auto';ta.style.height=ta.scrollHeight+'px';renderSugg()});
   document.getElementById('f-klasse').addEventListener('change',renderSugg);
   renderKids();renderLegend();renderChips();renderSugg();renderScene();spawnPollen();
+  if(vSeeded())setTimeout(()=>toast('🌸 Beispiel-Blüten gepflanzt — klick eine Blüte an und sieh, WARUM sie welche Kompetenzen trägt'),1200);
 }
+function vSeeded(){try{return acts.some(a=>String(a.id).startsWith('seed'))}catch(e){return false}}
 init();
 </script>
 </body>
