@@ -927,29 +927,30 @@ function buildStatic(){
   staticGroup=new THREE.Group();scene.add(staticGroup);
   
   /* Insel als prozedurale Landmasse mit radialem Höhenfeld */
-  var islandRad=60;
+  var islandRad=80; // Größerer Radius für bessere Sichtbarkeit
   var islandGeo=new THREE.CircleGeometry(islandRad,64);
   var islandMat=new THREE.MeshStandardMaterial({map:TEX.ground,roughness:1});
   var island=new THREE.Mesh(islandGeo,islandMat);
   island.rotation.x=-Math.PI/2;island.receiveShadow=true;staticGroup.add(island);
   
-  /* Strandring */
-  var shoreGeo=new THREE.RingGeometry(islandRad-3,islandRad,64);
+  /* Deutlicherer Strandring */
+  var shoreGeo=new THREE.RingGeometry(islandRad,islandRad+8,64); // Außerhalb der Insel
   var shoreMat=new THREE.MeshStandardMaterial({color:0xe8d59c,roughness:1});
   var shore=new THREE.Mesh(shoreGeo,shoreMat);
   shore.rotation.x=-Math.PI/2;shore.position.y=0.01;shore.receiveShadow=true;staticGroup.add(shore);
   
-  /* Meer als große animierte Ebene */
-  var seaSize=200;
+  /* Meer als große animierte Ebene - weiter weg von der Insel */
+  var seaSize=300;
   var seaGeo=new THREE.PlaneGeometry(seaSize,seaSize,128,128);
   var seaMat=new THREE.MeshStandardMaterial({color:0x1e5fa7,roughness:0.9,metalness:0.1,transparent:true,opacity:0.85});
   var sea=new THREE.Mesh(seaGeo,seaMat);
-  sea.rotation.x=-Math.PI/2;sea.position.y=-0.5;staticGroup.add(sea);
+  sea.rotation.x=-Math.PI/2;sea.position.y=-1.0; // Tiefer positioniert
+  staticGroup.add(sea);
   
-  /* Wellenanimation durch Vertex-Displacement */
+  /* Wellenanimation durch sanftes Sinus-Rauschen */
   sea.material.onBeforeCompile=function(sh){
     sh.uniforms.uTime=uTime;
-    sh.vertexShader='uniform float uTime;\\n'+sh.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\\n#ifdef USE_UV\\nfloat wave=sin(uv.x*2.0+uTime*1.2)*sin(uv.y*1.8+uTime*0.9)*0.8;\\ntransformed.z+=wave;\\n#endif');
+    sh.vertexShader='uniform float uTime;\\n'+sh.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\\n#ifdef USE_UV\\nfloat wave=sin(uv.x*0.8+uTime*0.6)*sin(uv.y*0.6+uTime*0.4)*0.3;\\ntransformed.z+=wave;\\n#endif');
   };
  TREES.forEach(function(tc){buildTree(tc);});
   
