@@ -577,11 +577,8 @@ function renderScene3d(growComp){
   var ev=glEvid();
   var eh=document.getElementById('emptyHint');if(eh)eh.style.display=Object.keys(ev).length?'none':'';
   
-  /* Aktualisiere Wiesenfärbung bei Filterwechsel */
-  buildMeadow();
-  
   /* Aktualisiere Inselgröße basierend auf Anzahl Tätigkeiten */
-  updateIslandSize(ev);
+  // updateIslandSize(ev);
   
   /* Laub: ein InstancedMesh je Baum — Basislaub immer, Beleg-Laub extra */
  TREES.forEach(function(tc){
@@ -926,31 +923,52 @@ function updateIslandSize(ev){
 function buildStatic(){
   staticGroup=new THREE.Group();scene.add(staticGroup);
   
-  /* Insel als prozedurale Landmasse mit radialem Höhenfeld */
-  var islandRad=80; // Größerer Radius für bessere Sichtbarkeit
-  var islandGeo=new THREE.CircleGeometry(islandRad,64);
-  var islandMat=new THREE.MeshStandardMaterial({map:TEX.ground,roughness:1});
+  /* Organische Insel mit prozeduraler Form */
+  var islandSize=100;
+  var islandGeo=new THREE.PlaneGeometry(islandSize,islandSize,64,64);
+  var islandMat=new THREE.MeshStandardMaterial({map:TEX.ground,roughness:1,side:THREE.DoubleSide});
   var island=new THREE.Mesh(islandGeo,islandMat);
-  island.rotation.x=-Math.PI/2;island.receiveShadow=true;staticGroup.add(island);
+  island.rotation.x=-Math.PI/2;island.position.y=0.1;island.receiveShadow=true;
   
-  /* Deutlicherer Strandring */
-  var shoreGeo=new THREE.RingGeometry(islandRad,islandRad+8,64); // Außerhalb der Insel
-  var shoreMat=new THREE.MeshStandardMaterial({color:0xe8d59c,roughness:1});
-  var shore=new THREE.Mesh(shoreGeo,shoreMat);
-  shore.rotation.x=-Math.PI/2;shore.position.y=0.01;shore.receiveShadow=true;staticGroup.add(shore);
+  /* Organische Inselform durch Vertex-Displacement */
+  island.geometry.attributes.position.array.forEach(function(v,i){
+    if(i%3===2){ // Nur Y-Koordinaten
+      var x=island.geometry.attributes.position.array[i-2];
+      var z=island.geometry.attributes.position.array[i-1];
+      var dist=Math.sqrt(x*x+z*z)/islandSize*2;
+      if(dist>1.0){
+        island.geometry.attributes.position.array[i]=-5; // Unter Wasser
+      }else{
+        // Organische Küstenlinie mit Perlin-Rauschen
+        var noise=(Math.sin(x*0.1)+Math.cos(z*0.08)+Math.sin(x*0.05+z*0.07))*0.8;
+        var falloff=Math.pow(1-dist,1.5);
+        island.geometry.attributes.position.array[i]=noise*falloff*8;
+      }
+    }
+  });
+  island.geometry.attributes.position.needsUpdate=true;
+  island.geometry.computeVertexNormals();
+  staticGroup.add(island);
   
-  /* Meer als große animierte Ebene - weiter weg von der Insel */
-  var seaSize=300;
-  var seaGeo=new THREE.PlaneGeometry(seaSize,seaSize,128,128);
-  var seaMat=new THREE.MeshStandardMaterial({color:0x1e5fa7,roughness:0.9,metalness:0.1,transparent:true,opacity:0.85});
-  var sea=new THREE.Mesh(seaGeo,seaMat);
-  sea.rotation.x=-Math.PI/2;sea.position.y=-1.0; // Tiefer positioniert
-  staticGroup.add(sea);
+  /* Echtes Wasser mit Spiegelung */
+  var waterSize=islandSize*1.5;
+  var waterGeo=new THREE.PlaneGeometry(waterSize,waterSize,128,128);
+  var waterMat=new THREE.MeshStandardMaterial({
+    color:0x4a90e2,
+    roughness:0.2,
+    metalness:0.1,
+    transparent:true,
+    opacity:0.6,
+    side:THREE.DoubleSide
+  });
+  var water=new THREE.Mesh(waterGeo,waterMat);
+  water.rotation.x=-Math.PI/2;water.position.y=-0.2;
+  staticGroup.add(water);
   
-  /* Wellenanimation durch sanftes Sinus-Rauschen */
-  sea.material.onBeforeCompile=function(sh){
+  /* Sanfte Wellenanimation */
+  water.material.onBeforeCompile=function(sh){
     sh.uniforms.uTime=uTime;
-    sh.vertexShader='uniform float uTime;\\n'+sh.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\\n#ifdef USE_UV\\nfloat wave=sin(uv.x*0.8+uTime*0.6)*sin(uv.y*0.6+uTime*0.4)*0.3;\\ntransformed.z+=wave;\\n#endif');
+    sh.vertexShader='uniform float uTime;\\n'+sh.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\\n#ifdef USE_UV\\nfloat wave=(sin(uv.x*1.2+uTime*0.8)+sin(uv.y*0.9+uTime*0.6))*0.4;\\ntransformed.z+=wave;\\n#endif');
   };
  TREES.forEach(function(tc){buildTree(tc);});
   
