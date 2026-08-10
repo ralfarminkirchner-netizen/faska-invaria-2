@@ -31,8 +31,8 @@ canvas{display:block}
 .logo{display:flex;align-items:center;gap:9px;cursor:pointer;color:var(--text);font-weight:800;font-size:1rem;letter-spacing:-0.02em;white-space:nowrap}
 .logo img{width:30px;height:auto}
 .logo small{display:block;font-size:.58rem;font-weight:600;color:var(--text2);letter-spacing:.05em}
-.hdr-r{display:flex;gap:5px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.hdr-btn{padding:7px 13px;border-radius:24px;border:1.5px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font:600 12px var(--font);transition:all .2s;white-space:nowrap}
+.hdr-r{display:flex;gap:4px;align-items:center;flex-wrap:nowrap;justify-content:flex-end;min-width:0}
+.hdr-btn{padding:7px 11px;border-radius:24px;border:1.5px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font:600 11.5px var(--font);transition:all .2s;white-space:nowrap}
 .hdr-btn:hover{border-color:var(--blue);color:var(--blue)}
 .hdr-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
 .theme-btn{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
@@ -230,10 +230,16 @@ mark{background:rgba(189,24,42,.22);color:inherit;border-radius:3px;padding:0 2p
 .leg{position:fixed;z-index:15;left:14px;top:68px;display:flex;flex-direction:column;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 13px;box-shadow:var(--shadow);max-width:190px}
 .leg-i{display:flex;align-items:center;gap:7px;font-size:.66rem;color:var(--text2);font-weight:500}
 .leg-d{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.leg-l{width:17px;height:0;border-top:2px dashed;flex-shrink:0}
+.leg-sep{height:1px;background:var(--border);margin:3px 0}
 .leg .freeze{margin-top:6px;padding-top:6px;border-top:1px solid var(--border);font-size:.6rem;line-height:1.5;color:var(--green);font-weight:700}
 .load-err{position:fixed;inset:0;z-index:99;display:flex;align-items:center;justify-content:center;background:var(--bg)}
 .load-err>div{max-width:420px;text-align:center;padding:30px;font-size:.9rem;line-height:1.7}
 
+/* Neun Schaltflächen passen nicht in jede Breite — ab hier nur noch Symbole
+   (jede Schaltfläche trägt ein title-Attribut). */
+@media(max-width:1560px){ .logo small{display:none} }
+@media(max-width:1320px){ .hdr-btn .lbl{display:none} }
 @media(max-width:760px){
   .pnl{right:4px;top:60px;width:calc(100vw - 8px);max-height:calc(100vh - 120px)}
   .hdr{padding:0 8px}
@@ -241,8 +247,9 @@ mark{background:rgba(189,24,42,.22);color:inherit;border-radius:3px;padding:0 2p
   .hdr-btn .lbl{display:none}
   .logo{font-size:.8rem}.logo small{display:none}
   .leg{display:none}
-  .cyc-btn{padding:5px 7px;font-size:9.5px}
+  .cyc-btn{padding:5px 7px;font-size:9.5px;flex-shrink:0}
   .cyc-lbl{display:none}
+  .cyc{justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch}
   .bridge{grid-template-columns:1fr}
   .br-river{min-height:54px;margin:8px 0}
   .br-river::before{background:repeating-linear-gradient(90deg,transparent 0 16px,rgba(61,166,218,.22) 16px 18px)}
@@ -262,14 +269,15 @@ mark{background:rgba(189,24,42,.22);color:inherit;border-radius:3px;padding:0 2p
     <div>FASKA Invaria 2<small>LERNLANDSCHAFT · DER LENA-FALL</small></div>
   </div>
   <div class="hdr-r">
-    <button class="hdr-btn active" id="hbGarden" onclick="resetAll()">🌱 <span class="lbl">Garten</span></button>
-    <button class="hdr-btn" onclick="openBridge()">⇄ <span class="lbl">Übersetzung</span></button>
-    <button class="hdr-btn" onclick="openTeam()">👥 <span class="lbl">Team-Sitzung</span></button>
-    <button class="hdr-btn" onclick="openClaim()">🛡 <span class="lbl">Claim-Prüfung</span></button>
-    <button class="hdr-btn" onclick="openArch()">🏗 <span class="lbl">Architektur</span></button>
-    <button class="hdr-btn" onclick="openStudents()">📋 <span class="lbl">Elterngespräche</span></button>
-    <a class="hdr-btn" href="doku.html" style="text-decoration:none;display:inline-block">✏️ <span class="lbl">Dokumentation</span></a>
-    <button class="hdr-btn" onclick="openVoice()">🎙 <span class="lbl">Aufnahme</span></button>
+    <button class="hdr-btn active" id="hbGarden" onclick="resetAll()" title="Garten">🌱 <span class="lbl">Garten</span></button>
+    <button class="hdr-btn" id="hbWeb" onclick="toggleWeb()" title="Verbindungen — Herkunft und Bezug im ganzen Garten">🕸 <span class="lbl">Verbindungen</span></button>
+    <button class="hdr-btn" onclick="openBridge()" title="Übersetzung — Beobachtung ↔ Deutung">⇄ <span class="lbl">Übersetzung</span></button>
+    <button class="hdr-btn" onclick="openTeam()" title="Team-Sitzung — das Spannungsfeld">👥 <span class="lbl">Team-Sitzung</span></button>
+    <button class="hdr-btn" onclick="openClaim()" title="Claim-Prüfung — verbotene Behauptungsformen">🛡 <span class="lbl">Claim-Prüfung</span></button>
+    <button class="hdr-btn" onclick="openArch()" title="Architektur — der eingefrorene Kern">🏗 <span class="lbl">Architektur</span></button>
+    <button class="hdr-btn" onclick="openStudents()" title="Elterngespräche">📋 <span class="lbl">Elterngespräche</span></button>
+    <a class="hdr-btn" href="doku.html" style="text-decoration:none;display:inline-block" title="Dokumentation">✏️ <span class="lbl">Dokumentation</span></a>
+    <button class="hdr-btn" onclick="openVoice()" title="Aufnahme — gesprochene Beobachtung">🎙 <span class="lbl">Aufnahme</span></button>
     <button class="hdr-btn" onclick="exportJSON()" title="JSON-Export">📥</button>
     <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" title="Hell/Dunkel">🌙</button>
   </div>
@@ -292,12 +300,17 @@ mark{background:rgba(189,24,42,.22);color:inherit;border-radius:3px;padding:0 2p
   <div class="leg-i"><span class="leg-d" style="background:var(--red)"></span>Teamprüfung (Spannung)</div>
   <div class="leg-i"><span class="leg-d" style="background:var(--green)"></span>Umgebung · Ausrichtung</div>
   <div class="leg-i"><span class="leg-d" style="background:#5a5448"></span>Schlafende Knospe (Dormanz)</div>
+  <div class="leg-sep"></div>
+  <div class="leg-i"><span class="leg-l" style="border-color:var(--green)"></span>↑ Herkunft (parents)</div>
+  <div class="leg-i"><span class="leg-l" style="border-color:#7d8794"></span>↓ Bezug (references)</div>
+  <div class="leg-i"><span class="leg-l" style="border-color:var(--yellow);border-top-width:3px"></span>↓ Bezug über beide Ketten</div>
   <div class="freeze" id="freezeBadge">Freeze-Test …</div>
 </div>
 
 <div class="pnl" id="panel"><div class="pnl-in" id="panelContent"></div></div>
 <div class="tt" id="tt"><div class="ttn" id="ttn"></div><div class="ttd" id="ttd"></div></div>
 
+<div class="ovl" id="ovlWeb"><div class="ovl-card wide" id="ovlWebC"></div></div>
 <div class="ovl" id="ovlBridge"><div class="ovl-card wide" id="ovlBridgeC"></div></div>
 <div class="ovl" id="ovlTeam"><div class="ovl-card wide" id="ovlTeamC"></div></div>
 <div class="ovl" id="ovlClaim"><div class="ovl-card wide" id="ovlClaimC"></div></div>
@@ -340,6 +353,8 @@ const NEXT = {a1:'a2', a2:'b1', b1:'b2', b2:'b3', b3:'b4', b4:'b5', b5:'b6', b6:
 
 let DATA=null, P={}, KEY_BY_ID={}, plants={}, edges=[], buds=[];
 let hovered=null, selected=null, activeStep='encounter', dark=false;
+let webMode=false;     // Verbindungs-Modus: das ganze Geflecht auf einmal
+let focusKey=null;     // Pflanze, deren Verbindungen hervorgehoben sind
 let reviewStates={};   // user verdicts on relation evidence
 let selEntry=null;     // selected entry point in b3
 
@@ -385,11 +400,59 @@ function buildGarden(){
   edges=[];
   KEYS.forEach(k=>{
     const p=P[k];
+    /* Herkunft — provenance.parents: woraus ist dieses Pattern entstanden? */
     (p.provenance.parents||[]).forEach(pid=>{
       const pk=KEY_BY_ID[pid];
-      if(pk) edges.push({from:pk, to:k, style:EDGE_STYLE[k]||'flow'});
+      if(pk) edges.push({from:pk, to:k, kind:'herkunft', style:EDGE_STYLE[k]||'flow'});
+    });
+    /* Bezug — references: worauf stützt es sich, ohne daraus entstanden zu sein?
+       Genau hier liegt der Beleg des Entwicklungsknotens: er greift zurück
+       in Kette A. Ohne diese Kanten behauptet das Panel „zwei Ketten",
+       ohne dass der Garten es zeigt. */
+    (p.references||[]).forEach(rid=>{
+      const rk=KEY_BY_ID[rid];
+      if(rk && rk!==k && !edges.some(e=>e.from===rk&&e.to===k))
+        edges.push({from:rk, to:k, kind:'bezug'});
     });
   });
+  /* Kette-übergreifend? a* = Kette A, alles andere Kette B. */
+  edges.forEach(e=>{ e.cross = (e.from[0]==='a') !== (e.to[0]==='a'); });
+}
+/* Wie viele Verbindungen hängen an dieser Pflanze? */
+function edgeCount(k){
+  const c={herkunft:0, bezug:0};
+  edges.forEach(e=>{ if(e.from===k||e.to===k) c[e.kind]++; });
+  return c;
+}
+/* Geometrie einer Kante — eine Quelle der Wahrheit für Linie,
+   Partikel und Treffererkennung. */
+function edgeGeom(e,W,H){
+  const a=plants[e.from], b=plants[e.to];
+  const ax=a.x*W, ay=a.y*H-a.r*.4, bx=b.x*W, by=b.y*H-b.r*.4;
+  const mx=(ax+bx)/2;
+  const my = e.kind==='bezug'
+    ? Math.min(H*.80-16, Math.max(ay,by)+34+Math.abs(bx-ax)*.05)
+    : Math.min(ay,by)-34-Math.abs(bx-ax)*.08;
+  return {ax,ay,mx,my,bx,by};
+}
+function edgeStroke(e){
+  const boost = webMode?1.9:1;
+  if(e.kind==='bezug'){
+    /* Der kettenübergreifende Bezug ist der Beleg des Entwicklungsknotens —
+       er trägt deshalb dessen Gold. */
+    return e.cross
+      ? {h:HUES.yellow, s:64, br:dark?88:70, al:44*boost, w:2.0, dash:[2,6]}
+      : {h:215, s:26, br:dark?70:56, al:30*boost, w:1.5, dash:[2,6]};
+  }
+  if(e.style==='tension')  return {h:HUES.red,    s:58, br:dark?70:56, al:42*boost, w:2.0, dash:[7,9]};
+  if(e.style==='gold')     return {h:HUES.yellow, s:66, br:dark?92:74, al:46*boost, w:2.2, dash:[7,9]};
+  if(e.style==='dormant')  return {h:215,         s:20, br:dark?64:52, al:34*boost, w:1.5, dash:[3,7]};
+  return {h:105, s:34, br:dark?66:52, al:34*boost, w:1.6, dash:[7,9]};
+}
+/* >1 hervorgehoben, <1 zurückgenommen, 1 normal */
+function edgeFocus(e){
+  if(!focusKey) return 1;
+  return (e.from===focusKey||e.to===focusKey) ? 2.2 : .22;
 }
 function hueFor(k,p){
   if(k==='bd') return 215;
@@ -403,7 +466,8 @@ function hueFor(k,p){
 /* ═══════════════ P5-GARTEN ═══════════════ */
 const sketch=p=>{
   const parts=[], amb=[];
-  edges.forEach(e=>{ for(let i=0;i<3;i++) parts.push({e, t:Math.random(), sp:.0016+Math.random()*.0022, sz:2+Math.random()*2.4}); });
+  edges.forEach(e=>{ const n=e.kind==='bezug'?2:3;
+    for(let i=0;i<n;i++) parts.push({e, t:Math.random(), sp:.0016+Math.random()*.0022, sz:2+Math.random()*2.4}); });
   for(let i=0;i<26;i++) amb.push({x:Math.random(), y:Math.random()*.7, sp:.00006+Math.random()*.00016, ph:Math.random()*6.28, sz:1.4+Math.random()*2.4});
 
   function resize(){ p.resizeCanvas(window.innerWidth, window.innerHeight-108); }
@@ -415,6 +479,9 @@ const sketch=p=>{
   p.draw=()=>{
     if(!DATA) return;
     const W=p.width, H=p.height, t=p.millis();
+    /* Worauf sich das Geflecht gerade konzentriert: erst der Zeiger,
+       sonst die gewählte Pflanze. */
+    focusKey = hovered ? hovered.key : (selected ? selected.key : null);
     /* Himmel */
     if(dark){ p.background(38,18,10); for(let i=0;i<H;i++){p.stroke(38,18,10+4*(1-i/H));p.line(0,i,W,i);} }
     else{ p.background(44,14,99); for(let i=0;i<H;i++){p.stroke(44,16-6*(i/H),99-3*(i/H));p.line(0,i,W,i);} }
@@ -454,34 +521,37 @@ const sketch=p=>{
     p.text('KETTE B · STALLBOX · JUNI', W*.47, gY+H*.055);
     p.text('HALBJAHRESRÜCKBLICK', kx, gY+H*.055);
 
-    /* Kanten (provenance parents → child) */
+    /* ── Beziehungsgeflecht ──────────────────────────────────────────
+       Zwei Arten von Verbindung, zwei Wege durch den Garten:
+       Herkunft schwingt nach OBEN (woraus etwas entstand),
+       Bezug schwingt nach UNTEN (worauf es sich stützt).      */
     edges.forEach(e=>{
-      const a=plants[e.from], b=plants[e.to];
-      const ax=a.x*W, ay=a.y*H-a.r*.4, bx=b.x*W, by=b.y*H-b.r*.4;
-      const mx=(ax+bx)/2, my=Math.min(ay,by)-34-Math.abs(bx-ax)*.08;
-      let h=105,s=28,br=64,al=16,w=1.4;
-      if(e.style==='tension'){ h=HUES.red; s=55; br=58; al=24; w=2; }
-      if(e.style==='gold'){ h=HUES.yellow; s=62; br=86; al=26; w=2.2; }
-      if(e.style==='dormant'){ h=215; s=18; br=52; al=20; w=1.4; }
-      p.noFill(); p.stroke(h,s,br,al); p.strokeWeight(w);
-      p.drawingContext.setLineDash(e.style==='dormant'?[3,7]:[7,9]);
-      p.beginShape(); p.vertex(ax,ay); p.quadraticVertex(mx,my,bx,by); p.endShape();
+      const g=edgeGeom(e,W,H), f=edgeFocus(e);
+      const st=edgeStroke(e);
+      p.noFill(); p.stroke(st.h, st.s, st.br, st.al*f); p.strokeWeight(st.w*(f>1?1.5:1));
+      p.drawingContext.setLineDash(st.dash);
+      p.beginShape(); p.vertex(g.ax,g.ay); p.quadraticVertex(g.mx,g.my,g.bx,g.by); p.endShape();
       p.drawingContext.setLineDash([]);
+      /* Beschriftung im Verbindungs-Modus und beim Fokus */
+      if((webMode||f>1) && (e.cross||f>1)){
+        const mid=qbez({x:g.ax,y:g.ay},{x:g.mx,y:g.my},{x:g.bx,y:g.by},.5);
+        p.noStroke(); p.textAlign(p.CENTER); p.textSize(8.2);
+        p.stroke(dark?'rgba(26,24,20,.85)':'rgba(254,252,247,.92)'); p.strokeWeight(3.4);
+        p.fill(st.h, 60, dark?78:46, Math.min(95, st.al*f*3.2));
+        p.text(e.kind==='bezug'?'Bezug':'Herkunft', mid.x, mid.y-4);
+        p.noStroke();
+      }
     });
 
-    /* Partikel auf den Kanten */
+    /* Partikel auf den Kanten — sie machen die Richtung sichtbar */
     parts.forEach(pt=>{
-      pt.t=(pt.t+pt.sp)%1;
-      const a=plants[pt.e.from], b=plants[pt.e.to];
-      const ax=a.x*W, ay=a.y*H-a.r*.4, bx=b.x*W, by=b.y*H-b.r*.4;
-      const mx=(ax+bx)/2, my=Math.min(ay,by)-34-Math.abs(bx-ax)*.08;
-      const pos=qbez({x:ax,y:ay},{x:mx,y:my},{x:bx,y:by},pt.t);
-      let h=105,s=60,br=85;
-      if(pt.e.style==='tension'){h=HUES.red;s=70;br=72}
-      if(pt.e.style==='gold'){h=HUES.yellow;s=78;br=95}
-      if(pt.e.style==='dormant'){h=215;s=22;br=70}
-      p.noStroke(); p.fill(h,s,br, 30+26*Math.sin(t*.004+pt.t*12));
-      p.circle(pos.x,pos.y,pt.sz);
+      const f=edgeFocus(pt.e);
+      pt.t=(pt.t+pt.sp*(pt.e.kind==='bezug'?.6:1))%1;
+      const g=edgeGeom(pt.e,W,H);
+      const pos=qbez({x:g.ax,y:g.ay},{x:g.mx,y:g.my},{x:g.bx,y:g.by},pt.t);
+      const st=edgeStroke(pt.e);
+      p.noStroke(); p.fill(st.h, st.s+14, st.br+8, (26+24*Math.sin(t*.004+pt.t*12))*f);
+      p.circle(pos.x,pos.y,pt.sz*(f>1?1.5:1));
     });
 
     /*ambienter Blütenstaub */
@@ -496,6 +566,19 @@ const sketch=p=>{
     const order=KEYS.slice().sort((k1,k2)=>plants[k1].y-plants[k2].y);
     buds=[];
     order.forEach(k=>drawPlant(k,W,H,t));
+
+    /* Nachbarschaft: alles, was mit der fokussierten Pflanze verbunden ist */
+    if(focusKey){
+      const nb=new Set();
+      edges.forEach(e=>{ if(e.from===focusKey) nb.add(e.to); else if(e.to===focusKey) nb.add(e.from); });
+      nb.forEach(k=>{
+        const n=plants[k];
+        p.noFill(); p.stroke(n.hue,55,dark?82:64,44+14*Math.sin(t*.004));
+        p.strokeWeight(1.6); p.drawingContext.setLineDash([3,6]);
+        p.circle(n.x*W, n.y*H-n.r*.35, n.r*2+14);
+        p.drawingContext.setLineDash([]);
+      });
+    }
 
     /* Auswahl-Ring */
     if(selected){
@@ -533,7 +616,8 @@ const sketch=p=>{
     const pulse=1+.03*Math.sin(t*.002+px*.01);
 
     if(k==='kn'){ drawKnoten(px,py,W,H,t); label(px,py+64,'Entwicklungsknoten','Aussichtspunkt · kein Abschluss',true); return; }
-    if(k==='bd'){ drawDormant(px,py,s,t); label(px,py+26,'Bewusst offen gelassen','schlafende Knospe'); return; }
+    /* Label über die Knospe — unterhalb läuft die Ketten-Beschriftung im Boden */
+    if(k==='bd'){ drawDormant(px,py,s,t); label(px,py-62,'Bewusst offen gelassen','schlafende Knospe'); return; }
 
     roots(px,py,pl.r*s);
     const hgt=(52+62*s)*(k==='b1'?1.12:1);
@@ -627,7 +711,7 @@ const sketch=p=>{
         p.fill(48,85,100, 55+35*Math.sin(t*.006));
         p.circle(px+17*s,topy+8*s,5+2*Math.sin(t*.008));
         p.textAlign(p.CENTER); p.textSize(7.6); p.fill(HUES.blue,60,55,85);
-        p.text('Nachbarkind',nx,py+12);
+        p.text('Nachbarkind',nx+8,py-4);   /* nicht ins Hauptlabel bei py+20 laufen */
       }
     }
 
@@ -658,8 +742,10 @@ const sketch=p=>{
     p.endShape();
     /* Beide Lesarten — bleiben stehen */
     p.noStroke(); p.textAlign(p.CENTER); p.textSize(7.6);
-    p.fill(HUES.blue,65,58,90); p.text('Größenvergleich',px-sw-6,mY-13*s-6);
-    p.fill(HUES.red,65,58,90);  p.text('Erzählhandlung',px+sw+6,iY-13*s-6);
+    /* weit genug auseinander, sonst verschmelzen die beiden Lesarten
+       ausgerechnet dort, wo sie getrennt bleiben sollen */
+    p.fill(HUES.blue,65,58,90); p.text('Größenvergleich',px-sw-40,mY-13*s-8);
+    p.fill(HUES.red,65,58,90);  p.text('Erzählhandlung',px+sw+40,iY-13*s-8);
     p.fill(HUES.red,70,64, 60+30*Math.sin(t*.005)); p.textSize(9); p.text('⚡',px,zy-12);
     /* Teilnehmer-Gewichte */
     p.textSize(7); p.fill(dark?'rgba(232,226,212,.55)':'rgba(45,36,18,.5)');
@@ -748,8 +834,10 @@ const sketch=p=>{
       if(f){
         const proj=DATA.profile.projection_names[f.p.pattern_type];
         document.getElementById('ttn').textContent=(f.key==='kn'?'Aussichtspunkt':proj)+' · '+TITLES[f.key];
+        const ec=edgeCount(f.key);
         document.getElementById('ttd').textContent=
-          'Geltungsdeckel: '+f.p.claim_ceiling+(f.p.contested?' · umstritten':'')+(f.key==='bd'?' · rejected (geschützt)':'');
+          'Geltungsdeckel: '+f.p.claim_ceiling+(f.p.contested?' · umstritten':'')+(f.key==='bd'?' · rejected (geschützt)':'')+
+          ' — '+ec.herkunft+'× Herkunft, '+ec.bezug+'× Bezug';
         tt.style.left=(p.mouseX+16)+'px'; tt.style.top=(p.mouseY-46)+'px'; tt.classList.add('on');
       } else tt.classList.remove('on');
     } else if(f){
@@ -847,7 +935,7 @@ function renderRelation(k,p){
   const st=reviewStates[k]||'unpr';
   const elems=p.elements.map(e=>{
     const isRef=e.type==='referenz';
-    return '<div class="rc" style="margin-bottom:6px"><div class="rc-head"><span class="rc-title">'+esc(e.role)+'</span><span class="badge '+(isRef?'b-b':'b-y')+'">'+esc(e.type)+'</span></div><div class="mono">'+esc(e.id.startsWith('bildungsplan')?e.id:e.id.slice(0,13)+'…')+'</div></div>';
+    return '<div class="rc" style="margin-bottom:6px"><div class="rc-head"><span class="rc-title">'+esc(e.role)+'</span><span class="badge '+(isRef?'b-blue':'b-y')+'">'+esc(e.type)+'</span></div><div class="mono">'+esc(e.id.startsWith('bildungsplan')?e.id:e.id.slice(0,13)+'…')+'</div></div>';
   }).join('');
   return panelHead(k)+
     sec('🔗 Elemente dieser Verbindung',elems)+
@@ -1072,6 +1160,59 @@ function pickEntry(k,i,el){
   toast('Einstiegspunkt ausgewählt — niedrigschwellig & reversibel.');
 }
 
+/* ═══════════════ BEZIEHUNGSGEFLECHT ═══════════════
+   Die Verbindungen stehen nicht im Text — sie stehen in den Daten:
+   provenance.parents (Herkunft) und references (Bezug). Dieser Modus
+   zieht beide ans Licht. */
+function toggleWeb(){
+  webMode=!webMode;
+  document.getElementById('hbWeb').classList.toggle('active',webMode);
+  if(webMode){ renderWeb(); document.getElementById('ovlWeb').classList.add('on'); }
+  else{ closeOvl('ovlWeb'); toast('Verbindungs-Modus aus'); }
+}
+function chainOf(k){ return k[0]==='a'?'A':'B'; }
+function renderWeb(){
+  const herk=edges.filter(e=>e.kind==='herkunft'), bez=edges.filter(e=>e.kind==='bezug');
+  const cross=edges.filter(e=>e.cross);
+  const rule=DATA.profile.chains.entwicklungsknoten;
+  const knChains=[...new Set((P.kn.references||[]).map(r=>KEY_BY_ID[r]).filter(Boolean).map(chainOf))].sort();
+  const row=e=>{
+    /* volle Titel — „Regalbau" allein trifft zwei verschiedene Patterns */
+    const t=k=>esc(TITLES[k]);
+    const isBez=e.kind==='bezug';
+    const col   = isBez ? (e.cross?HEX.yellow:'#7d8794') : HEX.green;
+    const bCls  = isBez ? (e.cross?'b-y':'b-n') : 'b-g';
+    const bText = isBez ? (e.cross?'Bezug · Kette A↔B':'Bezug') : 'Herkunft';
+    const field = isBez ? 'references' : 'provenance.parents';
+    return '<div class="rc" style="margin-bottom:5px;border-left:3px solid '+col+'">'+
+      '<div class="rc-head"><span class="rc-title">'+t(e.from)+' → '+t(e.to)+'</span>'+
+      '<span class="badge '+bCls+'">'+bText+'</span></div>'+
+      '<div class="mono">'+field+' · Kette '+chainOf(e.from)+' → Kette '+chainOf(e.to)+'</div></div>';
+  };
+  document.getElementById('ovlWebC').innerHTML=
+    '<button class="close" onclick="toggleWeb()">×</button>'+
+    '<h2>🕸 Das Beziehungsgeflecht</h2>'+
+    '<div class="sub">Der Garten zeigt jetzt <b>beide</b> Arten von Verbindung. Sie sind nicht erfunden — sie stehen als Felder in jedem Pattern.</div>'+
+    '<div class="grid2" style="margin-bottom:14px">'+
+      '<div class="out-card o-g"><h5>↑ Herkunft — '+herk.length+' Verbindungen</h5>'+
+        '<span class="mono">provenance.parents</span><br>Woraus ist dieses Pattern entstanden? Diese Bögen schwingen im Garten nach <b>oben</b>.</div>'+
+      '<div class="out-card o-b"><h5>↓ Bezug — '+bez.length+' Verbindungen</h5>'+
+        '<span class="mono">references</span><br>Worauf stützt es sich, ohne daraus entstanden zu sein? Diese Bögen schwingen nach <b>unten</b>.</div>'+
+    '</div>'+
+    '<div class="out-card o-y" style="margin-bottom:14px"><h5>🔭 Der Beleg des Entwicklungsknotens</h5>'+
+      'Das Profil verlangt <span class="mono">requires_multiple_sources: '+rule.requires_multiple_sources+'</span> und '+
+      '<span class="mono">min_referenced_chains: '+rule.min_referenced_chains+'</span>. '+
+      'Der Knoten referenziert Ketten <b>'+knChains.join(' und ')+'</b> — '+
+      (knChains.length>=rule.min_referenced_chains
+        ? '<b style="color:var(--green)">erfüllt.</b>'
+        : '<b style="color:var(--red)">verletzt.</b>')+
+      '<br><br>Bisher stand das nur im Panel. Jetzt trägt der Garten es: '+cross.length+' goldene Bögen laufen quer '+
+      'von Kette A (Regalbau, Mai) zum Aussichtspunkt. <b>Ohne sie wäre der Knoten eine Behauptung.</b></div>'+
+    '<h3 style="font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;color:var(--green);margin:4px 0 8px;font-weight:800">Alle '+edges.length+' Verbindungen</h3>'+
+    edges.slice().sort((x,y)=>(y.cross?1:0)-(x.cross?1:0)).map(row).join('')+
+    '<div class="br-note">Zeiger auf eine Pflanze legen — dann tritt ihr Geflecht hervor und alles andere tritt zurück.</div>';
+}
+
 /* ═══════════════ ÜBERSETZUNGS-BRÜCKE ═══════════════ */
 let bridgeTab='b1';
 function openBridge(tab){
@@ -1163,7 +1304,7 @@ function renderClaim(){
     '<button class="close" onclick="closeOvl(\'ovlClaim\')">×</button>'+
     '<h2>🛡 Claim-Prüfung — der Kernbeweis der Architektur</h2>'+
     '<div class="sub">Tippen Sie eine Aussage über ein Kind. Das System prüft <b>live</b> gegen die vier verbotenen Behauptungsformen des FASKA-Profils.</div>'+
-    '<textarea class="claim-in" id="claimIn" placeholder="z. B. „Dieses Kind ist mathematisch kompetent."" oninput="checkClaim()"></textarea>'+
+    '<textarea class="claim-in" id="claimIn" placeholder="z. B. &bdquo;Dieses Kind ist mathematisch kompetent.&ldquo;" oninput="checkClaim()"></textarea>'+
     '<div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px">'+
       ['Dieses Kind ist mathematisch kompetent.','Sie besitzt eine Kompetenz im Größenvergleich.','Sie ist ein typischer Lerntyp: visuell.','Hier zeigt sich ein Defizit im Bereich Konzentration.','Sie hat das Modell neben die Seitenwand gehalten.'].map(s=>
         '<button class="mini-btn" onclick="document.getElementById(\'claimIn\').value=this.textContent;checkClaim()">'+esc(s)+'</button>').join('')+
@@ -1435,6 +1576,7 @@ function resetAll(){
   closePnl();
   document.querySelectorAll('.ovl').forEach(o=>o.classList.remove('on'));
   stopVoice();
+  webMode=false;
   activeStep='encounter'; updateCyc();
   document.querySelectorAll('.hdr-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('hbGarden').classList.add('active');
@@ -1457,7 +1599,24 @@ function exportJSON(){
 function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2800); }
 
 /* ── Start ── */
-loadData().then(()=>{ new p5(sketch); updateCyc(); });
+loadData().then(()=>{
+  if(typeof p5==='undefined'){
+    /* p5 kommt von einem CDN. In Netzen, die es sperren, blieb hier bisher
+       eine leere Fläche ohne Erklärung. Die Panels funktionieren weiter. */
+    const d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:var(--nav-h) 0 var(--cycle-h) 0;z-index:1;display:flex;'+
+      'align-items:center;justify-content:center;text-align:center;padding:24px';
+    d.innerHTML='<div style="max-width:430px"><div style="font-size:2.2rem;margin-bottom:10px">🌱</div>'+
+      '<b>Der Garten braucht p5.js.</b><br><span style="font-size:.82rem;line-height:1.7;color:var(--text2)">'+
+      'Die Bibliothek wird von einem CDN geladen und ist hier nicht erreichbar — '+
+      'in manchen Schulnetzen ist cdnjs.cloudflare.com gesperrt. '+
+      'Alle Inhalte bleiben nutzbar: Übersetzung, Claim-Prüfung, Team-Sitzung und Architektur '+
+      'öffnen sich weiterhin über die Leiste oben.</span></div>';
+    document.body.appendChild(d);
+    updateCyc(); return;
+  }
+  new p5(sketch); updateCyc();
+});
 </script>
 </body>
 </html>
