@@ -28,25 +28,40 @@ button{font-family:inherit}
 #welt{position:fixed;inset:0;z-index:1}
 #schilder{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
 
-/* ── Schilder über den Objekten ── */
-.schild{position:absolute;transform:translate(-50%,0);text-align:center;pointer-events:auto;
-  cursor:pointer;white-space:nowrap;transition:opacity .25s}
-.schild .n{font:800 12.5px var(--font);letter-spacing:-.01em;color:#22 1a0c;
-  color:#241c0d;text-shadow:0 1px 0 rgba(255,253,247,.85),0 0 9px rgba(255,253,247,.95)}
-.schild .u{font:600 9.6px var(--font);color:#6b5d43;
-  text-shadow:0 1px 0 rgba(255,253,247,.85),0 0 8px rgba(255,253,247,.95)}
-.schild .pin{width:7px;height:7px;border-radius:50%;margin:0 auto 4px;box-shadow:0 0 0 3px rgba(255,253,247,.7)}
-.schild:hover .n{color:#000}
-.schild.fern{opacity:.42}
+/* ── Beschriftung ─────────────────────────────────────────────────
+   Nadel am Objekt, Fähnchen in einer Spalte rechts, Leine dazwischen.
+   Zwölf Fähnchen direkt über den Objekten überdecken die Inseln, die
+   sie erklären sollen. In der Spalte, nach Bildhöhe sortiert, kreuzen
+   sich die Leinen nicht — und der Turm bleibt frei.               */
+#leinen{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+#leinen path{fill:none;stroke:rgba(43,35,20,.3);stroke-width:1.4}
+
+.nadel{position:absolute;width:10px;height:10px;border-radius:50%;pointer-events:none;
+  transform:translate(-50%,-50%);opacity:var(--o,1);
+  box-shadow:0 0 0 2.5px rgba(255,253,247,.95),0 1px 5px rgba(50,38,16,.32);transition:opacity .22s}
+.schild{position:absolute;transform:translateY(-50%);white-space:nowrap;pointer-events:auto;
+  cursor:pointer;padding:4px 12px 5px;border-radius:12px;opacity:var(--o,1);
+  background:rgba(255,253,247,.92);backdrop-filter:blur(6px);
+  border:1px solid rgba(231,223,205,.95);border-left:3px solid var(--pf,var(--rand));
+  box-shadow:0 2px 9px rgba(50,38,16,.12);
+  transition:opacity .22s,background .18s,border-color .18s}
+.schild:hover{background:#fff;box-shadow:0 4px 16px rgba(50,38,16,.2)}
+.schild .n{font:800 12.4px var(--font);letter-spacing:-.012em;color:#241c0d}
+.schild .u{font:600 9.4px var(--font);color:#6b5d43;margin-top:1px}
+.schild.fern,.nadel.fern{opacity:calc(var(--o,1) * .26)}
+.schild.wach{background:#fff;border-color:var(--blau)}
+@media(max-width:900px){ .schild .u{display:none} .schild{padding:3px 9px 4px} .schild .n{font-size:11.2px} }
 
 /* ── Ebenen-Tafeln in der Luft ── */
-.etage{position:absolute;transform:translate(-50%,-50%);pointer-events:none;
+.etage{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;cursor:pointer;
   font:800 10.5px var(--font);letter-spacing:.14em;text-transform:uppercase;
-  padding:5px 12px;border-radius:14px;background:rgba(255,253,247,.82);
-  backdrop-filter:blur(6px);box-shadow:0 2px 10px rgba(50,38,16,.14);white-space:nowrap}
+  padding:6px 13px;border-radius:15px;background:rgba(255,253,247,.9);
+  backdrop-filter:blur(8px);box-shadow:0 2px 12px rgba(50,38,16,.15);white-space:nowrap;
+  border:1px solid rgba(231,223,205,.9);border-left-width:4px;transition:transform .18s}
+.etage:hover{transform:translate(-50%,-50%) scale(1.035)}
 .etage small{display:block;font:600 8.6px var(--font);letter-spacing:.04em;text-transform:none;
   color:var(--tinte2);margin-top:1px}
-.etage.leer{background:rgba(255,240,240,.9);border:1.5px dashed var(--rot);color:var(--rot)}
+.etage.leer{background:rgba(255,242,242,.93);border:1.5px dashed var(--rot);color:var(--rot)}
 
 /* ── Kopfleiste ── */
 .kopf{position:fixed;z-index:30;top:0;left:0;right:0;height:var(--kopf);display:flex;
@@ -218,7 +233,9 @@ mark{background:rgba(189,24,42,.22);border-radius:3px;padding:0 3px;color:inheri
   cursor:pointer;font:700 11px var(--font)}
 .mbtn:hover{border-color:var(--blau);color:var(--blau)}
 
-.hinweis{position:fixed;z-index:70;top:74px;left:50%;transform:translateX(-50%) translateY(-8px);
+/* unten über dem Umsichts-Schalter — oben steht die leere Insel, und die
+   ist das Erste, was man sehen soll */
+.hinweis{position:fixed;z-index:70;bottom:80px;left:50%;transform:translateX(-50%) translateY(8px);
   background:var(--tinte);color:var(--creme);padding:11px 22px;border-radius:24px;
   font:700 12.4px var(--font);opacity:0;transition:all .3s;pointer-events:none;max-width:86vw;text-align:center}
 .hinweis.auf{opacity:1;transform:translateX(-50%)}
@@ -231,10 +248,17 @@ mark{background:rgba(189,24,42,.22);border-radius:3px;padding:0 3px;color:inheri
 @media(max-width:900px){ .leiste{width:186px;left:10px} .kbtn .txt{display:none} .kbtn{padding:8px 11px} }
 @media(max-width:620px){
   .marke i{display:none} .marke b{font-size:.82rem}
-  .leiste{width:auto} .st .t span{display:none} .leiste-f{display:none}
+  /* Schmal: die Leiter legt sich quer unter den Kopf und gibt die
+     Bildfläche frei — hochkant stünde sie mitten im Turm. */
+  .leiste{width:auto;left:8px;right:8px;display:flex}
+  .leiste-k,.leiste-f{display:none}
+  .st{flex:1;flex-direction:column;gap:3px;padding:7px 3px;text-align:center;min-width:0}
+  .st .z{width:21px;height:21px}
+  .st .t{width:100%} .st .t span{display:none}
+  .st .t b{font-size:9.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .umsicht{bottom:12px;gap:9px;padding:9px 12px} .schiene{width:112px} .ende small{display:none}
-  .tafel{width:100vw} .hinweis{top:auto;bottom:78px}
-  .schild .u{display:none}
+  .tafel{width:100vw} .hinweis{bottom:74px}
+  .etage{font-size:9.4px;padding:5px 10px} .etage small{display:none}
 }
 @media(prefers-reduced-motion:reduce){ *{animation-duration:.001ms!important;transition-duration:.001ms!important} }
 </style>
@@ -281,6 +305,16 @@ mark{background:rgba(189,24,42,.22);border-radius:3px;padding:0 3px;color:inheri
 const F = { blau:0x3da6da, rot:0xbd182a, orange:0xe25e2b, gruen:0x44a735, gelb:0xffce05 };
 const FH= { blau:'#3da6da', rot:'#bd182a', orange:'#e25e2b', gruen:'#44a735', gelb:'#ffce05' };
 const SCHIEFER = 0x8d8a83, SCHIEFER_H = '#8d8a83';
+
+/* ── Farbraum ──────────────────────────────────────────────────────
+   Der Renderer gibt in sRGB aus (outputEncoding). Three r128 rechnet
+   im Shader linear und konvertiert erst am Ende. Alle hier notierten
+   Hex-Werte sind aber sRGB-Literale (die Logofarben eben). Ohne
+   Umrechnung landen sie ungebremst im Linearraum und kommen zu hell
+   und entsättigt heraus — daher genau einmal hier umrechnen. */
+const SC = h => new THREE.Color(h).convertSRGBToLinear();
+/* Mischen zweier sRGB-Literale, Ergebnis wieder als sRGB-Literal */
+const mix = (a,b,t) => new THREE.Color(a).lerp(new THREE.Color(b), t).getHex();
 const TYP_F = { appearance:F.blau, relation:F.gelb, potential:F.orange, transition:F.orange,
   coordination:F.rot, embodiment:F.gruen, orientation:F.gruen, renewal:F.gelb, dormancy:SCHIEFER };
 const TYP_H = { appearance:FH.blau, relation:FH.gelb, potential:FH.orange, transition:FH.orange,
@@ -302,27 +336,70 @@ const UNTER = { a1:'Mai · Kette A', a2:'Mai · Kette A', b1:'Juni · Kette B', 
   b3:'Juni · Kette B', b4:'Juni · Kette B', b5:'05.06. · Kette B', bd:'abgelehnt · bewahrt',
   b6:'06.06. · Kette B', b7:'07.06. · Kette B', b8:'18.06. · Kette B', kn:'Kette A + B' };
 
-/* Platz auf der jeweiligen Insel: Winkel und Radius in Inselkoordinaten */
+/* Platz auf der jeweiligen Insel. kette/unten/mitte stehen fest —
+   Winkel und Radius rechnet jede Insel selbst aus (orteRechnen),
+   sonst drängeln sich die sieben Perspektiv-Patterns übereinander,
+   sobald die Objekte auf lesbare Größe wachsen. */
 const ORT = {
-  a1:{ w:-2.42, r:.56, kette:-1 },  a2:{ w:-2.30, r:.52, kette:-1 },
-  b1:{ w:-0.55, r:.60, kette: 1 },  b2:{ w: 0.35, r:.55, kette: 1 },
-  b3:{ w: 1.15, r:.62, kette: 1 },  b4:{ w: 2.05, r:.50, kette: 1 },
-  bd:{ w: 2.70, r:.74, kette: 1, unten:true },
-  b5:{ w:-0.70, r:.52, kette: 1 },  b6:{ w: 1.35, r:.55, kette: 1 },
-  b7:{ w: 2.62, r:.56, kette: 1 },  b8:{ w:-1.65, r:.60, kette: 1 },
-  kn:{ w: 0.00, r:.00, kette: 0 }
+  a1:{ kette:-1 },  a2:{ kette:-1 },
+  b1:{ kette: 1 },  b2:{ kette: 1 },  b3:{ kette: 1 },  b4:{ kette: 1 },
+  bd:{ kette: 1, unten:true },
+  b5:{ kette: 1 },  b6:{ kette: 1 },  b7:{ kette: 1 },  b8:{ kette: 1 },
+  kn:{ kette: 0, mitte:true }
 };
+const SKALA = 1.85;   /* Alle Pattern-Objekte — im Rohbau verschwanden sie neben den Inseln */
 
-/* ── Weltmaße ── */
-const HOEHE = [0, 30, 58, 84];               /* Höhe je Insel */
-const RADIUS= [46, 34, 25, 19];              /* Radius je Insel */
-const VERSATZ=[[0,0],[6,-4],[-5,5],[2,2]];   /* leichter Versatz, damit es nicht gestapelt wirkt */
+function orteRechnen(){
+  const proInsel={};
+  SCHL.forEach(k=>{ const i=NR[P[k].claim_ceiling]; (proInsel[i]=proInsel[i]||[]).push(k); });
+  Object.keys(proInsel).forEach(si=>{
+    const i=+si, alle=proInsel[si];
+    const ring=alle.filter(k=>!ORT[k].mitte);
+    /* Kette A zuerst, dann B: so spannen die goldenen Querkanten
+       sichtbar über die Insel statt sich zu verknäueln. */
+    ring.sort((x,y)=>ORT[x].kette-ORT[y].kette || SCHL.indexOf(x)-SCHL.indexOf(y));
+    const n=ring.length;
+    const rf=.30+Math.min(.34, n*.055);          /* mehr Patterns → weiter außen */
+    const start=[-2.45,-1.75,-0.65,0][i]||0;      /* je Insel anders angesetzt */
+    ring.forEach((k,j)=>{
+      ORT[k].w = start + j/n*Math.PI*2;
+      ORT[k].r = (ORT[k].unten? .70 : rf + ((j%2)? .05 : -.05));
+    });
+    alle.filter(k=>ORT[k].mitte).forEach(k=>{ ORT[k].w=0; ORT[k].r=0; });
+  });
+}
+
+/* ── Weltmaße ──────────────────────────────────────────────────────
+   Der senkrechte Abstand muss größer sein als der Felssockel der
+   Insel darüber, sonst stecken die Inseln ineinander und man sieht
+   von den Grasflächen nichts mehr. Sockeltiefe ≈ RADIUS·0.78.
+     Lücke 52 > Sockel 33 · Lücke 46 > 23 · Lücke 42 > 12          */
+const HOEHE = [0, 52, 98, 140];              /* Höhe je Insel */
+const RADIUS= [50, 44, 31, 24];              /* Radius je Insel — nach oben wird der Platz knapper */
+const VERSATZ=[[0,0],[17,-11],[-14,15],[6,-7]];  /* Versatz auf einer sanften Spirale */
+/* Himmel: oben kühl, am Horizont warmes Creme — die Hausfarbe */
+const HIMMEL_OBEN = 0xb7d7ee, HIMMEL_MITTE = 0xd9e9f2, HIMMEL_UNTEN = 0xfdf4e2;
+const MEER_Y = -212;                         /* Wasser weit unten: alle vier Inseln schweben */
+const MEER_R = 250;                          /* Lagune statt Weltmeer — sonst frisst der Horizont den Himmel */
+const ZIEL_Y = 58;                           /* Kamera-Zielhöhe im Insel-Modus */
 
 let DATEN=null, P={}, VON_ID={}, OBJ={}, KANTEN=[];
 let szene, kamera, renderer, uhr, wurzel;
 let gewaehlt=null, schwebt=null;
 let morph=1, zielMorph=1;
-let bahn={ gier:-0.6, nick:0.42, dist:210 }, zielBahn={ gier:-0.6, nick:0.42, dist:210 };
+/* nick flach halten: Höhe soll als Höhe lesbar bleiben, nicht als Draufsicht */
+const START={ gier:-0.62, nick:0.27, dist:436 };
+let bahn={...START}, zielBahn={...START};
+let zoomBeruehrt=false;   /* sobald der Nutzer selbst zoomt, mischt sich die Automatik nicht mehr ein */
+/* Der Turm misst vom Sockel der Basisinsel bis zur Torkrone rund 210
+   Einheiten. Der Abstand folgt daraus, nicht aus einem Fixwert — sonst
+   ragt er auf hohen, schmalen Schirmen in Kopf- und Fußleiste. */
+function passendeDistanz(){
+  const spanne=210, halbFov=36*Math.PI/360;
+  let d=(spanne*.72)/Math.tan(halbFov);
+  if(innerWidth<820) d*=1.2;            /* oben liegt dort die Querleiter */
+  return klemme(d, 300, 680);
+}
 const strahl=new THREE.Raycaster(), maus=new THREE.Vector2();
 let anklickbar=[], schilderEl={}, etagenEl=[];
 
@@ -345,13 +422,19 @@ function gelaende(x,z,radius,saat,amp){
 }
 
 /* ═══ Inselgeometrie: Polargitter mit Rock nach unten ═══ */
-function inselGeometrie(radius, amp, saat, kahl){
+function inselGeometrie(radius, amp, saat, kahl, stufe){
   const RINGE=26, SEKT=64, ROCK=9;
   const pos=[], col=[], idx=[];
-  const c_gras1=new THREE.Color(0x6fae46), c_gras2=new THREE.Color(0x548f39);
-  const c_sand =new THREE.Color(0xe3d3a8), c_fels1=new THREE.Color(0x8a7a63),
-        c_fels2=new THREE.Color(0x6a5c49), c_stein=new THREE.Color(0xa9a294);
-  const reihen=RINGE+ROCK+1;
+  /* Erdtöne ausschließlich aus den fünf Logofarben gemischt: Gras aus
+     Grün+Gelb, Sand aus Gelb+Creme, Fels aus Orange+Tinte. Dazu ein
+     Hauch der eigenen Geltungsfarbe im Fels — so trägt jede Insel ihre
+     Stufe auch als Farbe, nicht nur als Höhe. */
+  const c_gras1=SC(mix(F.gruen, F.gelb, .34));
+  const c_gras2=SC(mix(F.gruen, 0x2b2314, .30));
+  const c_sand =SC(mix(F.gelb, 0xfefcf7, .64));
+  const c_fels1=SC(mix(mix(mix(F.orange,0x2b2314,.42), stufe, .34), 0xd8c3a4, .18));
+  const c_fels2=SC(mix(mix(mix(F.orange,0x2b2314,.60), stufe, .26), 0xd8c3a4, .10));
+  const c_stein=SC(mix(0xe9e4d8, 0x2b2314, .30));   /* die leere Insel: Farbe entzogen */
 
   for(let i=0;i<=RINGE+ROCK;i++){
     for(let j=0;j<=SEKT;j++){
@@ -362,7 +445,7 @@ function inselGeometrie(radius, amp, saat, kahl){
         const x=Math.cos(a)*r, z=Math.sin(a)*r;
         y = gelaende(x,z,radius,saat,amp);
         const ufer = i/RINGE;
-        if(kahl){ c = c_stein.clone().lerp(c_fels1, rausch(x*.2+saat,z*.2)*0.5); }
+        if(kahl){ c = c_stein.clone().lerp(c_fels2, rausch(x*.2+saat,z*.2)*0.45); }
         else if(ufer>.9) c = c_sand.clone();
         else {
           const hoch=Math.min(1, y/(amp*.72));
@@ -374,17 +457,21 @@ function inselGeometrie(radius, amp, saat, kahl){
         const t=(i-RINGE)/ROCK;
         const zack = .82 + .18*rausch(a*2.4+saat, t*3);
         r = radius*(1-Math.pow(t,.72))*zack;
-        y = -Math.pow(t,.8)*radius*(kahl?.55:1.15) - amp*.1;
+        y = -Math.pow(t,.8)*radius*(kahl?.5:.78) - amp*.1;
         c = c_fels1.clone().lerp(c_fels2, t*.85 + rausch(a*3+saat,t*5)*.15);
       }
       pos.push(Math.cos(a)*r, y, Math.sin(a)*r);
       col.push(c.r,c.g,c.b);
     }
   }
+  /* Wicklung: a=(Ring i,Sektor j), b=(i,j+1), c=(i+1,j), d=(i+1,j+1).
+     Die Reihenfolge a,c,b hätte die Normalen nach UNTEN gedreht — dann
+     schneidet FrontSide die ganze Grasfläche weg und man sieht nur noch
+     von innen gegen den Felssockel. Deshalb a,b,c. */
   for(let i=0;i<RINGE+ROCK;i++){
     for(let j=0;j<SEKT;j++){
       const a=i*(SEKT+1)+j, b=a+1, c=a+(SEKT+1), d=c+1;
-      idx.push(a,c,b, b,c,d);
+      idx.push(a,b,c, b,d,c);
     }
   }
   const g=new THREE.BufferGeometry();
@@ -395,13 +482,27 @@ function inselGeometrie(radius, amp, saat, kahl){
   return g;
 }
 
+/* Ein Verlauf auf 2×256 Pixeln, als Hintergrundtextur. encoding sagt
+   dem Renderer, dass die Werte sRGB sind und dekodiert werden müssen. */
+function himmelVerlauf(){
+  const c=document.createElement('canvas'); c.width=2; c.height=256;
+  const g=c.getContext('2d'), v=g.createLinearGradient(0,0,0,256);
+  const h=n=>'#'+n.toString(16).padStart(6,'0');
+  v.addColorStop(0, h(HIMMEL_OBEN)); v.addColorStop(.56, h(HIMMEL_MITTE));
+  v.addColorStop(1, h(HIMMEL_UNTEN));
+  g.fillStyle=v; g.fillRect(0,0,2,256);
+  const t=new THREE.CanvasTexture(c);
+  t.encoding=THREE.sRGBEncoding; t.magFilter=THREE.LinearFilter; t.minFilter=THREE.LinearFilter;
+  return t;
+}
+
 /* ═══ Aufbau ═══ */
 function bauen(){
   szene=new THREE.Scene();
-  szene.background=new THREE.Color(0xdceaf3);
-  szene.fog=new THREE.Fog(0xdceaf3, 190, 460);
+  szene.background=himmelVerlauf();
+  szene.fog=new THREE.Fog(SC(HIMMEL_MITTE), 190, 460);  /* Nebel mischt im Shader → linear */
 
-  kamera=new THREE.PerspectiveCamera(42, innerWidth/innerHeight, 1, 1400);
+  kamera=new THREE.PerspectiveCamera(36, innerWidth/innerHeight, 1, 3600);
 
   renderer=new THREE.WebGLRenderer({antialias:true, alpha:false});
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
@@ -418,17 +519,19 @@ function bauen(){
   wurzel=new THREE.Group(); szene.add(wurzel);
 
   /* Licht */
-  szene.add(new THREE.HemisphereLight(0xdff0fb, 0x6b7f52, 0.72));
-  const sonne=new THREE.DirectionalLight(0xfff3d6, 1.5);
-  sonne.position.set(-90,140,70);
+  szene.add(new THREE.HemisphereLight(SC(0xdff0fb), SC(0x6b7f52), 0.72));
+  const sonne=new THREE.DirectionalLight(SC(0xfff3d6), 1.5);
+  sonne.position.set(-190,290,150);
   sonne.castShadow=true;
   sonne.shadow.mapSize.set(2048,2048);
+  /* Der Schattenkasten muss den ganzen Turm fassen: Sockel −45 bis Torbogen +165 */
   const s=sonne.shadow.camera;
-  s.left=-130; s.right=130; s.top=150; s.bottom=-60; s.near=20; s.far=420;
+  s.left=-190; s.right=190; s.top=250; s.bottom=-150; s.near=30; s.far=900;
   sonne.shadow.bias=-0.0012; sonne.shadow.normalBias=0.7;
   szene.add(sonne);
-  szene.add(new THREE.AmbientLight(0xfff6e6, 0.22));
+  szene.add(new THREE.AmbientLight(SC(0xfff6e6), 0.22));
 
+  orteRechnen();
   meerBauen();
   inselnBauen();
   objekteBauen();
@@ -440,12 +543,25 @@ function bauen(){
 /* ── Meer ── */
 let meer;
 function meerBauen(){
-  const g=new THREE.PlaneGeometry(1600,1600,60,60);
+  /* Ring statt Ebene: rund, damit keine Kante im Bild steht, und mit
+     genug Radialsegmenten, dass die Wellen etwas zu verschieben haben.
+     Der Rand wird per Vertexfarbe zum Himmel hin ausgeblendet — sonst
+     liegt eine harte Scheibenkante quer durchs Bild. */
+  const g=new THREE.RingGeometry(.5, MEER_R, 84, 20);
   g.rotateX(-Math.PI/2);
-  const m=new THREE.MeshStandardMaterial({ color:0x4f9fc4, roughness:.28, metalness:.05,
-    transparent:true, opacity:.9 });
+  const pos=g.attributes.position, col=[], c=new THREE.Color();
+  const tief=SC(0x2d7fae), flach=SC(0x74bcdc), luft=SC(HIMMEL_MITTE);
+  for(let i=0;i<pos.count;i++){
+    const d=Math.min(1, Math.hypot(pos.getX(i),pos.getZ(i))/MEER_R);
+    c.copy(tief).lerp(flach, Math.pow(d,.8));
+    if(d>.38) c.lerp(luft, Math.pow((d-.38)/.62, 1.25));
+    col.push(c.r,c.g,c.b);
+  }
+  g.setAttribute('color', new THREE.Float32BufferAttribute(col,3));
+  const m=new THREE.MeshStandardMaterial({ vertexColors:true, roughness:.32, metalness:.1,
+    side:THREE.DoubleSide });
   meer=new THREE.Mesh(g,m);
-  meer.position.y=-9; meer.receiveShadow=true;
+  meer.position.y=MEER_Y; meer.receiveShadow=true;
   wurzel.add(meer);
   meer.userData.grund=g.attributes.position.array.slice();
 }
@@ -464,8 +580,8 @@ const inseln=[];
 function inselnBauen(){
   STUFEN.forEach((st,i)=>{
     const leer = zaehle(st.id)===0;
-    const amp = leer ? 1.6 : 7.5 - i*1.1;
-    const g = inselGeometrie(RADIUS[i], amp, 11.7+i*4.3, leer);
+    const amp = leer ? 2.2 : 11 - i*1.6;
+    const g = inselGeometrie(RADIUS[i], amp, 11.7+i*4.3, leer, st.farbe);
     const mat = new THREE.MeshStandardMaterial({ vertexColors:true, roughness:.94, metalness:0,
       flatShading:true });
     const mesh=new THREE.Mesh(g,mat);
@@ -485,34 +601,39 @@ function inselnBauen(){
 /* Die leere Insel bekommt ein Tor, das zu ist. */
 let torRing=null, torSchloss=null;
 function verschlosseneInsel(grp, radius){
-  const stein=new THREE.MeshStandardMaterial({color:0xb9b2a4, roughness:.9, flatShading:true});
+  /* Das verschlossene Tor ist der Kernbeweis — es muss monumental
+     sein, nicht ein Detail auf der kleinsten Insel. Deshalb ein
+     eigener, hochskalierter Unterbau. */
+  const tor=new THREE.Group(); tor.scale.setScalar(1.55); grp.add(tor);
+  const stein=new THREE.MeshStandardMaterial({color:SC(mix(0xe9e4d8,0x2b2314,.16)), roughness:.92, flatShading:true});
   /* Steinkreis */
   for(let i=0;i<9;i++){
     const a=i/9*Math.PI*2;
-    const h=4+((i*37)%10)/3;
-    const q=new THREE.Mesh(new THREE.BoxGeometry(2.2,h,1.7), stein);
-    q.position.set(Math.cos(a)*radius*.6, h/2+1.4, Math.sin(a)*radius*.6);
+    const h=5.5+((i*37)%10)/2.4;
+    const q=new THREE.Mesh(new THREE.BoxGeometry(2.4,h,1.9), stein);
+    q.position.set(Math.cos(a)*radius*.42, h/2+1.2, Math.sin(a)*radius*.42);
     q.rotation.y=-a; q.rotation.z=((i*53)%7-3)/60;
-    q.castShadow=true; q.receiveShadow=true; grp.add(q);
+    q.castShadow=true; q.receiveShadow=true; tor.add(q);
   }
-  /* Torbogen */
-  const bogen=new THREE.Mesh(new THREE.TorusGeometry(6.2,.85,10,40,Math.PI), stein);
-  bogen.position.y=7.4; bogen.castShadow=true; grp.add(bogen);
-  const pf=new THREE.MeshStandardMaterial({color:0xb9b2a4,roughness:.9});
+  /* Torbogen auf zwei Pfeilern */
+  const bogen=new THREE.Mesh(new THREE.TorusGeometry(6.2,1.05,12,44,Math.PI), stein);
+  bogen.position.y=10.5; bogen.castShadow=true; tor.add(bogen);
   [-6.2,6.2].forEach(x=>{
-    const p=new THREE.Mesh(new THREE.CylinderGeometry(.85,1,7.4,10), pf);
-    p.position.set(x,3.7,0); p.castShadow=true; grp.add(p);
+    const p=new THREE.Mesh(new THREE.CylinderGeometry(1.05,1.3,10.5,12), stein);
+    p.position.set(x,5.25,0); p.castShadow=true; p.receiveShadow=true; tor.add(p);
+    const kn=new THREE.Mesh(new THREE.BoxGeometry(3,.9,3), stein);
+    kn.position.set(x,10.7,0); kn.castShadow=true; tor.add(kn);
   });
   /* Ein rotes Siegel im Tor — es bleibt zu */
-  torRing=new THREE.Mesh(new THREE.TorusGeometry(3.4,.28,8,44),
-    new THREE.MeshStandardMaterial({color:F.rot, emissive:F.rot, emissiveIntensity:.55, roughness:.5}));
-  torRing.position.y=6.4; grp.add(torRing);
-  torSchloss=new THREE.Mesh(new THREE.BoxGeometry(2.1,2.4,.8),
-    new THREE.MeshStandardMaterial({color:F.rot, emissive:F.rot, emissiveIntensity:.4, roughness:.55}));
-  torSchloss.position.y=6.4; grp.add(torSchloss);
-  const buegel=new THREE.Mesh(new THREE.TorusGeometry(.75,.22,8,20,Math.PI),
-    new THREE.MeshStandardMaterial({color:0xd8d2c4, roughness:.5}));
-  buegel.position.y=7.9; grp.add(buegel);
+  torRing=new THREE.Mesh(new THREE.TorusGeometry(4.1,.34,10,48),
+    new THREE.MeshStandardMaterial({color:SC(F.rot), emissive:SC(F.rot), emissiveIntensity:.55, roughness:.5}));
+  torRing.position.y=8.4; tor.add(torRing);
+  torSchloss=new THREE.Mesh(new THREE.BoxGeometry(2.7,3.1,1),
+    new THREE.MeshStandardMaterial({color:SC(F.rot), emissive:SC(F.rot), emissiveIntensity:.4, roughness:.55}));
+  torSchloss.position.y=8.4; torSchloss.castShadow=true; tor.add(torSchloss);
+  const buegel=new THREE.Mesh(new THREE.TorusGeometry(.95,.28,8,22,Math.PI),
+    new THREE.MeshStandardMaterial({color:SC(0xd8d2c4), roughness:.5}));
+  buegel.position.y=10.3; tor.add(buegel);
 }
 
 /* ═══ Pattern-Objekte ═══ */
@@ -520,12 +641,13 @@ function stelle(k){
   const o=ORT[k], p=P[k], i=NR[p.claim_ceiling], ins=inseln[i];
   const x=Math.cos(o.w)*o.r*ins.radius, z=Math.sin(o.w)*o.r*ins.radius;
   const y=gelaende(x,z,ins.radius,ins.saat,ins.amp);
-  return { x, y:(o.unten? y-16 : y), z, ins };
+  return { x, y:(o.unten? y-26 : y), z, ins };
 }
 function objekteBauen(){
   SCHL.forEach(k=>{
     const p=P[k], s=stelle(k), g=new THREE.Group();
     g.position.set(s.x,s.y,s.z);
+    g.scale.setScalar(SKALA);
     s.ins.grp.add(g);
     const farbe=TYP_F[p.pattern_type];
     switch(p.pattern_type){
@@ -543,13 +665,18 @@ function objekteBauen(){
     if(p.contested)          siegel(g, F.rot, -1);
     OBJ[k]={ k, grp:g, welt:new THREE.Vector3(), typ:p.pattern_type, insel:i_von(p) };
     g.traverse(o=>{ if(o.isMesh){ o.userData.k=k; anklickbar.push(o); } });
+    /* Bauhöhe einmal messen — Schilder und Kanten hängen sich daran auf,
+       statt an einem festen Zahlenwert, der beim Skalieren nicht mitgeht. */
+    g.updateMatrixWorld(true);
+    const bb=new THREE.Box3().setFromObject(g);
+    OBJ[k].hoehe = Math.max(4, bb.max.y - (s.ins.grp.position.y + s.y));
   });
 }
 function i_von(p){ return NR[p.claim_ceiling]; }
 
-const M = (c,r,e)=> new THREE.MeshStandardMaterial({color:c, roughness:r==null?.85:r, flatShading:true,
-  emissive: e?c:0x000000, emissiveIntensity: e||0});
-const RINDE=new THREE.MeshStandardMaterial({color:0x7a5a3c, roughness:.95, flatShading:true});
+const M = (c,r,e)=> new THREE.MeshStandardMaterial({color:SC(c), roughness:r==null?.85:r, flatShading:true,
+  emissive: e?SC(c):0x000000, emissiveIntensity: e||0});
+const RINDE=new THREE.MeshStandardMaterial({color:SC(0x7a5a3c), roughness:.95, flatShading:true});
 
 function baum(g,farbe,sal,gross){
   const h=(gross?9:7)+sal*4;
@@ -647,7 +774,7 @@ function runde(g,p){
   g.userData.riss=riss; g.userData.wipfel=k;
 }
 function werkbank(g){
-  const holz=new THREE.MeshStandardMaterial({color:0xb9905c, roughness:.9, flatShading:true});
+  const holz=new THREE.MeshStandardMaterial({color:SC(0xb9905c), roughness:.9, flatShading:true});
   const pl=new THREE.Mesh(new THREE.BoxGeometry(7,.55,3.4), holz);
   pl.position.y=3.1; pl.castShadow=true; pl.receiveShadow=true; g.add(pl);
   [[-3,-1.3],[3,-1.3],[-3,1.3],[3,1.3]].forEach(([x,z])=>{
@@ -715,7 +842,7 @@ function knospe(g){
 }
 function siegel(g,farbe,seite){
   const s=new THREE.Mesh(new THREE.SphereGeometry(.62,9,8),
-    new THREE.MeshStandardMaterial({color:farbe, emissive:farbe, emissiveIntensity:.7, roughness:.4}));
+    new THREE.MeshStandardMaterial({color:SC(farbe), emissive:SC(farbe), emissiveIntensity:.7, roughness:.4}));
   s.position.set(seite*2.4, 8.6, 0);
   g.add(s); g.userData.siegel=(g.userData.siegel||[]).concat(s);
 }
@@ -740,7 +867,7 @@ function kantenBauen(){
     const kurve=new THREE.CatmullRomCurve3([a, m, b]);
     const farbe = e.quer? F.gelb : (e.art==='bezug'? SCHIEFER : 0x7fa85e);
     const rohr=new THREE.Mesh(new THREE.TubeGeometry(kurve, 44, e.quer?.34:.2, 6, false),
-      new THREE.MeshStandardMaterial({color:farbe, emissive:farbe,
+      new THREE.MeshStandardMaterial({color:SC(farbe), emissive:SC(farbe),
         emissiveIntensity:e.quer?.5:.25, roughness:.6, transparent:true, opacity:e.quer?.95:.62}));
     wurzel.add(rohr);
     /* Wanderlichter auf der Kante */
@@ -748,7 +875,7 @@ function kantenBauen(){
     const n=e.quer?4:2;
     for(let i=0;i<n;i++){
       const l=new THREE.Mesh(new THREE.SphereGeometry(e.quer?.52:.36,8,7),
-        new THREE.MeshBasicMaterial({color:farbe}));
+        new THREE.MeshBasicMaterial({color:SC(farbe)}));
       l.userData.t=i/n; wurzel.add(l); lichter.push(l);
     }
     KANTEN.push({...e, kurve, rohr, lichter});
@@ -756,55 +883,76 @@ function kantenBauen(){
 }
 function weltVon(k){
   const s=stelle(k), i=NR[P[k].claim_ceiling];
-  return new THREE.Vector3(s.x+VERSATZ[i][0], s.y+HOEHE[i]+5.5, s.z+VERSATZ[i][1]);
+  /* Kanten setzen an der Krone an, nicht am Fuß */
+  return new THREE.Vector3(s.x+VERSATZ[i][0], s.y+HOEHE[i]+(OBJ[k]?OBJ[k].hoehe*.78:10), s.z+VERSATZ[i][1]);
 }
 
 /* ═══ Atmosphäre ═══ */
 let staub;
 function bluetenstaub(){
-  const n=420, pos=new Float32Array(n*3), gr=new Float32Array(n);
+  const n=560, pos=new Float32Array(n*3), gr=new Float32Array(n);
   for(let i=0;i<n;i++){
-    const a=Math.random()*Math.PI*2, r=18+Math.random()*70;
-    pos[i*3]=Math.cos(a)*r; pos[i*3+1]=Math.random()*105; pos[i*3+2]=Math.sin(a)*r;
+    const a=Math.random()*Math.PI*2, r=20+Math.random()*95;
+    pos[i*3]=Math.cos(a)*r; pos[i*3+1]=-30+Math.random()*205; pos[i*3+2]=Math.sin(a)*r;
     gr[i]=Math.random();
   }
   const g=new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.BufferAttribute(pos,3));
-  staub=new THREE.Points(g, new THREE.PointsMaterial({ color:0xfff0b0, size:.85,
+  staub=new THREE.Points(g, new THREE.PointsMaterial({ color:SC(0xfff0b0), size:.85,
     transparent:true, opacity:.75, depthWrite:false }));
   staub.userData.gr=gr;
   wurzel.add(staub);
 }
+let wolkenStoff=null;
 function himmelDeko(){
   /* Wolkenbänke aus weichen Kugeln, weit hinten */
-  const w=new THREE.MeshStandardMaterial({color:0xffffff, roughness:1, transparent:true, opacity:.75,
+  const w=new THREE.MeshStandardMaterial({color:SC(0xffffff), roughness:1, transparent:true, opacity:.75,
     flatShading:true});
-  for(let i=0;i<7;i++){
+  wolkenStoff=w;
+  /* Weit außerhalb des Turms — und im Schnitt steht die Kamera 1180
+     Einheiten weg, da geriete jede Wolke im Vordergrund ins Bild.
+     Deshalb bleibt der Sektor Richtung Schnitt-Kamera (+z) frei. */
+  for(let i=0;i<11;i++){
     const g=new THREE.Group();
-    const a=Math.random()*Math.PI*2, r=200+Math.random()*130;
-    g.position.set(Math.cos(a)*r, 60+Math.random()*70, Math.sin(a)*r);
-    for(let j=0;j<4;j++){
-      const s=new THREE.Mesh(new THREE.IcosahedronGeometry(9+Math.random()*9,0), w);
-      s.position.set((j-1.5)*11+Math.random()*5, Math.random()*5, Math.random()*7);
-      s.scale.y=.55; g.add(s);
+    const a=(i/11)*Math.PI*2*.72 + 2.2 + Math.random()*.3, r=430+Math.random()*250;
+    g.position.set(Math.cos(a)*r, -60+Math.random()*250, Math.sin(a)*r);
+    const gr=1.4+Math.random()*1.1;
+    for(let j=0;j<5;j++){
+      const s=new THREE.Mesh(new THREE.IcosahedronGeometry((8+Math.random()*8)*gr,1), w);
+      s.position.set((j-2)*13*gr+Math.random()*6, Math.random()*6*gr, Math.random()*9*gr);
+      s.scale.y=.5; g.add(s);
     }
-    wurzel.add(g);
+    g.rotation.y=-a; wurzel.add(g);
   }
-  const sonne=new THREE.Mesh(new THREE.SphereGeometry(15,20,18),
-    new THREE.MeshBasicMaterial({color:0xfff2c4, transparent:true, opacity:.92, fog:false}));
-  sonne.position.set(-190,175,-130); wurzel.add(sonne);
+  const sonne=new THREE.Mesh(new THREE.SphereGeometry(34,22,20),
+    new THREE.MeshBasicMaterial({color:SC(0xfff2c4), transparent:true, opacity:.92, fog:false}));
+  sonne.position.set(-440,330,-320); wurzel.add(sonne);
 }
 
 /* ═══ Kamera: Inseln ↔ Schnitt ═══ */
 function kameraSetzen(){
   const t=morph;
-  const ziel=new THREE.Vector3(0, mische(46, 44, t), 0);
-  /* Schnitt: weit weg, frontal, fast orthografisch */
+  const ziel=new THREE.Vector3(0, mische(66, ZIEL_Y, t), 0);
+  /* Schnitt: weit weg, frontal, fast orthografisch.
+     Abstand 1265 ist kein freier Wert — bei fov 11.5 sind das
+     2·1265·tan(5.75°) ≈ 255 sichtbare Einheiten, und der Turm ist
+     rund 205 hoch. Näher dran wird oben oder unten abgeschnitten. */
   const gier = mische(0, bahn.gier, t);
-  const nick = mische(0.055, bahn.nick, t);
-  const dist = mische(560, bahn.dist, t);
-  kamera.fov = mische(11.5, 42, t);
+  const nick = mische(0.05, bahn.nick, t);
+  const dist = mische(1265, bahn.dist, t);
+  kamera.fov = mische(11.5, 36, t);
   kamera.updateProjectionMatrix();
+  /* Im Insel-Modus zielt die Kamera neben den Turm, damit rechts Platz
+     für die Schilderspalte bleibt. Der Rechts-Vektor der Kamera ist bei
+     dieser Bahn genau (cos gier, 0, −sin gier). */
+  const seit = mische(0, innerWidth<820? 0 : 46, t);
+  ziel.x += Math.cos(gier)*seit; ziel.z -= Math.sin(gier)*seit;
+  /* Der Nebel muss mitfahren — sonst verschluckt er im Schnitt die
+     ganze Welt (das war der Grund, warum dort nichts zu sehen war). */
+  szene.fog.near = mische(880, 300, t);
+  szene.fog.far  = mische(2900, 980, t);
+  /* Der Schnitt ist der Lesemodus: Wolken treten dort fast ganz zurück */
+  if(wolkenStoff) wolkenStoff.opacity = mische(.1, .75, t);
   kamera.position.set(
     ziel.x + Math.sin(gier)*Math.cos(nick)*dist,
     ziel.y + Math.sin(nick)*dist,
@@ -864,8 +1012,8 @@ function schleife(){
   /* Staub */
   const pos=staub.geometry.attributes.position;
   for(let i=0;i<pos.count;i++){
-    let y=pos.getY(i)+ .022 + staub.userData.gr[i]*.02;
-    if(y>112) y=-2;
+    let y=pos.getY(i)+ .03 + staub.userData.gr[i]*.03;
+    if(y>180) y=-32;
     pos.setY(i,y);
     pos.setX(i, pos.getX(i)+Math.sin(t*.28+i)*.011);
   }
@@ -882,53 +1030,142 @@ function fokus(e){
 }
 
 /* ═══ Schilder als HTML über der Szene ═══ */
+const nDiv=(kl,txt)=>{ const d=document.createElement('div'); d.className=kl;
+  if(txt!=null) d.textContent=txt; return d; };
+
+const SVGNS='http://www.w3.org/2000/svg';
 function schilderBauen(){
   const w=document.getElementById('schilder');
-  w.innerHTML='';
+  w.textContent='';
+  const svg=document.createElementNS(SVGNS,'svg'); svg.id='leinen'; w.appendChild(svg);
   SCHL.forEach(k=>{
-    const d=document.createElement('div');
-    d.className='schild';
-    d.innerHTML='<div class="pin" style="background:'+TYP_H[P[k].pattern_type]+'"></div>'+
-                '<div class="n">'+TITEL[k]+'</div><div class="u">'+UNTER[k]+'</div>';
+    const farbe=TYP_H[P[k].pattern_type]||SCHIEFER_H;
+    const d=nDiv('schild');
+    d.style.setProperty('--pf', farbe);
+    d.appendChild(nDiv('n', TITEL[k]));
+    d.appendChild(nDiv('u', UNTER[k]));
+    const nadel=nDiv('nadel'); nadel.style.background=farbe;
+    const leine=document.createElementNS(SVGNS,'path');
+    leine.setAttribute('stroke', farbe); leine.setAttribute('stroke-opacity','.5');
+    svg.appendChild(leine);
     d.onclick=()=>oeffneTafel(k);
     d.onpointerenter=()=>{ schwebt=k; };
     d.onpointerleave=()=>{ schwebt=null; };
-    w.appendChild(d); schilderEl[k]=d;
+    w.append(nadel, d);
+    schilderEl[k]={ el:d, nadel, leine, y:0, b:150, h:32, erst:true };
   });
   etagenEl=[];
-  STUFEN.forEach((st,i)=>{
-    const leer=zaehle(st.id)===0;
-    const d=document.createElement('div');
-    d.className='etage'+(leer?' leer':'');
-    d.style.color=leer?'':st.hex;
-    d.innerHTML=st.name+'<small>'+(leer?'0 Patterns — verschlossen':zaehle(st.id)+' Patterns · '+st.frage)+'</small>';
-    w.appendChild(d); etagenEl.push(d);
+  STUFEN.forEach(st=>{
+    const n=zaehle(st.id), leer=n===0;
+    const d=nDiv('etage'+(leer?' leer':''), st.name);
+    if(!leer){ d.style.color=st.hex; d.style.borderLeftColor=st.hex; }
+    const s=document.createElement('small');
+    s.textContent = leer ? '0 Patterns — verschlossen' : n+' Patterns · '+st.frage;
+    d.appendChild(s);
+    d.onclick=()=>{ leer? oeffneDecke() : zurStufe(st.id); };
+    w.appendChild(d); etagenEl.push({el:d,b:150,h:36});
+  });
+  /* Maße einmal abnehmen — sie ändern sich nicht mehr, und ein
+     getBoundingClientRect pro Bild und Schild wäre Layout-Arbeit umsonst. */
+  requestAnimationFrame(()=>{
+    SCHL.forEach(k=>{ const s=schilderEl[k], r=s.el.getBoundingClientRect(); s.b=r.width; s.h=r.height; });
+    etagenEl.forEach(e=>{ const r=e.el.getBoundingClientRect(); e.b=r.width; e.h=r.height; });
   });
 }
-const _v=new THREE.Vector3();
+const _v=new THREE.Vector3(), _rx=new THREE.Vector3(), _ry=new THREE.Vector3(), _rz=new THREE.Vector3();
+const ueberlappt=(a,b)=> a.x<b.x+b.w && b.x<a.x+a.w && a.y<b.y+b.h && b.y<a.y+a.h;
+
 function schilderSetzen(){
   const B=innerWidth, H=innerHeight;
-  SCHL.forEach(k=>{
-    const o=OBJ[k], el=schilderEl[k];
-    _v.copy(o.welt); _v.y += 12;
-    _v.project(kamera);
-    const sichtbar = _v.z<1;
-    if(!sichtbar){ el.style.display='none'; return; }
-    el.style.display='';
-    el.style.left=((_v.x*.5+.5)*B)+'px';
-    el.style.top =((-_v.y*.5+.5)*H)+'px';
-    const fern = (schwebt||gewaehlt) && (schwebt||gewaehlt)!==k;
-    el.classList.toggle('fern', !!fern);
-  });
+  const schmal=B<820;                  /* zu eng für eine Schilderspalte */
+  const OBEN=schmal?116:74, UNTEN=H-148;  /* Kopf + Querleiter oben, Umsichts-Schalter unten */
+  const belegt=[];
+
+  /* Etagen zuerst: sie sind die Leiter und dürfen nicht ausweichen.
+     Der Versatz läuft über den Rechts-Vektor der Kamera, nicht über
+     die Welt-x-Achse — sonst wandert das Schild beim Drehen quer über
+     die Insel, statt an ihrem Rand zu bleiben. */
+  kamera.matrixWorld.extractBasis(_rx,_ry,_rz);
   inseln.forEach((ins,i)=>{
-    _v.set(VERSATZ[i][0], ins.mesh.position.y + (ins.leer? 20 : ins.amp+13), VERSATZ[i][1]);
-    _v.x -= ins.radius*1.05;
+    const e=etagenEl[i];
+    _v.set(VERSATZ[i][0], ins.mesh.position.y + (ins.leer? 30 : ins.amp+16), VERSATZ[i][1]);
+    _v.addScaledVector(_rx, -ins.radius*(schmal?1.05:1.5));
     _v.project(kamera);
-    const el=etagenEl[i];
-    if(_v.z>1){ el.style.display='none'; return; }
-    el.style.display='';
-    el.style.left=((_v.x*.5+.5)*B)+'px';
-    el.style.top =((-_v.y*.5+.5)*H)+'px';
+    if(_v.z>1){ e.el.style.display='none'; return; }
+    e.el.style.display='';
+    const x=klemme((_v.x*.5+.5)*B, e.b/2+12, B-e.b/2-12),
+          y=klemme((-_v.y*.5+.5)*H, OBEN+e.h/2, UNTEN-e.h/2);
+    e.el.style.left=x+'px'; e.el.style.top=y+'px';
+    belegt.push({x:x-e.b/2, y:y-e.h/2, w:e.b, h:e.h});
+  });
+
+  /* Nadeln sitzen am Objekt, Fähnchen sammeln sich in einer Spalte */
+  const aktiv0=(schwebt||gewaehlt);
+  const liste=[];
+  SCHL.forEach(k=>{
+    const o=OBJ[k], s=schilderEl[k];
+    _v.copy(o.welt); _v.y += o.hoehe*.55;
+    const abstand=kamera.position.distanceTo(_v);
+    _v.project(kamera);
+    const sichtbar=_v.z<1;
+    /* Auf schmalen Schirmen zeigt nur das angetippte Fähnchen Text —
+       zwölf Zeilen sind hier eine Textwüste, die das Bild zudeckt. */
+    const zeigen = sichtbar && (!schmal || aktiv0===k);
+    s.nadel.style.display = sichtbar?'':'none';
+    s.el.style.display = zeigen?'':'none';
+    s.leine.style.display = zeigen?'':'none';
+    if(!sichtbar) return;
+    if(zeigen) liste.push({ k, s, x:(_v.x*.5+.5)*B, y:(-_v.y*.5+.5)*H, tiefe:abstand });
+    else { s.nadel.style.left=((_v.x*.5+.5)*B)+'px'; s.nadel.style.top=((-_v.y*.5+.5)*H)+'px';
+           s.nadel.style.setProperty('--o', klemme(1.3-abstand/700,.5,1).toFixed(2)); }
+  });
+
+  /* Spalte rechts neben der breitesten Insel, aber nie über den Rand.
+     Steht die Tafel offen, rückt die Spalte davor. */
+  _v.set(VERSATZ[0][0], inseln[0].mesh.position.y, VERSATZ[0][1]);
+  _v.addScaledVector(_rx, RADIUS[0]*1.12); _v.project(kamera);
+  const breiteste=(_v.x*.5+.5)*B;
+  const tafelAuf=document.getElementById('tafel').classList.contains('auf');
+  const rechterRand=B - (schmal?12:236) - ((tafelAuf&&!schmal)? Math.min(468,B)-20 : 0);
+  const spalte=schmal? klemme(breiteste+18, 100, B-120)
+                     : klemme(breiteste+34, Math.min(B*.5, rechterRand), Math.max(300, rechterRand));
+
+  /* Nach Bildhöhe sortiert stapeln — dann kreuzen sich die Leinen nicht */
+  liste.sort((a,b)=>a.y-b.y);
+  const abstandMin=6;
+  let unterkante=OBEN;
+  liste.forEach(it=>{ it.ziel=Math.max(it.y, unterkante+it.s.h/2); unterkante=it.ziel+it.s.h/2+abstandMin; });
+  /* Läuft der Stapel unten heraus, von hinten wieder hochschieben */
+  let oberkante=UNTEN;
+  for(let i=liste.length-1;i>=0;i--){
+    const it=liste[i];
+    it.ziel=Math.min(it.ziel, oberkante-it.s.h/2);
+    oberkante=it.ziel-it.s.h/2-abstandMin;
+  }
+
+  const aktiv=(schwebt||gewaehlt);
+  liste.forEach(it=>{
+    const s=it.s;
+    if(s.erst){ s.y=it.ziel; s.erst=false; }
+    s.y += (it.ziel-s.y)*.24;         /* weich nachziehen, sonst zappelt es beim Drehen */
+    if(Math.abs(it.ziel-s.y)<.5) s.y=it.ziel;
+    s.el.style.left=spalte+'px';
+    s.el.style.top =s.y+'px';
+    s.nadel.style.left=it.x+'px';
+    s.nadel.style.top =it.y+'px';
+    /* Leine als weiche Kurve von der Nadel zur linken Kante des Fähnchens */
+    const dx=(spalte-it.x)*.42;
+    s.leine.setAttribute('d','M'+it.x.toFixed(1)+' '+it.y.toFixed(1)+
+      'C'+(it.x+dx).toFixed(1)+' '+it.y.toFixed(1)+','+
+          (spalte-dx).toFixed(1)+' '+s.y.toFixed(1)+','+
+          spalte.toFixed(1)+' '+s.y.toFixed(1));
+    /* Tiefenstaffelung: was hinten steht, tritt zurück */
+    const o=klemme(1.3 - it.tiefe/700, .5, 1).toFixed(2);
+    s.el.style.setProperty('--o', o); s.nadel.style.setProperty('--o', o);
+    const fern=!!(aktiv && aktiv!==it.k);
+    s.el.classList.toggle('fern', fern);   s.nadel.classList.toggle('fern', fern);
+    s.el.classList.toggle('wach', aktiv===it.k);
+    s.leine.setAttribute('stroke-opacity', fern? .1 : (aktiv===it.k? .85 : .45));
   });
 }
 
@@ -969,12 +1206,13 @@ function steuerung(){
   c.addEventListener('pointercancel',()=>{zieht=false});
   c.addEventListener('wheel',e=>{
     e.preventDefault();
-    if(morph>.2) zielBahn.dist=klemme(zielBahn.dist + e.deltaY*.35, 90, 400);
+    if(morph>.2){ zoomBeruehrt=true; zielBahn.dist=klemme(zielBahn.dist + e.deltaY*.5, 170, 780); }
     else zielMorph=klemme(zielMorph+(e.deltaY>0?.16:-.16),0,1);
   },{passive:false});
   addEventListener('resize',()=>{
     kamera.aspect=innerWidth/innerHeight; kamera.updateProjectionMatrix();
     renderer.setSize(innerWidth,innerHeight);
+    if(!zoomBeruehrt) zielBahn.dist=passendeDistanz();
   });
   document.addEventListener('keydown',e=>{
     if(e.key==='Escape'){ allesZu(); return; }
@@ -1356,6 +1594,7 @@ async function start(){
     }
     DATEN.patterns.forEach((p,i)=>{ VON_ID[p.id]=SCHL[i]; P[SCHL[i]]=p; });
     bauen(); leisteBauen(); schilderBauen(); steuerung(); reglerSpiegeln();
+    bahn.dist=zielBahn.dist=passendeDistanz();
     schleife();
     setTimeout(()=>document.getElementById('laden').classList.add('weg'), 300);
     setTimeout(()=>hinweis('Ziehen dreht die Inseln · Regler unten wechselt zum Schnitt'), 1400);
