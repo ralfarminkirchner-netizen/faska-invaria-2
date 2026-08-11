@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>FASKA · Die Geltungslandschaft — Der Lena-Fall</title>
+<link rel="icon" href="faska-logo-official.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   FASKA · DIE GELTUNGSLANDSCHAFT
+   Eine Welt, zwei Kamerastellungen. Geltung ist Höhe.
+   Ohne Bibliotheken, ohne CDN-Zwang — ein Canvas, eine Projektion.
+   ═══════════════════════════════════════════════════════════════════ */
+:root{
+  --blau:#3da6da; --rot:#bd182a; --orange:#e25e2b; --gruen:#44a735; --gelb:#ffce05;
+  --creme:#fefcf7; --creme2:#f6f1e4; --tinte:#2d2412; --tinte2:#6f6249;
+  --karte:#fff; --rand:#e9e1d1;
+  --schatten:0 2px 14px rgba(60,45,20,.07); --schatten-gross:0 24px 64px rgba(60,45,20,.18);
+  --r:20px; --r-s:13px;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
+  --mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;
+  --kopf:60px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--creme);color:var(--tinte);
+  font:15px/1.55 var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+canvas{display:block;touch-action:none}
+button{font-family:inherit}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:rgba(120,105,75,.28);border-radius:8px}
+::-webkit-scrollbar-track{background:transparent}
+
+#buehne{position:fixed;inset:var(--kopf) 0 0 0;z-index:1}
+
+/* ── Kopfleiste ── */
+.kopf{position:fixed;z-index:30;top:0;left:0;right:0;height:var(--kopf);display:flex;
+  align-items:center;justify-content:space-between;gap:12px;padding:0 16px;
+  background:rgba(255,255,255,.86);backdrop-filter:blur(14px) saturate(1.3);
+  border-bottom:1px solid var(--rand)}
+.marke{display:flex;align-items:center;gap:10px;cursor:pointer;min-width:0}
+.marke img{width:30px;height:30px;flex-shrink:0}
+.marke b{font-weight:800;font-size:.98rem;letter-spacing:-.02em;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;display:block}
+.marke>div{min-width:0}
+.marke i{display:block;font-style:normal;font-size:.6rem;font-weight:700;color:var(--tinte2);
+  letter-spacing:.11em;text-transform:uppercase;white-space:nowrap}
+.kopf-r{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.kbtn{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:22px;
+  border:1.5px solid var(--rand);background:#fff;color:var(--tinte);cursor:pointer;
+  font:700 12px var(--font);white-space:nowrap;transition:transform .16s,border-color .18s,color .18s}
+.kbtn:hover{border-color:var(--blau);color:var(--blau);transform:translateY(-1px)}
+.kbtn.an{background:var(--blau);border-color:var(--blau);color:#fff}
+
+/* ── Umsichts-Schalter ── */
+.umsicht{position:fixed;z-index:26;left:50%;transform:translateX(-50%);bottom:22px;
+  display:flex;align-items:center;gap:14px;padding:11px 16px;border-radius:26px;
+  background:rgba(255,255,255,.9);backdrop-filter:blur(14px) saturate(1.3);
+  border:1px solid var(--rand);box-shadow:var(--schatten-gross)}
+.umsicht .ende{font:800 11px var(--font);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--tinte2);cursor:pointer;transition:color .2s;user-select:none;white-space:nowrap}
+.umsicht .ende.an{color:var(--blau)}
+.umsicht .ende small{display:block;font-size:8.5px;font-weight:600;letter-spacing:.05em;
+  text-transform:none;opacity:.72;margin-top:1px}
+.schiene{position:relative;width:190px;height:30px;flex-shrink:0;cursor:pointer}
+.schiene::before{content:'';position:absolute;left:0;right:0;top:13px;height:4px;border-radius:3px;
+  background:linear-gradient(90deg,var(--blau),var(--gruen))}
+.knopf{position:absolute;top:1px;width:28px;height:28px;border-radius:50%;background:#fff;
+  border:2.5px solid var(--blau);box-shadow:0 3px 10px rgba(60,45,20,.22);
+  transform:translateX(-50%);pointer-events:none;display:flex;align-items:center;
+  justify-content:center;font-size:12px}
+.umsicht input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;margin:0}
+
+/* ── Stockwerks-Leiste ── */
+.stockwerke{position:fixed;z-index:20;left:16px;top:calc(var(--kopf) + 16px);width:216px;
+  background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border:1px solid var(--rand);
+  border-radius:var(--r);box-shadow:var(--schatten);overflow:hidden}
+.sw-kopf{padding:11px 14px 8px;font:800 9.5px var(--font);letter-spacing:.13em;
+  text-transform:uppercase;color:var(--tinte2)}
+.sw{display:flex;align-items:center;gap:9px;padding:9px 14px;cursor:pointer;
+  border-left:4px solid transparent;transition:background .18s}
+.sw:hover{background:var(--creme2)}
+.sw .zahl{width:24px;height:24px;border-radius:8px;display:flex;align-items:center;
+  justify-content:center;font:800 11.5px var(--font);color:#fff;flex-shrink:0}
+.sw .txt{min-width:0;display:block}
+.sw .nam{display:block;font:800 11.5px var(--font);letter-spacing:.02em}
+.sw .sub{display:block;font-size:9.5px;line-height:1.4;color:var(--tinte2);font-weight:600}
+.sw.leer{background:repeating-linear-gradient(135deg,transparent 0 7px,rgba(189,24,42,.05) 7px 14px)}
+.sw.leer .zahl{background:transparent;border:1.5px dashed var(--rot);color:var(--rot)}
+.sw.leer .nam{color:var(--rot)}
+.sw-fuss{padding:9px 14px 12px;border-top:1px solid var(--rand);font-size:9.5px;line-height:1.6;
+  color:var(--tinte2)}
+.sw-fuss b{color:var(--gruen)}
+
+/* ── Ketten-Reiter ── */
+.ketten{position:fixed;z-index:20;right:16px;top:calc(var(--kopf) + 16px);display:flex;
+  flex-direction:column;gap:7px;align-items:flex-end}
+.kette{display:flex;align-items:center;gap:8px;padding:8px 13px;border-radius:20px;
+  background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border:1px solid var(--rand);
+  box-shadow:var(--schatten);cursor:pointer;font:700 11.5px var(--font);
+  transition:transform .16s;white-space:nowrap}
+.kette:hover{transform:translateX(-3px)}
+.kette .pkt{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.kette small{color:var(--tinte2);font-weight:600;font-size:9.5px}
+
+/* ── Detail-Tafel ── */
+.tafel{position:fixed;z-index:40;right:0;top:var(--kopf);bottom:0;width:min(470px,100vw);
+  background:var(--karte);border-left:1px solid var(--rand);box-shadow:-18px 0 54px rgba(60,45,20,.14);
+  overflow-y:auto;transform:translateX(102%);transition:transform .46s cubic-bezier(.22,1,.36,1);
+  overscroll-behavior:contain}
+.tafel.auf{transform:none}
+.tafel-in{padding:22px 24px 60px}
+.tafel .zu{position:sticky;top:0;float:right;width:34px;height:34px;border-radius:50%;
+  border:1.5px solid var(--rand);background:#fff;color:var(--tinte2);cursor:pointer;
+  font-size:16px;line-height:1;display:flex;align-items:center;justify-content:center;z-index:3}
+.tafel .zu:hover{border-color:var(--rot);color:var(--rot)}
+.tafel h2{font-size:1.34rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 4px;line-height:1.25}
+.marker{display:inline-block;padding:4px 11px;border-radius:13px;color:#fff;
+  font:800 9.5px var(--font);letter-spacing:.1em;text-transform:uppercase}
+.zeile{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 18px}
+.pille{display:inline-block;padding:3px 10px;border-radius:11px;font:700 9.5px var(--font);
+  letter-spacing:.06em;text-transform:uppercase;background:var(--creme2);color:var(--tinte2)}
+.p-blau{background:rgba(61,166,218,.14);color:#2076a3}
+.p-gelb{background:rgba(255,206,5,.2);color:#8a6d00}
+.p-orange{background:rgba(226,94,43,.14);color:#b8451c}
+.p-rot{background:rgba(189,24,42,.11);color:var(--rot)}
+.p-gruen{background:rgba(68,167,53,.14);color:#2f7a24}
+.datum{font-size:11px;color:var(--tinte2);font-weight:600}
+
+.blk{margin-bottom:20px}
+.blk>h3{font:800 9.5px var(--font);letter-spacing:.13em;text-transform:uppercase;
+  color:var(--tinte2);margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.blk>h3::after{content:'';flex:1;height:1px;background:var(--rand)}
+.zitat{font-size:.95rem;line-height:1.62;font-weight:500;padding:15px 17px;border-radius:var(--r-s);
+  background:var(--creme2);border-left:4px solid var(--blau)}
+.z-gelb{border-left-color:var(--gelb)} .z-rot{border-left-color:var(--rot)}
+.z-gruen{border-left-color:var(--gruen)} .z-orange{border-left-color:var(--orange)}
+.paar{display:flex;gap:10px;font-size:.83rem;margin:6px 0;align-items:flex-start}
+.paar .k{color:var(--tinte2);font-weight:700;min-width:118px;flex-shrink:0;font-size:.76rem}
+.balken{height:7px;border-radius:4px;background:var(--creme2);overflow:hidden;margin:5px 0 10px}
+.balken i{display:block;height:100%;border-radius:4px}
+.liste{list-style:none}
+.liste li{font-size:.845rem;line-height:1.6;padding-left:17px;position:relative;margin-bottom:6px}
+.liste li::before{content:'';position:absolute;left:2px;top:.62em;width:5px;height:5px;
+  border-radius:50%;background:var(--tinte2);opacity:.45}
+.karten2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.kachel{border-radius:var(--r-s);padding:12px 14px;font-size:.8rem;line-height:1.55}
+.kachel h5{font:800 9px var(--font);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.k-blau{background:rgba(61,166,218,.09)} .k-blau h5{color:#2076a3}
+.k-gelb{background:rgba(255,206,5,.15)} .k-gelb h5{color:#8a6d00}
+.k-rot{background:rgba(189,24,42,.07)} .k-rot h5{color:var(--rot)}
+.k-gruen{background:rgba(68,167,53,.1)} .k-gruen h5{color:#2f7a24}
+.k-orange{background:rgba(226,94,43,.09)} .k-orange h5{color:#b8451c}
+.k-leer{background:transparent;border:1.5px dashed var(--rand);color:var(--tinte2);font-style:italic}
+.herkunft{margin-top:16px;padding:12px 14px;border-radius:var(--r-s);background:var(--creme2);
+  border:1px dashed var(--rand);font-size:.72rem;line-height:1.62;color:var(--tinte2)}
+.herkunft b{color:var(--tinte)}
+.mono{font-family:var(--mono);font-size:.68rem;color:var(--tinte2);
+  overflow-wrap:anywhere;word-break:normal}
+.tbtn{display:block;width:100%;padding:12px;border-radius:var(--r-s);border:none;background:var(--blau);
+  color:#fff;font:800 12.5px var(--font);cursor:pointer;margin-top:10px;transition:filter .18s,transform .18s}
+.tbtn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.tbtn.gruen{background:var(--gruen)} .tbtn.rot{background:var(--rot)}
+.tbtn.grau{background:var(--tinte2)}
+
+/* ── Übersetzungs-Waage ── */
+.waage{display:grid;grid-template-columns:1fr 62px 1fr;gap:0;margin:12px 0 4px;align-items:stretch}
+.waage .seite{border-radius:var(--r-s);padding:14px;font-size:.82rem;line-height:1.6}
+.waage .seite h4{font:800 9px var(--font);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.w-beob{background:rgba(61,166,218,.1);border:1.5px solid rgba(61,166,218,.3)}
+.w-beob h4{color:#2076a3}
+.w-deut{background:rgba(255,206,5,.16);border:1.5px solid rgba(255,206,5,.45)}
+.w-deut h4{color:#8a6d00}
+.w-mitte{position:relative;margin:0 7px;border-radius:11px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(61,166,218,.06),rgba(255,206,5,.12))}
+.w-mitte::before{content:'';position:absolute;inset:-40px 0;
+  background:repeating-linear-gradient(180deg,transparent 0 14px,rgba(61,166,218,.18) 14px 16px);
+  animation:fluss 2.6s linear infinite}
+@keyframes fluss{to{transform:translateY(30px)}}
+.w-zeichen{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
+  background:#fff;border:1.5px solid var(--blau);color:var(--blau);border-radius:11px;
+  padding:7px 5px;font:800 8.5px var(--font);text-align:center;line-height:1.4;letter-spacing:.04em}
+
+/* ── Spannungsfeld ── */
+.spannung{display:grid;grid-template-columns:1fr 54px 1fr;gap:7px;margin:12px 0;align-items:stretch}
+.blase{border-radius:var(--r-s);padding:13px;font-size:.8rem;line-height:1.55}
+.blase b{display:block;font-size:.75rem;margin-bottom:5px}
+.blase em{display:block;font-style:normal;margin-top:7px;font-weight:700;font-size:.83rem}
+.b-l{background:rgba(61,166,218,.1);border:1.5px solid rgba(61,166,218,.34);animation:neigL 3.4s ease-in-out infinite}
+.b-r{background:rgba(189,24,42,.08);border:1.5px solid rgba(189,24,42,.3);animation:neigR 3.4s ease-in-out infinite}
+@keyframes neigL{0%,100%{transform:none}50%{transform:translateX(4px)}}
+@keyframes neigR{0%,100%{transform:none}50%{transform:translateX(-4px)}}
+.riss{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.riss span:first-child{font-size:1.3rem;animation:blitz 1.3s ease-in-out infinite}
+@keyframes blitz{0%,100%{opacity:.3;transform:scale(.9)}50%{opacity:1;transform:scale(1.14)}}
+.riss small{font:800 7.5px var(--font);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--rot);text-align:center;line-height:1.45}
+
+/* ── Überlagerung ── */
+.ueber{position:fixed;z-index:60;inset:0;background:rgba(45,36,18,.5);backdrop-filter:blur(3px);
+  display:flex;align-items:center;justify-content:center;padding:18px;opacity:0;pointer-events:none;
+  transition:opacity .3s}
+.ueber.auf{opacity:1;pointer-events:all}
+.ueber-karte{background:var(--karte);border-radius:var(--r);padding:26px 28px;max-width:720px;
+  width:100%;max-height:86vh;overflow-y:auto;box-shadow:var(--schatten-gross)}
+.ueber-karte h2{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;margin-bottom:5px}
+.ueber-karte .unter{font-size:.85rem;color:var(--tinte2);margin-bottom:18px;line-height:1.6}
+.ueber-karte .zu{float:right;width:32px;height:32px;border-radius:50%;border:1.5px solid var(--rand);
+  background:#fff;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center}
+.ueber-karte .zu:hover{border-color:var(--rot);color:var(--rot)}
+
+/* Leiter der Geltungsstufen */
+.leiter{display:flex;flex-direction:column-reverse;gap:6px;margin:14px 0}
+.sprosse{display:flex;align-items:center;gap:12px;padding:11px 15px;border-radius:var(--r-s);
+  background:var(--creme2);border-left:5px solid var(--rand)}
+.sprosse .stufe{font:800 11.5px var(--font);letter-spacing:.05em;text-transform:uppercase;min-width:104px}
+.sprosse .wer{font-size:.78rem;color:var(--tinte2);line-height:1.5}
+.sprosse.verschlossen{background:repeating-linear-gradient(135deg,transparent 0 8px,rgba(189,24,42,.06) 8px 16px);
+  border:1.5px dashed var(--rot);border-left:5px dashed var(--rot)}
+.sprosse.verschlossen .stufe{color:var(--rot)}
+
+/* Prüffeld */
+.pruef{width:100%;min-height:78px;border-radius:var(--r-s);border:2px solid var(--rand);
+  background:var(--creme2);padding:13px 15px;font:500 .95rem var(--font);color:var(--tinte);
+  resize:vertical;transition:border-color .2s}
+.pruef:focus{outline:none;border-color:var(--blau)}
+.urteil{margin-top:12px;border-radius:var(--r-s);padding:15px 17px;font-size:.86rem;line-height:1.6}
+.u-frei{background:rgba(68,167,53,.1);border:1.5px solid rgba(68,167,53,.42)}
+.u-stopp{background:rgba(189,24,42,.08);border:1.5px solid rgba(189,24,42,.42)}
+.u-leer{background:var(--creme2);border:1.5px dashed var(--rand);color:var(--tinte2)}
+.verstoss{background:#fff;border:1px solid var(--rand);border-left:4px solid var(--rot);
+  border-radius:10px;padding:11px 13px;margin-top:9px;font-size:.79rem;line-height:1.55}
+mark{background:rgba(189,24,42,.22);border-radius:3px;padding:0 3px;color:inherit}
+.mbtn{padding:6px 12px;border-radius:9px;border:1px solid var(--rand);background:#fff;
+  color:var(--tinte2);cursor:pointer;font:700 11px var(--font);transition:all .18s}
+.mbtn:hover{border-color:var(--blau);color:var(--blau)}
+
+/* ── Schwebemarke ── */
+.marke-schwebe{position:fixed;z-index:25;pointer-events:none;background:rgba(255,255,255,.96);
+  border:1px solid var(--rand);border-radius:13px;padding:9px 13px;box-shadow:var(--schatten);
+  opacity:0;transition:opacity .14s;max-width:252px}
+.marke-schwebe.auf{opacity:1}
+.marke-schwebe .t{font:800 12px var(--font);letter-spacing:-.01em}
+.marke-schwebe .d{font-size:10.5px;color:var(--tinte2);margin-top:2px;line-height:1.5}
+
+.hinweis{position:fixed;z-index:70;top:74px;left:50%;transform:translateX(-50%) translateY(-8px);
+  background:var(--tinte);color:var(--creme);padding:11px 22px;border-radius:24px;
+  font:700 12.5px var(--font);opacity:0;transition:all .3s;pointer-events:none;max-width:86vw;text-align:center}
+.hinweis.auf{opacity:1;transform:translateX(-50%)}
+
+.fehler{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;
+  background:var(--creme);padding:26px;text-align:center}
+.fehler div{max-width:430px;font-size:.9rem;line-height:1.7}
+
+/* ── Schmale Geräte ── */
+@media(max-width:900px){
+  .stockwerke{width:184px;top:calc(var(--kopf) + 10px);left:10px}
+  .ketten{top:calc(var(--kopf) + 10px);right:10px}
+  .kbtn .txt{display:none}
+  .kbtn{padding:8px 11px}
+}
+@media(max-width:620px){
+  .marke i{display:none}
+  .marke b{font-size:.8rem}
+  .hinweis{top:auto;bottom:78px}
+  .stockwerke{width:auto;left:10px;right:auto}
+  .sw .txt .sub{display:none}
+  .sw{padding:7px 11px}
+  .sw-fuss{display:none}
+  .ketten{display:none}
+  .umsicht{bottom:12px;gap:9px;padding:9px 12px}
+  .schiene{width:118px}
+  .umsicht .ende small{display:none}
+  .tafel{width:100vw}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+</style>
+</head>
+<body>
+
+<header class="kopf">
+  <div class="marke" onclick="allesZu()">
+    <img src="faska-logo-official.svg" alt="FASKA" onerror="this.remove()">
+    <div><b>Die Geltungslandschaft</b><i>FASKA · der Lena-Fall</i></div>
+  </div>
+  <div class="kopf-r">
+    <a class="kbtn" href="index.html" title="Zum Garten (2D-Ansicht)" style="text-decoration:none">🌱 <span class="txt">Garten</span></a>
+    <button class="kbtn" onclick="oeffneDecke()" title="Warum handlung leer bleibt">🔒 <span class="txt">Die Decke</span></button>
+    <button class="kbtn" onclick="oeffnePruefung()" title="Aussagen gegen das Profil prüfen">🛡 <span class="txt">Prüfung</span></button>
+    <button class="kbtn" onclick="oeffneLesehilfe()" title="Wie diese Landschaft zu lesen ist">❓ <span class="txt">Lesehilfe</span></button>
+    <button class="kbtn" onclick="exportiere()" title="Alles als JSON sichern">📥</button>
+  </div>
+</header>
+
+<div class="stockwerke" id="stockwerke"></div>
+<div class="ketten" id="ketten"></div>
+
+<div class="umsicht">
+  <span class="ende an" id="endeSchnitt" onclick="fahreZu(0)">Schnitt<small>lesen</small></span>
+  <div class="schiene" id="schiene">
+    <input type="range" id="regler" min="0" max="1000" value="0" aria-label="Umsicht: Schnitt bis Landschaft">
+    <div class="knopf" id="knopf">◲</div>
+  </div>
+  <span class="ende" id="endeLand" onclick="fahreZu(1)">Landschaft<small>umsehen</small></span>
+</div>
+
+<div class="tafel" id="tafel"><div class="tafel-in" id="tafelIn"></div></div>
+<div class="marke-schwebe" id="schwebe"><div class="t" id="schwebeT"></div><div class="d" id="schwebeD"></div></div>
+<div class="ueber" id="ueber"><div class="ueber-karte" id="ueberIn"></div></div>
+<div class="hinweis" id="hinweis"></div>
+<div class="fehler" id="fehler"><div>
+  <div style="font-size:2.4rem;margin-bottom:12px">🍂</div>
+  <b>Die Landschaft konnte nicht geladen werden.</b><br>
+  <span class="mono" id="fehlerText"></span><br><br>
+  <div style="background:var(--creme2);border-radius:12px;padding:14px;text-align:left;font-size:.78rem;line-height:1.75">
+    <b>So startest du sie lokal:</b><br>
+    <span class="mono">cd faska-invaria-2 &amp;&amp; node server.js</span><br>
+    dann <b>http://localhost:8080/landschaft.html</b>
+  </div>
+</div></div>
+
+<script>
+'use strict';
+/* ═══════════════════════════════════════════════════════════════════
+   Eine Welt. Zwei Kamerastellungen.
+
+   x  = Fortschritt durch die Ketten (Zeit)
+   y  = GELTUNGSSTUFE — das ist die tragende Idee dieser Ansicht
+   z  = Kette A oder Kette B (im Schnitt zusammengeklappt)
+
+   Der Umsichts-Schalter interpoliert Kameraparameter. Es gibt keine
+   zweite Szene und keine zweite Bibliothek — nur einen Schwenk.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Palette: ausschliesslich die fünf Logofarben ── */
+const F = { blau:'#3da6da', rot:'#bd182a', orange:'#e25e2b', gruen:'#44a735', gelb:'#ffce05' };
+const SCHIEFER = '#8d8a83';          /* entsättigtes Blau für die Dormanz */
+const TYP_FARBE = {
+  appearance:F.blau, relation:F.gelb, potential:F.orange, transition:F.orange,
+  coordination:F.rot, embodiment:F.gruen, orientation:F.gruen, renewal:F.gelb,
+  dormancy:SCHIEFER
+};
+
+/* ── Die vier Geltungsstufen. Die oberste bleibt leer. ── */
+const STUFEN = [
+  { id:'erscheinung', name:'Erscheinung', farbe:F.blau,   frage:'Was tritt hervor?' },
+  { id:'perspektiv',  name:'Perspektiv',  farbe:F.gelb,   frage:'Wie wird es gelesen?' },
+  { id:'epistemisch', name:'Epistemisch', farbe:F.orange, frage:'Wofür steht das Team ein?' },
+  { id:'handlung',    name:'Handlung',    farbe:F.rot,    frage:'Wer darf handeln?' }
+];
+const STUFE_NR = { erscheinung:0, perspektiv:1, epistemisch:2, handlung:3 };
+
+/* ── Reihenfolge der Patterns im Export ── */
+const SCHL = ['a1','a2','b1','b2','b3','b4','b5','bd','b6','b7','b8','kn'];
+const TITEL = {
+  a1:'Der Regalbau', a2:'Ein erster Bezug',
+  b1:'Die Stallbox', b2:'Der KI-Vorschlag', b3:'Der Möglichkeitsraum',
+  b4:'Der nächste Schritt', b5:'Die Teamsitzung', bd:'Die schlafende Knospe',
+  b6:'Zollstock und Maßband', b7:'Die Ausrichtung', b8:'Die Futterraufe',
+  kn:'Der Aussichtspunkt'
+};
+const UNTER = {
+  a1:'Mai · Kette A', a2:'Mai · Kette A', b1:'Juni · Kette B', b2:'Juni · Kette B',
+  b3:'Juni · Kette B', b4:'Juni · Kette B', b5:'05.06. · Kette B', bd:'abgelehnt · bewahrt',
+  b6:'06.06. · Kette B', b7:'07.06. · Kette B', b8:'18.06. · Kette B', kn:'Kette A + B'
+};
+/* u = Fortschritt 0..1, kette: -1 = A, +1 = B, 0 = beide
+   lz = Beschriftungsetage: benachbarte Knoten wechseln sich ab, damit
+        sich die Namen nicht ineinanderschieben. */
+const ORT = {
+  a1:{u:.075,kette:-1,lz:0}, a2:{u:.178,kette:-1,lz:1},
+  b1:{u:.258,kette:1,lz:0},  b2:{u:.350,kette:1,lz:1},  b3:{u:.446,kette:1,lz:0},
+  b4:{u:.540,kette:1,lz:1},  bd:{u:.400,kette:1,lz:0, gesenkt:true},
+  b5:{u:.636,kette:1,lz:0},  b6:{u:.730,kette:1,lz:1},
+  b7:{u:.822,kette:1,lz:0},  b8:{u:.902,kette:1,lz:1},
+  kn:{u:.958,kette:0,lz:0}
+};
+
+/* ── Weltmaße ── */
+const SPANNE = 1330, STOCK = 152, TIEFE = 128;
+const wx = u => (u - .5) * SPANNE;
+const wy = stufe => STUFE_NR[stufe] * STOCK;
+
+let DATEN=null, P={}, VON_ID={}, knoten={}, kanten=[];
+let leinwand, ctx, B=0, H=0, dpr=1;
+let schwebt=null, gewaehlt=null, uhr=0;
+
+/* ── Kamera ─────────────────────────────────────────────────────── */
+const KAM_SCHNITT = { gier:0,     nick:0,    persp:0, zPress:0, zoom:1,   hoch:222 };
+const KAM_LAND    = { gier:-0.40, nick:0.30, persp:1, zPress:1, zoom:.74, hoch:352 };
+let morph = 0;                 /* 0 = Schnitt, 1 = Landschaft */
+let zielMorph = 0;
+let gierExtra = 0, nickExtra = 0;   /* freies Umsehen per Ziehen */
+const kam = { gier:0, nick:0, persp:0, zPress:0, zoom:1, hoch:250, dist:2700, yFaktor:1, panX:0 };
+
+function mische(a,b,t){ return a + (b-a)*t; }
+function glaette(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+
+function kameraSetzen(){
+  const t = glaette(morph);
+  kam.gier   = mische(KAM_SCHNITT.gier,   KAM_LAND.gier,   t) + gierExtra*t;
+  kam.nick   = mische(KAM_SCHNITT.nick,   KAM_LAND.nick,   t) + nickExtra*t;
+  kam.persp  = mische(KAM_SCHNITT.persp,  KAM_LAND.persp,  t);
+  kam.zPress = mische(KAM_SCHNITT.zPress, KAM_LAND.zPress, t);
+  kam.zoom   = mische(KAM_SCHNITT.zoom,   KAM_LAND.zoom,   t);
+  kam.hoch   = mische(KAM_SCHNITT.hoch,   KAM_LAND.hoch,   t);
+  /* Die Stockwerke sind geneigte Parallelogramme. Im Schwenk brauchen sie
+     mehr Luft zwischeneinander, sonst decken sie sich gegenseitig zu. */
+  kam.yFaktor = 1 + 0.62*t;
+}
+
+/* Eine Weltkoordinate auf den Bildschirm bringen. */
+function proj(x,y,z){
+  z *= kam.zPress;
+  y *= kam.yFaktor;
+  const cg=Math.cos(kam.gier), sg=Math.sin(kam.gier);
+  const x1 =  x*cg + z*sg;
+  const z1 = -x*sg + z*cg;
+  const cn=Math.cos(kam.nick), sn=Math.sin(kam.nick);
+  const y1 = y*cn - z1*sn;
+  const z2 = y*sn + z1*cn;
+  const k  = 1 + ((kam.dist/(kam.dist + z2)) - 1) * kam.persp;
+  const s  = kam.zoom * skala;
+  return { x: B/2 + kam.panX + x1*k*s, y: H/2 - (y1 - kam.hoch)*k*s, k:k*s, tiefe:z2 };
+}
+let skala = 1;
+
+/* ── Daten laden ─────────────────────────────────────────────────── */
+async function laden(){
+  try{
+    if(location.protocol==='file:') throw new Error('file:// — bitte über den Server öffnen.');
+    const r = await fetch('lena-stallbox.json');
+    if(!r.ok) throw new Error('HTTP '+r.status+' für lena-stallbox.json');
+    DATEN = await r.json();
+    DATEN.patterns.forEach((p,i)=>{ VON_ID[p.id]=SCHL[i]; P[SCHL[i]]=p; });
+    weltBauen();
+    leisteBauen();
+    return true;
+  }catch(e){
+    document.getElementById('fehler').style.display='flex';
+    document.getElementById('fehlerText').textContent=String(e && e.message || e);
+    return false;
+  }
+}
+
+function weltBauen(){
+  knoten={};
+  SCHL.forEach(s=>{
+    const p=P[s], o=ORT[s];
+    knoten[s]={
+      s, p, u:o.u, kette:o.kette,
+      x: wx(o.u),
+      y: wy(p.claim_ceiling) - (o.gesenkt ? 34 : 0),
+      z: o.kette * TIEFE,
+      farbe: TYP_FARBE[p.pattern_type] || F.gruen,
+      typ: p.pattern_type,
+      gross: (s==='kn'||s==='b1') ? 1.22 : 1,
+      sx:0, sy:0, sk:1, tiefe:0
+    };
+  });
+  kanten=[];
+  SCHL.forEach(s=>{
+    const p=P[s];
+    (p.provenance.parents||[]).forEach(id=>{
+      const q=VON_ID[id]; if(q) kanten.push({von:q,nach:s,art:'herkunft'});
+    });
+    (p.references||[]).forEach(id=>{
+      const q=VON_ID[id];
+      if(q && q!==s && !kanten.some(k=>k.von===q&&k.nach===s)) kanten.push({von:q,nach:s,art:'bezug'});
+    });
+  });
+  kanten.forEach(k=>{
+    /* Kettenübergreifend heißt: die Kante holt Kette A herüber. Der Knoten
+       gehört beiden Ketten an und macht eine Kante nicht schon dadurch quer,
+       dass sie bei ihm endet. */
+    const ausA = t => knoten[t].kette === -1;
+    k.quer = ausA(k.von) !== ausA(k.nach);
+    k.hoch = knoten[k.nach].y > knoten[k.von].y;   /* steigt die Geltung? */
+    k.teilchen = [];
+    const n = k.art==='bezug' ? 2 : 3;
+    for(let i=0;i<n;i++) k.teilchen.push({ t:Math.random(), v:.0022+Math.random()*.0026 });
+  });
+}
+
+/* ── Seitenleisten ───────────────────────────────────────────────── */
+function zaehleStufe(id){ return SCHL.filter(s=>P[s].claim_ceiling===id).length; }
+
+function leisteBauen(){
+  const el=document.getElementById('stockwerke');
+  let h='<div class="sw-kopf">Geltung ist Höhe</div>';
+  for(let i=STUFEN.length-1;i>=0;i--){
+    const st=STUFEN[i], n=zaehleStufe(st.id), leer = n===0;
+    h+='<div class="sw'+(leer?' leer':'')+'" onclick="'+(leer?'oeffneDecke()':'zeigeStufe(\''+st.id+'\')')+'">'+
+       '<span class="zahl" style="'+(leer?'':'background:'+st.farbe)+'">'+(leer?'0':n)+'</span>'+
+       '<span class="txt"><span class="nam">'+st.name+'</span>'+
+       '<span class="sub">'+(leer?'für kein Pattern erreichbar':st.frage)+'</span></span></div>';
+  }
+  h+='<div class="sw-fuss">Kein Pattern erreicht die oberste Stufe. Handlung entsteht nur als '+
+     '<b>menschlich autorisierter Akt</b> — nie als Eigenschaft.</div>';
+  el.innerHTML=h;
+
+  document.getElementById('ketten').innerHTML =
+    '<div class="kette" onclick="zeigeKette(-1)"><span class="pkt" style="background:'+F.blau+'"></span>'+
+      '<span>Kette A<br><small>Regalbau · Mai</small></span></div>'+
+    '<div class="kette" onclick="zeigeKette(1)"><span class="pkt" style="background:'+F.orange+'"></span>'+
+      '<span>Kette B<br><small>Stallbox · Juni</small></span></div>'+
+    '<div class="kette" onclick="oeffneTafel(\'kn\')"><span class="pkt" style="background:'+F.gelb+'"></span>'+
+      '<span>Aussichtspunkt<br><small>beide Ketten</small></span></div>';
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ZEICHNEN
+   ══════════════════════════════════════════════════════════════════ */
+function groesse(){
+  dpr = Math.min(window.devicePixelRatio||1, 2);
+  /* Aus dem Fenster rechnen, nicht aus clientWidth: beim ersten Aufruf
+     hat das Layout die Leinwand noch nicht ausgemessen. */
+  const kopfH = parseInt(getComputedStyle(document.documentElement)
+                  .getPropertyValue('--kopf')) || 60;
+  B = window.innerWidth; H = Math.max(240, window.innerHeight - kopfH);
+  leinwand.style.width=B+'px'; leinwand.style.height=H+'px';
+  leinwand.width = Math.round(B*dpr); leinwand.height = Math.round(H*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  /* Unter einer gewissen Größe wird nicht weiter verkleinert — dann wird
+     stattdessen geschoben (siehe kam.panX). */
+  skala = Math.max(.52, Math.min(1, B/1500));
+  panBegrenzen();
+}
+
+function zeichne(ts){
+  uhr = ts||0;
+  /* Morph sanft nachziehen */
+  if(Math.abs(zielMorph-morph)>.0005){ morph += (zielMorph-morph)*.11; reglerSpiegeln(); }
+  else morph = zielMorph;
+  kameraSetzen();
+
+  ctx.clearRect(0,0,B,H);
+  himmel();
+
+  /* Bildschirmlage aller Knoten einmal pro Bild bestimmen */
+  SCHL.forEach(s=>{
+    const n=knoten[s], q=proj(n.x,n.y,n.z);
+    n.sx=q.x; n.sy=q.y; n.sk=q.k; n.tiefe=q.tiefe;
+  });
+
+  /* Stockwerke von hinten nach vorne */
+  const boeden = STUFEN.map((st,i)=>({st,i,t:proj(0,i*STOCK,0).tiefe}))
+                        .sort((a,b)=>b.t-a.t);
+  boeden.forEach(b=>stockwerk(b.st,b.i));
+
+  kanten.forEach(kante);
+  kanten.forEach(teilchen);
+
+  /* Knoten nach Tiefe: hinten zuerst */
+  SCHL.slice().sort((a,b)=>knoten[b].tiefe-knoten[a].tiefe).forEach(s=>zeichneKnoten(knoten[s]));
+
+  deckenSiegel();
+  requestAnimationFrame(zeichne);
+}
+
+function himmel(){
+  const g=ctx.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,'#fdf8ec'); g.addColorStop(.55,'#fefcf7'); g.addColorStop(1,'#f7f2e6');
+  ctx.fillStyle=g; ctx.fillRect(0,0,B,H);
+  /* Sonne, sehr zurückhaltend */
+  const sx=B*.14, sy=H*.17, r=Math.min(B,H)*.14;
+  const s=ctx.createRadialGradient(sx,sy,0,sx,sy,r);
+  s.addColorStop(0,'rgba(255,206,5,.16)'); s.addColorStop(1,'rgba(255,206,5,0)');
+  ctx.fillStyle=s; ctx.beginPath(); ctx.arc(sx,sy,r,0,6.284); ctx.fill();
+}
+
+/* Ein Stockwerk als Fläche + Beschriftung. */
+function stockwerk(st,i){
+  const y=i*STOCK, leer = zaehleStufe(st.id)===0;
+  const a=proj(-SPANNE/2-40, y, -TIEFE-66), b=proj(SPANNE/2+40, y, -TIEFE-66);
+  const c=proj(SPANNE/2+40, y,  TIEFE+66), d=proj(-SPANNE/2-40, y,  TIEFE+66);
+  const flach = 1-glaette(morph);          /* im Schnitt: Fläche wird zum Strich */
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.lineTo(c.x,c.y); ctx.lineTo(d.x,d.y); ctx.closePath();
+  if(leer){
+    ctx.fillStyle='rgba(189,24,42,.045)'; ctx.fill();
+    ctx.setLineDash([9,8]); ctx.strokeStyle='rgba(189,24,42,.5)'; ctx.lineWidth=1.8;
+  }else{
+    ctx.fillStyle = hexA(st.farbe, .055 + .045*(1-flach));
+    ctx.fill();
+    ctx.setLineDash([]); ctx.strokeStyle=hexA(st.farbe,.34); ctx.lineWidth=1.4;
+  }
+  ctx.stroke(); ctx.setLineDash([]);
+  ctx.restore();
+
+  /* Beschriftung an der vorderen linken Kante. Im Schwenk tritt sie zurück —
+     die Stockwerks-Leiste am Rand übernimmt dann. */
+  const t2=glaette(morph);
+  const l=proj(-SPANNE/2-46, y+44, mische(0, TIEFE+66, t2));
+  const s2=Math.min(1.2,l.k);
+  ctx.save();
+  ctx.globalAlpha = Math.max(0, 1 - 1.35*t2);
+  ctx.textAlign='left'; ctx.textBaseline='middle';
+  ctx.font='800 '+(11.5*s2)+'px '+SCHRIFT;
+  ctx.fillStyle = leer ? hexA(F.rot,.9) : hexA(st.farbe,.92);
+  ctx.fillText(st.name.toUpperCase(), l.x, l.y);
+  ctx.font='600 '+(9.5*s2)+'px '+SCHRIFT;
+  ctx.fillStyle='rgba(111,98,73,.78)';
+  ctx.fillText(leer ? 'leer — und das ist der Beweis' : st.frage, l.x, l.y+14*s2);
+  ctx.restore();
+}
+
+/* Das Siegel auf der leeren Decke. */
+function deckenSiegel(){
+  const y = 3*STOCK, p = proj(0, y+40, 0);
+  const puls = .5 + .5*Math.sin(uhr*.0016);
+  ctx.save();
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  const s = Math.min(1.3, p.k);
+  ctx.globalAlpha = .55 + .25*puls;
+  ctx.font = (26*s)+'px '+SCHRIFT;
+  ctx.fillText('🔒', p.x, p.y - 6*s);
+  ctx.globalAlpha = 1;
+  ctx.font='800 '+(11*s)+'px '+SCHRIFT;
+  ctx.fillStyle=hexA(F.rot,.88);
+  ctx.fillText('HANDLUNG — VERSCHLOSSEN', p.x, p.y + 18*s);
+  ctx.font='600 '+(9.5*s)+'px '+SCHRIFT;
+  ctx.fillStyle='rgba(111,98,73,.8)';
+  ctx.fillText('0 von 12 Patterns · nur durch menschliche Autorisierung', p.x, p.y + 33*s);
+  ctx.restore();
+}
+
+/* ── Kanten ── */
+function bogen(k){
+  const a=knoten[k.von], b=knoten[k.nach];
+  /* Der Bogen wölbt sich in die Richtung, in die die Geltung geht. */
+  const mx=(a.x+b.x)/2, my=(a.y+b.y)/2 + (k.art==='bezug' ? -58 : 58), mz=(a.z+b.z)/2;
+  const m=proj(mx,my,mz);
+  return {a:{x:a.sx,y:a.sy}, m:{x:m.x,y:m.y}, b:{x:b.sx,y:b.sy}};
+}
+function qpunkt(g,t){
+  const u=1-t;
+  return { x:u*u*g.a.x+2*u*t*g.m.x+t*t*g.b.x, y:u*u*g.a.y+2*u*t*g.m.y+t*t*g.b.y };
+}
+function kantenStil(k){
+  if(k.quer)              return { farbe:F.gelb,  breite:2.4, alpha:.72, strich:[3,6] };
+  if(k.art==='bezug')     return { farbe:SCHIEFER,breite:1.6, alpha:.5,  strich:[3,6] };
+  return                         { farbe:F.gruen, breite:1.8, alpha:.42, strich:[8,7] };
+}
+function fokus(k){
+  if(!schwebt && !gewaehlt) return 1;
+  const s = (schwebt||gewaehlt).s;
+  return (k.von===s||k.nach===s) ? 2.1 : .2;
+}
+function kante(k){
+  const g=bogen(k), st=kantenStil(k), f=fokus(k);
+  ctx.save();
+  ctx.beginPath(); ctx.moveTo(g.a.x,g.a.y); ctx.quadraticCurveTo(g.m.x,g.m.y,g.b.x,g.b.y);
+  ctx.setLineDash(st.strich);
+  ctx.strokeStyle=hexA(st.farbe, Math.min(.95, st.alpha*f));
+  ctx.lineWidth=st.breite*(f>1?1.6:1); ctx.lineCap='round';
+  ctx.stroke(); ctx.setLineDash([]);
+  if(f>1){
+    const m=qpunkt(g,.5);
+    ctx.textAlign='center'; ctx.font='800 9px '+SCHRIFT;
+    ctx.fillStyle='rgba(254,252,247,.95)';
+    const w=ctx.measureText(k.art==='bezug'?'BEZUG':'HERKUNFT').width+10;
+    rundRechteck(m.x-w/2,m.y-16,w,14,7); ctx.fill();
+    ctx.fillStyle=hexA(st.farbe,.95);
+    ctx.fillText(k.art==='bezug'?'BEZUG':'HERKUNFT', m.x, m.y-6);
+  }
+  ctx.restore();
+}
+function teilchen(k){
+  const g=bogen(k), st=kantenStil(k), f=fokus(k);
+  ctx.save();
+  k.teilchen.forEach(t=>{
+    t.t=(t.t+t.v)%1;
+    const p=qpunkt(g,t.t);
+    ctx.beginPath();
+    ctx.fillStyle=hexA(st.farbe, Math.min(.95,(.42+.3*Math.sin(uhr*.004+t.t*10))*f));
+    ctx.arc(p.x,p.y, (k.quer?2.6:2)*(f>1?1.6:1), 0, 6.284); ctx.fill();
+  });
+  ctx.restore();
+}
+
+/* ── Ein Knoten ── */
+function zeichneKnoten(n){
+  const gew = gewaehlt===n, sch = schwebt===n;
+  const zur = (schwebt||gewaehlt) && !gew && !sch ? .34 : 1;   /* Umfeld tritt zurück */
+  const atem = 1 + .028*Math.sin(uhr*.0018 + n.u*9);
+  /* Perspektive darf die Zeichen staffeln, aber nicht sprengen */
+  const r = 27 * n.gross * klemme(n.sk,.62,1.45) * atem;
+
+  ctx.save();
+  ctx.globalAlpha = zur;
+
+  /* Schein */
+  const gl=ctx.createRadialGradient(n.sx,n.sy,0,n.sx,n.sy,r*2.5);
+  gl.addColorStop(0,hexA(n.farbe,.19)); gl.addColorStop(1,hexA(n.farbe,0));
+  ctx.fillStyle=gl; ctx.beginPath(); ctx.arc(n.sx,n.sy,r*2.5,0,6.284); ctx.fill();
+
+  /* Standlinie auf das Stockwerk */
+  const fuss = proj(n.x, wy(n.p.claim_ceiling), n.z);
+  if(Math.abs(fuss.y-n.sy)>2){
+    ctx.beginPath(); ctx.setLineDash([2,4]);
+    ctx.strokeStyle=hexA(n.farbe,.34); ctx.lineWidth=1.2;
+    ctx.moveTo(n.sx,n.sy); ctx.lineTo(fuss.x,fuss.y); ctx.stroke(); ctx.setLineDash([]);
+  }
+
+  zeichneZeichen(n, r);
+
+  /* Siegel: menschlich verantwortet */
+  if(n.p.sealed_by==='human'){
+    ctx.beginPath(); ctx.fillStyle=hexA(F.gruen,.95);
+    ctx.arc(n.sx+r*.82, n.sy-r*.82, 6.5*n.sk, 0, 6.284); ctx.fill();
+    ctx.fillStyle='#fff'; ctx.font='800 '+(8*n.sk)+'px '+SCHRIFT;
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText('✓', n.sx+r*.82, n.sy-r*.82+.5);
+  }
+  /* Umstritten */
+  if(n.p.contested){
+    ctx.beginPath(); ctx.fillStyle=hexA(F.rot,.95);
+    ctx.arc(n.sx-r*.82, n.sy-r*.82, 6.5*n.sk, 0, 6.284); ctx.fill();
+    ctx.fillStyle='#fff'; ctx.font='800 '+(8.5*n.sk)+'px '+SCHRIFT;
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText('!', n.sx-r*.82, n.sy-r*.82+.5);
+  }
+
+  /* Auswahlring */
+  if(gew||sch){
+    ctx.beginPath(); ctx.setLineDash([5,5]);
+    ctx.strokeStyle=hexA(n.farbe,.85); ctx.lineWidth=2;
+    ctx.arc(n.sx,n.sy, r*1.55 + 3*Math.sin(uhr*.004), 0, 6.284);
+    ctx.stroke(); ctx.setLineDash([]);
+  }
+
+  /* Beschriftung — versetzte Etagen gegen Überlagerung */
+  const gr = Math.min(1.15, n.sk);
+  const ly = n.sy + r*1.45 + (ORT[n.s].lz||0) * 31 * gr;
+  ctx.textAlign='center'; ctx.textBaseline='top';
+  ctx.lineJoin='round'; ctx.lineWidth=3.6;
+  ctx.strokeStyle='rgba(254,252,247,.94)';
+  ctx.font='800 '+(11.6*gr)+'px '+SCHRIFT;
+  ctx.strokeText(TITEL[n.s], n.sx, ly);
+  ctx.fillStyle='rgba(45,36,18,.92)';
+  ctx.fillText(TITEL[n.s], n.sx, ly);
+  ctx.font='600 '+(9.2*gr)+'px '+SCHRIFT;
+  ctx.strokeText(UNTER[n.s], n.sx, ly+14.5*gr);
+  ctx.fillStyle='rgba(111,98,73,.85)';
+  ctx.fillText(UNTER[n.s], n.sx, ly+14.5*gr);
+
+  ctx.restore();
+}
+
+/* Jeder Typ bekommt ein eigenes Zeichen — Form trägt Bedeutung. */
+function zeichneZeichen(n,r){
+  const x=n.sx, y=n.sy, c=n.farbe, t=uhr;
+  ctx.lineJoin='round'; ctx.lineCap='round';
+  switch(n.typ){
+    case 'appearance': {                       /* Was tritt hervor: ein Aufleuchten */
+      const sal = n.p.phenomenon.salience || .4;
+      const bl = 6 + 6*sal;
+      for(let i=0;i<bl;i++){
+        const a = 6.284*i/bl + t*.0004;
+        ctx.beginPath(); ctx.fillStyle=hexA(c,.82);
+        ellipse(x+Math.cos(a)*r*.6, y+Math.sin(a)*r*.6, r*.42, r*.26, a);
+        ctx.fill();
+      }
+      ctx.beginPath(); ctx.fillStyle=F.gelb; ctx.arc(x,y,r*.34,0,6.284); ctx.fill();
+      break;
+    }
+    case 'relation': {                          /* Zwei Dinge, ein Bogen dazwischen */
+      ctx.beginPath(); ctx.fillStyle=hexA(c,.95); ctx.arc(x,y,r*.36,0,6.284); ctx.fill();
+      for(let i=0;i<3;i++){
+        const a=t*.0011 + 6.284*i/3, ox=x+Math.cos(a)*r*.95, oy=y+Math.sin(a)*r*.7;
+        ctx.beginPath(); ctx.setLineDash([2,3]); ctx.strokeStyle=hexA(c,.55); ctx.lineWidth=1.2;
+        ctx.moveTo(x,y); ctx.lineTo(ox,oy); ctx.stroke(); ctx.setLineDash([]);
+        ctx.beginPath(); ctx.fillStyle=hexA(c,.9); ctx.arc(ox,oy,r*.17,0,6.284); ctx.fill();
+      }
+      break;
+    }
+    case 'potential': {                         /* Ein Fächer aus Einstiegen */
+      const eps=(n.p.candidate_space&&n.p.candidate_space.entry_points)||[];
+      const gw=(n.p.candidate_space&&n.p.candidate_space.domain_weights)||{};
+      const dom={mathematik:F.blau,sprache:F.rot,werken:F.orange,biologie:F.gruen,keine:SCHIEFER};
+      eps.forEach((e,i)=>{
+        const a=-2.45 + i*(2.9/Math.max(1,eps.length-1));
+        const ex=x+Math.cos(a)*r*1.05, ey=y+Math.sin(a)*r*.95;
+        ctx.beginPath(); ctx.strokeStyle=hexA(c,.34); ctx.lineWidth=1.1;
+        ctx.moveTo(x,y); ctx.lineTo(ex,ey); ctx.stroke();
+        const w=gw[e.domain]||.3;
+        ctx.beginPath(); ctx.fillStyle=hexA(dom[e.domain]||c,.9);
+        ellipse(ex,ey,r*(.13+.16*w),r*(.17+.2*w),a+1.57); ctx.fill();
+      });
+      ctx.beginPath(); ctx.fillStyle=hexA(c,.95); ctx.arc(x,y,r*.3,0,6.284); ctx.fill();
+      break;
+    }
+    case 'transition': {                        /* Von blass nach offen */
+      ctx.beginPath(); ctx.fillStyle=hexA(c,.3);
+      ellipse(x-r*.42,y+r*.4,r*.34,r*.2,0); ctx.fill();
+      ctx.beginPath(); ctx.fillStyle=hexA(c,.95);
+      ellipse(x,y,r*.42,r*.6,0); ctx.fill();
+      ctx.beginPath(); ctx.fillStyle=F.gelb; ctx.arc(x,y-r*.16,r*.2,0,6.284); ctx.fill();
+      for(let i=0;i<3;i++){
+        const yy = y+r*.9 - ((t*.026 + i*20)%60)*r*.022;
+        ctx.beginPath(); ctx.fillStyle=hexA(c,.5);
+        ctx.moveTo(x-r*.17,yy+r*.16); ctx.lineTo(x+r*.17,yy+r*.16); ctx.lineTo(x,yy-r*.1);
+        ctx.closePath(); ctx.fill();
+      }
+      break;
+    }
+    case 'coordination': {                      /* Drei Stimmen, ein Riss dazwischen */
+      const teil=n.p.participants||[];
+      const pf=[F.gruen,F.blau,F.rot];
+      teil.forEach((pt,i)=>{
+        const px=x+(i-1)*r*.72, py=y+(i===0?-r*.16:0);
+        ctx.beginPath(); ctx.fillStyle=hexA(pf[i]||c,.95);
+        ctx.arc(px,py,r*(.24+pt.weight*.34),0,6.284); ctx.fill();
+      });
+      /* Der Riss zwischen Mark und Ines bleibt offen */
+      ctx.beginPath(); ctx.strokeStyle=hexA(F.rot,.8); ctx.lineWidth=1.7;
+      for(let i=0;i<=8;i++){
+        const xx=x+r*.05+i*(r*.62/8);
+        const jt=(i%2?1:-1)*r*.1*(1+.4*Math.sin(t*.011+i));
+        i?ctx.lineTo(xx,y+jt):ctx.moveTo(xx,y+jt);
+      }
+      ctx.stroke();
+      break;
+    }
+    case 'embodiment': {                        /* Ein Tisch, worauf etwas liegt */
+      ctx.beginPath(); ctx.strokeStyle=hexA('#7a6a4c',.85); ctx.lineWidth=2.6;
+      ctx.moveTo(x-r*.7,y+r*.1); ctx.lineTo(x+r*.7,y+r*.1);
+      ctx.moveTo(x-r*.5,y+r*.1); ctx.lineTo(x-r*.5,y+r*.62);
+      ctx.moveTo(x+r*.5,y+r*.1); ctx.lineTo(x+r*.5,y+r*.62);
+      ctx.stroke();
+      ctx.fillStyle=F.gelb; rundRechteck(x-r*.52,y-r*.06,r*.5,r*.13,2); ctx.fill();
+      ctx.fillStyle=F.rot;  rundRechteck(x+r*.1, y-r*.1, r*.26,r*.2,2); ctx.fill();
+      ctx.beginPath(); ctx.fillStyle=hexA(c,.95); ctx.arc(x,y-r*.5,r*.3,0,6.284); ctx.fill();
+      break;
+    }
+    case 'orientation': {                       /* Eine Nadel, die in eine Richtung zeigt */
+      ctx.beginPath(); ctx.strokeStyle=hexA(c,.5); ctx.lineWidth=1.5;
+      ctx.arc(x,y,r*.72,0,6.284); ctx.stroke();
+      const a=-.5+.13*Math.sin(t*.0013);
+      ctx.beginPath(); ctx.fillStyle=hexA(c,.95);
+      ctx.moveTo(x+Math.cos(a)*r*.72, y+Math.sin(a)*r*.72);
+      ctx.lineTo(x+Math.cos(a+2.5)*r*.3, y+Math.sin(a+2.5)*r*.3);
+      ctx.lineTo(x+Math.cos(a-2.5)*r*.3, y+Math.sin(a-2.5)*r*.3);
+      ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.fillStyle=hexA(SCHIEFER,.5);
+      ctx.arc(x-Math.cos(a)*r*.44, y-Math.sin(a)*r*.44, r*.15,0,6.284); ctx.fill();
+      break;
+    }
+    case 'renewal': {                           /* Eine Blüte, die sich öffnet */
+      const bl = n.s==='kn' ? 9 : 7;
+      for(let i=0;i<bl;i++){
+        const a=6.284*i/bl + t*.00045;
+        ctx.beginPath(); ctx.fillStyle=hexA(c,.88);
+        ellipse(x+Math.cos(a)*r*.5, y+Math.sin(a)*r*.5, r*.4, r*.24, a); ctx.fill();
+      }
+      ctx.beginPath(); ctx.fillStyle=n.s==='kn'?F.orange:F.gelb;
+      ctx.arc(x,y,r*.3,0,6.284); ctx.fill();
+      if(n.s==='kn'){                            /* Fernrohr in die offene Weite */
+        ctx.beginPath(); ctx.strokeStyle=hexA('#7a6a4c',.9); ctx.lineWidth=2.6;
+        ctx.moveTo(x+r*.2,y-r*.2); ctx.lineTo(x+r*.95,y-r*.85); ctx.stroke();
+        ctx.beginPath(); ctx.fillStyle=hexA(SCHIEFER,.9);
+        ctx.arc(x+r*1.02,y-r*.92,r*.17,0,6.284); ctx.fill();
+      }
+      break;
+    }
+    case 'dormancy': {                          /* Geschlossene Knospe im Schutzring */
+      const at = 1+.03*Math.sin(t*.0011);
+      ctx.beginPath(); ctx.setLineDash([3,5]);
+      ctx.strokeStyle=hexA(SCHIEFER,.45+.12*Math.sin(t*.0016)); ctx.lineWidth=1.3;
+      ctx.arc(x,y,r*1.28*at,0,6.284); ctx.stroke(); ctx.setLineDash([]);
+      ctx.beginPath(); ctx.fillStyle=hexA(SCHIEFER,.9);
+      ellipse(x,y,r*.36*at,r*.56*at,0); ctx.fill();
+      ctx.beginPath(); ctx.fillStyle=hexA('#6f6c66',.85);
+      ellipse(x-r*.15,y-r*.04,r*.16,r*.42*at,0); ctx.fill();
+      ellipse(x+r*.15,y-r*.04,r*.16,r*.42*at,0); ctx.fill();
+      ctx.beginPath(); ctx.fillStyle=hexA(F.gelb,.55);
+      ctx.arc(x+r*.72,y-r*.72,r*.19,0,6.284); ctx.fill();
+      break;
+    }
+  }
+}
+
+/* ── kleine Zeichenhelfer ── */
+const SCHRIFT = "'Inter',system-ui,-apple-system,'Segoe UI',sans-serif";
+function ellipse(x,y,rx,ry,rot){ ctx.ellipse(x,y,Math.max(.4,rx),Math.max(.4,ry),rot||0,0,6.284); }
+function rundRechteck(x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath();
+}
+function hexA(hex,a){
+  if(hex[0]!=='#') return hex;
+  const n=parseInt(hex.slice(1),16);
+  return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')';
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   STEUERUNG
+   ══════════════════════════════════════════════════════════════════ */
+function reglerSpiegeln(){
+  const r=document.getElementById('regler');
+  if(document.activeElement!==r) r.value=Math.round(morph*1000);
+  document.getElementById('knopf').style.left=(morph*100)+'%';
+  document.getElementById('knopf').textContent = morph>.5 ? '⛰' : '◲';
+  document.getElementById('endeSchnitt').classList.toggle('an',morph<.5);
+  document.getElementById('endeLand').classList.toggle('an',morph>=.5);
+}
+function fahreZu(z){ zielMorph=z; if(z===0){ gierExtra=0; nickExtra=0; } }
+
+function treffer(mx,my){
+  let best=null,bd=1e9;
+  SCHL.forEach(s=>{
+    const n=knoten[s];
+    const d=Math.hypot(mx-n.sx,my-n.sy), r=30*n.gross*n.sk+12;
+    if(d<r && d<bd){ bd=d; best=n; }
+  });
+  return best;
+}
+
+function zeigeSchwebe(n,mx,my){
+  const el=document.getElementById('schwebe');
+  if(!n){ el.classList.remove('auf'); return; }
+  const st=STUFEN[STUFE_NR[n.p.claim_ceiling]];
+  let hk=0,bz=0; kanten.forEach(k=>{ if(k.von===n.s||k.nach===n.s){ k.art==='bezug'?bz++:hk++; } });
+  document.getElementById('schwebeT').textContent=TITEL[n.s];
+  document.getElementById('schwebeD').textContent=
+    st.name+' · '+(DATEN.profile.projection_names[n.typ]||n.typ)+
+    ' — '+hk+'× Herkunft, '+bz+'× Bezug';
+  el.style.left=Math.min(B-262,mx+16)+'px';
+  el.style.top=Math.max(66,my-58)+'px';
+  el.classList.add('auf');
+}
+
+/* ── Zeiger und Finger ── */
+let zieht=false, zx=0, zy=0, bewegt=0;
+function bindeLeinwand(){
+  const c=leinwand;
+  c.addEventListener('pointerdown',e=>{
+    zieht=true; bewegt=0; zx=e.clientX; zy=e.clientY; c.setPointerCapture(e.pointerId);
+  });
+  c.addEventListener('pointermove',e=>{
+    const r=c.getBoundingClientRect(), mx=e.clientX-r.left, my=e.clientY-r.top;
+    if(zieht){
+      const dx=e.clientX-zx, dy=e.clientY-zy;
+      bewegt+=Math.abs(dx)+Math.abs(dy);
+      if(morph>.15){                       /* Umsehen nur in der Landschaft */
+        gierExtra=klemme(gierExtra+dx*.005,-1.15,1.15);
+        nickExtra=klemme(nickExtra-dy*.003,-.34,.5);
+      }else{                               /* im Schnitt: seitlich schieben */
+        kam.panX+=dx; panBegrenzen();
+      }
+      zx=e.clientX; zy=e.clientY;
+      return;
+    }
+    const n=treffer(mx,my);
+    if(n!==schwebt){ schwebt=n; c.style.cursor=n?'pointer':(morph>.15?'grab':'default'); }
+    zeigeSchwebe(n,e.clientX,e.clientY);
+  });
+  const los=e=>{
+    if(zieht && bewegt<6){
+      const r=c.getBoundingClientRect();
+      const n=treffer(e.clientX-r.left, e.clientY-r.top);
+      if(n) oeffneTafel(n.s); else { gewaehlt=null; schliesseTafel(); }
+    }
+    zieht=false;
+  };
+  c.addEventListener('pointerup',los);
+  c.addEventListener('pointercancel',()=>{ zieht=false; });
+  c.addEventListener('pointerleave',()=>{ schwebt=null; zeigeSchwebe(null); });
+  c.addEventListener('wheel',e=>{
+    e.preventDefault();
+    zielMorph=klemme(zielMorph + (e.deltaY>0?.14:-.14),0,1);
+  },{passive:false});
+}
+function klemme(v,a,b){ return v<a?a:v>b?b:v; }
+/* Die Welt darf nicht aus dem Bild geschoben werden. */
+function panBegrenzen(){
+  const breit = SPANNE*skala + 190;
+  const luft  = Math.max(0, (breit - B)/2);
+  kam.panX = klemme(kam.panX, -luft, luft);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   DETAIL-TAFEL
+   ══════════════════════════════════════════════════════════════════ */
+const e_ = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const datum = iso => iso ? new Date(iso).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'}) : '';
+const blk = (t,i) => '<div class="blk"><h3>'+t+'</h3>'+i+'</div>';
+const liste = a => '<ul class="liste">'+(a||[]).map(x=>'<li>'+e_(x)+'</li>').join('')+'</ul>';
+const paar = (k,v,f) => '<div class="paar"><span class="k"'+(f?' style="color:'+f+'"':'')+'>'+k+'</span><span>'+v+'</span></div>';
+const balken = (v,f) => '<div class="balken"><i style="width:'+Math.round(v*100)+'%;background:'+f+'"></i></div>';
+
+function stufenPille(c){
+  const m={erscheinung:'p-blau',perspektiv:'p-gelb',epistemisch:'p-orange',handlung:'p-rot'};
+  return '<span class="pille '+(m[c]||'')+'">Geltung: '+e_(c)+'</span>';
+}
+function herkunftKarte(p){
+  const v=p.provenance;
+  return '<div class="herkunft"><b>Provenienz — Pflichtfeld</b><br>'+
+    'Quelle: <b>'+e_(v.source)+'</b><br>'+
+    'Erzeugt von: <b>'+e_(v.generator)+'</b><br>'+
+    e_(v.generation_conditions)+
+    '<div class="mono" style="margin-top:6px">id '+e_(p.id.slice(0,8))+'… · status '+e_(p.status)+
+    (p.sealed_by!=='unsealed'?' · sealed_by '+e_(p.sealed_by):'')+'</div></div>';
+}
+function kopfTafel(s){
+  const p=P[s], proj=DATEN.profile.projection_names[p.pattern_type];
+  return '<button class="zu" onclick="schliesseTafel()">×</button>'+
+    '<span class="marker" style="background:'+(TYP_FARBE[p.pattern_type])+'">'+e_(proj)+'</span>'+
+    '<h2>'+e_(TITEL[s])+'</h2>'+
+    '<div class="zeile">'+stufenPille(p.claim_ceiling)+
+      (p.contested?'<span class="pille p-rot">umstritten</span>':'')+
+      (p.sealed_by==='human'?'<span class="pille p-gruen">menschlich besiegelt</span>':'')+
+      '<span class="datum">'+datum(p.timestamp)+' · '+e_(UNTER[s])+'</span></div>';
+}
+
+function inhaltTafel(s){
+  const p=P[s];
+  switch(p.pattern_type){
+    case 'appearance':   return tAppearance(s,p);
+    case 'relation':     return tRelation(s,p);
+    case 'potential':    return tPotential(s,p);
+    case 'transition':   return tTransition(s,p);
+    case 'coordination': return tCoordination(s,p);
+    case 'dormancy':     return tDormancy(s,p);
+    case 'embodiment':   return tEmbodiment(s,p);
+    case 'orientation':  return tOrientation(s,p);
+    case 'renewal':      return tRenewal(s,p);
+  }
+  return '';
+}
+
+function tAppearance(s,p){
+  const ph=p.phenomenon, sf=p.selection_filters;
+  const rel = s==='a1' ? 'a2' : 'b2';
+  return kopfTafel(s)+
+    blk('Das Phänomen', '<div class="zitat">„'+e_(ph.raw_observation)+'"</div>'+
+      '<div style="margin-top:10px">'+paar('Medium',e_(ph.medium))+paar('Dauer',e_(ph.duration))+
+      paar('Salienz',ph.salience)+balken(ph.salience,F.blau)+'</div>')+
+    (P[rel] ? waageBlock(s,rel) : '')+
+    blk('Was die Beobachterin sah — und was nicht',
+      '<div class="karten2">'+
+      '<div class="kachel k-blau"><h5>Aktive Filter</h5>'+sf.active_filters.map(e_).join('<br>')+
+        '<div style="margin-top:6px;color:var(--tinte2)">'+e_(sf.observer_standpoint)+'</div></div>'+
+      '<div class="kachel k-orange"><h5>Dadurch ausgeblendet</h5>'+sf.excluded_by_filter.map(e_).join('<br>')+'</div>'+
+      '</div>')+
+    blk('Die Abwesenheitsspur — Pflichtfeld', '<div class="kachel k-gelb">'+liste(p.potentially_missed)+'</div>'+
+      '<p style="font-size:.74rem;color:var(--tinte2);margin-top:7px">'+
+      'Eine Beobachtung ohne benannte Lücke behauptet Vollständigkeit. Deshalb steht dieses Feld nicht zur Wahl.</p>')+
+    blk('Bekannte blinde Flecken','<div class="kachel k-leer">'+liste(p.known_blindspots)+'</div>')+
+    herkunftKarte(p);
+}
+
+function waageBlock(sa,sr){
+  const a=P[sa], r=P[sr], ki=r.provenance.generator.indexOf('tisch')>=0;
+  return blk('Beobachtung ↔ Deutung',
+    '<div class="waage">'+
+      '<div class="seite w-beob"><h4>👁 Beobachtung · erscheinung</h4>'+
+        '<b>„'+e_(a.phenomenon.raw_observation.slice(0,120))+(a.phenomenon.raw_observation.length>120?'…':'')+'"</b>'+
+        '<div class="mono" style="margin-top:7px">'+e_(a.provenance.generator)+'</div></div>'+
+      '<div class="w-mitte"><div class="w-zeichen">⇄<br>ÜBER-<br>SETZUNG</div></div>'+
+      '<div class="seite w-deut"><h4>'+(ki?'🤖 KI-Vorschlag':'🧑‍🏫 Deutung')+' · perspektiv</h4>'+
+        r.elements.map(x=>'<div style="margin-bottom:4px">'+e_(x.role)+'</div>').join('')+
+        '<div style="margin-top:6px;color:var(--rot)"><b>Gegen-Evidenz:</b><br>'+
+        (r.evidence.counter_evidence||[]).map(e_).join('<br>')+'</div>'+
+        '<div class="mono" style="margin-top:7px">'+e_(r.provenance.generator)+'</div></div>'+
+    '</div>'+
+    '<p style="font-size:.78rem;color:var(--tinte2);text-align:center;font-style:italic;margin-top:8px">'+
+    'Hier wird übersetzt, nicht identifiziert. Die Deutung steht eine Stufe höher — und trägt ihre Herkunft mit.</p>');
+}
+
+function tRelation(s,p){
+  const ev=p.evidence, pr=p.properties;
+  return kopfTafel(s)+
+    blk('Was hier verbunden wird', p.elements.map(x=>
+      '<div class="kachel k-gelb" style="margin-bottom:7px"><h5>'+e_(x.type)+'</h5>'+e_(x.role)+
+      '<div class="mono" style="margin-top:4px">'+e_(x.id.indexOf('bildungsplan')===0?x.id:x.id.slice(0,13)+'…')+'</div></div>').join(''))+
+    blk('Wie fest ist diese Verbindung?',
+      paar('Typ',e_(p.relation_type))+paar('Stärke',pr.strength)+balken(pr.strength,F.gelb)+
+      paar('Symmetrie',e_(pr.symmetry))+paar('Stabilität',e_(pr.stability))+
+      paar('Umkehrbar',e_(pr.reversibility))+
+      paar('Evidenzstufe','<span class="pille p-gelb">'+e_(ev.level)+'</span>'))+
+    blk('Gegen-Evidenz — bleibt stehen',
+      '<div class="zitat z-rot" style="font-size:.85rem">'+(ev.counter_evidence||[]).map(e_).join('<br><br>')+'</div>')+
+    herkunftKarte(p);
+}
+
+function tPotential(s,p){
+  const cs=p.candidate_space, c=p.constraints;
+  const dom={mathematik:F.blau,sprache:F.rot,werken:F.orange,biologie:F.gruen,keine:SCHIEFER};
+  const gew=Object.keys(cs.domain_weights).map(d=>
+    paar('<span style="color:'+(dom[d]||'inherit')+'">'+e_(d)+'</span>',cs.domain_weights[d])+
+    balken(cs.domain_weights[d],dom[d]||SCHIEFER)).join('');
+  const eps=cs.entry_points.map(x=>
+    '<div class="kachel k-orange" style="margin-bottom:7px;display:flex;gap:10px;align-items:flex-start">'+
+    '<span style="width:11px;height:11px;border-radius:50%;background:'+(dom[x.domain]||SCHIEFER)+';flex-shrink:0;margin-top:4px"></span>'+
+    '<div><b>'+e_(x.domain)+'</b> <span class="pille">Aufwand '+e_(x.cost)+'</span> '+
+    '<span class="pille p-gruen">'+e_(x.reversibility)+'</span><br>'+e_(x.suggestion)+'</div></div>').join('');
+  const cs2=[['strukturell',c.structural],['biografisch',c.biographical],['institutionell',c.institutional],
+             ['sprachlich',c.linguistic],['affektiv',c.affective],['machtbezogen',c.power_related]];
+  return kopfTafel(s)+
+    blk('Welche Türen stehen offen?',eps)+
+    blk('Gewichte der Domänen',gew)+
+    blk('Was dagegen spricht', cs2.map(x=>x[1]&&x[1].length?paar(x[0],x[1].map(e_).join('<br>')):'').join(''))+
+    blk('Abwesende Dimensionen — Pflichtfeld',
+      '<div class="kachel k-leer">'+liste(p.absent_dimensions)+'</div>'+
+      '<div style="margin-top:8px">'+paar('warum abwesend',(p.why_absent||[]).map(e_).join('<br>'))+'</div>'+
+      '<p style="font-size:.74rem;color:var(--tinte2);margin-top:6px">'+
+      'Ein Möglichkeitsraum ohne benannte Lücken behauptet, ausgeschöpft zu sein.</p>')+
+    herkunftKarte(p);
+}
+
+function tTransition(s,p){
+  const t=p.transition, cd=p.conditions, rk=p.risks;
+  return kopfTafel(s)+
+    blk('Der Übergang',
+      '<div class="karten2">'+
+      '<div class="kachel k-leer"><h5>von</h5>'+e_(t.from_state)+'</div>'+
+      '<div class="kachel k-orange"><h5>nach</h5>'+e_(t.to_state)+'</div></div>'+
+      '<div style="margin-top:10px">'+paar('Richtung','<span class="pille p-gruen">'+e_(t.direction)+'</span>')+
+      (t.vector||[]).map(v=>paar(e_(v.dimension),'Gewicht '+v.magnitude)+balken(v.magnitude,F.orange)).join('')+'</div>')+
+    blk('Bedingungen',
+      paar('notwendig',cd.necessary.map(e_).join('<br>'),F.gruen)+
+      paar('blockierend',cd.blocking.map(e_).join('<br>'),F.rot)+
+      paar('katalytisch',cd.catalytic.map(e_).join('<br>'),F.blau))+
+    blk('Risiken',
+      paar('Nebenwirkungen',rk.side_effects.map(e_).join('<br>'))+
+      paar('irreversibel wenn',rk.irreversible_if.map(e_).join('<br>'),F.rot)+
+      paar('Betroffene',rk.affected_parties.map(e_).join(', ')))+
+    herkunftKarte(p);
+}
+
+function tCoordination(s,p){
+  const o=p.outcomes, i=p.interferences[0];
+  const pf={sabrina:F.gruen,mark:F.blau,ines:F.rot};
+  const wer=k=>{ const t=Object.keys(pf).find(n=>k.indexOf(n)>=0); return {name:(t||k).replace(/^./,c=>c.toUpperCase()),farbe:pf[t]||SCHIEFER}; };
+  return kopfTafel(s)+
+    blk('Die anwesende Runde', '<div class="karten2" style="grid-template-columns:1fr 1fr 1fr">'+
+      p.participants.map(pt=>{ const w=wer(pt.perspective_id);
+        return '<div class="kachel" style="background:'+hexA(w.farbe,.1)+';border-top:3px solid '+w.farbe+'">'+
+        '<b>'+e_(w.name)+'</b><br><span style="font-size:.72rem;color:var(--tinte2)">'+e_(pt.role)+'</span>'+
+        balken(pt.weight,w.farbe)+'<span style="font-size:.7rem">Gewicht '+pt.weight+'</span></div>'; }).join('')+'</div>')+
+    blk('Das Spannungsfeld — resolution: '+e_(i.resolution),
+      '<div class="spannung">'+
+        '<div class="blase b-l"><b>Mark · Mathematik</b>liest die Szene als Größenvergleich.<em>„Ein mathematischer Moment."</em></div>'+
+        '<div class="riss"><span>⚡</span><small>tension<br>preserved</small></div>'+
+        '<div class="blase b-r"><b>Ines · Sprache</b>liest die Szene als Erzählhandlung.<em>„Das Pferd passt nicht in sein Zuhause."</em></div>'+
+      '</div>'+
+      '<p style="font-size:.8rem;line-height:1.6;color:var(--tinte2);text-align:center;margin-top:8px">'+
+      e_(i.note)+' <b style="color:var(--tinte)">Das ist kein Mangel an Einigung — es ist das Ergebnis.</b></p>')+
+    blk('Woran die Sitzung sich gebunden hat',
+      '<div class="karten2">'+
+      '<div class="kachel k-gruen"><h5>✓ vereinbart</h5>'+o.agreed.map(e_).join('<br>')+'</div>'+
+      '<div class="kachel k-orange"><h5>⚠ umstritten</h5>'+o.contested.map(e_).join('<br>')+'</div>'+
+      '<div class="kachel k-gelb"><h5>? offen</h5>'+o.open_questions.map(e_).join('<br>')+'</div>'+
+      '<div class="kachel k-blau"><h5>💤 zurückgestellt</h5>'+o.dormant_decisions.map(e_).join('<br>')+'</div></div>')+
+    herkunftKarte(p);
+}
+
+function tDormancy(s,p){
+  const d=p.dormancy, v=p.protected_value;
+  return kopfTafel(s)+
+    blk('Warum diese Knospe geschlossen bleibt',
+      paar('Zustand','<span class="pille p-rot">'+e_(d.state)+'</span>')+
+      paar('seit',datum(d.since))+
+      '<div class="zitat z-rot" style="margin-top:8px">'+e_(d.reason)+'</div>')+
+    blk('Was geschützt wird',
+      '<div class="zitat z-gruen"><b>'+e_(v.what_is_protected)+'</b></div>'+
+      '<div style="margin-top:10px">'+
+      paar('Gefahr bei Aktivierung',e_(v.threat_if_activated),F.rot)+
+      paar('andere Wege',(v.alternative_paths||[]).map(e_).join('<br>'),F.gruen)+'</div>')+
+    blk('Wird sie je wieder geöffnet?','<div class="kachel k-leer">'+liste(d.review_criteria)+'</div>')+
+    blk('Die Zitat-Ausnahme',
+      '<p style="font-size:.83rem;line-height:1.65">Die abgelehnte Behauptung darf hier <b>wörtlich</b> stehen, '+
+      'weil sie an dieser Stelle abgelehnt wird — nicht behauptet. Ohne diese Ausnahme könnte das System eine '+
+      'Überbehauptung nicht dokumentieren, ohne sie zu begehen.</p>')+
+    herkunftKarte(p)+
+    '<button class="tbtn rot" onclick="oeffnePruefung()">🛡 Warum diese Form unzulässig ist</button>';
+}
+
+function tEmbodiment(s,p){
+  const a=p.authorization, ef=p.effect_trace, rs=p.resonance, ae=p.appearance_event;
+  return kopfTafel(s)+
+    blk('Die Autorisierung — der einzige Weg zur Handlung',
+      '<div class="zitat z-gruen"><b style="color:'+F.gruen+';font-size:1rem">✓ '+e_(a.status)+'</b><br>'+
+      '<span style="font-size:.82rem">durch <b>'+e_(a.authorized_by)+'</b> am '+datum(a.authorized_at)+'</span>'+
+      '<br><br>'+e_(a.reason)+'</div>'+
+      '<p style="font-size:.76rem;color:var(--tinte2);margin-top:8px">Dies ist die einzige Stelle im ganzen Fall, '+
+      'an der gehandelt wird. Kein Pattern hat sich diese Handlung <i>verdient</i> — ein Mensch hat sie verantwortet.</p>')+
+    blk('Kandidaten der Verkörperung', p.candidates.map(c=>
+      '<div class="kachel k-gruen" style="margin-bottom:7px"><b>'+e_(c.form)+'</b> '+
+      '<span class="pille">'+e_(c.fidelity)+'</span><br>'+
+      '<span style="color:var(--tinte2)">'+e_(c.medium)+' · '+c.accessibility.map(e_).join(', ')+'</span><br>'+
+      '<span style="color:var(--rot)">'+c.constraints.map(e_).join(', ')+'</span></div>').join(''))+
+    blk('Was daraufhin geschah',
+      paar('erschien',datum(ae.appeared_at)+' · '+e_(ae.appeared_in))+
+      paar('Zustand',e_(ae.initial_state))+
+      paar('beobachtet',ef.observed_effects.map(e_).join('<br>'),F.gruen)+
+      paar('unerwartet',ef.unexpected_effects.map(e_).join('<br>'),F.orange)+
+      paar('Messmethode',e_(ef.measurement_method)))+
+    blk('Resonanz',
+      '<div class="zitat z-orange" style="font-size:.86rem">'+e_(rs.description)+'</div>'+
+      '<div style="margin-top:8px">'+paar('Typ','<span class="pille p-orange">'+e_(rs.resonance_type)+'</span>')+
+      paar('Intensität',rs.intensity)+balken(rs.intensity,F.orange)+'</div>')+
+    herkunftKarte(p);
+}
+
+function tOrientation(s,p){
+  const v=p.vectors[0], st=p.standpoint;
+  return kopfTafel(s)+
+    blk('Wohin die Umgebung zeigt',
+      '<div class="karten2">'+
+      '<div class="kachel k-gruen"><h5>hin zu</h5>'+e_(v.toward)+'</div>'+
+      '<div class="kachel k-leer"><h5>weg von</h5>'+e_(v.away_from)+'</div></div>'+
+      '<div style="margin-top:10px">'+
+      paar('implizite Werte',v.implicit_values.map(e_).join('<br>'))+
+      paar('Aufforderungen',v.affordances.map(e_).join('<br>'),F.gruen)+
+      paar('Entmutigungen',v.discouragements.map(e_).join('<br>'),F.rot)+'</div>')+
+    blk('Wer schaut hier eigentlich?',
+      paar('Standpunkt',e_(st.explicit_standpoint))+
+      paar('versteckte Annahmen',st.hidden_assumptions.map(e_).join('<br>'),F.orange)+
+      paar('andere Ausrichtungen',st.alternative_orientations.map(e_).join('<br>'),F.blau))+
+    blk('Was neu sichtbar wurde',(p.possibility_space_history||[]).map(h=>
+      '<div class="kachel k-blau" style="margin-bottom:7px"><h5>'+datum(h.recognized_at)+'</h5>'+
+      '<b>'+e_(h.newly_visible_direction)+'</b><br>'+
+      '<span style="color:var(--tinte2)">vorher abwesend: '+e_(h.previously_absent)+'</span></div>').join(''))+
+    herkunftKarte(p);
+}
+
+function tRenewal(s,p){
+  const istK = s==='kn', ch=p.changes, re=p.re_entry;
+  const regel = DATEN.profile.chains.entwicklungsknoten;
+  const ketten=[...new Set((p.references||[]).map(r=>VON_ID[r]).filter(Boolean).map(k=>k[0]==='a'?'A':'B'))].sort();
+  let kopf=kopfTafel(s);
+  if(istK){
+    kopf += '<div class="zitat z-gelb" style="margin-bottom:18px">'+
+      '<b>🔭 Ein Aussichtspunkt, kein Abschluss.</b><br><br>'+
+      'Dieser Knoten verdichtet die Ketten <b>'+ketten.join(' und ')+'</b>. Das Profil verlangt '+
+      '<span class="mono">min_referenced_chains: '+regel.min_referenced_chains+'</span> — '+
+      (ketten.length>=regel.min_referenced_chains?'<b style="color:'+F.gruen+'">erfüllt</b>':'<b style="color:'+F.rot+'">verletzt</b>')+'.<br><br>'+
+      'Und trotzdem steht er auf <b>derselben Stufe</b> wie eine gewöhnliche Verbindung: <b>perspektiv</b>. '+
+      'Weiter sehen heißt nicht mehr behaupten dürfen.</div>';
+  }
+  return kopf+
+    blk('Was sich geändert hat', ch.revised_hypotheses.map(h=>
+      '<div class="karten2" style="margin-bottom:8px">'+
+      '<div class="kachel k-leer"><h5>vorher</h5>'+e_(h.before)+'</div>'+
+      '<div class="kachel k-gruen"><h5>nachher</h5>'+e_(h.after)+'</div></div>'+
+      paar('Auslöser',e_(h.trigger),F.orange)).join(''))+
+    blk('Der Möglichkeitsraum danach', ch.revised_candidate_space.map(r=>
+      '<div style="margin-bottom:10px"><b style="font-size:.85rem">'+e_(r.dimension)+'</b>'+
+      '<div class="karten2" style="margin:7px 0">'+
+      '<div class="kachel k-leer"><h5>vorher</h5>'+r.before.map(e_).join('<br>')+'</div>'+
+      '<div class="kachel k-gelb"><h5>nachher</h5>'+r.after.map(e_).join('<br>')+'</div></div>'+
+      paar('neu sichtbar',r.newly_visible.map(e_).join('<br>'),F.gruen)+
+      paar('neu abwesend',r.newly_absent.map(e_).join('<br>'),SCHIEFER)+'</div>').join(''))+
+    blk('Wo die Kette wieder eintritt',
+      paar('Prozess',e_(re.process_re_entry.original_process)+' → <b>'+e_(re.process_re_entry.re_entry_point)+'</b>')+
+      paar('bewahrt',re.process_re_entry.context_preserved.map(e_).join('<br>'),F.gruen)+
+      paar('damals unsichtbar',re.condition_re_entry.what_was_invisible_then.map(e_).join('<br>'),F.orange)+
+      paar('jetzt sichtbar',re.condition_re_entry.what_is_visible_now.map(e_).join('<br>'),F.blau))+
+    (p.new_capabilities.length?blk('Neue Fähigkeiten',liste(p.new_capabilities)):'')+
+    (p.transferred_insights.length?blk('Übertragbar',liste(p.transferred_insights)):'')+
+    herkunftKarte(p);
+}
+
+function oeffneTafel(s){
+  if(!P[s]) return;
+  gewaehlt=knoten[s];
+  const el=document.getElementById('tafelIn');
+  el.innerHTML=inhaltTafel(s);
+  document.getElementById('tafel').classList.add('auf');
+  document.getElementById('tafel').scrollTop=0;
+}
+function schliesseTafel(){ document.getElementById('tafel').classList.remove('auf'); gewaehlt=null; }
+
+/* ══════════════════════════════════════════════════════════════════
+   ÜBERLAGERUNGEN
+   ══════════════════════════════════════════════════════════════════ */
+function zeigeUeber(html){
+  document.getElementById('ueberIn').innerHTML=html;
+  document.getElementById('ueber').classList.add('auf');
+}
+function schliesseUeber(){ document.getElementById('ueber').classList.remove('auf'); }
+
+function oeffneDecke(){
+  const caps=DATEN.profile.claim_ceiling_caps, pn=DATEN.profile.projection_names;
+  const proStufe={}; Object.keys(caps).forEach(t=>{ (proStufe[caps[t]]=proStufe[caps[t]]||[]).push(pn[t]||t); });
+  let leiter='';
+  STUFEN.forEach((st,i)=>{
+    const leer = i===3;
+    leiter += '<div class="sprosse'+(leer?' verschlossen':'')+'"'+
+      (leer?'':' style="border-left-color:'+st.farbe+'"')+'>'+
+      '<span class="stufe"'+(leer?'':' style="color:'+st.farbe+'"')+'>'+(leer?'🔒 ':'')+st.name+'</span>'+
+      '<span class="wer">'+(leer
+        ? 'Für kein Pattern erreichbar. Handlung entsteht ausschließlich als menschlich autorisiertes '+
+          '<span class="mono">embodiment.authorization</span> — als Akt, nicht als Eigenschaft.'
+        : (proStufe[st.id]||[]).map(e_).join(' · '))+'</span></div>';
+  });
+  zeigeUeber('<button class="zu" onclick="schliesseUeber()">×</button>'+
+    '<h2>🔒 Die Decke</h2>'+
+    '<div class="unter">Die oberste Stufe dieser Landschaft ist leer. Nicht, weil noch nichts dort '+
+    'angekommen wäre — sondern weil dort <b>nichts ankommen kann</b>.</div>'+
+    '<div class="leiter">'+leiter+'</div>'+
+    '<div class="kachel k-gruen" style="margin-bottom:14px"><h5>Der eine Akt im ganzen Fall</h5>'+
+      'Am 05.06. hat <b>team:faska-primar</b> entschieden, Zollstock und Maßband bereitzulegen — '+
+      'niedrigschwellig, reversibel, ohne Aufforderungscharakter. Das ist die einzige Handlung. '+
+      'Sie steht nicht am Ende einer Beweiskette, sondern unter einem Namen.</div>'+
+    '<p style="font-size:.84rem;line-height:1.7;color:var(--tinte2)">'+e_(DATEN.profile.ceiling_note)+'</p>'+
+    '<button class="tbtn gruen" onclick="schliesseUeber();oeffneTafel(\'b6\')">Zur autorisierten Handlung →</button>');
+}
+
+function oeffnePruefung(){
+  const fc=DATEN.profile.forbidden_claims;
+  const beispiele=['Dieses Kind ist mathematisch kompetent.',
+    'Sie besitzt eine Kompetenz im Größenvergleich.',
+    'Sie ist ein typischer Lerntyp: visuell.',
+    'Hier zeigt sich ein Defizit im Bereich Konzentration.',
+    'Sie hat das Modell neben die Seitenwand gehalten.'];
+  zeigeUeber('<button class="zu" onclick="schliesseUeber()">×</button>'+
+    '<h2>🛡 Die Prüfung</h2>'+
+    '<div class="unter">Schreiben Sie einen Satz über ein Kind. Das Profil prüft mit, während Sie tippen.</div>'+
+    '<textarea class="pruef" id="pruefFeld" placeholder="Zum Beispiel: &bdquo;Dieses Kind ist mathematisch kompetent.&ldquo;" oninput="pruefe()"></textarea>'+
+    '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:9px">'+
+      beispiele.map(b=>'<button class="mbtn" onclick="setzeBeispiel(this)">'+e_(b)+'</button>').join('')+'</div>'+
+    '<div id="pruefUrteil" class="urteil u-leer">Noch nichts eingegeben.</div>'+
+    '<h3 style="font:800 9.5px var(--font);letter-spacing:.13em;text-transform:uppercase;color:var(--rot);margin:22px 0 8px">'+
+      'Die vier unzulässigen Formen</h3>'+
+    fc.map(f=>'<div class="verstoss" style="border-left-color:'+F.orange+'"><b style="color:'+F.orange+'">'+
+      e_(f.name)+'</b><br>'+e_(f.why)+'<div class="mono" style="margin-top:5px">'+e_(f.pattern)+'</div></div>').join('')+
+    '<h3 style="font:800 9.5px var(--font);letter-spacing:.13em;text-transform:uppercase;color:var(--gruen);margin:22px 0 8px">'+
+      'Der Fall, der wirklich passiert ist</h3>'+
+    '<div class="verstoss"><b>„Dieses Kind ist mathematisch kompetent."</b><br>'+
+      'KI-Vorschlag von <span class="mono">tisch/kimi</span>, zweiter Kandidat desselben Laufs. Geprüft gegen Kern und Profil:'+
+      DATEN.overclaim_violations.map(v=>'<div style="margin-top:7px"><span class="pille p-rot">'+e_(v.severity)+' · '+e_(v.layer)+
+        '</span> <b>'+e_(v.rule)+'</b><br><span style="color:var(--tinte2)">'+e_(v.detail)+'</span></div>').join('')+
+      '<div style="margin-top:9px">Ergebnis: <b style="color:'+F.rot+'">nicht registriert</b> — aber auch nicht gelöscht. '+
+      'Er lebt als <a href="#" onclick="schliesseUeber();oeffneTafel(\'bd\');return false" style="color:'+F.blau+';font-weight:700">schlafende Knospe</a> weiter.</div></div>'+
+    '<div style="margin-top:16px;font-size:.8rem;color:var(--tinte2);line-height:1.65">'+
+      '<b>Zitat-Ausnahme:</b> '+e_(DATEN.profile.quote_note)+'</div>');
+}
+function setzeBeispiel(b){ document.getElementById('pruefFeld').value=b.textContent; pruefe(); }
+function pruefe(){
+  const ein=document.getElementById('pruefFeld').value.trim();
+  const el=document.getElementById('pruefUrteil');
+  if(!ein){ el.className='urteil u-leer'; el.textContent='Noch nichts eingegeben.'; return; }
+  const treffer=[];
+  DATEN.profile.forbidden_claims.forEach(f=>{
+    let re; try{ re=new RegExp(f.pattern,'i'); }catch(x){ return; }
+    const m=re.exec(ein); if(m) treffer.push({f,m});
+  });
+  if(!treffer.length){
+    el.className='urteil u-frei';
+    el.innerHTML='<b style="color:'+F.gruen+';font-size:1rem">✓ Keine unzulässige Form.</b><br>'+
+      '<span style="font-size:.83rem">Bleibt die zweite Frage: auf welcher <b>Stufe</b> darf dieser Satz stehen? '+
+      'Eine Beobachtung deckelt bei <b>erscheinung</b>, eine Deutung bei <b>perspektiv</b>. '+
+      'Und keine Stufe ersetzt die Unterschrift eines Menschen.</span>';
+  }else{
+    el.className='urteil u-stopp';
+    el.innerHTML='<b style="color:'+F.rot+';font-size:1rem">✗ Unzulässig — '+treffer.length+' Form'+
+      (treffer.length>1?'en':'')+' erkannt.</b>'+
+      treffer.map(t=>'<div class="verstoss"><b>'+e_(t.f.name)+'</b> — '+e_(t.f.why)+
+        '<div style="margin-top:6px">'+e_(ein.slice(0,t.m.index))+'<mark>'+e_(t.m[0])+'</mark>'+
+        e_(ein.slice(t.m.index+t.m[0].length))+'</div></div>').join('')+
+      '<div style="font-size:.79rem;margin-top:9px;color:var(--tinte2)">Das System verwaltet <b>Übergänge</b>, '+
+      'keine Eigenschaften. Beschreiben Sie, was geschehen ist — nicht, was das Kind „ist".</div>';
+  }
+}
+
+function oeffneLesehilfe(){
+  zeigeUeber('<button class="zu" onclick="schliesseUeber()">×</button>'+
+    '<h2>❓ Wie diese Landschaft zu lesen ist</h2>'+
+    '<div class="unter">Eine Welt, zwei Kamerastellungen. Der Schalter unten schwenkt zwischen ihnen — '+
+    'es sind nicht zwei Ansichten, sondern zwei Blickwinkel auf dieselbe Sache.</div>'+
+    '<div class="karten2" style="margin-bottom:16px">'+
+      '<div class="kachel k-blau"><h5>◲ Schnitt — lesen</h5>Die Kamera steht frontal, die beiden Ketten liegen '+
+      'übereinander. Vier waagerechte Bänder, Zeit von links nach rechts. So <b>liest</b> man, dass das oberste Band leer ist.</div>'+
+      '<div class="kachel k-gruen"><h5>⛰ Landschaft — umsehen</h5>Die Kamera schwenkt herum, die Ketten treten '+
+      'auseinander. Ziehen dreht den Blick. So <b>steht</b> man unter der leeren Decke.</div>'+
+    '</div>'+
+    '<h3 style="font:800 9.5px var(--font);letter-spacing:.13em;text-transform:uppercase;color:var(--tinte2);margin:0 0 9px">'+
+      'Die Achsen</h3>'+
+    '<div class="kachel k-gelb" style="margin-bottom:16px">'+
+      '<b>↔ waagerecht</b> — die Zeit: Regalbau im Mai, Stallbox im Juni, Aussichtspunkt am Ende.<br>'+
+      '<b>↕ senkrecht</b> — die <b>Geltung</b>. Je höher ein Pattern steht, desto mehr darf es behaupten. Das ist die tragende Idee.<br>'+
+      '<b>⤢ in die Tiefe</b> — die beiden Ketten. Im Schnitt zusammengeklappt, in der Landschaft getrennt.</div>'+
+    '<h3 style="font:800 9.5px var(--font);letter-spacing:.13em;text-transform:uppercase;color:var(--tinte2);margin:0 0 9px">'+
+      'Die Verbindungen</h3>'+
+    '<div style="font-size:.85rem;line-height:1.75;margin-bottom:16px">'+
+      '<b style="color:'+F.gruen+'">Herkunft</b> (<span class="mono">provenance.parents</span>) — woraus ein Pattern entstanden ist.<br>'+
+      '<b style="color:'+SCHIEFER+'">Bezug</b> (<span class="mono">references</span>) — worauf es sich stützt, ohne daraus entstanden zu sein.<br>'+
+      '<b style="color:#b89400">Gold</b> — läuft über beide Ketten. Genau davon lebt der Aussichtspunkt.</div>'+
+    '<h3 style="font:800 9.5px var(--font);letter-spacing:.13em;text-transform:uppercase;color:var(--tinte2);margin:0 0 9px">'+
+      'Die Zeichen</h3>'+
+    '<div style="font-size:.85rem;line-height:1.75">'+
+      '<b style="color:'+F.gruen+'">✓ grüner Punkt</b> — von einem Menschen besiegelt (3 von 12).<br>'+
+      '<b style="color:'+F.rot+'">! roter Punkt</b> — umstritten, nicht aufgelöst (1 von 12).<br>'+
+      '<b style="color:'+SCHIEFER+'">gestrichelter Ring</b> — schläft. Abgelehnt, aber bewahrt.</div>'+
+    '<button class="tbtn" onclick="schliesseUeber();fahreZu(1)">Landschaft ansehen →</button>');
+}
+
+/* ── Sprünge ── */
+function zeigeStufe(id){
+  const treffer=SCHL.filter(s=>P[s].claim_ceiling===id);
+  hinweis(STUFEN[STUFE_NR[id]].name+': '+treffer.length+' Patterns — '+
+    treffer.map(s=>TITEL[s]).join(', '));
+  if(treffer.length) oeffneTafel(treffer[0]);
+}
+function zeigeKette(k){
+  const treffer=SCHL.filter(s=>ORT[s].kette===k);
+  if(treffer.length){ fahreZu(1); oeffneTafel(treffer[0]); }
+}
+function allesZu(){ schliesseTafel(); schliesseUeber(); gewaehlt=null; }
+function hinweis(t){
+  const el=document.getElementById('hinweis');
+  el.textContent=t; el.classList.add('auf');
+  clearTimeout(hinweis._t); hinweis._t=setTimeout(()=>el.classList.remove('auf'),3200);
+}
+function exportiere(){
+  const d={ exportiert_am:new Date().toISOString(), app:'faska-geltungslandschaft',
+    subject:DATEN.subject, chain_validation:DATEN.chain_validation, patterns:DATEN.patterns,
+    ueberbehauptung:{ pattern:DATEN.overclaim, verstoesse:DATEN.overclaim_violations },
+    profile:DATEN.profile };
+  const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(b);
+  a.download='faska-geltungslandschaft-'+new Date().toISOString().slice(0,10)+'.json';
+  a.click(); URL.revokeObjectURL(a.href);
+  hinweis('📥 Exportiert — 12 Patterns samt Provenienz');
+}
+
+/* ── Tastatur ── */
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){ allesZu(); return; }
+  const feld = document.activeElement && /INPUT|TEXTAREA/.test(document.activeElement.tagName);
+  if(feld && e.key!=='Escape') return;
+  if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+    e.preventDefault();
+    const i = gewaehlt ? SCHL.indexOf(gewaehlt.s) : -1;
+    const n = e.key==='ArrowRight' ? (i+1)%SCHL.length : (i<=0?SCHL.length-1:i-1);
+    oeffneTafel(SCHL[n]);
+  }
+  if(e.key==='2') fahreZu(0);
+  if(e.key==='3') fahreZu(1);
+});
+
+/* ── Regler ── */
+function bindeRegler(){
+  const r=document.getElementById('regler');
+  r.addEventListener('input',()=>{ zielMorph=morph=+r.value/1000; reglerSpiegeln(); });
+}
+
+/* ── Start ── */
+(async function start(){
+  leinwand=document.createElement('canvas');
+  leinwand.id='buehne';
+  document.body.appendChild(leinwand);
+  ctx=leinwand.getContext('2d');
+  if(!(await laden())) return;
+  groesse();
+  window.addEventListener('resize',groesse);
+  bindeLeinwand(); bindeRegler(); reglerSpiegeln();
+  document.getElementById('ueber').addEventListener('click',e=>{
+    if(e.target.id==='ueber') schliesseUeber();
+  });
+  requestAnimationFrame(zeichne);
+  setTimeout(()=>hinweis('Schieb den Regler unten von Schnitt nach Landschaft'),1100);
+})();
+</script>
+</body>
+</html>
