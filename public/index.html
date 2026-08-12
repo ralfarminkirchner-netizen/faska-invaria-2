@@ -231,6 +231,60 @@ mark{background:rgba(189,24,42,.22);color:inherit;border-radius:3px;padding:0 2p
 .leg-i{display:flex;align-items:center;gap:7px;font-size:.66rem;color:var(--text2);font-weight:500}
 .leg-d{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .leg .freeze{margin-top:6px;padding-top:6px;border-top:1px solid var(--border);font-size:.6rem;line-height:1.5;color:var(--green);font-weight:700}
+
+/* ── Beziehungs-Netz: Legende & Kanten-Popover ── */
+.leg .net-sep{margin-top:6px;padding-top:6px;border-top:1px solid var(--border);font-size:.56rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);font-weight:800}
+.leg-i .leg-line{width:14px;height:0;border-top:2.5px solid;flex-shrink:0;border-radius:2px}
+.leg-i .leg-line.dash{border-top-style:dashed}
+.leg-i .leg-line.wavy{border-top-style:dotted;height:0}
+.edge-pop{position:fixed;z-index:26;pointer-events:none;background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:9px 13px;font-size:.76rem;box-shadow:var(--shadow);opacity:0;transition:opacity .15s;max-width:260px;line-height:1.5}
+.edge-pop.on{opacity:1}
+.edge-pop .ep-t{font-weight:800;font-size:.72rem}
+.edge-pop .ep-d{font-size:.68rem;color:var(--text2);margin-top:2px}
+.edge-pop .ep-k{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-top:4px;display:inline-block;padding:1px 7px;border-radius:8px}
+
+/* ── Geltungsleiter-Live (Claim-Prüfung) ── */
+.ladder-live{position:relative;margin:14px 0 6px}
+.ladder-live canvas{width:100%;height:96px;display:block;border-radius:var(--radius-sm);background:var(--bg2);border:1px solid var(--border)}
+.ladder-live .ll-cap{font-size:.68rem;color:var(--text2);text-align:center;margin-top:4px}
+.ll-res{display:flex;align-items:center;gap:9px;margin-top:8px;padding:10px 13px;border-radius:var(--radius-sm);font-size:.8rem;line-height:1.55;border:1.5px solid var(--border);background:var(--bg2)}
+.ll-res .ll-emoji{font-size:1.5rem}
+.ll-res b{display:block}
+
+/* ── Tour ── */
+.tour-banner{position:fixed;z-index:24;left:14px;bottom:70px;display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--yellow);border-radius:18px;padding:12px 16px;box-shadow:0 10px 32px rgba(0,0,0,.14);max-width:340px;animation:floatIn .6s cubic-bezier(.22,1,.36,1)}
+.tour-banner .tb-ico{font-size:1.6rem}
+.tour-banner .tb-t{font-weight:800;font-size:.82rem;line-height:1.35}
+.tour-banner .tb-d{font-size:.7rem;color:var(--text2);margin-top:2px}
+.tour-banner button{flex-shrink:0;padding:8px 14px;border-radius:12px;border:none;background:var(--yellow);color:#4a3a00;font:800 12px var(--font);cursor:pointer;transition:all .2s}
+.tour-banner button:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.tour-banner .tb-x{background:transparent;border:1.5px solid var(--border);color:var(--text2);padding:8px 10px}
+@keyframes floatIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.tour-step{position:fixed;z-index:60;pointer-events:none}
+.tour-step .ts-card{position:absolute;width:290px;background:var(--card);border:2px solid var(--blue);border-radius:16px;padding:14px 16px;box-shadow:0 16px 44px rgba(0,0,0,.22);pointer-events:all;animation:floatIn .4s cubic-bezier(.22,1,.36,1)}
+.tour-step .ts-card.ts-bot{border-color:var(--yellow)}
+.tour-step h4{font-size:.9rem;font-weight:800;margin-bottom:3px}
+.tour-step .ts-txt{font-size:.76rem;line-height:1.55;color:var(--text2);margin-bottom:10px}
+.tour-step .ts-nav{display:flex;gap:6px;align-items:center}
+.tour-step .ts-nav button{padding:6px 12px;border-radius:10px;border:1.5px solid var(--border);background:var(--card);cursor:pointer;font:700 11px var(--font);color:var(--text2)}
+.tour-step .ts-nav button.ts-next{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tour-step .ts-nav button.ts-next.y{background:var(--yellow);color:#4a3a00;border-color:var(--yellow)}
+.tour-step .ts-nav .ts-dots{margin-left:auto;font-size:.64rem;color:var(--text2);letter-spacing:.1em;font-weight:800}
+.tour-spot{position:fixed;z-index:58;border:3px solid var(--yellow);border-radius:50%;pointer-events:none;box-shadow:0 0 0 9999px rgba(40,32,16,.45);animation:spotPulse 1.6s ease-in-out infinite}
+@keyframes spotPulse{0%,100%{border-color:var(--yellow)}50%{border-color:var(--orange)}}
+
+/* ── Wort-Markierer (Voice-Transkript) ── */
+.wordmark{display:inline-block;padding:1px 5px;margin:2px 1px;border-radius:7px;cursor:pointer;font:500 .9rem var(--font);border:1.5px solid transparent;transition:all .15s;background:var(--bg2);color:var(--text)}
+.wordmark:hover{border-color:var(--blue)}
+.wordmark.obs{background:var(--blue-soft);border-color:rgba(61,166,218,.45);color:var(--blue);font-weight:700}
+.wordmark.deut{background:var(--yellow-soft);border-color:rgba(255,206,5,.5);color:#8a6d00;font-weight:700}
+.dark .wordmark.deut{color:var(--yellow)}
+.wm-hint{font-size:.72rem;color:var(--text2);margin:6px 0 4px}
+.wm-bar{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.wm-stat{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:10px;background:var(--bg2);border:1px solid var(--border)}
+.wm-stat.obs-c{color:var(--blue)} .wm-stat.deut-c{color:#8a6d00}
+.dark .wm-stat.deut-c{color:var(--yellow)}
+
 .load-err{position:fixed;inset:0;z-index:99;display:flex;align-items:center;justify-content:center;background:var(--bg)}
 .load-err>div{max-width:420px;text-align:center;padding:30px;font-size:.9rem;line-height:1.7}
 
@@ -263,6 +317,8 @@ mark{background:rgba(189,24,42,.22);color:inherit;border-radius:3px;padding:0 2p
   </div>
   <div class="hdr-r">
     <button class="hdr-btn active" id="hbGarden" onclick="resetAll()">🌱 <span class="lbl">Garten</span></button>
+    <button class="hdr-btn" id="hbNet" onclick="toggleNet()">🕸 <span class="lbl">Beziehungen</span></button>
+    <button class="hdr-btn" onclick="startTour()">🧭 <span class="lbl">Tour</span></button>
     <button class="hdr-btn" onclick="openBridge()">⇄ <span class="lbl">Übersetzung</span></button>
     <button class="hdr-btn" onclick="openTeam()">👥 <span class="lbl">Team-Sitzung</span></button>
     <button class="hdr-btn" onclick="openClaim()">🛡 <span class="lbl">Claim-Prüfung</span></button>
@@ -292,11 +348,26 @@ mark{background:rgba(189,24,42,.22);color:inherit;border-radius:3px;padding:0 2p
   <div class="leg-i"><span class="leg-d" style="background:var(--red)"></span>Teamprüfung (Spannung)</div>
   <div class="leg-i"><span class="leg-d" style="background:var(--green)"></span>Umgebung · Ausrichtung</div>
   <div class="leg-i"><span class="leg-d" style="background:#5a5448"></span>Schlafende Knospe (Dormanz)</div>
+  <div class="net-sep">Beziehungs-Netz</div>
+  <div class="leg-i"><span class="leg-line" style="border-color:var(--blue)"></span>wird fortgesetzt in (parent)</div>
+  <div class="leg-i"><span class="leg-line dash" style="border-color:var(--yellow)"></span>referenziert (Bezug)</div>
+  <div class="leg-i"><span class="leg-line" style="border-color:var(--red)"></span>Teamprüfung · Spannung</div>
+  <div class="leg-i"><span class="leg-line dash" style="border-color:#8d8474"></span>abgelehnt → schlafend</div>
   <div class="freeze" id="freezeBadge">Freeze-Test …</div>
 </div>
 
 <div class="pnl" id="panel"><div class="pnl-in" id="panelContent"></div></div>
 <div class="tt" id="tt"><div class="ttn" id="ttn"></div><div class="ttd" id="ttd"></div></div>
+<div class="edge-pop" id="edgePop"></div>
+<div class="tour-banner" id="tourBanner" style="display:none">
+  <span class="tb-ico">🧭</span>
+  <div><div class="tb-t">Den Garten verstehen — die 6-Stationen-Tour</div>
+  <div class="tb-d">Claim Ceiling · Übersetzung · Spannung · Knospe · Aussichtspunkt</div></div>
+  <button onclick="startTour()">Starten</button>
+  <button class="tb-x" onclick="dismissTour()">✕</button>
+</div>
+<div class="tour-step" id="tourStep" style="display:none"></div>
+<div class="tour-spot" id="tourSpot" style="display:none"></div>
 
 <div class="ovl" id="ovlBridge"><div class="ovl-card wide" id="ovlBridgeC"></div></div>
 <div class="ovl" id="ovlTeam"><div class="ovl-card wide" id="ovlTeamC"></div></div>
@@ -342,6 +413,8 @@ let DATA=null, P={}, KEY_BY_ID={}, plants={}, edges=[], buds=[];
 let hovered=null, selected=null, activeStep='encounter', dark=false;
 let reviewStates={};   // user verdicts on relation evidence
 let selEntry=null;     // selected entry point in b3
+let netMode=false;     // Beziehungs-Netz hervorgehoben
+let hoveredEdge=null;  // Kante unter der Maus
 
 /* ── Daten laden ── */
 async function loadData(){
@@ -357,6 +430,10 @@ async function loadData(){
     const v=DATA.chain_validation;
     document.getElementById('freezeBadge').innerHTML=
       'Freeze-Test ✓<br>'+DATA.patterns.length+' Patterns · '+v.critical+' kritische Verstöße<br>Überbehauptung abgewiesen';
+    /* Tour-Einladung beim ersten Besuch */
+    setTimeout(()=>{
+      try{ if(!localStorage.getItem('faskaTourSeen')) document.getElementById('tourBanner').style.display='flex'; }catch(e){}
+    },1400);
   }catch(e){
     document.getElementById('loadErr').style.display='flex';
     document.getElementById('loadErrMsg').textContent=String(e);
@@ -374,6 +451,15 @@ const LAYOUT={
   b8:{x:.845,y:.560,s:.85}, kn:{x:.905,y:.400,s:1.00}
 };
 const EDGE_STYLE={b5:'tension', kn:'gold', bd:'dormant'};
+const REF_NOTE={
+  b3:'Möglichkeitsraum bezieht sich auf Beobachtung + KI-Verbindung',
+  b4:'Nächster Schritt wird aus dem Möglichkeitsraum gewählt',
+  b6:'Umgebung entsteht aus Team-Beschluss + gewähltem Schritt',
+  b7:'Ausrichtungsprüfung schaut auf die verkörperte Umgebung',
+  b8:'Wirkung kehrt zur Beobachtung zurück — Kette schließt sich',
+  kn:'Aussichtspunkt verdichtet beide Ketten',
+  bd:'Abgelehnter Vorschlag lebt als Spur der Ablehnung weiter'
+};
 
 function buildGarden(){
   plants={};
@@ -383,11 +469,30 @@ function buildGarden(){
                hue:hueFor(k,p), r:(30+l.s*16)};
   });
   edges=[];
+  const seen=new Set();
   KEYS.forEach(k=>{
     const p=P[k];
+    /* Bezüge (references) — das eigentliche Beziehungsgeflecht */
+    (p.references||[]).forEach(rid=>{
+      const pk=KEY_BY_ID[rid];
+      if(pk&&pk!==k){
+        const id=pk+'→'+k+'#ref';
+        if(!seen.has(id)){
+          seen.add(id);
+          edges.push({from:pk, to:k, kind:'ref', refId:rid, note:REF_NOTE[k]||(TITLES[k]+' bezieht sich auf '+TITLES[pk])});
+        }
+      }
+    });
+    /* Herkunft (provenance parents) — der Weg der Spur */
     (p.provenance.parents||[]).forEach(pid=>{
       const pk=KEY_BY_ID[pid];
-      if(pk) edges.push({from:pk, to:k, style:EDGE_STYLE[k]||'flow'});
+      if(pk&&pk!==k){
+        const id=pk+'→'+k+'#par';
+        if(!seen.has(id)){
+          seen.add(id);
+          edges.push({from:pk, to:k, kind:'parent', style:EDGE_STYLE[k]||'flow', refId:pid});
+        }
+      }
     });
   });
 }
@@ -403,7 +508,7 @@ function hueFor(k,p){
 /* ═══════════════ P5-GARTEN ═══════════════ */
 const sketch=p=>{
   const parts=[], amb=[];
-  edges.forEach(e=>{ for(let i=0;i<3;i++) parts.push({e, t:Math.random(), sp:.0016+Math.random()*.0022, sz:2+Math.random()*2.4}); });
+  edges.forEach(e=>{ for(let i=0;i<5;i++) parts.push({e, idx:i, t:Math.random(), sp:.0016+Math.random()*.0022, sz:2+Math.random()*2.4}); });
   for(let i=0;i<26;i++) amb.push({x:Math.random(), y:Math.random()*.7, sp:.00006+Math.random()*.00016, ph:Math.random()*6.28, sz:1.4+Math.random()*2.4});
 
   function resize(){ p.resizeCanvas(window.innerWidth, window.innerHeight-108); }
@@ -411,6 +516,26 @@ const sketch=p=>{
   p.windowResized=resize;
 
   function qbez(a,c,b,t){ const u=1-t; return {x:u*u*a.x+2*u*t*c.x+t*t*b.x, y:u*u*a.y+2*u*t*c.y+t*t*b.y}; }
+  function edgeGeom(e,W,H){
+    const a=plants[e.from], b=plants[e.to];
+    const ax=a.x*W, ay=a.y*H-a.r*.4, bx=b.x*W, by=b.y*H-b.r*.4;
+    const mx=(ax+bx)/2, my=Math.min(ay,by)-34-Math.abs(bx-ax)*.08;
+    return {ax,ay,mx,my,bx,by};
+  }
+  function hitEdge(mx,my){
+    const W=p.width,H=p.height;
+    let best=null,bd=1e9;
+    edges.forEach(e=>{
+      const g=edgeGeom(e,W,H);
+      for(let i=1;i<=14;i++){
+        const t=i/15;
+        const pt=qbez({x:g.ax,y:g.ay},{x:g.mx,y:g.my},{x:g.bx,y:g.by},t);
+        const d=Math.hypot(mx-pt.x,my-pt.y);
+        if(d<9&&d<bd){bd=d;best=e;}
+      }
+    });
+    return best;
+  }
 
   p.draw=()=>{
     if(!DATA) return;
@@ -454,33 +579,46 @@ const sketch=p=>{
     p.text('KETTE B · STALLBOX · JUNI', W*.47, gY+H*.055);
     p.text('HALBJAHRESRÜCKBLICK', kx, gY+H*.055);
 
-    /* Kanten (provenance parents → child) */
+    /* ── Beziehungs-Netz: Kanten (parents + references) ── */
     edges.forEach(e=>{
-      const a=plants[e.from], b=plants[e.to];
-      const ax=a.x*W, ay=a.y*H-a.r*.4, bx=b.x*W, by=b.y*H-b.r*.4;
-      const mx=(ax+bx)/2, my=Math.min(ay,by)-34-Math.abs(bx-ax)*.08;
-      let h=105,s=28,br=64,al=16,w=1.4;
-      if(e.style==='tension'){ h=HUES.red; s=55; br=58; al=24; w=2; }
-      if(e.style==='gold'){ h=HUES.yellow; s=62; br=86; al=26; w=2.2; }
-      if(e.style==='dormant'){ h=215; s=18; br=52; al=20; w=1.4; }
+      const g=edgeGeom(e,W,H);
+      const isTension=e.style==='tension', isGold=e.style==='gold',
+            isDormant=e.style==='dormant', isRef=e.kind==='ref';
+      const hov=e===hoveredEdge;
+      const emphasize=netMode||hov;
+      let h=HUES.blue,s=50,br=70,al=emphasize?42:19,w=hov?3.2:1.7;
+      if(isRef){ h=HUES.yellow; s=56; br=86; al=emphasize?38:16; }
+      if(isTension){ h=HUES.red; s=64; br=60; al=emphasize?54:28; w=hov?3.4:2.4; }
+      if(isGold){ h=HUES.yellow; s=66; br=92; al=emphasize?54:27; w=hov?3.2:2.2; }
+      if(isDormant){ h=215; s=16; br=54; al=emphasize?34:17; w=hov?2.6:1.5; }
+      if(isTension) al*=(0.72+0.28*Math.sin(t*.0055));
       p.noFill(); p.stroke(h,s,br,al); p.strokeWeight(w);
-      p.drawingContext.setLineDash(e.style==='dormant'?[3,7]:[7,9]);
-      p.beginShape(); p.vertex(ax,ay); p.quadraticVertex(mx,my,bx,by); p.endShape();
+      p.drawingContext.setLineDash(isDormant?[3,7]:(isRef?[4,6]:[]));
+      p.beginShape(); p.vertex(g.ax,g.ay); p.quadraticVertex(g.mx,g.my,g.bx,g.by); p.endShape();
       p.drawingContext.setLineDash([]);
+      /* Richtungs-Pfeil am Ziel */
+      const tt1=p.bezierPoint(g.ax,g.mx,g.mx,g.bx,.82), tt2=p.bezierPoint(g.ay,g.my,g.my,g.by,.82);
+      const tt3=p.bezierPoint(g.ax,g.mx,g.mx,g.bx,.92), tt4=p.bezierPoint(g.ay,g.my,g.my,g.by,.92);
+      const ang=Math.atan2(tt4-tt2,tt3-tt1);
+      p.fill(h,s,br,Math.min(al+30,92)); p.noStroke();
+      p.triangle(tt3+Math.cos(ang)*7, tt4+Math.sin(ang)*7,
+                 tt3+Math.cos(ang+2.5)*4.5, tt4+Math.sin(ang+2.5)*4.5,
+                 tt3+Math.cos(ang-2.5)*4.5, tt4+Math.sin(ang-2.5)*4.5);
     });
 
-    /* Partikel auf den Kanten */
+    /* Partikel auf den Kanten — sichtbare Strömung */
     parts.forEach(pt=>{
       pt.t=(pt.t+pt.sp)%1;
-      const a=plants[pt.e.from], b=plants[pt.e.to];
-      const ax=a.x*W, ay=a.y*H-a.r*.4, bx=b.x*W, by=b.y*H-b.r*.4;
-      const mx=(ax+bx)/2, my=Math.min(ay,by)-34-Math.abs(bx-ax)*.08;
-      const pos=qbez({x:ax,y:ay},{x:mx,y:my},{x:bx,y:by},pt.t);
-      let h=105,s=60,br=85;
-      if(pt.e.style==='tension'){h=HUES.red;s=70;br=72}
-      if(pt.e.style==='gold'){h=HUES.yellow;s=78;br=95}
-      if(pt.e.style==='dormant'){h=215;s=22;br=70}
-      p.noStroke(); p.fill(h,s,br, 30+26*Math.sin(t*.004+pt.t*12));
+      const e=pt.e, g=edgeGeom(e,W,H);
+      const pos=qbez({x:g.ax,y:g.ay},{x:g.mx,y:g.my},{x:g.bx,y:g.by},pt.t);
+      const visible=netMode||e===hoveredEdge||pt.idx<2;
+      if(!visible) return;
+      let h=HUES.blue,s=62,br=88;
+      if(e.kind==='ref'){h=HUES.yellow;s=76;br=95}
+      if(e.style==='tension'){h=HUES.red;s=72;br=74}
+      if(e.style==='gold'){h=HUES.yellow;s=80;br=96}
+      if(e.style==='dormant'){h=215;s=24;br=72}
+      p.noStroke(); p.fill(h,s,br, (netMode?44:26)+22*Math.sin(t*.004+pt.t*12));
       p.circle(pos.x,pos.y,pt.sz);
     });
 
@@ -743,7 +881,8 @@ const sketch=p=>{
     if(!DATA)return;
     const f=hit(p.mouseX,p.mouseY);
     if(f!==hovered){
-      hovered=f; p.cursor(f?'pointer':'default');
+      hovered=f;
+      if(f){ hoveredEdge=null; p.cursor('pointer'); }
       const tt=document.getElementById('tt');
       if(f){
         const proj=DATA.profile.projection_names[f.p.pattern_type];
@@ -756,6 +895,25 @@ const sketch=p=>{
       const tt=document.getElementById('tt');
       tt.style.left=(p.mouseX+16)+'px'; tt.style.top=(p.mouseY-46)+'px';
     }
+    /* Kanten-Hover: das Beziehungs-Netz spricht */
+    const pop=document.getElementById('edgePop');
+    if(!f){
+      const e=hitEdge(p.mouseX,p.mouseY);
+      if(e!==hoveredEdge){
+        hoveredEdge=e; p.cursor(e?'pointer':'default');
+        if(e){
+          const kindTxt=e.kind==='ref'?'Bezug (references)':(e.style==='tension'?'Teamprüfung (Spannung)':e.style==='gold'?'Verdichtung (gold)':e.style==='dormant'?'abgelehnt → schlafend':'Herkunft (provenance)');
+          const kindColor=e.kind==='ref'?'var(--yellow)':e.style==='tension'?'var(--red)':e.style==='gold'?'var(--yellow)':e.style==='dormant'?'#8d8474':'var(--blue)';
+          pop.innerHTML='<span class="ep-k" style="background:'+kindColor+'20;color:'+kindColor+'">'+kindTxt+'</span>'+
+            '<div class="ep-t">'+esc(TITLES[e.from])+' → '+esc(TITLES[e.to])+'</div>'+
+            '<div class="ep-d">'+(e.kind==='ref'?esc(e.note):esc(P[e.to].provenance.generation_conditions||'')+' — klicken zum Öffnen')+'</div>';
+          pop.classList.add('on');
+        } else pop.classList.remove('on');
+      }
+      if(e){
+        pop.style.left=(p.mouseX+16)+'px'; pop.style.top=(p.mouseY-14)+'px';
+      }
+    } else { hoveredEdge=null; pop.classList.remove('on'); }
     /* Knospen-Tooltips im Möglichkeitsraum */
     if(f&&f.key==='b3'){
       const b=buds.find(b=>Math.hypot(p.mouseX-b.x,p.mouseY-b.y)<b.r+4);
@@ -767,7 +925,16 @@ const sketch=p=>{
       }
     }
   };
-  p.mouseClicked=()=>{ if(hovered&&DATA){ selected=hovered; openPanel(hovered.key); } };
+  p.mouseClicked=()=>{
+    if(!DATA)return;
+    if(hovered){ selected=hovered; openPanel(hovered.key); return; }
+    if(hoveredEdge){
+      const e=hoveredEdge;
+      const kindTxt=e.kind==='ref'?'Bezug (references)':(e.style==='tension'?'Teamprüfung':e.style==='gold'?'Verdichtung':e.style==='dormant'?'Ablehnung → Dormanz':'Herkunft');
+      openPanel(e.to);
+      toast(kindTxt+': '+TITLES[e.from].split(' — ')[0]+' → '+TITLES[e.to].split(' — ')[0]);
+    }
+  };
 };
 
 /* ═══════════════ PANEL-RENDERER ═══════════════ */
@@ -1152,7 +1319,7 @@ function openTeam(){
 }
 
 /* ═══════════════ CLAIM-PRÜFUNG ═══════════════ */
-function openClaim(){ renderClaim(); document.getElementById('ovlClaim').classList.add('on'); }
+function openClaim(){ renderClaim(); document.getElementById('ovlClaim').classList.add('on'); requestAnimationFrame(drawLadderStatic); }
 function renderClaim(){
   const fc=DATA.profile.forbidden_claims;
   const caps=DATA.profile.claim_ceiling_caps;
@@ -1169,6 +1336,11 @@ function renderClaim(){
         '<button class="mini-btn" onclick="document.getElementById(\'claimIn\').value=this.textContent;checkClaim()">'+esc(s)+'</button>').join('')+
     '</div>'+
     '<div id="claimRes" class="claim-res cr-idle">Noch keine Eingabe — die Prüfung läuft live, während Sie tippen.</div>'+
+    '<div class="ladder-live">'+
+      '<canvas id="ladderCv"></canvas>'+
+      '<div class="ll-cap" id="llCap">Die Geltungsleiter — jede Aussage klettert, keine erreicht „handlung\".</div>'+
+    '</div>'+
+    '<div class="ll-res" id="llRes" style="display:none"></div>'+
     '<h3 style="font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;color:var(--red);margin:20px 0 6px;font-weight:800">Die vier verbotenen Behauptungsformen</h3>'+
     fc.map(f=>'<div class="vcard" style="border-left-color:var(--orange)"><b style="color:var(--orange)">'+esc(f.name)+'</b><br>'+esc(f.why)+'<div class="mono" style="margin-top:4px">'+esc(f.pattern)+'</div></div>').join('')+
     '<h3 style="font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;color:var(--green);margin:20px 0 6px;font-weight:800">Der reale Fall: die abgewiesene Überbehauptung</h3>'+
@@ -1191,7 +1363,16 @@ function renderClaim(){
 function checkClaim(){
   const inp=document.getElementById('claimIn').value.trim();
   const res=document.getElementById('claimRes');
-  if(!inp){ res.className='claim-res cr-idle'; res.innerHTML='Noch keine Eingabe — die Prüfung läuft live, während Sie tippen.'; return; }
+  const lres=document.getElementById('llRes');
+  const cap=document.getElementById('llCap');
+  if(!inp){
+    res.className='claim-res cr-idle';
+    res.innerHTML='Noch keine Eingabe — die Prüfung läuft live, während Sie tippen.';
+    if(lres) lres.style.display='none';
+    if(cap) cap.textContent='Die Geltungsleiter — jede Aussage klettert, keine erreicht „handlung".';
+    drawLadderStatic();
+    return;
+  }
   const hits=[];
   DATA.profile.forbidden_claims.forEach(f=>{
     let re; try{ re=new RegExp(f.pattern,'i'); }catch(e){ return; }
@@ -1201,8 +1382,11 @@ function checkClaim(){
   if(hits.length===0){
     res.className='claim-res cr-ok';
     res.innerHTML='<b style="color:var(--green);font-size:1rem">✓ Keine verbotene Behauptungsform erkannt.</b><br>'+
-      '<span style="font-size:.8rem">Prüfen Sie dennoch: Auf welcher <b>Geltungsstufe</b> darf diese Aussage stehen? '+
-      'Eine Beobachtung deckelt bei <b>erscheinung</b>, eine Verbindung bei <b>perspektiv</b>. Nur die Teamprüfung erreicht <b>epistemisch</b> — und keine Stufe ersetzt die menschliche Autorisierung einer Handlung.</span>';
+      '<span style="font-size:.8rem">Die Aussage darf die Leiter bis zur <b>epistemischen</b> Stufe erklimmen — aber nur in einem Pattern, dessen Deckel das erlaubt (Teamprüfung, Umgebung). „handlung" bleibt verschlossen: die braucht eine menschliche Autorisierung, keinen Satz.</span>';
+    if(cap) cap.textContent='✓ Zulässige Form — die höchste erreichbare Sprosse ist „epistemisch".';
+    animateLadder(false);
+    if(lres){ lres.style.display='flex';
+      lres.innerHTML='<span class="ll-emoji">🔓</span><span><b>Ergebnis der Stufenprüfung</b>Diese Form ist zulässig — sie darf stehen, wenn der Deckel des jeweiligen Patterns reicht. Eine Beobachtung deckelt bei „erscheinung", eine Verbindung bei „perspektiv". „handlung" erreicht kein Satz.</span>'; }
   }else{
     res.className='claim-res cr-bad';
     res.innerHTML='<b style="color:var(--red);font-size:1rem">✗ VERBOTEN — '+hits.length+' Behauptungsform'+(hits.length>1?'en':'')+' erkannt.</b>'+
@@ -1212,6 +1396,79 @@ function checkClaim(){
           '<div style="margin-top:5px">'+before+'<mark>'+match+'</mark>'+after+'</div></div>';
       }).join('')+
       '<div style="font-size:.76rem;margin-top:8px;color:var(--text2)">Das System verwaltet <b>Übergänge</b>, keine Eigenschaften. Beschreiben Sie, was passiert ist — nicht, was das Kind „ist".</div>';
+    if(cap) cap.textContent='✗ Die Leiter bleibt unten — diese Form wird gar nicht erst zugelassen.';
+    animateLadder(true);
+    if(lres){ lres.style.display='flex';
+      lres.innerHTML='<span class="ll-emoji">🔒</span><span><b>Ergebnis der Stufenprüfung</b>Diese Behauptung würde nicht registriert. Sie lebt höchstens als <b>Dormanz-Spur</b> weiter — abgelehnt, nie gelöscht. Genau das ist mit dem echten Overclaim-Fall unten passiert.</span>'; }
+  }
+}
+
+/* ── Geltungsleiter-Live-Canvas ── */
+const LADDER=['erscheinung','perspektiv','epistemisch','handlung'];
+const LADDER_COL=['#3da6da','#d4a800','#e25e2b','#bd182a'];
+let ladderRAF=null;
+function drawLadderStatic(){
+  const cv=document.getElementById('ladderCv'); if(!cv)return;
+  const ctx=cv.getContext('2d');
+  cv.width=Math.max(300,cv.parentElement.clientWidth-2); cv.height=96;
+  drawLadderFrame(ctx,cv.width,cv.height,0,false,0);
+}
+function animateLadder(bad){
+  const cv=document.getElementById('ladderCv'); if(!cv)return;
+  const ctx=cv.getContext('2d');
+  cv.width=Math.max(300,cv.parentElement.clientWidth-2); cv.height=96;
+  if(ladderRAF) cancelAnimationFrame(ladderRAF);
+  const t0=Date.now(), dur=bad?700:1700;
+  function frame(){
+    const t=Math.min(1,(Date.now()-t0)/dur);
+    let pos;
+    if(bad){ pos=.06+Math.abs(Math.sin(t*Math.PI*5))*.05; }
+    else { const ease=1-Math.pow(1-t,3); pos=ease*.74; if(t>=1) pos=.74; }
+    drawLadderFrame(ctx,cv.width,cv.height,pos,bad,t);
+    if(t<1) ladderRAF=requestAnimationFrame(frame); else ladderRAF=null;
+  }
+  ladderRAF=requestAnimationFrame(frame);
+}
+function drawLadderFrame(ctx,W,H,pos,bad,t){
+  const dark=document.documentElement.classList.contains('dark');
+  ctx.clearRect(0,0,W,H);
+  ctx.font='700 9px Inter,system-ui,sans-serif';
+  const x0=14, x1=W-14, yTop=12, yBot=H-10;
+  const stepY=(yBot-yTop)/4;
+  LADDER.forEach((name,i)=>{
+    const y=yBot-i*stepY;
+    const col=i===3?'#bd182a':LADDER_COL[i];
+    /* Sprosse */
+    ctx.fillStyle=dark?'rgba(158,150,128,.9)':'rgba(107,94,72,.85)';
+    ctx.fillRect(x0,y-1.5,x1-x0,3);
+    /* Label links */
+    ctx.textAlign='right'; ctx.fillStyle=col;
+    ctx.fillText(name,x0-6,y+3);
+    /* erlaubte Reichweite hinterlegen */
+    if(i<3){ ctx.fillStyle=col+'18'; ctx.fillRect(x0,y-stepY,x1-x0,stepY-2); }
+    if(i===3){
+      /* die Decke über handlung */
+      ctx.strokeStyle='#bd182a'; ctx.setLineDash([5,4]); ctx.lineWidth=2;
+      ctx.beginPath(); ctx.moveTo(x0,y-stepY-4); ctx.lineTo(x1,y-stepY-4); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle='#bd182a'; ctx.textAlign='center'; ctx.font='800 8.5px Inter,sans-serif';
+      ctx.fillText('🔒 nur menschliche Autorisierung — kein Satz erreicht diese Stufe',W/2,y-stepY-8);
+    }
+  });
+  /* Der Punkt: 0=unten (erscheinung-Boden), 1=ganz oben */
+  const yP=yBot-pos*(yBot-yTop);
+  const hitTop=pos>=(0.74-0.001);
+  ctx.beginPath();
+  ctx.fillStyle=bad?'#bd182a':'#3da6da';
+  ctx.arc(x0+(x1-x0)*(.18+pos*.5), yP, 6, 0, Math.PI*2); ctx.fill();
+  ctx.strokeStyle=dark?'rgba(232,226,212,.85)':'rgba(45,36,18,.85)'; ctx.lineWidth=1.5;
+  ctx.stroke();
+  /* Wackeln an der Decke */
+  if(hitTop&&!bad){
+    const wob=Math.sin(t*40)*1.2;
+    ctx.fillStyle='#e25e2b';
+    ctx.font='800 9px Inter,sans-serif'; ctx.textAlign='center';
+    ctx.fillText('… hier ist Schluss. Weiter geht es nur als autorisierter Akt.',W/2+wob,12);
   }
 }
 
@@ -1317,8 +1574,10 @@ function openStudent(id){
   document.getElementById('ovlStudentsC').scrollTop=0;
 }
 
-/* ═══════════════ VOICE-MOCKUP ═══════════════ */
+/* ═══════════════ VOICE — echte Aufnahme + Markierer ═══════════════ */
 let voiceState='idle', voiceTimer=null, voiceRAF=null, voiceT0=0, waveCtx=null, waveBars=[];
+let mediaRec=null, audioStream=null, audioCtx=null, analyser=null, realAudio=false, audioChunks=[];
+let recognition=null, voiceWords=null;
 const TRANSCRIPT=[
   {kind:'obs', tag:'BEOBACHTUNG', text:'Sie stellt das Pferdemodell in die selbstgebaute Stallbox, sagt „das geht nicht", nimmt es wieder heraus, hält das Modell neben die Seitenwand und beginnt die Wand abzubauen.'},
   {kind:'deut', tag:'DEUTUNG DER BEGLEITERIN', text:'Ich vermute, sie hat geprüft, ob das Modell passt — ein möglicher Bezug zu Größen und Messen. Das ist meine Lesart, nicht ihre Aussage.'},
@@ -1326,13 +1585,31 @@ const TRANSCRIPT=[
 ];
 function openVoice(){
   renderVoice(); document.getElementById('ovlVoice').classList.add('on');
-  requestAnimationFrame(()=>{ const c=document.getElementById('waveCanvas'); if(c){ c.width=c.parentElement.clientWidth; c.height=86; waveCtx=c.getContext('2d'); }});
+  /* Spracherkennung einmalig initialisieren (Web Speech API, läuft lokal im Browser) */
+  if(!recognition&&(window.SpeechRecognition||window.webkitSpeechRecognition)){
+    try{
+      const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+      recognition=new SR();
+      recognition.lang='de-DE'; recognition.interimResults=false; recognition.maxAlternatives=1;
+      recognition.onresult=ev=>{
+        let txt='';
+        for(let i=ev.resultIndex;i<ev.results.length;i++){ if(ev.results[i].isFinal) txt+=ev.results[i][0].transcript; }
+        if(txt&&voiceState==='transcribing'){
+          voiceState='done';
+          revealTranscript(txt.trim().split(/\s+/).map(w=>({w,cls:''})), true);
+        }
+      };
+      recognition.onerror=()=>{ if(voiceState==='transcribing') simFinish(); };
+      recognition.onend=()=>{ /* Timeout in transcribeOrFallback übernimmt den Fallback */ };
+    }catch(e){ recognition=null; }
+  }
+  requestAnimationFrame(()=>{ const c=document.getElementById('waveCanvas'); if(c){ c.width=c.parentElement.clientWidth; c.height=86; waveCtx=c.getContext('2d'); } });
 }
 function renderVoice(){
   document.getElementById('ovlVoiceC').innerHTML=
     '<button class="close" onclick="stopVoice();closeOvl(\'ovlVoice\')">×</button>'+
     '<h2>🎙 Beobachtung aufnehmen</h2>'+
-    '<div class="sub">Simulierte Sprachnotiz einer Lernbegleiterin — wie im Original: aufnehmen, transkribieren, und dabei <b>Beobachtung von Deutung trennen</b>.</div>'+
+    '<div class="sub">Eine Lernbegleiterin hält fest, was sie gesehen hat. <b>Echte Mikrofon-Aufnahme</b>, wenn der Browser sie erlaubt — sonst eine geführte Simulation. Danach gilt: <b>Beobachtung von Deutung trennen</b> — Wort für Wort, von Hand.</div>'+
     '<div class="mic-zone">'+
       '<button class="mic-btn" id="micBtn" onclick="toggleRec()">🎙</button>'+
       '<div class="rec-timer" id="recTimer">Tippen zum Aufnehmen</div>'+
@@ -1340,20 +1617,44 @@ function renderVoice(){
     '</div>'+
     '<div id="voiceOut"></div>';
   waveBars=new Array(56).fill(4);
+  voiceWords=null;
 }
 function toggleRec(){
   if(voiceState==='idle'||voiceState==='done'){ startRec(); } else { stopRec(); }
 }
 function startRec(){
-  voiceState='rec'; voiceT0=Date.now();
-  document.getElementById('micBtn').classList.add('rec');
-  document.getElementById('micBtn').textContent='⏹';
+  voiceState='rec'; voiceT0=Date.now(); realAudio=false; audioChunks=[];
+  const b=document.getElementById('micBtn');
+  b.classList.add('rec'); b.textContent='⏹';
   drawWave();
   voiceTimer=setInterval(()=>{
     const s=Math.floor((Date.now()-voiceT0)/1000);
     document.getElementById('recTimer').innerHTML='<span class="rec-dot"></span>Aufnahme läuft · 0:'+String(s).padStart(2,'0');
     if(s>=6) stopRec();
   },250);
+  /* Echte Aufnahme versuchen — sonst Simulation */
+  if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia){
+    navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
+      if(voiceState!=='rec'){ stream.getTracks().forEach(t=>t.stop()); return; }
+      audioStream=stream;
+      audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+      const src=audioCtx.createMediaStreamSource(stream);
+      analyser=audioCtx.createAnalyser(); analyser.fftSize=256;
+      src.connect(analyser);
+      mediaRec=new MediaRecorder(stream);
+      mediaRec.ondataavailable=e=>{ if(e.data.size) audioChunks.push(e.data); };
+      mediaRec.onstop=()=>{
+        const blob=new Blob(audioChunks,{type:mediaRec.mimeType||'audio/webm'});
+        transcribeOrFallback(blob);
+      };
+      mediaRec.start();
+      realAudio=true;
+      if(recognition){ try{ recognition.start(); }catch(e){} }
+      document.getElementById('recTimer').innerHTML='<span class="rec-dot"></span>Echte Aufnahme läuft · 0:00';
+    }).catch(()=>{
+      realAudio=false;
+    });
+  }
 }
 function stopRec(){
   if(voiceState!=='rec')return;
@@ -1361,59 +1662,129 @@ function stopRec(){
   clearInterval(voiceTimer); cancelAnimationFrame(voiceRAF);
   const b=document.getElementById('micBtn'); b.classList.remove('rec'); b.textContent='🎙';
   document.getElementById('recTimer').textContent='Transkribiere …';
-  if(waveCtx){ waveCtx.clearRect(0,0,waveCtx.canvas.width,86); }
-  setTimeout(revealTranscript,900);
+  if(recognition){ try{ recognition.stop(); }catch(e){} }
+  if(mediaRec&&mediaRec.state!=='inactive'){
+    try{ mediaRec.stop(); }catch(e){ simFinish(); }
+  } else {
+    if(audioStream){ audioStream.getTracks().forEach(t=>t.stop()); }
+    simFinish();
+  }
+  if(realAudio&&mediaRec&&mediaRec.state==='inactive'){ /* onstop übernimmt */ }
 }
-function stopVoice(){ clearInterval(voiceTimer); cancelAnimationFrame(voiceRAF); voiceState='idle'; }
+/* Transkription: echte Spracherkennung, sonst Simulation */
+function transcribeOrFallback(blob){
+  if(audioStream){ audioStream.getTracks().forEach(t=>t.stop()); }
+  if(audioCtx){ audioCtx.close().catch(()=>{}); audioCtx=null; }
+  if(recognition){
+    /* auf das letzte recognition-Ergebnis warten, kurzer Timeout */
+    setTimeout(()=>{ if(voiceState==='transcribing') simFinish(); },2800);
+    return;
+  }
+  simFinish();
+}
+function simFinish(){
+  if(voiceState!=='transcribing') return;
+  if(recognition && realAudio){ /* Ergebnis kann noch kommen */ }
+  voiceState='done';
+  if(realAudio){
+    const words=('Aufnahme aufgenommen. Transkription lokal nicht verfügbar — nutzen Sie die geführte Übung.').split(' ');
+    revealTranscript(words.map(w=>({w,cls:''})), true);
+  } else {
+    const all=[];
+    TRANSCRIPT.forEach(seg=>{
+      if(!seg.text) return;
+      seg.text.split(' ').forEach(w=>all.push({w, cls:seg.kind==='obs'?'obs':'deut'}));
+    });
+    revealTranscript(all, false);
+  }
+}
+function stopVoice(){
+  clearInterval(voiceTimer); cancelAnimationFrame(voiceRAF);
+  if(mediaRec&&mediaRec.state!=='inactive'){ try{ mediaRec.stop(); }catch(e){} }
+  if(audioStream){ audioStream.getTracks().forEach(t=>t.stop()); audioStream=null; }
+  if(audioCtx){ audioCtx.close().catch(()=>{}); audioCtx=null; }
+  if(recognition){ try{ recognition.stop(); }catch(e){} }
+  voiceState='idle';
+}
 function drawWave(){
   if(!waveCtx)return;
   const w=waveCtx.canvas.width, h=86;
   waveCtx.clearRect(0,0,w,h);
-  const bw=w/waveBars.length;
-  waveBars.forEach((v,i)=>{
-    const target=voiceState==='rec'?8+Math.random()*54:4;
-    waveBars[i]=v+(target-v)*.3;
-    const bh=waveBars[i];
-    waveCtx.fillStyle=voiceState==='rec'?'rgba(189,24,42,.75)':'rgba(120,110,90,.25)';
-    waveCtx.fillRect(i*bw+1,(h-bh)/2,bw-2,bh);
-  });
+  /* echte Wellenform aus dem Analyser */
+  if(realAudio&&analyser&&voiceState==='rec'){
+    const buf=new Uint8Array(analyser.fftSize);
+    analyser.getByteTimeDomainData(buf);
+    waveCtx.fillStyle=dark?'rgba(232,226,212,.85)':'rgba(61,166,218,.9)';
+    waveCtx.beginPath();
+    const step=Math.floor(buf.length/(waveBars.length*2));
+    for(let i=0;i<waveBars.length;i++){
+      const v=(buf[i*step]/128-1)*h*.9;
+      waveCtx.lineTo(i*(w/waveBars.length),h/2+v);
+    }
+    waveCtx.stroke();
+  } else {
+    const bw=w/waveBars.length;
+    waveBars.forEach((v,i)=>{
+      const target=voiceState==='rec'?8+Math.random()*54:4;
+      waveBars[i]=v+(target-v)*.3;
+      const bh=waveBars[i];
+      waveCtx.fillStyle=voiceState==='rec'?'rgba(189,24,42,.75)':'rgba(120,110,90,.25)';
+      waveCtx.fillRect(i*bw+1,(h-bh)/2,bw-2,bh);
+    });
+  }
   voiceRAF=requestAnimationFrame(drawWave);
 }
-function revealTranscript(){
+function revealTranscript(wordList, fromRealAudio){
   voiceState='done';
-  document.getElementById('recTimer').textContent='Fertig — 0:06 · Sprachnotiz + Foto';
+  voiceWords=wordList.map(x=>({w:x.w, cls:x.cls||''}));
+  document.getElementById('recTimer').textContent='Fertig — 0:06 · Transkription bereit'+(fromRealAudio?' (echte Aufnahme)':' (geführte Simulation)');
   const out=document.getElementById('voiceOut');
   out.innerHTML=
-    '<div style="display:flex;gap:6px;margin:12px 0 8px;flex-wrap:wrap">'+
-      '<span class="chip chip-b">■ Beobachtung</span><span class="chip chip-y">■ Deutung</span><span class="chip chip-n">▢ nicht erhoben</span>'+
+    '<div class="wm-bar">'+
+      '<span class="wm-stat obs-c" id="wmObs">■ Beobachtung: 0</span>'+
+      '<span class="wm-stat deut-c" id="wmDeut">■ Deutung: 0</span>'+
+      '<span class="wm-stat" style="color:var(--text2)">▢ Kind-Perspektive: nicht erhoben</span>'+
     '</div>'+
-    '<div id="segWrap"></div>'+
+    '<div class="wm-hint">Jedes Wort antippen: <b style="color:var(--blue)">blau = reine Beobachtung</b> · <b style="color:#8a6d00">gelb = Deutung der Begleiterin</b> · neutral = unklar. Klick zählt weiter: Beobachtung → Deutung → unklar.</div>'+
+    '<div id="wmText" style="line-height:2.2;margin:6px 0 10px"></div>'+
+    '<div id="wmSegs"></div>'+
     '<button class="prim-btn" onclick="closeOvl(\'ovlVoice\');openPanel(\'b1\')">Als Begegnung b1 ansehen — mit allen Filtern und Lücken →</button>';
-  const wrap=document.getElementById('segWrap');
-  /* Segment 1 + 2 Wort für Wort, Segment 3 bleibt bewusst leer */
-  let segIdx=0, wordIdx=0, div=null;
-  function words(t){ return t.split(' '); }
-  function nextSeg(){
-    if(segIdx>=TRANSCRIPT.length)return;
-    const seg=TRANSCRIPT[segIdx];
-    div=document.createElement('div');
-    div.className='seg seg-'+seg.kind;
-    div.innerHTML='<span class="seg-tag">'+seg.tag+'</span><div class="seg-text"></div>';
-    wrap.appendChild(div);
-    if(seg.kind==='kind'){
-      div.querySelector('.seg-text').innerHTML='<span style="opacity:.75">— Feld bewusst leer —</span><br><span style="font-size:.72rem">Die Kindperspektive wurde nicht erhoben. Es gab keine Rückfrage. Diese Lücke wird dokumentiert, statt sie mit Vermutungen zu füllen. (potentially_missed, Pflichtfeld)</span>';
-      segIdx++; nextSeg(); return;
-    }
-    wordIdx=0; step();
-    function step(){
-      const ws=words(seg.text);
-      if(wordIdx>=ws.length){ segIdx++; setTimeout(nextSeg,260); return; }
-      wordIdx++;
-      div.querySelector('.seg-text').textContent=ws.slice(0,wordIdx).join(' ');
-      setTimeout(step,46);
-    }
-  }
-  nextSeg();
+  renderWords();
+  updateSegs();
+}
+function renderWords(){
+  const el=document.getElementById('wmText');
+  if(!el||!voiceWords)return;
+  el.innerHTML=voiceWords.map((x,i)=>
+    '<span class="wordmark'+(x.cls?' '+x.cls:'')+'" data-i="'+i+'" onclick="wmClick('+i+',this)">'+esc(x.w)+'</span>'
+  ).join(' ');
+}
+function wmClick(i,el){
+  const x=voiceWords[i];
+  x.cls=x.cls===''?'obs':(x.cls==='obs'?'deut':'');
+  el.className='wordmark'+(x.cls?' '+x.cls:'');
+  updateSegs();
+}
+function updateSegs(){
+  if(!voiceWords)return;
+  const obs=voiceWords.filter(x=>x.cls==='obs').length;
+  const deut=voiceWords.filter(x=>x.cls==='deut').length;
+  const o=document.getElementById('wmObs'); if(o) o.textContent='■ Beobachtung: '+obs;
+  const d=document.getElementById('wmDeut'); if(d) d.textContent='■ Deutung: '+deut;
+  const runs=[];
+  voiceWords.forEach(x=>{
+    const last=runs[runs.length-1];
+    if(last&&last.cls===x.cls&&x.cls!==''){ last.words.push(x.w); }
+    else runs.push({cls:x.cls, words:[x.w]});
+  });
+  const obsRuns=runs.filter(r=>r.cls==='obs').map(r=>r.words.join(' '));
+  const deutRuns=runs.filter(r=>r.cls==='deut').map(r=>r.words.join(' '));
+  const el=document.getElementById('wmSegs');
+  if(!el)return;
+  el.innerHTML=
+    '<div class="seg seg-obs"'+(obsRuns.length?'':' style="opacity:.55"')+'><span class="seg-tag">BEOBACHTUNG — was wirklich zu sehen war</span><div class="seg-text">'+(obsRuns.length?obsRuns.map(esc).join(' … '):'— noch keine Wörter markiert —')+'</div></div>'+
+    '<div class="seg seg-deut"'+(deutRuns.length?'':' style="opacity:.55"')+'><span class="seg-tag">DEUTUNG DER BEGLEITERIN — ihre Lesart, nicht die des Kindes</span><div class="seg-text">'+(deutRuns.length?deutRuns.map(esc).join(' … '):'— noch keine Wörter markiert —')+'</div></div>'+
+    '<div class="seg seg-kind"><span class="seg-tag">KIND-PERSPEKTIVE</span><div class="seg-text"><span style="opacity:.75">— Feld bewusst leer —</span><br><span style="font-size:.72rem">Die Kindperspektive wurde nicht erhoben. Es gab keine Rückfrage. Diese Lücke wird dokumentiert, statt sie mit Vermutungen zu füllen. (potentially_missed, Pflichtfeld)</span></div></div>';
 }
 
 /* ═══════════════ NAVIGATION & UTILS ═══════════════ */
@@ -1438,6 +1809,7 @@ function resetAll(){
   activeStep='encounter'; updateCyc();
   document.querySelectorAll('.hdr-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('hbGarden').classList.add('active');
+  document.getElementById('hbNet').classList.toggle('active',netMode);
 }
 function toggleTheme(){
   dark=!dark;
@@ -1455,6 +1827,85 @@ function exportJSON(){
   toast('📥 Exportiert — 12 Patterns inkl. Provenienz');
 }
 function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2800); }
+
+/* ═══════════════ BEZIEHUNGS-NETZ-TOGGLE ═══════════════ */
+function toggleNet(){
+  netMode=!netMode;
+  document.getElementById('hbNet').classList.toggle('active',netMode);
+  toast(netMode?'🕸 Beziehungs-Netz hervorgehoben — '+(edges.filter(e=>e.kind==='ref').length)+' Bezüge + '+(edges.filter(e=>e.kind==='parent').length)+' Herkunfts-Kanten':'🕸 Beziehungen wieder dezent');
+}
+
+/* ═══════════════ GEFÜHRTE TOUR ═══════════════ */
+const TOUR_STEPS=[
+  {key:'b1', title:'1 · Begegnung — reine Beobachtung', txt:'Alles beginnt mit einer Spur: was wirklich zu sehen war. Achten Sie auf die aktiven Filter und die Abwesenheitsspur — die Beobachterin dokumentiert, was sie ausgeblendet hat.', kind:'plant'},
+  {key:'bridge', title:'2 · Die Übersetzungs-Brücke', txt:'Zwischen Beobachtung und Deutung liegt ein Fluss: Hier wird übersetzt, nicht identifiziert. Die Deutung hat eigene Herkunft, einen Deckel und Gegen-Evidenz.', kind:'overlay', open:'openBridge'},
+  {key:'b5', title:'3 · Teamprüfung — die Spannung', txt:'Mark liest Größenvergleich, Ines eine Erzählung. Beide Lesarten bleiben stehen — preserved, nicht aufgelöst. Das ist kein Mangel, das ist das Ergebnis.', kind:'plant'},
+  {key:'claim', title:'4 · Claim-Prüfung — der Kernbeweis', txt:'Tippen Sie eine Aussage über ein Kind: vier verbotene Behauptungsformen werden live erkannt, und die Geltungsleiter zeigt, warum kein Satz die Stufe „handlung" erreicht.', kind:'overlay', open:'openClaim'},
+  {key:'bd', title:'5 · Die schlafende Knospe', txt:'Der abgelehnte KI-Vorschlag wurde nicht gelöscht — er schläft. rejected, mit Begründung. Was geschützt wird: der offene Möglichkeitsraum des Kindes.', kind:'plant'},
+  {key:'kn', title:'6 · Der Aussichtspunkt', txt:'Kein Abschluss. Der Entwicklungsknoten verdichtet zwei Ketten und zeigt von hier aus neue Fragen — nicht alte Antworten.', kind:'plant'}
+];
+let tourIdx=-1;
+function startTour(){
+  tourIdx=0;
+  document.getElementById('tourBanner').style.display='none';
+  showTourStep(0);
+}
+function dismissTour(){ document.getElementById('tourBanner').style.display='none'; try{ localStorage.setItem('faskaTourSeen','1'); }catch(e){} }
+function finishTour(){
+  try{ localStorage.setItem('faskaTourSeen','1'); }catch(e){}
+  document.getElementById('tourStep').style.display='none';
+  document.getElementById('tourSpot').style.display='none';
+  tourIdx=-1;
+  toast('🧭 Tour beendet — der Garten gehört Ihnen. Alles bleibt anklickbar.');
+}
+function showTourStep(i){
+  const st=TOUR_STEPS[i]; if(!st)return;
+  tourIdx=i;
+  /* Ziel vorbereiten */
+  document.getElementById('tourSpot').style.display='none';
+  document.querySelectorAll('.ovl').forEach(o=>o.classList.remove('on'));
+  closePnl();
+  let spotRect=null;
+  if(st.kind==='plant'&&plants[st.key]){
+    openPanel(st.key);
+    const cv=document.getElementById('gardenCanvas');
+    if(cv){
+      const pl=plants[st.key], r=cv.getBoundingClientRect();
+      const px=r.left+pl.x*r.width, py=r.top+pl.y*r.height-pl.r*.35;
+      const sz=pl.r*2+30;
+      const s=document.getElementById('tourSpot');
+      s.style.display='block';
+      s.style.left=(px-sz/2)+'px'; s.style.top=(py-sz/2)+'px';
+      s.style.width=sz+'px'; s.style.height=sz+'px';
+      spotRect={px,py,sz};
+    }
+  } else if(st.kind==='overlay'&&st.open){
+    window[st.open]();
+  }
+  /* Karte positionieren */
+  const step=document.getElementById('tourStep');
+  step.style.display='block';
+  const isLast=i===TOUR_STEPS.length-1;
+  step.innerHTML='<div class="ts-card'+(st.kind==='overlay'?' ts-bot':'')+'">'+
+    '<h4>'+esc(st.title)+'</h4>'+
+    '<div class="ts-txt">'+esc(st.txt)+'</div>'+
+    '<div class="ts-nav">'+
+      (i>0?'<button onclick="showTourStep('+(i-1)+')">← Zurück</button>':'<button onclick="finishTour()">Überspringen</button>')+
+      '<span class="ts-dots">'+(i+1)+' / '+TOUR_STEPS.length+'</span>'+
+      (isLast?'<button class="ts-next y" onclick="finishTour()">Fertig 🌱</button>':'<button class="ts-next" onclick="showTourStep('+(i+1)+')">Weiter →</button>')+
+    '</div></div>';
+  const card=step.querySelector('.ts-card');
+  const vw=window.innerWidth, vh=window.innerHeight;
+  if(spotRect){
+    const left=Math.max(10,Math.min(spotRect.px-310, vw-310));
+    const top=Math.min(Math.max(spotRect.py-40, 66), vh-220);
+    step.style.left=left+'px'; step.style.top=top+'px';
+  } else {
+    step.style.left=Math.max(10,(vw-290)/2)+'px';
+    step.style.top=Math.max(vh-240, 66)+'px';
+  }
+  void card;
+}
 
 /* ── Start ── */
 loadData().then(()=>{ new p5(sketch); updateCyc(); });
