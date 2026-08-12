@@ -758,7 +758,7 @@ window.gardenSetZoom=function(z){if(!controls)return;z=Math.max(0.55,Math.min(1.
 window.gardenZoom=function(d){window.gardenSetZoom(zoomFromDist()+d);};
 var _tiltIx=0,TILTS=[0.78,1.05,1.32];
 window.gardenTilt=function(){if(!controls)return;_tiltIx=(_tiltIx+1)%TILTS.length;var off=camera.position.clone().sub(controls.target);var sph=new THREE.Spherical().setFromVector3(off);sph.phi=TILTS[_tiltIx];off.setFromSpherical(sph);camera.position.copy(controls.target).add(off);};
-window.gardenReset=function(){if(!camera)return;camera.position.set(0,21,47);if(controls)controls.target.set(0,8,0);var r=document.getElementById('zoomRange');if(r)r.value=100;};
+window.gardenReset=function(){if(!camera)return;camera.position.set(0,21,47);if(controls)controls.target.set(0,8,0);var r=document.getElementById('zoomRange');if(r)r.value=100;if(window.__fitCam){var el=document.getElementById('gardenWrap');if(el&&el.clientWidth)window.__fitCam(el.clientWidth/el.clientHeight);}};
 
 /* ── Wege für Deutsch und Mathematik ── */
 function buildPaths(){
@@ -1027,6 +1027,23 @@ function glInit(){
  controls.enableDamping=true;controls.dampingFactor=0.06;
  controls.minDistance=11;controls.maxDistance=105;
  controls.maxPolarAngle=Math.PI*0.495;
+ /* Kamera an das Fensterformat anpassen: im Hochformat die ganze Insel
+    mit Meer + Himmel zeigen, nicht nur die Grasfläche von oben. */
+ function fitCam(a){
+   a=Math.max(0.3,Math.min(a,2.2));
+   var d=camera.position.distanceTo(controls.target);
+   var nearDefault=Math.abs(d-51.8)<4;
+   if(a<0.95){
+     camera.fov=Math.min(48+(0.95-a)*42,78);
+     if(nearDefault){ camera.position.set(0,19,58); controls.target.set(0,9,0); }
+   }else{
+     camera.fov=48;
+     if(nearDefault){ camera.position.set(0,21,47); controls.target.set(0,8,0); }
+   }
+   camera.updateProjectionMatrix();
+ }
+ fitCam(W/H);
+ window.__fitCam=fitCam;
  var hemi=new THREE.HemisphereLight(0xbfe3ff,0x5d7a42,0.5);scene.add(hemi);
  var amb=new THREE.AmbientLight(0xfff6e0,0.12);scene.add(amb);
  var sunL=new THREE.DirectionalLight(0xfff2d0,0.95);
@@ -1039,7 +1056,7 @@ function glInit(){
  clock=new THREE.Clock();
  buildStatic();
  dynGroup=new THREE.Group();scene.add(dynGroup);
- window.addEventListener('resize',function(){var w2=wrapEl.clientWidth,h2=wrapEl.clientHeight;if(!w2||!h2)return;camera.aspect=w2/h2;camera.updateProjectionMatrix();renderer.setSize(w2,h2);});
+ window.addEventListener('resize',function(){var w2=wrapEl.clientWidth,h2=wrapEl.clientHeight;if(!w2||!h2)return;camera.aspect=w2/h2;fitCam(w2/h2);renderer.setSize(w2,h2);});
  renderer.domElement.addEventListener('pointermove',function(e){pointer.x=e.clientX;pointer.y=e.clientY;pointer.dirty=true;});
  renderer.domElement.addEventListener('pointerdown',function(e){pointer.downX=e.clientX;pointer.downY=e.clientY;});
  renderer.domElement.addEventListener('click',function(e){

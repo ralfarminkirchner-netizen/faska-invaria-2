@@ -6,7 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>FASKA Lernpfad · Dokumentation als Garten</title>
+<title>FASKA Lernpfad · Dokumentation als Garten — FASKA INSEL</title>
 <link rel="icon" href="faska-logo-official.svg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
@@ -568,15 +568,19 @@ function glEvid(){var map={};var useKids=[...selKids];if(!useKids.length&&selKid
 function clearDyn(){if(!dynGroup)return;dynGroup.children.forEach(function(ch){if(ch.isInstancedMesh)ch.dispose();});dynGroup.clear();pickables=pickables.filter(function(p){return p.userData['static'];});}
 
 function renderScene3d(growComp){
- if(!GL.ok){if(!glInit())return;}
- if(typeof RP==='undefined'||!RP||typeof IDX==='undefined'||!IDX.length)return;
- normalizeBereiche();
- ensureSelection();restageKids();
- scene.updateMatrixWorld(true);
- clearDyn();
- var ev=glEvid();
- var eh=document.getElementById('emptyHint');if(eh)eh.style.display=Object.keys(ev).length?'none':'';
- /* Laub: ein InstancedMesh je Baum — Basislaub immer, Beleg-Laub extra */
+  if(!GL.ok){if(!glInit())return;}
+  if(typeof RP==='undefined'||!RP||typeof IDX==='undefined'||!IDX.length)return;
+  normalizeBereiche();
+  ensureSelection();restageKids();
+  scene.updateMatrixWorld(true);
+  clearDyn();
+  var ev=glEvid();
+  var eh=document.getElementById('emptyHint');if(eh)eh.style.display=Object.keys(ev).length?'none':'';
+  
+  /* Aktualisiere Inselgröße basierend auf Anzahl Tätigkeiten */
+  // updateIslandSize(ev);
+  
+  /* Laub: ein InstancedMesh je Baum — Basislaub immer, Beleg-Laub extra */
  TREES.forEach(function(tc){
   var items=[];
   var puffs=[];
@@ -724,6 +728,12 @@ function hoverCard(hit,cx,cy){
   var list=IDX.filter(function(x){return x.fach===hit.fach&&!x.pk&&String(x.bereich||'01')===hit.bereich;});
   var withEv=list.filter(function(k){return ev[k.id];}).length;
   card.innerHTML='<h4>🌿 '+esc(hit.fach)+' · '+esc(hit.name)+'</h4><div class="d">Hauptast · '+list.length+' Kompetenzen · '+withEv+' mit Belegen in der Auswahl</div><div class="hint">Klicken = Ast-Übersicht öffnen</div>';
+ }else if(hit.kind==='wegpunkt'){
+  // Finde die zugehörige Tätigkeit
+  var comp=IDX.find(function(x){return x.id===hit.compId;});
+  if(!comp){card.classList.remove('on');return;}
+  var e=ev[comp.id];
+  card.innerHTML='<h4>📍 Wegpunkt · '+esc(hit.fach)+'</h4><div class="d">'+(e?e.count+' Tätigkeit'+(e.count!==1?'en':''):'noch keine Tätigkeit')+'</div><div class="hint">Klicken = Tätigkeit, Datum & Quelle →</div>';
  }else{
   var comp=IDX.find(function(x){return x.id===hit.compId;});if(!comp){card.classList.remove('on');return;}
   var e=ev[comp.id];
@@ -748,16 +758,226 @@ window.gardenSetZoom=function(z){if(!controls)return;z=Math.max(0.55,Math.min(1.
 window.gardenZoom=function(d){window.gardenSetZoom(zoomFromDist()+d);};
 var _tiltIx=0,TILTS=[0.78,1.05,1.32];
 window.gardenTilt=function(){if(!controls)return;_tiltIx=(_tiltIx+1)%TILTS.length;var off=camera.position.clone().sub(controls.target);var sph=new THREE.Spherical().setFromVector3(off);sph.phi=TILTS[_tiltIx];off.setFromSpherical(sph);camera.position.copy(controls.target).add(off);};
-window.gardenReset=function(){if(!camera)return;camera.position.set(0,21,47);if(controls)controls.target.set(0,8,0);var r=document.getElementById('zoomRange');if(r)r.value=100;};
+window.gardenReset=function(){if(!camera)return;camera.position.set(0,21,47);if(controls)controls.target.set(0,8,0);var r=document.getElementById('zoomRange');if(r)r.value=100;if(window.__fitCam){var el=document.getElementById('gardenWrap');if(el&&el.clientWidth)window.__fitCam(el.clientWidth/el.clientHeight);}};
+
+/* ── Wege für Deutsch und Mathematik ── */
+function buildPaths(){
+  var pathMatD=new THREE.MeshStandardMaterial({color:fc('Deutsch'),roughness:0.9});
+  var pathMatM=new THREE.MeshStandardMaterial({color:fc('Mathematik'),roughness:0.9});
+  
+  /* Wegpunkte aus Seed-Tätigkeiten generieren */
+  var ev=glEvid();
+  var dePoints=[],maPoints=[];
+  
+  Object.keys(ev).forEach(function(compId){
+    var comp=IDX.find(function(x){return x.id===compId;});
+    if(!comp)return;
+    if(comp.fach==='Deutsch'){
+      var h=hashCode(compId);
+      var ang=(h%628)/100,rad=25+(h%20)/10;
+      dePoints.push(new THREE.Vector3(Math.cos(ang)*rad,0.02,Math.sin(ang)*rad));
+    }else if(comp.fach==='Mathematik'){
+      var h=hashCode(compId+'m');
+      var ang=(h%628)/100,rad=28+(h%25)/10;
+      maPoints.push(new THREE.Vector3(Math.cos(ang)*rad,0.02,Math.sin(ang)*rad));
+    }
+  });
+  
+  /* Sortiere Punkte entlang des Kreises für glatte Kurven */
+  dePoints.sort(function(a,b){return Math.atan2(a.z,a.x)-Math.atan2(b.z,b.x);});
+  maPoints.sort(function(a,b){return Math.atan2(a.z,a.x)-Math.atan2(b.z,b.x);});
+  
+  /* Füge Start- und Endpunkte hinzu */
+  if(dePoints.length>0){
+    dePoints.unshift(new THREE.Vector3(0,0.02,0));
+    dePoints.push(new THREE.Vector3(dePoints[dePoints.length-1].x*1.1,0.02,dePoints[dePoints.length-1].z*1.1));
+  }
+  if(maPoints.length>0){
+    maPoints.unshift(new THREE.Vector3(0,0.02,0));
+    maPoints.push(new THREE.Vector3(maPoints[maPoints.length-1].x*1.1,0.02,maPoints[maPoints.length-1].z*1.1));
+  }
+  
+  /* Erstelle Catmull-Rom-Splines für die Wege */
+  if(dePoints.length>=2){
+    var deCurve=new THREE.CatmullRomCurve3(dePoints);
+    var dePath=new THREE.TubeGeometry(deCurve,64,0.8,8,false);
+    var deMesh=new THREE.Mesh(dePath,pathMatD);
+    deMesh.receiveShadow=true;staticGroup.add(deMesh);
+    
+    /* Wegpunkte als Steine/Platten */
+    for(var i=0;i<dePoints.length-2;i++){
+      var pt=dePoints[i+1];
+      var stone=new THREE.Mesh(GEO.stone,new THREE.MeshStandardMaterial({color:fc('Deutsch'),roughness:1}));
+      stone.position.copy(pt);stone.scale.set(0.6,0.3,0.6);stone.castShadow=true;stone.receiveShadow=true;
+      staticGroup.add(stone);
+      
+      /* Schild mit Kurzlabel */
+      if(ev[IDX.find(function(x){return x.fach==='Deutsch'&&x.id in ev;})?.id]){
+        var label=makeLabel('D',fc('Deutsch'),'rgba(255,255,255,0.9)',1.2);
+        label.position.copy(pt).add(new THREE.Vector3(0,1.2,0));
+        staticGroup.add(label);
+      }
+      
+      /* Mach den Stein interaktiv */
+      stone.userData={kind:'wegpunkt',fach:'Deutsch',compId:Object.keys(ev).find(function(id){var c=IDX.find(function(x){return x.id===id;});return c&&c.fach==='Deutsch';})};
+      pickables.push(stone);
+    }
+  }
+  
+  if(maPoints.length>=2){
+    var maCurve=new THREE.CatmullRomCurve3(maPoints);
+    var maPath=new THREE.TubeGeometry(maCurve,64,0.8,8,false);
+    var maMesh=new THREE.Mesh(maPath,pathMatM);
+    maMesh.receiveShadow=true;staticGroup.add(maMesh);
+    
+    /* Wegpunkte als Steine/Platten */
+    for(var i=0;i<maPoints.length-2;i++){
+      var pt=maPoints[i+1];
+      var stone=new THREE.Mesh(GEO.stone,new THREE.MeshStandardMaterial({color:fc('Mathematik'),roughness:1}));
+      stone.position.copy(pt);stone.scale.set(0.6,0.3,0.6);stone.castShadow=true;stone.receiveShadow=true;
+      staticGroup.add(stone);
+      
+      /* Schild mit Kurzlabel */
+      if(ev[IDX.find(function(x){return x.fach==='Mathematik'&&x.id in ev;})?.id]){
+        var label=makeLabel('M',fc('Mathematik'),'rgba(255,255,255,0.9)',1.2);
+        label.position.copy(pt).add(new THREE.Vector3(0,1.2,0));
+        staticGroup.add(label);
+      }
+      
+      /* Mach den Stein interaktiv */
+      stone.userData={kind:'wegpunkt',fach:'Mathematik',compId:Object.keys(ev).find(function(id){var c=IDX.find(function(x){return x.id===id;});return c&&c.fach==='Mathematik';})};
+      pickables.push(stone);
+    }
+  }
+}
+
+/* ── Wiesenfärbung basierend auf Abdeckung ── */
+function buildMeadow(){
+  var ev=glEvid();
+  var totalByFach={},coveredByFach={};
+  
+  // Zähle alle Kompetenzen pro Fach
+  IDX.forEach(function(comp){
+    if(!comp.pk){ // Nur Inhaltskompetenzen
+      totalByFach[comp.fach]=(totalByFach[comp.fach]||0)+1;
+      if(ev[comp.id])coveredByFach[comp.fach]=(coveredByFach[comp.fach]||0)+1;
+    }
+  });
+  
+  // Berechne Abdeckungsprozente
+  var coverage={};
+  Object.keys(totalByFach).forEach(function(fach){
+    coverage[fach]=totalByFach[fach]>0?coveredByFach[fach]/totalByFach[fach]:0;
+  });
+  
+  // Erstelle farbige Wiesenabschnitte
+  var islandRad=60;
+  var meadowGroup=new THREE.Group();
+  
+  Object.keys(coverage).forEach(function(fach){
+    if(coverage[fach]<=0)return;
+    
+    var angle=Math.PI*2/10; // 10 Fächer gleichmäßig verteilt
+    var startAngle=Object.keys(coverage).indexOf(fach)*angle;
+    var endAngle=startAngle+angle*coverage[fach];
+    
+    if(endAngle-startAngle<0.1)return; // Zu klein zum Anzeigen
+    
+    var meadowGeo=new THREE.RingGeometry(islandRad-8,islandRad-3,32,startAngle,endAngle);
+    var meadowMat=new THREE.MeshStandardMaterial({color:fc(fach),roughness:1,transparent:true,opacity:0.7});
+    var meadow=new THREE.Mesh(meadowGeo,meadowMat);
+    meadow.rotation.x=-Math.PI/2;meadow.receiveShadow=true;
+    meadowGroup.add(meadow);
+  });
+  
+  staticGroup.add(meadowGroup);
+}
+
+/* ── Inselwachstum basierend auf Tätigkeiten ── */
+function updateIslandSize(ev){
+  var totalActs=Object.keys(ev).reduce(function(sum,key){return sum+ev[key].count;},0);
+  var baseRad=60;
+  var growth=Math.min(20,Math.sqrt(totalActs)*2); // Wächst mit Quadratwurzel der Tätigkeiten
+  var newRad=baseRad+growth;
+  
+  // Finde die Insel-Geometrie und aktualisiere sie
+  staticGroup.traverse(function(obj){
+    if(obj.isMesh&&obj.geometry instanceof THREE.CircleGeometry){
+      // Aktualisiere Inselradius
+      obj.geometry.dispose();
+      obj.geometry=new THREE.CircleGeometry(newRad,64);
+      obj.geometry.needsUpdate=true;
+    }else if(obj.isMesh&&obj.geometry instanceof THREE.RingGeometry){
+      // Aktualisiere Strandring
+      var inner=obj.geometry.parameters.innerRadius;
+      var outer=obj.geometry.parameters.outerRadius;
+      var ratio=inner/outer;
+      obj.geometry.dispose();
+      obj.geometry=new THREE.RingGeometry(newRad*ratio,newRad,64);
+      obj.geometry.needsUpdate=true;
+    }
+  });
+}
 
 /* ── Statische Welt ── */
 function buildStatic(){
- staticGroup=new THREE.Group();scene.add(staticGroup);
- var ground=new THREE.Mesh(new THREE.CircleGeometry(72,56),new THREE.MeshStandardMaterial({map:TEX.ground,roughness:1}));
- ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;staticGroup.add(ground);
- var path=new THREE.Mesh(new THREE.PlaneGeometry(4.6,72),new THREE.MeshStandardMaterial({color:0xcfc09c,roughness:1}));
- path.rotation.x=-Math.PI/2;path.position.set(0,0.015,18);path.receiveShadow=true;staticGroup.add(path);
+  staticGroup=new THREE.Group();scene.add(staticGroup);
+  
+  /* Organische Insel mit prozeduraler Form */
+  var islandSize=100;
+  var islandGeo=new THREE.PlaneGeometry(islandSize,islandSize,64,64);
+  var islandMat=new THREE.MeshStandardMaterial({map:TEX.ground,roughness:1,side:THREE.DoubleSide});
+  var island=new THREE.Mesh(islandGeo,islandMat);
+  island.rotation.x=-Math.PI/2;island.position.y=0.1;island.receiveShadow=true;
+  
+  /* Organische Inselform durch Vertex-Displacement */
+  island.geometry.attributes.position.array.forEach(function(v,i){
+    if(i%3===2){ // Nur Y-Koordinaten
+      var x=island.geometry.attributes.position.array[i-2];
+      var z=island.geometry.attributes.position.array[i-1];
+      var dist=Math.sqrt(x*x+z*z)/islandSize*2;
+      if(dist>1.0){
+        island.geometry.attributes.position.array[i]=-5; // Unter Wasser
+      }else{
+        // Organische Küstenlinie mit Perlin-Rauschen
+        var noise=(Math.sin(x*0.1)+Math.cos(z*0.08)+Math.sin(x*0.05+z*0.07))*0.8;
+        var falloff=Math.pow(1-dist,1.5);
+        island.geometry.attributes.position.array[i]=noise*falloff*8;
+      }
+    }
+  });
+  island.geometry.attributes.position.needsUpdate=true;
+  island.geometry.computeVertexNormals();
+  staticGroup.add(island);
+  
+  /* Echtes Wasser mit Spiegelung */
+  var waterSize=islandSize*1.5;
+  var waterGeo=new THREE.PlaneGeometry(waterSize,waterSize,128,128);
+  var waterMat=new THREE.MeshStandardMaterial({
+    color:0x4a90e2,
+    roughness:0.2,
+    metalness:0.1,
+    transparent:true,
+    opacity:0.6,
+    side:THREE.DoubleSide
+  });
+  var water=new THREE.Mesh(waterGeo,waterMat);
+  water.rotation.x=-Math.PI/2;water.position.y=-0.2;
+  staticGroup.add(water);
+  
+  /* Sanfte Wellenanimation */
+  water.material.onBeforeCompile=function(sh){
+    sh.uniforms.uTime=uTime;
+    sh.vertexShader='uniform float uTime;\\n'+sh.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\\n#ifdef USE_UV\\nfloat wave=(sin(uv.x*1.2+uTime*0.8)+sin(uv.y*0.9+uTime*0.6))*0.4;\\ntransformed.z+=wave;\\n#endif');
+  };
  TREES.forEach(function(tc){buildTree(tc);});
+  
+ /* Wege für Deutsch und Mathematik als geschlängelte Pfade */
+ buildPaths();
+  
+ /* Wiesenfärbung basierend auf Abdeckung */
+ buildMeadow();
+  
  for(var i=0;i<8;i++){var stn=new THREE.Mesh(GEO.stone,MAT.stone);var h=hashCode('stone'+i);var a=(h%628)/100,r=22+(h%30);stn.position.set(Math.cos(a)*r,0.18,Math.sin(a)*r*0.8+6);var s=0.4+(h%50)/100;stn.scale.set(s,s*0.7,s);stn.rotation.y=a;stn.castShadow=true;stn.receiveShadow=true;staticGroup.add(stn);}
  var COUNT=1400;var im=new THREE.InstancedMesh(GEO.blade,MAT.grass,COUNT);
  var m4=new THREE.Matrix4(),q=new THREE.Quaternion(),e=new THREE.Euler(),v=new THREE.Vector3(),sv=new THREE.Vector3(),col=new THREE.Color();
@@ -807,6 +1027,23 @@ function glInit(){
  controls.enableDamping=true;controls.dampingFactor=0.06;
  controls.minDistance=11;controls.maxDistance=105;
  controls.maxPolarAngle=Math.PI*0.495;
+ /* Kamera an das Fensterformat anpassen: im Hochformat die ganze Insel
+    mit Meer + Himmel zeigen, nicht nur die Grasfläche von oben. */
+ function fitCam(a){
+   a=Math.max(0.3,Math.min(a,2.2));
+   var d=camera.position.distanceTo(controls.target);
+   var nearDefault=Math.abs(d-51.8)<4;
+   if(a<0.95){
+     camera.fov=Math.min(48+(0.95-a)*42,78);
+     if(nearDefault){ camera.position.set(0,19,58); controls.target.set(0,9,0); }
+   }else{
+     camera.fov=48;
+     if(nearDefault){ camera.position.set(0,21,47); controls.target.set(0,8,0); }
+   }
+   camera.updateProjectionMatrix();
+ }
+ fitCam(W/H);
+ window.__fitCam=fitCam;
  var hemi=new THREE.HemisphereLight(0xbfe3ff,0x5d7a42,0.5);scene.add(hemi);
  var amb=new THREE.AmbientLight(0xfff6e0,0.12);scene.add(amb);
  var sunL=new THREE.DirectionalLight(0xfff2d0,0.95);
@@ -819,7 +1056,7 @@ function glInit(){
  clock=new THREE.Clock();
  buildStatic();
  dynGroup=new THREE.Group();scene.add(dynGroup);
- window.addEventListener('resize',function(){var w2=wrapEl.clientWidth,h2=wrapEl.clientHeight;if(!w2||!h2)return;camera.aspect=w2/h2;camera.updateProjectionMatrix();renderer.setSize(w2,h2);});
+ window.addEventListener('resize',function(){var w2=wrapEl.clientWidth,h2=wrapEl.clientHeight;if(!w2||!h2)return;camera.aspect=w2/h2;fitCam(w2/h2);renderer.setSize(w2,h2);});
  renderer.domElement.addEventListener('pointermove',function(e){pointer.x=e.clientX;pointer.y=e.clientY;pointer.dirty=true;});
  renderer.domElement.addEventListener('pointerdown',function(e){pointer.downX=e.clientX;pointer.downY=e.clientY;});
  renderer.domElement.addEventListener('click',function(e){
@@ -827,6 +1064,14 @@ function glInit(){
   var hit=doRay(e.clientX,e.clientY);if(!hit)return;
   document.getElementById('fcard').classList.remove('on');
   if(hit.kind==='bereich'){window.openBereichSheet(hit.fach,hit.bereich,hit.name);}
+  else if(hit.kind==='wegpunkt'){
+    // Finde die zugehörige Kompetenz und öffne sie
+    var comp=IDX.find(function(x){return x.id===hit.compId;});
+    if(comp){
+      var kid=kidForComp(hit.compId);
+      if(kid)openCompDetail(kid,hit.compId);
+    }
+  }
   else if(hit.kind==='komp'){var kid=kidForComp(hit.compId);if(kid)openCompDetail(kid,hit.compId);}
  });
  renderer.domElement.addEventListener('pointerleave',function(){document.getElementById('fcard').classList.remove('on');});
